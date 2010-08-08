@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="UOLite">
+</Property><Property Name="Solution File" Value="Z:\Projects\UOAI2\UOLite\UOLite.sln">
+</Property><Property Name="User Options File" Value="Z:\Projects\UOAI2\UOLite\UOLite.suo">
+</Property><Property Name="Date" Value="Wednesday, July 14, 2010">
+</Property><Property Name="Time" Value="18:30 PM">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="UOLite.sln" Description="File successfully backed up as Z:\Projects\UOAI2\UOLite\Backup\UOLite.sln">
+</Event><Event ErrorLevel="0" Project="" Source="UOLite.suo" Description="File successfully backed up as Z:\Projects\UOAI2\UOLite\Backup\UOLite.suo">
+</Event><Event ErrorLevel="0" Project="UOLite" Source="UOLite\UOLite.vbproj" Description="Project file successfully backed up as Z:\Projects\UOAI2\UOLite\Backup\UOLite\UOLite.vbproj">
+</Event><Event ErrorLevel="0" Project="UOLite" Source="UOLite\UOLite.vbproj.user" Description="Project user file successfully backed up as Z:\Projects\UOAI2\UOLite\Backup\UOLite\UOLite.vbproj.user">
+</Event><Event ErrorLevel="0" Project="UOLite" Source="UOLite\Form1.vb" Description="File successfully backed up as Z:\Projects\UOAI2\UOLite\Backup\UOLite\Form1.vb">
+</Event><Event ErrorLevel="0" Project="UOLite" Source="UOLite\Form1.Designer.vb" Description="File successfully backed up as Z:\Projects\UOAI2\UOLite\Backup\UOLite\Form1.Designer.vb">
+</Event><Event ErrorLevel="0" Project="UOLite" Source="UOLite\My Project\AssemblyInfo.vb" Description="File successfully backed up as Z:\Projects\UOAI2\UOLite\Backup\UOLite\My Project\AssemblyInfo.vb">
+</Event><Event ErrorLevel="0" Project="UOLite" Source="UOLite\My Project\Application.Designer.vb" Description="File successfully backed up as Z:\Projects\UOAI2\UOLite\Backup\UOLite\My Project\Application.Designer.vb">
+</Event><Event ErrorLevel="0" Project="UOLite" Source="UOLite\My Project\Resources.Designer.vb" Description="File successfully backed up as Z:\Projects\UOAI2\UOLite\Backup\UOLite\My Project\Resources.Designer.vb">
+</Event><Event ErrorLevel="0" Project="UOLite" Source="UOLite\My Project\Settings.Designer.vb" Description="File successfully backed up as Z:\Projects\UOAI2\UOLite\Backup\UOLite\My Project\Settings.Designer.vb">
+</Event><Event ErrorLevel="0" Project="UOLite" Source="UOLite\My Project\Application.myapp" Description="File successfully backed up as Z:\Projects\UOAI2\UOLite\Backup\UOLite\My Project\Application.myapp">
+</Event><Event ErrorLevel="0" Project="UOLite" Source="UOLite\My Project\Settings.settings" Description="File successfully backed up as Z:\Projects\UOAI2\UOLite\Backup\UOLite\My Project\Settings.settings">
+</Event><Event ErrorLevel="0" Project="UOLite" Source="UOLite\PacketLog.txt" Description="File successfully backed up as Z:\Projects\UOAI2\UOLite\Backup\UOLite\PacketLog.txt">
+</Event><Event ErrorLevel="0" Project="UOLite" Source="UOLite\Cliloclist.txt" Description="File successfully backed up as Z:\Projects\UOAI2\UOLite\Backup\UOLite\Cliloclist.txt">
+</Event><Event ErrorLevel="0" Project="UOLite" Source="UOLite\Form1.resx" Description="File successfully backed up as Z:\Projects\UOAI2\UOLite\Backup\UOLite\Form1.resx">
+</Event><Event ErrorLevel="0" Project="UOLite" Source="UOLite\My Project\Resources.resx" Description="File successfully backed up as Z:\Projects\UOAI2\UOLite\Backup\UOLite\My Project\Resources.resx">
+</Event><Event ErrorLevel="0" Project="UOLite" Source="UOLite\UOLite.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="UOLite" Source="UOLite\UOLite.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="UOLite.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="UOLite.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="UOLite" Source="UOLite\UOLite.vbproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

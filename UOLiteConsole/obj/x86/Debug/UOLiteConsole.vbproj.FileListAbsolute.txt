@@ -1,0 +1,14 @@
+Z:\Projects\UOAI2\UOLite\UOLiteConsole\bin\Debug\Cliloclist.txt
+Z:\Projects\UOAI2\UOLite\UOLiteConsole\bin\Debug\UOLiteConsole.exe
+Z:\Projects\UOAI2\UOLite\UOLiteConsole\bin\Debug\UOLiteConsole.pdb
+Z:\Projects\UOAI2\UOLite\UOLiteConsole\bin\Debug\UOLiteConsole.xml
+Z:\Projects\UOAI2\UOLite\UOLiteConsole\bin\Debug\UOLite2.dll
+Z:\Projects\UOAI2\UOLite\UOLiteConsole\bin\Debug\UOLite2.pdb
+Z:\Projects\UOAI2\UOLite\UOLiteConsole\bin\Debug\UOLite2.xml
+Z:\Projects\UOAI2\UOLite\UOLiteConsole\obj\x86\Debug\ResolveAssemblyReference.cache
+Z:\Projects\UOAI2\UOLite\UOLiteConsole\obj\x86\Debug\UOLiteConsole.Resources.resources
+Z:\Projects\UOAI2\UOLite\UOLiteConsole\obj\x86\Debug\GenerateResource.read.1.tlog
+Z:\Projects\UOAI2\UOLite\UOLiteConsole\obj\x86\Debug\GenerateResource.write.1.tlog
+Z:\Projects\UOAI2\UOLite\UOLiteConsole\obj\x86\Debug\UOLiteConsole.exe
+Z:\Projects\UOAI2\UOLite\UOLiteConsole\obj\x86\Debug\UOLiteConsole.xml
+Z:\Projects\UOAI2\UOLite\UOLiteConsole\obj\x86\Debug\UOLiteConsole.pdb

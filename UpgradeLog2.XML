@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="UOLite">
+</Property><Property Name="Solution File" Value="Z:\Projects\UOAI2\UOLite\UOLite.sln">
+</Property><Property Name="Date" Value="Tuesday, August 03, 2010">
+</Property><Property Name="Time" Value="16:07:10 PM">
+</Property><Property Name="Log Number" Value="2">
+</Property></Properties><Event ErrorLevel="0" Project="Packet Class Builder" Source="..\UOAI2\Packet Class Builder\Packet Class Builder.vbproj" Description="Project file successfully backed up as Z:\Projects\UOAI2\UOLite\Backup1\Packet Class Builder.vbproj">
+</Event><Event ErrorLevel="0" Project="Packet Class Builder" Source="..\UOAI2\Packet Class Builder\Form1.vb" Description="File successfully backed up as Z:\Projects\UOAI2\UOLite\Backup1\Form1.vb">
+</Event><Event ErrorLevel="0" Project="Packet Class Builder" Source="..\UOAI2\Packet Class Builder\Form1.Designer.vb" Description="File successfully backed up as Z:\Projects\UOAI2\UOLite\Backup1\Form1.Designer.vb">
+</Event><Event ErrorLevel="0" Project="Packet Class Builder" Source="..\UOAI2\Packet Class Builder\My Project\AssemblyInfo.vb" Description="File successfully backed up as Z:\Projects\UOAI2\UOLite\Backup1\My Project\AssemblyInfo.vb">
+</Event><Event ErrorLevel="0" Project="Packet Class Builder" Source="..\UOAI2\Packet Class Builder\My Project\Application.Designer.vb" Description="File successfully backed up as Z:\Projects\UOAI2\UOLite\Backup1\My Project\Application.Designer.vb">
+</Event><Event ErrorLevel="0" Project="Packet Class Builder" Source="..\UOAI2\Packet Class Builder\My Project\Resources.Designer.vb" Description="File successfully backed up as Z:\Projects\UOAI2\UOLite\Backup1\My Project\Resources.Designer.vb">
+</Event><Event ErrorLevel="0" Project="Packet Class Builder" Source="..\UOAI2\Packet Class Builder\My Project\Settings.Designer.vb" Description="File successfully backed up as Z:\Projects\UOAI2\UOLite\Backup1\My Project\Settings.Designer.vb">
+</Event><Event ErrorLevel="0" Project="Packet Class Builder" Source="..\UOAI2\Packet Class Builder\My Project\Application.myapp" Description="File successfully backed up as Z:\Projects\UOAI2\UOLite\Backup1\My Project\Application.myapp">
+</Event><Event ErrorLevel="0" Project="Packet Class Builder" Source="..\UOAI2\Packet Class Builder\My Project\Settings.settings" Description="File successfully backed up as Z:\Projects\UOAI2\UOLite\Backup1\My Project\Settings.settings">
+</Event><Event ErrorLevel="0" Project="Packet Class Builder" Source="..\UOAI2\Packet Class Builder\Form1.resx" Description="File successfully backed up as Z:\Projects\UOAI2\UOLite\Backup1\Form1.resx">
+</Event><Event ErrorLevel="0" Project="Packet Class Builder" Source="..\UOAI2\Packet Class Builder\My Project\Resources.resx" Description="File successfully backed up as Z:\Projects\UOAI2\UOLite\Backup1\My Project\Resources.resx">
+</Event><Event ErrorLevel="0" Project="Packet Class Builder" Source="..\UOAI2\Packet Class Builder\Packet Class Builder.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Packet Class Builder" Source="..\UOAI2\Packet Class Builder\Packet Class Builder.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Packet Class Builder" Source="..\UOAI2\Packet Class Builder\Packet Class Builder.vbproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

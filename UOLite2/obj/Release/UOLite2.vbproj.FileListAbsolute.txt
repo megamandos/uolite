@@ -1,0 +1,11 @@
+Z:\Projects\UOAI2\UOLite\UOLite2\bin\Release\Cliloclist.txt
+Z:\Projects\UOAI2\UOLite\UOLite2\bin\Release\UOLite2.dll
+Z:\Projects\UOAI2\UOLite\UOLite2\bin\Release\UOLite2.pdb
+Z:\Projects\UOAI2\UOLite\UOLite2\bin\Release\UOLite2.xml
+Z:\Projects\UOAI2\UOLite\UOLite2\obj\Release\ResolveAssemblyReference.cache
+Z:\Projects\UOAI2\UOLite\UOLite2\obj\Release\UOLite2.Resources.resources
+Z:\Projects\UOAI2\UOLite\UOLite2\obj\Release\GenerateResource.read.1.tlog
+Z:\Projects\UOAI2\UOLite\UOLite2\obj\Release\GenerateResource.write.1.tlog
+Z:\Projects\UOAI2\UOLite\UOLite2\obj\Release\UOLite2.dll
+Z:\Projects\UOAI2\UOLite\UOLite2\obj\Release\UOLite2.xml
+Z:\Projects\UOAI2\UOLite\UOLite2\obj\Release\UOLite2.pdb
