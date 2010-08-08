@@ -81,7 +81,7 @@ Public Class frmMain
 
     Private Sub Client_onSkillUpdate(ByRef Client As UOLite2.LiteClient, ByRef OldSkill As UOLite2.LiteClient.Skill, ByRef NewSkill As UOLite2.LiteClient.Skill) Handles Client.onSkillUpdate
         If NewSkill.BaseValue > OldSkill.BaseValue Then
-            Client.Speak(NewSkill.Name & " has increased by " & CDec((NewSkill.BaseValue - OldSkill.BaseValue) / 10) & "!")
+            'Client.Speak(NewSkill.Name & " has increased by " & CDec((NewSkill.BaseValue - OldSkill.BaseValue) / 10) & "!")
         End If
     End Sub
 
