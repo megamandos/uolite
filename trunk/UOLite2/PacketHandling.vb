@@ -520,6 +520,10 @@ Partial Class LiteClient
                 'Debug.WriteLine(DirectCast(currentpacket, Packets.CompressedGump).DecompressedGumpData)
                 'Debug.WriteLine(DirectCast(currentpacket, Packets.CompressedGump).DecompressedTextData)
 
+                Dim retgump As New Gump(DirectCast(currentpacket, Packets.CompressedGump), Me)
+
+                RaiseEvent onNewGump(Me, retgump)
+
             Case Enums.PacketType.GenericCommand
                 Select Case currentpacket.Data(4)
                     Case Enums.BF_Sub_Commands.FastWalk
