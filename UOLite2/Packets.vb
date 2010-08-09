@@ -3823,6 +3823,110 @@ Partial Class LiteClient
         End Class
 #End Region
 
+#Region "Gumps"
+        Public Class CompressedGump
+            Inherits Packet
+
+            Private _Serial As Serial
+            Private _GumpID As UInteger
+            Private _X As UInteger
+            Private _Y As UInteger
+            Private _CompressedGumpLayoutLength As UInteger
+            Private _DecompressedGumpLayoutLength As UInteger
+            Private _CompressedGumpData() As Byte
+            Private _NumberOfLines As UInteger
+            Private _CompressedTextLineLength As UInteger
+            Private _DecompressedTextLineLength As UInteger
+            Private _CompressedTextData() As Byte
+
+            Private _DecompressedGumpData As String = ""
+            Private _DecompressedTextData As String = ""
+
+            Friend Sub New(ByVal bytes() As Byte)
+                MyBase.New(Enums.PacketType.CompressedGump)
+                _Data = bytes
+
+                buff = New BufferHandler(bytes, True)
+
+                buff.Position = 3
+
+                Dim Decompress As System.IO.Compression.DeflateStream
+
+                With buff
+                    _Serial = New Serial(.readuint)
+                    _GumpID = .readuint
+                    _X = .readuint
+                    _Y = .readuint
+                    _CompressedGumpLayoutLength = .readuint
+                    _DecompressedGumpLayoutLength = .readuint
+                    .Position += 2
+                    .networkorder = False
+                    _CompressedGumpData = .readbytes(_CompressedGumpLayoutLength - 6)
+                    .networkorder = True
+
+                    Decompress = New System.IO.Compression.DeflateStream(New MemoryStream(_CompressedGumpData), System.IO.Compression.CompressionMode.Decompress)
+                    Dim decom As New StreamReader(Decompress, Encoding.ASCII, False)
+
+                    _DecompressedGumpData = decom.ReadToEnd.Replace("}", "}" & vbNewLine)
+
+                    _NumberOfLines = .readuint
+
+                    If _NumberOfLines = 0 Then Exit Sub
+
+                    _CompressedTextLineLength = .readuint
+                    _DecompressedTextLineLength = .readuint
+
+                    .Position += 2
+                    .networkorder = False
+                    _CompressedTextData = .readbytes(_CompressedTextLineLength)
+                    .networkorder = True
+
+                    Decompress = New System.IO.Compression.DeflateStream(New System.IO.MemoryStream(_CompressedTextData), System.IO.Compression.CompressionMode.Decompress)
+                    decom = New StreamReader(Decompress, Encoding.BigEndianUnicode, False)
+
+                    Dim bytess(_DecompressedTextLineLength) As Byte
+                    Decompress.Read(bytess, 0, _DecompressedTextLineLength)
+                    Dim builder As New System.Text.StringBuilder()
+                    Dim readcount As Integer
+
+                    Dim x As New BufferHandler(bytess)
+                    x.Position = 1
+
+                    Do
+                        readcount = x.readushort
+                        builder.AppendLine(x.readustrn(readcount))
+                    Loop Until x.Position >= bytess.Length - 1
+
+                    _DecompressedTextData = builder.ToString
+
+                End With
+
+            End Sub
+
+            Public ReadOnly Property DecompressedGumpData As String
+                Get
+                    Return _DecompressedGumpData
+                End Get
+            End Property
+
+            Public ReadOnly Property DecompressedTextData As String
+                Get
+                    Return _DecompressedTextData
+                End Get
+            End Property
+
+            Public ReadOnly Property Serial As Serial
+                Get
+                    Return _Serial
+                End Get
+            End Property
+
+
+
+        End Class
+
+#End Region
+
     End Class
 
     Partial Class Enums
@@ -4140,6 +4244,7 @@ Partial Class LiteClient
             Metrics = &HD9
             Mahjong = &HDA
             CharacterTransferLog = &HDB
+            CompressedGump = &HDD
         End Enum
 
     End Class
