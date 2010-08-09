@@ -46,7 +46,7 @@ Partial Class LiteClient
     End Class
 
     ''' <summary>A namespace encapsulating the packet types classes.</summary>
-    Public Class Packets
+    Public MustInherit Class Packets
 
 #Region "Text"
         ''' <summary>Clients send this packet when talking.</summary>
@@ -3921,7 +3921,23 @@ Partial Class LiteClient
                 End Get
             End Property
 
+            Public ReadOnly Property GumpID As UInteger
+                Get
+                    Return _GumpID
+                End Get
+            End Property
 
+            Public ReadOnly Property X As UInteger
+                Get
+                    Return _X
+                End Get
+            End Property
+
+            Public ReadOnly Property Y As UInteger
+                Get
+                    Return _Y
+                End Get
+            End Property
 
         End Class
 
