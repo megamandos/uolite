@@ -68,6 +68,7 @@
     <Compile Include="CircularBuffer.vb" />
     <Compile Include="ContextMenu.vb" />
     <Compile Include="Enums.vb" />
+    <Compile Include="Gumps.vb" />
     <Compile Include="Item.vb" />
     <Compile Include="ItemDatabase.vb" />
     <Compile Include="LiteClient.vb" />
