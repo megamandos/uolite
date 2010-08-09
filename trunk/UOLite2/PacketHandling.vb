@@ -10,7 +10,7 @@
 #Const TrafficStats = False
 
 'Prints the packet contents to the debug output.
-#Const DebugPackets = True
+#Const DebugPackets = False
 
 Partial Class LiteClient
 
@@ -199,6 +199,9 @@ Partial Class LiteClient
 
                 Case Enums.PacketType.HealthBarStatusUpdate
                     Return New Packets.HealthBarStatusUpdate(packetbuffer)
+
+                Case Enums.PacketType.CompressedGump
+                    Return New Packets.CompressedGump(packetbuffer)
 
                 Case Enums.PacketType.GenericCommand
 
@@ -513,6 +516,10 @@ Partial Class LiteClient
             Case Enums.PacketType.Skills
                 HandleSkillPacket(DirectCast(currentpacket, Packets.Skills))
 
+            Case Enums.PacketType.CompressedGump
+                'Debug.WriteLine(DirectCast(currentpacket, Packets.CompressedGump).DecompressedGumpData)
+                'Debug.WriteLine(DirectCast(currentpacket, Packets.CompressedGump).DecompressedTextData)
+
             Case Enums.PacketType.GenericCommand
                 Select Case currentpacket.Data(4)
                     Case Enums.BF_Sub_Commands.FastWalk
@@ -522,6 +529,9 @@ Partial Class LiteClient
                         AddFastWalkKey(DirectCast(currentpacket, Packets.AddWalkKey))
 
                 End Select
+
+            Case Else
+                Debug.WriteLine("Unhandled Packet Type: " & currentpacket.Type.ToString)
 
         End Select
     End Sub
@@ -614,6 +624,10 @@ Partial Class LiteClient
     End Sub
 
     Public Overloads Sub Send(ByRef Packet() As Byte)
+#If DebugPackets Then
+        Debug.WriteLine("SENDING: " & BitConverter.ToString(Packet))
+#End If
+
         If _LoginClient.Connected Then
             _LoginStream.Write(Packet, 0, Packet.Length)
         ElseIf _GameClient.Connected Then
@@ -622,9 +636,6 @@ Partial Class LiteClient
             Throw New ApplicationException("Unable to send packet, you are not connected!")
         End If
 
-#If DebugPackets Then
-        Debug.WriteLine("SENDING: " & BitConverter.ToString(Packet))
-#End If
 
     End Sub
 

@@ -20,3 +20,14 @@ C:\Users\Eroc\Desktop\UOLite\UOLite\UOLite2\obj\Debug\GenerateResource.write.1.t
 C:\Users\Eroc\Desktop\UOLite\UOLite\UOLite2\obj\Debug\UOLite2.dll
 C:\Users\Eroc\Desktop\UOLite\UOLite\UOLite2\obj\Debug\UOLite2.xml
 C:\Users\Eroc\Desktop\UOLite\UOLite\UOLite2\obj\Debug\UOLite2.pdb
+Z:\Projects\UOLite\UOLite2\bin\Debug\Cliloclist.txt
+Z:\Projects\UOLite\UOLite2\bin\Debug\UOLite2.dll
+Z:\Projects\UOLite\UOLite2\bin\Debug\UOLite2.pdb
+Z:\Projects\UOLite\UOLite2\bin\Debug\UOLite2.xml
+Z:\Projects\UOLite\UOLite2\obj\Debug\ResolveAssemblyReference.cache
+Z:\Projects\UOLite\UOLite2\obj\Debug\UOLite2.Resources.resources
+Z:\Projects\UOLite\UOLite2\obj\Debug\GenerateResource.read.1.tlog
+Z:\Projects\UOLite\UOLite2\obj\Debug\GenerateResource.write.1.tlog
+Z:\Projects\UOLite\UOLite2\obj\Debug\UOLite2.dll
+Z:\Projects\UOLite\UOLite2\obj\Debug\UOLite2.xml
+Z:\Projects\UOLite\UOLite2\obj\Debug\UOLite2.pdb
