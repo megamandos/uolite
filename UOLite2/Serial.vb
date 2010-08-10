@@ -1,4 +1,6 @@
-﻿Partial Class LiteClient
+﻿'To express in-game serial's in a human readable format.
+
+Partial Class LiteClient
 
     Public Class Serial
         Implements IComparable

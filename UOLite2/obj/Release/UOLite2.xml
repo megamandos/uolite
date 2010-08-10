@@ -123,6 +123,25 @@ UOLite2
 	<summary>Returns the port that is used when connecting to the login server to get the game server list.</summary>
 </member><member name="P:UOLite2.LiteClient.GameServerAddress">
 	<summary>Returns the ip address of the game server that you are connected to.</summary>
+</member><member name="P:UOLite2.LiteClient.AccountUID">
+	<summary>
+ The account ID given to the client by the server at login.
+ </summary>
+</member><member name="P:UOLite2.LiteClient.Player">
+	<summary>
+ The player.
+ </summary>
+</member><member name="P:UOLite2.LiteClient.Mobiles">
+	<summary>
+ A list of the mobiles currently on the screen.
+ </summary>
+</member><member name="E:UOLite2.LiteClient.onRecievedServerList">
+	<summary>
+ Called when the client receives the server list durring the login process.
+ </summary>
+</member><member name="E:UOLite2.LiteClient.onLoginDenied">
+	<summary>Called during the login process when the server rejects the username and password.</summary>
+	<param name="Reason">The reason for the failure.</param>
 </member><member name="M:UOLite2.LiteClient.InitializeClientPaths">
 	<summary>Gets the working directory and location of client.exe from the registry.</summary>
 </member><member name="F:UOLite2.LiteClient.GameServerInfo._Address">
@@ -140,6 +159,12 @@ UOLite2
 	<param name="Port">The port to connect to (default is 2593).</param>
 	<param name="Username">The username to connect with.</param>
 	<param name="Password">The cooresponding password for the supplied username.</param>
+</member><member name="M:UOLite2.LiteClient.Speak(System.String@,UOLite2.LiteClient.Enums.Common.Hues@,UOLite2.LiteClient.Enums.SpeechTypes@,UOLite2.LiteClient.Enums.Fonts@)">
+	<summary>Causes the player to speak the specified text.</summary>
+	<param name="Text">The text to speak.</param>
+	<param name="Hue">The Hue of the text.</param>
+	<param name="Type">The type, (ie. Yell, Whisper, etc.)</param>
+	<param name="Font">The font.</param>
 </member><member name="E:UOLite2.LiteClient.Mobile.onDeath">
 	<summary>
  Called when the hitpoint value of a mobile reaches zero (0).
@@ -368,6 +393,10 @@ UOLite2
 </member><member name="P:UOLite2.LiteClient.CircularBuffer`1.Size">
 	<summary>
  The total number of objects current held in the buffer. (not the actual buffer size)
+ </summary>
+</member><member name="P:UOLite2.LiteClient.CircularBuffer`1.RealSize">
+	<summary>
+ Return the true size of the circular buffer, not just how much it actualy contains.
  </summary>
 </member><member name="P:UOLite2.LiteClient.CircularBuffer`1.TailPosition">
 	<summary>

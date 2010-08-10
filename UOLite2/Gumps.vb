@@ -1,4 +1,12 @@
-﻿Partial Class LiteClient
+﻿' Currently, gumps are only "partialy" implemented.
+' They can be received, but if you want to actualy send a response
+' you will have to build the response packet yourself until the next beta is released
+' please DO NOT contact me asking how to build this packet,
+' everything you need to know is already included in the packet guides
+' included with this dll. As you can imagine I am very busy and don't have time to
+' walk people through building custom packets byte by byte.
+
+Partial Class LiteClient
 
     Public Event onNewGump(ByRef Client As LiteClient, ByRef Gump As Gump)
 

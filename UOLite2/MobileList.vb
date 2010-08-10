@@ -1,4 +1,6 @@
-﻿#Const DebugMobileList = False
+﻿'Used to handle new mobile packets, and provides a class to track mobiles in the game.
+
+#Const DebugMobileList = False
 
 Partial Class LiteClient
 

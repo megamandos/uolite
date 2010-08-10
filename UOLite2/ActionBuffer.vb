@@ -1,4 +1,8 @@
-﻿Partial Class LiteClient
+﻿' The "ActionBufferClass" class was built to buffer doubleclicks and pickup commands,
+' the intent was to aleviate some of the stress of having to handle the failed
+' attempts when they are made in rapid succession.
+
+Partial Class LiteClient
     Protected Friend ActionBuffer As ActionBufferClass
 
     Public ReadOnly Property PlayerBusy As Boolean

@@ -97,7 +97,6 @@
     <Compile Include="PacketHandling.vb" />
     <Compile Include="Packets.vb" />
     <Compile Include="Party.vb" />
-    <Compile Include="Player.vb" />
     <Compile Include="Scavenger.vb" />
     <Compile Include="Serial.vb" />
     <Compile Include="skills.vb" />

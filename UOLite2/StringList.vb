@@ -1,4 +1,8 @@
-﻿Imports System, System.IO, System.Text, System.Collections
+﻿'Keeps a list of the CliLoc strings, used by cliloc #'s in various packets.
+'Things like item names, and most system messages are kept here.
+'Although these are not currently implemented.
+
+Imports System, System.IO, System.Text, System.Collections
 
 'Im not going to lie here, I stole this right out of the UltimaSDK.
 

@@ -1,4 +1,5 @@
-﻿
+﻿'For player movement. Like walking/running/follow mobiles and items/ whatever...
+
 'Displays debug messages for movement.
 #Const DebugMovement = False
 

@@ -1,4 +1,29 @@
-﻿Imports System.IO, System.Threading
+﻿' This is for handling the packets as they are received.
+' The process is done in serveral steps.
+' 1. The LARGE packet is received, compressed
+'   The "LARGE" packet is how the packets are actually
+'   received by the client from the server, which is 
+'   actually several packets compressed using huffman
+'   compression.
+' 2. A thread is started by the NetworkStream "_GameStream"
+'   The thread adds the packet (compressed) to the packet buffer.
+' 3. The thread then checks to see if the "PacketHandlerThread"
+'   is awake and processing packets. If it isnt, then it wakes it up.
+' 4. The "PacketHandlerThread" decompresses a "Game Packet" from the 
+'   GameBuffer.
+' 5. The packet is then transformed from a byte array to a packet
+'   class by "BuildPacket".
+' 6. Then the packet is handled by PacketHandling approprietly.
+'
+' So as a summary: A packet is recieved, a thread is started, that thread
+' adds the packet to a buffer and starts another thread, that new thread
+' handles a single packet, then checks the buffer for more packets, then
+' handles those, and checks again, if no more packets are in the buffer the
+' thread shuts down (to be restarted later when the server sends more packets).
+
+
+
+Imports System.IO, System.Threading
 
 'Saves the packets to a file, packetlog.txt.
 #Const LogPackets = False

@@ -1,4 +1,8 @@
-﻿Partial Class LiteClient
+﻿'The circular buffer class was custom made by me, though is not a unique idea of mine.
+'If you want to know how a circular buffer class actually operates, check the wikipedia entry.
+'It is a generic class and can be used in many ways that a FIFO buffer is needed.
+
+Partial Class LiteClient
 
     'see http://en.wikipedia.org/wiki/Circular_buffer
     ''' <summary>A highly efficient FIFO buffer class.</summary>
