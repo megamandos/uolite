@@ -1,0 +1,142 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/packetc3.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:30:04 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packetc3.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:24:01 GMT -->
+<head>
+    <title>Ultima Online Protocol :: Global Queue</title>
+  </head>
+  <link href="shared/style.css" type="text/css" rel="stylesheet">
+  <body>
+    <center><strong>Ultima Online Protocol :: Global Queue</strong></center>
+    <table align="center" border="1" cellpadding="5" cellspacing="0" bordercolor="#000000">
+      <tr>
+        <th width="100">Packet #</th>
+        <th width="150">Packet Name</th>
+        <th width="100">Length</th>
+        <th width="50"><acronym title="Does the client send this message?">Client</acronym></th>
+        <th width="50"><acronym title="Does the server send this message?">Server</acronym></th>
+        <th width="50"><acronym title="If the latest client does not use a packet, the packet is considered to be obsolete.">Obsolete</acronym></th>
+      </tr>
+      <!--0xC3 - Global Queue-->
+      <tr class="aos">
+        <td align="center">0xC3</td>
+        <td align="center">Global Queue</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <tr>
+        <th>Data Type</th>
+        <th colspan="5">Description</th>
+      </tr>
+      <tr>
+        <td>byte 0xC3</td>
+        <td colspan="5">The packet number.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> Size</td>
+        <td colspan="5">The size of the packet.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 32-bit integer.">uint</acronym> 0x00000000</td>
+        <td colspan="5">Unknown</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 32-bit integer.">uint</acronym> callSerial</td>
+        <td colspan="5">The serial of the call.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 32-bit integer.">uint</acronym> Customer</td>
+        <td colspan="5">The caller's Customer serial.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 32-bit integer.">uint</acronym> Customer2</td>
+        <td colspan="5">The caller's Customer serial (this one's in parentheses).</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 32-bit integer.">uint</acronym> Caller</td>
+        <td colspan="5">The serial of the character who made the call.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> 0x0000</td>
+        <td colspan="5">Unknown</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> LengthOfName</td>
+        <td colspan="5">The length of the server name that the call was made on.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An array of characters (a byte representing a single string character).">char[]</acronym> Server</td>
+        <td colspan="5">An array of characters containing the name of the server on which the call was made.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 32-bit integer.">uint</acronym> callTime</td>
+        <td colspan="5">The time the call was placed, or maybe how long they've been waiting?</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> Facet</td>
+        <td colspan="5">The facet (<a href="CS/facet.htm">C#</a>|<a href="VB7/facet.htm">VB7</a>) the call was made on.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 32-bit integer.">uint</acronym> X</td>
+        <td colspan="5">The character's X-position at the time the call was placed.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 32-bit integer.">uint</acronym> Y</td>
+        <td colspan="5">The character's Y-position at the time the call was placed.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 32-bit integer.">uint</acronym> Z</td>
+        <td colspan="5">The character's Z-position at the time the call was placed.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 32-bit integer.">uint</acronym> Volume</td>
+        <td colspan="5">???</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 32-bit integer.">uint</acronym> Rank</td>
+        <td colspan="5">???</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 32-bit integer.">uint</acronym> 0xFFFFFFFF</td>
+        <td colspan="5">Unknown</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 32-bit integer.">uint</acronym> CallType</td>
+        <td colspan="5">The type of call (<a href="CS/calltype.htm">C#</a>|<a href="VB7/calltype.htm">VB7</a>) that was placed.</td>
+      </tr>
+      <tr>
+        <td>byte 0x00</td>
+        <td colspan="5">Unknown</td>
+      </tr>
+      <tr>
+        <td><acronym title="An array of characters (a byte representing a single string character).">char[3]</acronym> Language</td>
+        <td colspan="5">The caller's language.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> Length</td>
+        <td colspan="5">The length of the description the caller gave.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An array of unicode characters (a 16-bit integer representing a single string character).">uni[]</acronym> Reason</td>
+        <td colspan="5">The reason for the call.</td>
+      </tr>
+      <tr>
+        <td colspan="6"><br>
+          <b>Packet Description:</b><br>
+          This packet is used to display a built-in menu that lists information about a Counselor/GM call.<br><br>
+          When the menu is right-clicked, the user is provided with various ways to handle the call.<br>
+          If the user is using a regular 2D client, Counselor commands will be provided.<br>
+          If the user is using a <a href="godcli.htm">God Client</a>, GM commands will be provided.<br><br>
+          The 3D client does not support this packet.<br><br>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/packetc3.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:30:04 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packetc3.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:24:02 GMT -->
+</html>

@@ -1,0 +1,36 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/CS/mobilestatus.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:30:07 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/CS/mobilestatus.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:24:06 GMT -->
+<head>
+    <title>Ultima Online Protocol :: Mobile Status (C#)</title>
+  </head>
+  <body bgcolor="#FFFFE1" link="#89A5F5" alink="#89A5F5" vlink="#89A5F5">
+    <center><strong>Ultima Online Protocol :: Mobile Status (C#)</strong></center>
+    <pre>
+      <font color="blue">using</font> System;
+      
+      <font color="blue">namespace</font> Common
+      {
+          <font color="blue">public enum</font> MobileStatus
+          {
+              Normal = 0x00,
+              Unknown = 0x01,
+              CanAlterPaperdoll = 0x02,
+              Poisoned = 0x04,
+              GoldenHealth = 0x08,
+              Unknown2 = 0x10,
+              Unknown3 = 0x20,
+              WarMode = 0x40,
+              Hidden = 0x80
+          }
+      }
+    </pre>
+    The values in the enumeration are flags used to represent a character's status.<br><br>The CanAlterPaperdoll flag, if enabled in an <a href="../packet88.htm">Open Paperdoll</a> packet, allows the player receiving the packet to add and remove the target's clothing.
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/CS/mobilestatus.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:30:07 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/CS/mobilestatus.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:24:06 GMT -->
+</html>

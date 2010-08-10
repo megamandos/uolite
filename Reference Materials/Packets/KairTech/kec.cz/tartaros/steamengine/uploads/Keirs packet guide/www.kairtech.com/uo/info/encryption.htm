@@ -1,0 +1,56 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/encryption.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:30:13 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/encryption.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:24:07 GMT -->
+<head>
+    <title>Ultima Online Protocol :: Packet Encryption</title>
+  </head>
+  <body bgcolor="#FFFFE1" link="#89A5F5" alink="#89A5F5" vlink="#89A5F5">
+    <center><strong>Ultima Online Protocol :: Packet Encryption</strong></center><br><br>
+    Ultima Online packets are encrypted in two ways: the first, during the login process; the second, during regular gameplay.
+    <br><br>
+    <strong>The first encryption method</strong> is a simple algorithm which (I assume) was developed by Origin.  The login encryption requires an <a href="seed.htm">encryption seed</a> and two keys which can be found in the client and change now and then with client patches.  Each client also needs a pair of keys which are initialized using the formula below:
+    <br><br>
+    <pre>
+      <font color="blue">uint</font> CurrentKey0;
+      <font color="blue">uint</font> CurrentKey1;
+      <font color="blue">uint</font> EncryptionSeed;
+      
+      <font color="#008000">// Set EncryptionSeed</font>
+      
+      CurrentKey0 = (<font color="blue">uint</font>)((((~EncryptionSeed) ^ 0x00001357) << 16) | ((EncryptionSeed ^ 0xFFFFAAAA) & 0x0000FFFF));
+      CurrentKey1 = (<font color="blue">uint</font>)(((EncryptionSeed ^ 0x43210000) >> 16) | (((~EncryptionSeed) ^ 0xABCDFFFF) & 0xFFFF0000));
+    </pre>
+    After receiving data from a client, you can decrypt or encrypt it using the following method:
+    <br><br>
+    <pre>
+      <font color="blue">static uint</font> FirstClientKey; <font color="#008000">// Set this to the first client key (not CurrentKey0).</font>
+      <font color="blue">static uint</font> SecondClientKey; <font color="#008000">// Set this to the second client key (not CurrentKey1).</font>
+      
+      <font color="blue">void</font> Crypt(<font color="blue">ref byte</font>[] data)
+      {
+          <font color="blue">int</font> len = data.Length;
+          <font color="blue">for</font>(<font color="blue">int</font> i = 0; i < len; i++)
+          {
+              <font color="#008000">// Decrypt the byte:</font>
+              data[i] = (<font color="blue">byte</font>)(CurrentKey0 ^ data[i]);
+              
+              <font color="#008000">// Reset the keys:</font>
+              <font color="blue">uint</font> oldkey0 = CurrentKey0;
+              <font color="blue">uint</font> oldkey1 = CurrentKey1;
+              CurrentKey0 = (<font color="blue">uint</font>)(((oldkey0 >> 1) | (oldkey1 << 31)) ^ SecondClientKey);
+              CurrentKey1 = (<font color="blue">uint</font>)(((((oldkey1 >> 1) | (oldkey0 << 31)) ^ (FirstClientKey - 1)) >> 1) | (oldkey0 << 31)) ^ FirstClientKey);
+          }
+      }
+    </pre>
+    FirstClientKey and SecondClientKey refer to the two encryption keys found within the client.  The location and values of these keys change from time to time.  In Athena, known client keys are kept in the key configuration file.  The 4.0.2a client keys are 0x2E63ADDD and 0xA225227F.
+    <br><br>
+    <strong>The second encryption method</strong> is used after the client is redirected to a game server via the 0x8C packet and is usually used first with the game server login packet, 0x91.  The second encryption is a bit more complex and uses the TwoFish encryption method in modern clients, and the BlowFish encryption method in old clients.  Since most emulators require modern clients, the BlowFish method will not be discussed here.<br><br>
+    The second method of encryption is not currently supported by Athena.  Supporting gameplay encryption is one of the long-term goals of Athena, and when a method is created for decrypting this encryption it will hopefully be detailed here.
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/encryption.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:30:13 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/encryption.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:24:07 GMT -->
+</html>

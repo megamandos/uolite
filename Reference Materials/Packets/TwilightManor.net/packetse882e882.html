@@ -1,0 +1,54 @@
+<style type='text/css'>
+.largerfnt	{font-size: larger}
+		A:link {text-decoration: underline; color: #0000FF}
+        A:visited {text-decoration: underline; color: #0000FF}
+        A:active {text-decoration: underline; color: #0000FF}
+        A:hover {text-decoration: bold; color: #0000FF}
+		.groove {border-style:groove}
+		.tabletop td	{background-color: #e0e000; color: #000000;}
+		.gray td 		{background-color: #cccccc; color: #808080; }
+		.unused	td		{background-color: #cccccc; color: #808080; }
+		.black td		{background-color: #cccccc; color: #000000; }
+		.vardat td		{background-color: #cccccc; color: #000000; }
+		.packet td	{background-color: #cccccc; color: #2222ff; font-size: larger; }
+		.notes td	{background-color: #cccccc; color: #000000; }
+		.notestd	{background-color: #cccccc; color: #000000; }
+		.up			{border: solid #e0e0e0 1px; border-bottom: solid #d0d000 1px; background-color: #d0d000; margin: 0px;}
+		.Server		{color: red; }
+		.Client		{color: blue; }
+		.Both		{color: green; }
+		.subpacket td	{background-color: #999999; }
+		.blue		{color: #2222ff;}
+		</style><html>
+<!-- Mirrored from www.twilightmanor.net/se/packets.php?style=block&id=13 by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:33:22 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/SE%20packet%20guide/www.twilightmanor.net/se/packetse882.html?style=block&id=13 by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:19:16 GMT -->
+<head><title>0x02 - Walk Request (3 or 7 bytes) - UO Packet Guide</title><link rel="icon" href="favicon.ico"></head><body bgcolor="#ffffff"><table class="groove" width=70% border=1 cellspacing=0 cellpadding=3><tr class=tabletop><td><a href="packets47c647c6.html?style=plain&amp;id=13">Plain</a> (Printer-friendly)</td><td><a href="packets8e4b8e4b.html?style=gold&amp;id=13">Gold</a> (Original packet guide style)</td><td><a href="packetse882e882.html?style=block&amp;id=13">Block</a> (Yellow and grey blocks)</td><td><a href="packetsb098b098.html?style=inverted&amp;id=13">Inverted</a> (Black background, white text)</td></tr></table><table width=70% border=0><tr><td><center><font size=2><a href='packets19561956.html?style=block'>Back to packet list</a></font></center></td></tr></table><p><table class="groove" width=70% border=1 cellspacing=0 cellpadding=3 title='0x02 - Walk Request (3 or 7 bytes)'>
+<COLGROUP><COL width=15%><COL width=15%><COL width=70%></COLGROUP><tr class='tabletop'><td>Sent By: <b><font class="Client">Client</font></b></td><td colspan=2><font size='5'><font class='blue'><b>0x02 - Walk Request (3 or 7 bytes)</b></font></font></td></tr><tr class='tabletop'><td>Variable Type</td><td>Start Index</td><td>Packet/Variable Name</td></tr><tr class='packet'>
+<td>byte</td>
+<td>0</td>
+<td>Packet ID (0x02 - Walk Request)</td>
+</tr>
+<tr class='vardat'>
+<td>byte</td>
+<td>1</td>
+<td>Direction</td>
+</tr>
+<tr class='vardat'>
+<td>byte</td>
+<td>2</td>
+<td>Move Sequence #</td>
+</tr>
+<tr class='vardat'>
+<td>uint</td>
+<td>3</td>
+<td>Fastwalk prevention key (Absent in pre-2.0.0 clients)</td>
+</tr>
+<tr class='notes'><td colspan=3>	The move sequence # starts at 0, and is increased by 1 after every step, but if it would become 256, it is instead reset to 1. It must be reset to 0 (by both the client and server) whenever a <a href='packetsf95af95a.html?id=32&amp;style=block'>0x20</a> packet is sent to the client.<br>	The server must respond to this packet<br>	with either a <a href='packets01610161.html?id=44&amp;style=block'>0x21</a> or <a href='packetsbb2bbb2b.html?id=31&amp;style=block'>0x22</a>.<br>	<p>On the subject of the fastwalk prevention key, which I have yet to experiment with myself, Jerrith's packet guide states:<br>	<blockquote><br>		Fastwalk prevention notes: each <a href='packetscd78cd78.html?id=13&amp;style=block'>0x02</a> pops the top element from fastwalk key stack. (0xbf sub1 init. fastwalk stack, 0xbf sub2 pushes an element to stack)<br>		<br>If stack is empty key value is 0. (never set keys to 0 in 0xbf sub 1/2)<br>		<br>Because client sometimes sends bursts of <a href='packetscd78cd78.html?id=13&amp;style=block'>0x02</a>’s DON’T check for a certain top stack value.<br>		<br>The only safe way to detect fastwalk: push a key after EACH <a href='packets01610161.html?id=44&amp;style=block'>0x21</a>, <a href='packetsbb2bbb2b.html?id=31&amp;style=block'>0x22</a>, (=send 0xbf sub 2) check in <a href='packetscd78cd78.html?id=13&amp;style=block'>0x02</a> for stack emptyness.<br>		<br>If empty -> fastwalk alert.<br>		<br>Note that actual key values are irrelevant. (just don’t use 0)<br>		<br>Of course without perfect <a href='packetscd78cd78.html?id=13&amp;style=block'>0x02</a>/<a href='packets01610161.html?id=44&amp;style=block'>0x21</a>/<a href='packetsbb2bbb2b.html?id=31&amp;style=block'>0x22</a> synch (serverside) it’s useless to use fastwalk detection.<br>		<br><br>		<br>Last but not least: fastwalk detection adds 9 bytes per step and player !<br>	</blockquote><br><p>See 0xbf sub 1 - <a href='packets7c5e7c5e.html?id=27&amp;style=block'>Initialize Fast Walk Prevention</a>, and 0xbf sub 2 - <a href='packets6a6b6a6b.html?id=28&amp;style=block'>Add key to Fast Walk Stack</a>.</td></tr></table><table width=70%><COLGROUP><COL width=40%><COL width=10%><COL width=10%><COL width=40%></COLGROUP><tr><td></td></tr></table>
+<p><p><table class="groove" width=70% border=1 cellspacing=0 cellpadding=3>
+<COLGROUP><COL width=40%><COL width=15%><COL width=45%></COLGROUP><tr class='tabletop'><td colspan=3 class=largerfnt><center>Subpackets for 0x02</center></td></tr><tr class='tabletop'><td>Packet Name</td><td>Packet ID</td><td>Sent By</td></tr></table>
+<br><hr noshade width=70% align=left><table width=70% border=0><tr><td><center><font size=2><a href='packets19561956.html?style=block'>Back to packet list</a></font></center></td></tr></table></body>
+<!-- Mirrored from www.twilightmanor.net/se/packets.php?style=block&id=13 by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:33:22 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/SE%20packet%20guide/www.twilightmanor.net/se/packetse882.html?style=block&id=13 by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:19:16 GMT -->
+</html>

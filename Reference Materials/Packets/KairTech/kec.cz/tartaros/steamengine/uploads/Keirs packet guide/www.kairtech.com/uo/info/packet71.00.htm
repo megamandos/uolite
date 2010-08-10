@@ -1,0 +1,80 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/packet71.00.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:30:08 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet71.00.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:24:06 GMT -->
+<head>
+    <title>Ultima Online Protocol :: Bulletin Board :: Display Bulletin Board</title>
+  </head>
+  <link href="shared/style.css" type="text/css" rel="stylesheet">
+  <body>
+    <center><strong>Ultima Online Protocol :: Bulletin Board :: Display Bulletin Board</strong></center>
+    <table align="center" border="1" cellpadding="5" cellspacing="0" bordercolor="#000000">
+      <tr>
+        <th width="100">Packet #</th>
+        <th width="150">Packet Name</th>
+        <th width="100">Length</th>
+        <th width="50"><acronym title="Does the client send this message?">Client</acronym></th>
+        <th width="50"><acronym title="Does the server send this message?">Server</acronym></th>
+        <th width="50"><acronym title="If the latest client does not use a packet, the packet is considered to be obsolete.">Obsolete</acronym></th>
+      </tr>
+      <!--0x71 - Bulletin Board-->
+      <tr>
+        <td align="center">0x71</td>
+        <td align="center">Bulletin Board</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <tr>
+        <th>Data Type</th>
+        <th colspan="5">Description</th>
+      </tr>
+      <tr>
+        <td>byte 0x71</td>
+        <td colspan="5">The packet number.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> Size</td>
+        <td colspan="5">The size of the packet.</td>
+      </tr>
+      <tr>
+        <td>byte Command</td>
+        <td colspan="5">The command being sent.<br><br>
+          <ul>
+            <li>0x00 - Display Bulletin Board</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 32-bit integer.">uint</acronym> Serial</td>
+        <td colspan="5">The board's item serial.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An array of characters (a byte representing a single string character).">char</acronym>[22] Name</td>
+        <td colspan="5">The name of the bulletin board.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 32-bit integer.">uint</acronym> 0x402000FF</td>
+        <td colspan="5">Unknown.  Looks like an item serial.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 32-bit integer.">uint</acronym> 0x00000000</td>
+        <td colspan="5">Unknown.</td>
+      </tr>
+      <tr>
+        <td colspan="6"><br>
+          <b>Packet Description:</b><br>
+          This packet is sent by the server to display a bulletin board.<br><br>
+          After this packet is sent, a <a href="packet3c.htm">Container Contents</a> packet should be sent containing message serials with the container serial<br>
+          set to the Board ID.  Messages are actually stored as ingame items, and should belong to unique item serials.
+        </td>
+      </tr>
+    </table>
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/packet71.00.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:30:08 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet71.00.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:24:06 GMT -->
+</html>

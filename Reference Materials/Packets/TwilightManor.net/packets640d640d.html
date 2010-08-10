@@ -1,0 +1,85 @@
+<style type='text/css'>
+.largerfnt	{font-size: larger}
+
+		.tabletop td	{color: #000000; padding: 4px 4px 0px 4px; border-top: solid #e0e000 1px; border-left: solid #e0e000 1px; border-right: solid #c0c000 1px; border-bottom: solid #c0c000 1px; background-color: #d0d000; border-collapse: collapse; }
+		.unused td	{color: #808080; padding: 1px 4px 1px 4px; border-top: solid #e0e0e0 1px; border-left: solid #e0e0e0 1px; border-right: solid #c0c0c0 1px; border-bottom: solid #c0c0c0 1px; background-color: #d0d0d0;}
+		.gray td	{color: #808080; padding: 1px 4px 1px 4px; border-top: solid #e0e0e0 1px; border-left: solid #e0e0e0 1px; border-right: solid #c0c0c0 1px; border-bottom: solid #c0c0c0 1px; background-color: #d0d0d0;}
+		.packet td	{color: #2222ff; font-size: larger;  padding: 1px 4px 1px 4px; border-top: solid #e0e0e0 1px; border-left: solid #e0e0e0 1px; border-right: solid #c0c0c0 1px; border-bottom: solid #c0c0c0 1px; background-color: #d0d0d0; }
+		.vardat td	{color: #000000;  padding: 1px 4px 1px 4px; border-top: solid #e0e0e0 1px; border-left: solid #e0e0e0 1px; border-right: solid #c0c0c0 1px; border-bottom: solid #c0c0c0 1px; background-color: #d0d0d0; }
+		.black td	{color: #000000;  padding: 1px 4px 1px 4px; border-top: solid #e0e0e0 1px; border-left: solid #e0e0e0 1px; border-right: solid #c0c0c0 1px; border-bottom: solid #c0c0c0 1px; background-color: #d0d0d0; }
+		.notes td	{color: #000000;  padding: 1px 4px 1px 4px; border-top: solid #e0e0e0 1px; border-left: solid #e0e0e0 1px; border-right: solid #c0c0c0 1px; border-bottom: solid #c0c0c0 1px; background-color: #d0d0d0; }
+		.notestd	{color: #000000;  padding: 1px 4px 1px 4px; border-top: solid #e0e0e0 1px; border-left: solid #e0e0e0 1px; border-right: solid #c0c0c0 1px; border-bottom: solid #c0c0c0 1px; background-color: #d0d0d0; }
+		.up			{border: solid #e0e0e0 1px; border-bottom: solid #d0d000 1px; background-color: #d0d000; margin: 0px;}
+		.Server		{color: red; }
+		.Client		{color: #2222ff; }
+		.Both		{color: green; }
+		.subpacket td	{padding: 1px 4px 1px 4px; border-top: solid #b0b0b0 1px; border-left: solid #b0b0b0 1px; border-right: solid #909090 1px; border-bottom: solid #909090 1px; background-color: #a0a0a0; }
+		.blue		{color: #2222ff;}
+		</style><html>
+<!-- Mirrored from www.twilightmanor.net/se/packets.php?id=54&style=gold by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:32:06 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/SE%20packet%20guide/www.twilightmanor.net/se/packets640d.html?id=54&style=gold by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:18:25 GMT -->
+<head><title>0xAE - Speech - UO Packet Guide</title><link rel="icon" href="favicon.ico"></head><body bgcolor="#ffffff"><table width=70% cellspacing=0 border=0 cellpadding=0><tr class=tabletop><td><a href="packets7c037c03.html?style=plain&amp;id=54">Plain</a> (Printer-friendly)</td><td><a href="packetsdbfedbfe.html?style=gold&amp;id=54">Gold</a> (Original packet guide style)</td><td><a href="packets75f175f1.html?style=block&amp;id=54">Block</a> (Yellow and grey blocks)</td><td><a href="packets718e718e.html?style=inverted&amp;id=54">Inverted</a> (Black background, white text)</td></tr></table><table width=70% border=0><tr><td><center><font size=2><a href='packets40894089.html?style=gold'>Back to packet list</a></font></center></td></tr></table><p><table width=70% cellspacing=0 border=0 cellpadding=0 title='0xAE - Speech'>
+<COLGROUP><COL width=15%><COL width=15%><COL width=70%></COLGROUP><tr class='tabletop'><td>Sent By: <b><font class="Server">Server</font></b></td><td colspan=2><font size='5'><font class='blue'><b>0xAE - Speech</b></font></font></td></tr><tr class='tabletop'><td>Variable Type</td><td>Start Index</td><td>Packet/Variable Name</td></tr><tr class='packet'>
+<td>byte</td>
+<td>0</td>
+<td>Packet ID (0xAE - Speech)</td>
+</tr>
+<tr class='vardat'>
+<td>short</td>
+<td>1</td>
+<td>Blocksize</td>
+</tr>
+<tr class='vardat'>
+<td>int</td>
+<td>3</td>
+<td>Object UID(Speaker)</td>
+</tr>
+<tr class='vardat'>
+<td>short</td>
+<td>7</td>
+<td>Object Model/DispID</td>
+</tr>
+<tr class='vardat'>
+<td>byte</td>
+<td>9</td>
+<td>Speech Type</td>
+</tr>
+<tr class='vardat'>
+<td>short</td>
+<td>10</td>
+<td>Speech Hue</td>
+</tr>
+<tr class='vardat'>
+<td>short</td>
+<td>12</td>
+<td>Speech Font</td>
+</tr>
+<tr class='vardat'>
+<td>char[3]</td>
+<td>14</td>
+<td>Speech Language</td>
+</tr>
+<tr class='vardat'>
+<td>char[30]</td>
+<td>18</td>
+<td>Name</td>
+</tr>
+<tr class='vardat'>
+<td>char[*]</td>
+<td>48</td>
+<td>Text</td>
+</tr>
+<tr class='black'>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class='notes'><td colspan=3>If Object is Item, UID + 0x4000000 (item offset)<br><br>Blocksize = 48 + (TextLength * 2) + 3<br><br><a href='packets640d640d.html?id=54&amp;style=gold'>Speech</a> Type<br>- Regular = 0<br>- Broadcast = 1<br>- Emote = 2<br>- Label = 6 (You see: )<br>- Emphasis = 7<br>- Whisper = 8<br>- Yell = 9<br>- Spell = 0xA<br><br><a href='packets640d640d.html?id=54&amp;style=gold'>Speech</a> Font<br>- Bold = 0<br>- Shadow = 1<br>- BoldShadow = 2<br>- Normal = 3<br>- Gothic = 4<br>- Italic = 5<br>- SmallDark = 6<br>- Colorful = 7<br>- Rune = 8<br>- SmallLight = 9</td></tr></table><table width=70%><COLGROUP><COL width=40%><COL width=10%><COL width=10%><COL width=40%></COLGROUP><tr><td></td></tr></table>
+<p><p><table width=70% cellspacing=0 border=0 cellpadding=0>
+<COLGROUP><COL width=40%><COL width=15%><COL width=45%></COLGROUP><tr class='tabletop'><td colspan=3 class=largerfnt><center>Subpackets for 0xAE</center></td></tr><tr class='tabletop'><td>Packet Name</td><td>Packet ID</td><td>Sent By</td></tr></table>
+<br><hr noshade width=70% align=left><table width=70% border=0><tr><td><center><font size=2><a href='packets40894089.html?style=gold'>Back to packet list</a></font></center></td></tr></table></body>
+<!-- Mirrored from www.twilightmanor.net/se/packets.php?id=54&style=gold by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:32:08 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/SE%20packet%20guide/www.twilightmanor.net/se/packets640d.html?id=54&style=gold by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:18:26 GMT -->
+</html>

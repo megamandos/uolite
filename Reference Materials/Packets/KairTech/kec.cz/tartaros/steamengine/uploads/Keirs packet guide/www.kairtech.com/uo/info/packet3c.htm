@@ -1,0 +1,81 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/packet3c.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:46 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet3c.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:58 GMT -->
+<head>
+    <title>Ultima Online Protocol :: Container Contents</title>
+  </head>
+  <link href="shared/style.css" type="text/css" rel="stylesheet">
+  <body>
+    <center><strong>Ultima Online Protocol :: Container Contents</strong></center>
+    <table align="center" border="1" cellpadding="5" cellspacing="0" bordercolor="#000000">
+      <tr>
+        <th width="100">Packet #</th>
+        <th width="150">Packet Name</th>
+        <th width="100">Length</th>
+        <th width="50"><acronym title="Does the client send this message?">Client</acronym></th>
+        <th width="50"><acronym title="Does the server send this message?">Server</acronym></th>
+        <th width="50"><acronym title="If the latest client does not use a packet, the packet is considered to be obsolete.">Obsolete</acronym></th>
+      </tr>
+      <!--0x3C - Container Contents-->
+      <tr>
+        <td align="center">0x3C</td>
+        <td align="center">Container Contents</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <tr>
+        <th>Data Type</th>
+        <th colspan="5">Description</th>
+      </tr>
+      <tr>
+        <td>byte 0x3C</td>
+        <td colspan="5">The packet number.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> Size</td>
+        <td colspan="5">The size of the packet.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> Count</td>
+        <td colspan="5">The number of items in the container.</td>
+      </tr>
+      <tr>
+        <td>
+          loop<br>
+          {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<acronym title="A 32-bit unsigned integer.">uint</acronym> Serial<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<acronym title="A 16-bit unsigned integer.">ushort</acronym> Artwork<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;byte StackID<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<acronym title="A 16-bit unsigned integer.">ushort</acronym> Amount<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<acronym title="A 16-bit unsigned integer.">ushort</acronym> X<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<acronym title="A 16-bit unsigned integer.">ushort</acronym> Y<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<acronym title="A 32-bit unsigned integer.">uint</acronym> Container<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<acronym title="A 16-bit unsigned integer.">ushort</acronym> Hue<br>
+          }
+        </td>
+        <td colspan="5">
+          This loop contains information for each item in the container.  Loop for Count number of times.<br><br>
+          <strong>Serial</strong>: The serial of the item to add.<br>
+          <strong>Artwork</strong>: The artwork number of the item.<br>
+          <strong>StackID</strong>: The number to add to the item's artwork if Amount is greater than one.<br>
+          <strong>Amount</strong>: The amount of the item.  This should always be greater than zero.<br>
+          <strong>X</strong>: The number of pixels within the container from the left-hand side at which the item will be placed.<br>
+          <strong>Y</strong>: The number of pixels within the container from the top at which the item will be placed.<br>
+          <strong>Container</strong>: The serial of the container.<br>
+          <strong>Hue</strong>: The item's hue.
+        </td>
+      </tr>
+      <tr>
+        <td colspan="6"><br><b>Packet Description:</b><br>This is sent to display the contents of a container.<br><br></td>
+      </tr>
+    </table>
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/packet3c.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:46 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet3c.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:58 GMT -->
+</html>

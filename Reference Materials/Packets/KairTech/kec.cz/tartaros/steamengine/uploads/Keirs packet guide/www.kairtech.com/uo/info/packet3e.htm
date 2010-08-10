@@ -1,0 +1,83 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/packet3e.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:46 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet3e.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:58 GMT -->
+<head>
+    <title>Ultima Online Protocol :: Versions</title>
+  </head>
+  <link href="shared/style.css" type="text/css" rel="stylesheet">
+  <body>
+    <center><strong>Ultima Online Protocol :: Versions</strong></center>
+    <table align="center" border="1" cellpadding="5" cellspacing="0" bordercolor="#000000">
+      <tr>
+        <th width="100">Packet #</th>
+        <th width="150">Packet Name</th>
+        <th width="100">Length</th>
+        <th width="50"><acronym title="Does the client send this message?">Client</acronym></th>
+        <th width="50"><acronym title="Does the server send this message?">Server</acronym></th>
+        <th width="50"><acronym title="If the latest client does not use a packet, the packet is considered to be obsolete.">Obsolete</acronym></th>
+      </tr>
+      <!--0x3E - Versions-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x3E</td>
+        <td align="center">Versions</td>
+        <td align="center">0x0025</td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <tr>
+        <th>Data Type</th>
+        <th colspan="5">Description</th>
+      </tr>
+      <tr>
+        <td>byte 0x3E</td>
+        <td colspan="5">The packet number.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 32-bit unsigned integer.">uint</acronym> ver_1</td>
+        <td colspan="5">Unknown.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 32-bit unsigned integer.">uint</acronym> ver_2</td>
+        <td colspan="5">Unknown.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 32-bit unsigned integer.">uint</acronym> ver_3</td>
+        <td colspan="5">Unknown.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 32-bit unsigned integer.">uint</acronym> ver_4</td>
+        <td colspan="5">Unknown.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 32-bit unsigned integer.">uint</acronym> ver_5</td>
+        <td colspan="5">Unknown.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 32-bit unsigned integer.">uint</acronym> ver_6</td>
+        <td colspan="5">Unknown.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 32-bit unsigned integer.">uint</acronym> ver_7</td>
+        <td colspan="5">Unknown.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 32-bit unsigned integer.">uint</acronym> ver_8</td>
+        <td colspan="5">Unknown.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 32-bit unsigned integer.">uint</acronym> ver_9</td>
+        <td colspan="5">Unknown.</td>
+      </tr>
+      <tr>
+        <td colspan="6"><br><b>Packet Description:</b><br>My current theory for this packet is that it has to do with the versioning of edited mul files when groups of worldbuilders login and edit the world together.  Reason: There are nine mul-editing packets sent by the server, and any good worldbuilding server would use versioning to track each client's status.  Of course, I could be wrong.<br><br></td>
+      </tr>
+    </table>
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/packet3e.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:46 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet3e.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:58 GMT -->
+</html>

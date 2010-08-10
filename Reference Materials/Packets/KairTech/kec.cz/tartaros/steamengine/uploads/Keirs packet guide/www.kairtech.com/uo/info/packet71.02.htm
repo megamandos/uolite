@@ -1,0 +1,148 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/packet71.02.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:30:09 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet71.02.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:24:07 GMT -->
+<head>
+    <title>Ultima Online Protocol :: Bulletin Board :: Message Data</title>
+  </head>
+  <link href="shared/style.css" type="text/css" rel="stylesheet">
+  <body>
+    <center><strong>Ultima Online Protocol :: Bulletin Board :: Message Data</strong></center>
+    <table align="center" border="1" cellpadding="5" cellspacing="0" bordercolor="#000000">
+      <tr>
+        <th width="100">Packet #</th>
+        <th width="150">Packet Name</th>
+        <th width="100">Length</th>
+        <th width="50"><acronym title="Does the client send this message?">Client</acronym></th>
+        <th width="50"><acronym title="Does the server send this message?">Server</acronym></th>
+        <th width="50"><acronym title="If the latest client does not use a packet, the packet is considered to be obsolete.">Obsolete</acronym></th>
+      </tr>
+      <!--0x71 - Bulletin Board-->
+      <tr>
+        <td align="center">0x71</td>
+        <td align="center">Bulletin Board</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <tr>
+        <th>Data Type</th>
+        <th colspan="5">Description</th>
+      </tr>
+      <tr>
+        <td>byte 0x71</td>
+        <td colspan="5">The packet number.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> Size</td>
+        <td colspan="5">The size of the packet.</td>
+      </tr>
+      <tr>
+        <td>byte Command</td>
+        <td colspan="5">The command being sent.<br><br>
+          <ul>
+            <li>0x02 - Message Data</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 32-bit integer.">uint</acronym> Serial</td>
+        <td colspan="5">The board's item serial.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 32-bit integer.">uint</acronym> Message</td>
+        <td colspan="5">The message serial.</td>
+      </tr>
+      <tr>
+        <td>byte Poster_Len</td>
+        <td colspan="5">
+          The length of the poster's name.<br><br>
+          Be sure to include an extra byte for the null terminator.
+        </td>
+      </tr>
+      <tr>
+        <td><acronym title="An array of characters (a byte representing a single string character).">char</acronym>[] Poster</td>
+        <td colspan="5">The name of poster.  This is null terminated (0x00).</td>
+      </tr>
+      <tr>
+        <td>byte Title_Len</td>
+        <td colspan="5">
+          The length of the message title.<br><br>
+          Be sure to include an extra byte for the null terminator.
+        </td>
+      </tr>
+      <tr>
+        <td><acronym title="An array of characters (a byte representing a single string character).">char</acronym>[] Title</td>
+        <td colspan="5">The title of the message.  This is null terminated (0x00).</td>
+      </tr>
+      <tr>
+        <td>byte Date_Len</td>
+        <td colspan="5">
+          The length of the date on which the message was posted.<br><br>
+          Be sure to include an extra byte for the null terminator.
+        </td>
+      </tr>
+      <tr>
+        <td><acronym title="An array of characters (a byte representing a single string character).">char</acronym>[]  Date</td>
+        <td colspan="5">The date on which the message was posted.  This is null terminated (0x00).</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> Body</td>
+        <td colspan="5">The body number of the poster's character.  0x0000 is system post.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> Hue</td>
+        <td colspan="5">The hue of the poster's character.  0x0000 is system post.</td>
+      </tr>
+      <tr>
+        <td>byte Items</td>
+        <td colspan="5">The number of items in the list.</td>
+      </tr>
+      <tr>
+        <td>
+          loop<br>
+          {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<acronym title="A 16-bit unsigned integer.">ushort</acronym> Artwork<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<acronym title="A 16-bit unsigned integer.">ushort</acronym> Hue<br>
+          }
+        </td>
+        <td colspan="5">
+          This is a loop containing a list of equipment the poster was wearing during the time of the post.<br>
+          The reason this is documented is unknown.  Loop for Items.<br><br>
+          <strong>Artwork</strong>: The item's artwork number.<br>
+          <strong>Hue</strong>: The item's hue.
+        </td>
+      </tr>
+      <tr>
+        <td>byte Lines</td>
+        <td colspan="5">The number of lines in the post.</td>
+      </tr>
+      <tr>
+        <td>
+          loop<br>
+          {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;byte Text_Length<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<acronym title="An array of characters (a byte representing a single string character).">char</acronym>[] Text<br>
+          }
+        </td>
+        <td colspan="5">
+          This loop contains the text of the message.  Loop for Lines.<br><br>
+          <strong>Text_Length</strong>: The length of the text that follows (including the terminator).<br>
+          <strong>Text</strong>: The text for the line.  This is null terminated (0x00).<br>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="6"><br>
+          <b>Packet Description:</b><br>
+          This is sent by the server in response to the <a href="packet71.03.htm">Request Message</a> packet.<br><br>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/packet71.02.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:30:09 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet71.02.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:24:07 GMT -->
+</html>

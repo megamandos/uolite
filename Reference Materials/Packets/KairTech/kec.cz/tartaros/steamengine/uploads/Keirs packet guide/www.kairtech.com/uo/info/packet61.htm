@@ -1,0 +1,67 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/packet61.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:49 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet61.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:59 GMT -->
+<head>
+    <title>Ultima Online Protocol :: Destroy Static</title>
+  </head>
+  <link href="shared/style.css" type="text/css" rel="stylesheet">
+  <body>
+    <center><strong>Ultima Online Protocol :: Destroy Static</strong></center>
+    <table align="center" border="1" cellpadding="5" cellspacing="0" bordercolor="#000000">
+      <tr>
+        <th width="100">Packet #</th>
+        <th width="150">Packet Name</th>
+        <th width="100">Length</th>
+        <th width="50"><acronym title="Does the client send this message?">Client</acronym></th>
+        <th width="50"><acronym title="Does the server send this message?">Server</acronym></th>
+        <th width="50"><acronym title="If the latest client does not use a packet, the packet is considered to be obsolete.">Obsolete</acronym></th>
+      </tr>
+      <!--0x61 - Destroy Static-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x61</td>
+        <td align="center">Destroy Static</td>
+        <td align="center">0x0009</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <tr>
+        <th>Data Type</th>
+        <th colspan="5">Description</th>
+      </tr>
+      <tr>
+        <td>byte 0x61</td>
+        <td colspan="5">The packet number.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> x</td>
+        <td colspan="5">The x-axis position where the tile is.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> y</td>
+        <td colspan="5">The y-axis position where the tile is.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit signed integer.">short</acronym> z</td>
+        <td colspan="5">The z-axis position where the tile is.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> tile_num</td>
+        <td colspan="5">The tile number.</td>
+      </tr>
+      <tr>
+        <td colspan="6"><br>
+          <b>Packet Description:</b><br>
+          This god client packet is sent to destroy a static object.<br><br>
+          To destroy a static, hold shift and select the item or items and then press the delete key.<br><br>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/packet61.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:49 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet61.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:59 GMT -->
+</html>

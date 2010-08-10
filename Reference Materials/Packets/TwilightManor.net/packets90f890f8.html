@@ -1,0 +1,45 @@
+<style type='text/css'>
+.largerfnt	{font-size: larger}
+
+		.tabletop td	{color: #000000; padding: 4px 4px 0px 4px; border-top: solid #e0e000 1px; border-left: solid #e0e000 1px; border-right: solid #c0c000 1px; border-bottom: solid #c0c000 1px; background-color: #d0d000; border-collapse: collapse; }
+		.unused td	{color: #808080; padding: 1px 4px 1px 4px; border-top: solid #e0e0e0 1px; border-left: solid #e0e0e0 1px; border-right: solid #c0c0c0 1px; border-bottom: solid #c0c0c0 1px; background-color: #d0d0d0;}
+		.gray td	{color: #808080; padding: 1px 4px 1px 4px; border-top: solid #e0e0e0 1px; border-left: solid #e0e0e0 1px; border-right: solid #c0c0c0 1px; border-bottom: solid #c0c0c0 1px; background-color: #d0d0d0;}
+		.packet td	{color: #2222ff; font-size: larger;  padding: 1px 4px 1px 4px; border-top: solid #e0e0e0 1px; border-left: solid #e0e0e0 1px; border-right: solid #c0c0c0 1px; border-bottom: solid #c0c0c0 1px; background-color: #d0d0d0; }
+		.vardat td	{color: #000000;  padding: 1px 4px 1px 4px; border-top: solid #e0e0e0 1px; border-left: solid #e0e0e0 1px; border-right: solid #c0c0c0 1px; border-bottom: solid #c0c0c0 1px; background-color: #d0d0d0; }
+		.black td	{color: #000000;  padding: 1px 4px 1px 4px; border-top: solid #e0e0e0 1px; border-left: solid #e0e0e0 1px; border-right: solid #c0c0c0 1px; border-bottom: solid #c0c0c0 1px; background-color: #d0d0d0; }
+		.notes td	{color: #000000;  padding: 1px 4px 1px 4px; border-top: solid #e0e0e0 1px; border-left: solid #e0e0e0 1px; border-right: solid #c0c0c0 1px; border-bottom: solid #c0c0c0 1px; background-color: #d0d0d0; }
+		.notestd	{color: #000000;  padding: 1px 4px 1px 4px; border-top: solid #e0e0e0 1px; border-left: solid #e0e0e0 1px; border-right: solid #c0c0c0 1px; border-bottom: solid #c0c0c0 1px; background-color: #d0d0d0; }
+		.up			{border: solid #e0e0e0 1px; border-bottom: solid #d0d000 1px; background-color: #d0d000; margin: 0px;}
+		.Server		{color: red; }
+		.Client		{color: #2222ff; }
+		.Both		{color: green; }
+		.subpacket td	{padding: 1px 4px 1px 4px; border-top: solid #b0b0b0 1px; border-left: solid #b0b0b0 1px; border-right: solid #909090 1px; border-bottom: solid #909090 1px; background-color: #a0a0a0; }
+		.blue		{color: #2222ff;}
+		</style><html>
+<!-- Mirrored from www.twilightmanor.net/se/packets.php?style=gold&id=17 by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:33:22 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/SE%20packet%20guide/www.twilightmanor.net/se/packets90f8.html?style=gold&id=17 by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:19:17 GMT -->
+<head><title>0x07 - Item Pickup Request (7 bytes) - UO Packet Guide</title><link rel="icon" href="favicon.ico"></head><body bgcolor="#ffffff"><table width=70% cellspacing=0 border=0 cellpadding=0><tr class=tabletop><td><a href="packetsebc9ebc9.html?style=plain&amp;id=17">Plain</a> (Printer-friendly)</td><td><a href="packets90f890f8.html?style=gold&amp;id=17">Gold</a> (Original packet guide style)</td><td><a href="packets6c926c92.html?style=block&amp;id=17">Block</a> (Yellow and grey blocks)</td><td><a href="packets0c540c54.html?style=inverted&amp;id=17">Inverted</a> (Black background, white text)</td></tr></table><table width=70% border=0><tr><td><center><font size=2><a href='packets40894089.html?style=gold'>Back to packet list</a></font></center></td></tr></table><p><table width=70% cellspacing=0 border=0 cellpadding=0 title='0x07 - Item Pickup Request (7 bytes)'>
+<COLGROUP><COL width=15%><COL width=15%><COL width=70%></COLGROUP><tr class='tabletop'><td>Sent By: <b><font class="Client">Client</font></b></td><td colspan=2><font size='5'><font class='blue'><b>0x07 - Item Pickup Request (7 bytes)</b></font></font></td></tr><tr class='tabletop'><td>Variable Type</td><td>Start Index</td><td>Packet/Variable Name</td></tr><tr class='packet'>
+<td>byte</td>
+<td>0</td>
+<td>Packet ID (0x07 - Item Pickup Request)</td>
+</tr>
+<tr class='vardat'>
+<td>uint</td>
+<td>1</td>
+<td>UID to pick up</td>
+</tr>
+<tr class='vardat'>
+<td>ushort</td>
+<td>5</td>
+<td>Number of items in stack</td>
+</tr>
+<tr class='notes'><td colspan=3>The UID should always be checked to be sure it exists, is an item, and is grabbable.<br>	<p>This is sent when the client tries to drag an item. The client will send either packet <a href='packets70197019.html?id=18&amp;style=gold'>0x08</a><br>	or <a href='packets4b894b89.html?id=21&amp;style=gold'>0x13</a> when it wants to put the item down somewhere.</td></tr></table><table width=70%><COLGROUP><COL width=40%><COL width=10%><COL width=10%><COL width=40%></COLGROUP><tr><td></td></tr></table>
+<p><p><table width=70% cellspacing=0 border=0 cellpadding=0>
+<COLGROUP><COL width=40%><COL width=15%><COL width=45%></COLGROUP><tr class='tabletop'><td colspan=3 class=largerfnt><center>Subpackets for 0x07</center></td></tr><tr class='tabletop'><td>Packet Name</td><td>Packet ID</td><td>Sent By</td></tr></table>
+<br><hr noshade width=70% align=left><table width=70% border=0><tr><td><center><font size=2><a href='packets40894089.html?style=gold'>Back to packet list</a></font></center></td></tr></table></body>
+<!-- Mirrored from www.twilightmanor.net/se/packets.php?style=gold&id=17 by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:33:22 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/SE%20packet%20guide/www.twilightmanor.net/se/packets90f8.html?style=gold&id=17 by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:19:17 GMT -->
+</html>

@@ -1,0 +1,108 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/packeta9.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:30:02 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packeta9.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:24:01 GMT -->
+<head>
+    <title>Ultima Online Protocol :: Character List</title>
+  </head>
+  <link href="shared/style.css" type="text/css" rel="stylesheet">
+  <body>
+    <center><strong>Ultima Online Protocol :: Character List</strong></center>
+    <table align="center" border="1" cellpadding="5" cellspacing="0" bordercolor="#000000">
+      <tr>
+        <th width="100">Packet #</th>
+        <th width="150">Packet Name</th>
+        <th width="100">Length</th>
+        <th width="50"><acronym title="Does the client send this message?">Client</acronym></th>
+        <th width="50"><acronym title="Does the server send this message?">Server</acronym></th>
+        <th width="50"><acronym title="If the latest client does not use a packet, the packet is considered to be obsolete.">Obsolete</acronym></th>
+      </tr>
+      <!--0xA9 - Character List-->
+      <tr>
+        <td align="center">0xA9</td>
+        <td align="center">Character List</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <tr>
+        <th>Data Type</th>
+        <th colspan="5">Description</th>
+      </tr>
+      <tr>
+        <td>byte 0xA9</td>
+        <td colspan="5">The packet number.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> Size</td>
+        <td colspan="5">The size of the packet.</td>
+      </tr>
+      <tr>
+        <td>byte num_chars</td>
+        <td colspan="5">The number of characters in the list.</td>
+      </tr>
+      <tr>
+        <td>
+          loop<br>
+          {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<acronym title="An array of characters (a byte representing a single string character).">char</acronym>[30] name<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<acronym title="An array of characters (a byte representing a single string character).">char</acronym>[30] password<br>
+          }
+        </td>
+        <td colspan="5">This loop contains the name and password (if any) of each character in the list.  Loop for num_chars.</td>
+      </tr>
+      <tr>
+        <td>byte num_cities</td>
+        <td colspan="5">The number of cities in the list.</td>
+      </tr>
+      <tr>
+        <td>
+          loop<br>
+          {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;byte Index<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<acronym title="An array of characters (a byte representing a single string character).">char</acronym>[30] name<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;byte 0x00<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<acronym title="An array of characters (a byte representing a single string character).">char</acronym>[30] tavern<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;byte 0x00<br>
+          }
+        </td>
+        <td colspan="5">
+          This loop contains the name of each town and inn/tavern in the list of cities.  Loop for num_cities.<br><br>
+          <strong>Index</strong>: The city's 0-based index number inside the loop.<br>
+          <strong>0x00</strong>: Null terminator.
+        </td>
+      </tr>
+      <tr>
+        <td><acronym title="A 32-bit unsigned integer.">uint</acronym> Flags</td>
+        <td colspan="5">
+          Server features to enable:<br><br>
+          0x00000000 - None<br>
+          0x00000001 - Unknown<br>
+          0x00000002 - IGR Client<br>
+          0x00000004 - Limit Characters<br>
+          0x00000008 - Context Menus<br>
+          0x00000010 - One Character<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- To enable this you must also include the 0x00000004 flag.<br><br>
+          0x00000020 - Age of Shadows<br>
+          0x00000040 - Sixth Character Slot<br><br>
+          Note that Flags may not be present in the packet.
+        </td>
+      </tr>
+      <tr>
+        <td colspan="6"><br>
+          <b>Packet Description:</b><br>
+          This packet sends the list of characters and cities.<br>
+          In older clients, the Login OK packet accomplished this.<br>
+          Also, some clients may require that all five characters be sent even if they are not used.<br><br>
+          Note: To enable the creation of AOS characters, the <a href="packetb9.htm">Features</a> packet must be sent prior to this packet; the same goes for the Sixth Character Slot.<br><br>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/packeta9.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:30:02 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packeta9.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:24:01 GMT -->
+</html>

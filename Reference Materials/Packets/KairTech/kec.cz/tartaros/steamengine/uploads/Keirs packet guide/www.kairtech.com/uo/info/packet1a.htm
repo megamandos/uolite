@@ -1,0 +1,112 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/packet1a.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:42 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet1a.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:57 GMT -->
+<head>
+    <title>Ultima Online Protocol :: Show Item</title>
+  </head>
+  <link href="shared/style.css" type="text/css" rel="stylesheet">
+  <body>
+    <center><strong>Ultima Online Protocol :: Show Item</strong></center>
+    <table align="center" border="1" cellpadding="5" cellspacing="0" bordercolor="#000000">
+      <tr>
+        <th width="100">Packet #</th>
+        <th width="150">Packet Name</th>
+        <th width="100">Length</th>
+        <th width="50"><acronym title="Does the client send this message?">Client</acronym></th>
+        <th width="50"><acronym title="Does the server send this message?">Server</acronym></th>
+        <th width="50"><acronym title="If the latest client does not use a packet, the packet is considered to be obsolete.">Obsolete</acronym></th>
+      </tr>
+      <!--0x1A - Show Item-->
+      <tr>
+        <td align="center">0x1A</td>
+        <td align="center">Show Item</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <tr>
+        <th>Data Type</th>
+        <th colspan="5">Description</th>
+      </tr>
+      <tr>
+        <td>byte 0x1A</td>
+        <td colspan="5">The packet number.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> Size</td>
+        <td colspan="5">The size of the packet.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 32-bit unsigned integer.">uint</acronym> Serial</td>
+        <td colspan="5">
+          The item's serial.<br>
+          Include the flag 0x80000000 if the item's amount is greater than one.
+        </td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> Artwork</td>
+        <td colspan="5">
+          The item's artwork number.<br>
+          Include the flag 0x8000 if the item's stackid is greater than zero.
+        </td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> Amount</td>
+        <td colspan="5">
+          The amount of the item present.  This should always be greater than zero.<br>
+          This is only included if Serial includes 0x80000000.
+         </td>
+      </tr>
+      <tr>
+        <td>byte StackID</td>
+        <td colspan="5">The number to add to the item's artwork when Amount > 1.<br>Include this only if Artwork includes 0x8000.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> X</td>
+        <td colspan="5">
+          The item's X-axis position.<br>
+          If the item's direction is not zero, include the flag 0x8000.
+        </td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> Y</td>
+        <td colspan="5">
+          The item's Y-axis position.<br>If the item's status is not zero, include the flag 0x4000.<br>
+          If the item's hue is not zero, include the flag 0x8000.
+        </td>
+      </tr>
+      <tr>
+        <td>byte Direction</td>
+        <td colspan="5">
+          The direction (<a href="CS/direction.htm">C#</a>|<a href="VB7/direction.htm">VB7</a>) the item is facing.<br>
+          Include this only if X includes 0x8000.
+        </td>
+      </tr>
+      <tr>
+        <td>byte Z</td>
+        <td colspan="5">The item's Z-axis position.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> Hue</td>
+        <td colspan="5">The item's hue.<br>Include this only if Y includes 0x8000.</td>
+      </tr>
+      <tr>
+        <td>byte Status</td>
+        <td colspan="5">The item's status.<br>Include this only if Y includes 0x4000.</td>
+      </tr>
+      <tr>
+        <td colspan="6"><br>
+          <b>Packet Description:</b><br>
+          This is sent by the server to display an item on the ground.<br><br>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/packet1a.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:42 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet1a.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:57 GMT -->
+</html>

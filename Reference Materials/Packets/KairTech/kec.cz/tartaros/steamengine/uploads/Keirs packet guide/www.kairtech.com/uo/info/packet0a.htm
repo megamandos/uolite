@@ -1,0 +1,92 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/packet0a.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:41 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet0a.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:57 GMT -->
+<head>
+    <title>Ultima Online Protocol :: Edit</title>
+  </head>
+  <link href="shared/style.css" type="text/css" rel="stylesheet">
+  <body>
+    <center><strong>Ultima Online Protocol :: Edit</strong></center>
+    <table align="center" border="1" cellpadding="5" cellspacing="0" bordercolor="#000000">
+      <tr>
+        <th width="100">Packet #</th>
+        <th width="150">Packet Name</th>
+        <th width="100">Length</th>
+        <th width="50"><acronym title="Does the client send this message?">Client</acronym></th>
+        <th width="50"><acronym title="Does the server send this message?">Server</acronym></th>
+        <th width="50"><acronym title="If the latest client does not use a packet, the packet is considered to be obsolete.">Obsolete</acronym></th>
+      </tr>
+      <!--0x0A - Edit-->
+      <tr bgcolor="#F0F0F0" class="godcli">
+        <td align="center">0x0A</td>
+        <td align="center">Edit</td>
+        <td align="center">0x000B</td>
+        <td align="center"><img src="shared/check.gif" border="0"</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <tr>
+        <th>Data Type</th>
+        <th colspan="5">Description</th>
+      </tr>
+      <tr>
+        <td>byte 0x0A</td>
+        <td colspan="5">The packet number.</td>
+      </tr>
+      <tr>
+        <td>byte Command</td>
+        <td colspan="5">The command being sent.<br><br>
+          <ul>
+            <li>0x0004 - Add New Dynamic Item</a></li>
+            <li>0x0006 - Hackmove Request</li>
+            <li>0x0007 - Add New NPC</li>
+            <li>0x000A - Add New Static Item</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> X</td>
+        <td colspan="5">
+          The new object's x-axis position.<br><br>
+          If Command is HackMove Request, this will be a boolean value (still 16-bit) representing the requested mode.
+        </td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> Y</td>
+        <td colspan="5">
+          The new object's y-axis position.
+        </td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> ItemID</td>
+        <td colspan="5">
+          The new object's id.  If Command is Add New NPC, this is the template number.
+        </td>
+      </tr>
+      <tr>
+        <td>byte Z</td>
+        <td colspan="5">
+          The new object's z-axis position.
+        </td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> Extra</td>
+        <td colspan="5">
+          Extra data.
+        </td>
+      </tr>
+      <tr>
+        <td colspan="6"><br>
+          <b>Packet Description:</b><br>
+          This packet is used by the god client to perform various tasks, most of them related to adding things.<br><br>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/packet0a.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:41 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet0a.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:57 GMT -->
+</html>

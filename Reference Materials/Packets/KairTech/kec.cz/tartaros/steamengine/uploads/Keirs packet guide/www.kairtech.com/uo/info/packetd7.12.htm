@@ -1,0 +1,75 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/packetd7.12.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:30:13 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packetd7.12.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:24:07 GMT -->
+<head>
+    <title>Ultima Online Protocol :: AOS Command :: Switch Floors</title>
+  </head>
+  <link href="shared/style.css" type="text/css" rel="stylesheet">
+  <body>
+    <center><strong>Ultima Online Protocol :: AOS Command :: Switch Floors</strong></center>
+    <table align="center" border="1" cellpadding="5" cellspacing="0" bordercolor="#000000">
+      <tr>
+        <th width="100">Packet #</th>
+        <th width="150">Packet Name</th>
+        <th width="100">Length</th>
+        <th width="50"><acronym title="Does the client send this message?">Client</acronym></th>
+        <th width="50"><acronym title="Does the server send this message?">Server</acronym></th>
+        <th width="50"><acronym title="If the latest client does not use a packet, the packet is considered to be obsolete.">Obsolete</acronym></th>
+      </tr>
+      <!--0xD7.12 - AOS Command::Switch Floors-->
+      <tr class="aos">
+        <td align="center">0xD7</td>
+        <td align="center">AOS Command</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <tr>
+        <th>Data Type</th>
+        <th colspan="5">Description</th>
+      </tr>
+      <tr>
+        <td>byte 0xD7</td>
+        <td colspan="5">The packet number.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> Size</td>
+        <td colspan="5">The size of the packet.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 32-bit integer.">uint</acronym> Serial</td>
+        <td colspan="5">The character's serial.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> 0x0012</td>
+        <td colspan="5">The command being sent.<br><br>
+          <ul>
+            <li>0x0012 - House Customization :: Switch Floors</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>byte 0x00</td>
+        <td colspan="5">Unknown</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 32-bit integer.">uint</acronym> Floor</td>
+        <td colspan="5">The floor to switch to.</td>
+      </tr>
+      <tr>
+        <td>byte 0x07</td>
+        <td colspan="5">Unknown</td>
+      </tr>
+      <tr>
+        <td colspan="6"><br><b>Packet Description:</b><br>This is sent when the user switches floors in House Customization mode.<br><br></td>
+      </tr>
+    </table>
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/packetd7.12.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:30:13 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packetd7.12.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:24:07 GMT -->
+</html>

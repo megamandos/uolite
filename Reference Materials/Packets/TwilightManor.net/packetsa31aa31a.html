@@ -1,0 +1,50 @@
+<style type='text/css'>
+.largerfnt	{font-size: larger}
+			A:link {text-decoration: none; color: #0099FF}
+			A:visited {text-decoration: none; color: #0099FF}
+			A:active {text-decoration: none; color: #0099FF}
+			A:hover {text-decoration: underline; color: #7D919F}
+		body,td,th {
+			font-family: Verdana, Arial, Helvetica, sans-serif;
+			font-size: 12px;
+			color: #FFFFFF;
+		}
+		body {
+			background-color: #000000;
+			margin-left: 0px;
+			margin-top: 0px;
+			margin-right: 0px;
+			margin-bottom: 0px;
+		}
+		.Server		{color: red; }
+		.Client		{color: blue; }
+		.Both		{color: green; }
+		.subpacket td	{color: #FFFFFF; }
+	</style><html>
+<!-- Mirrored from www.twilightmanor.net/se/packets.php?style=inverted&id=29 by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:33:23 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/SE%20packet%20guide/www.twilightmanor.net/se/packetsa31a.html?style=inverted&id=29 by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:19:17 GMT -->
+<head><title>0x80 - Login & Request Shard List (62 bytes) - UO Packet Guide</title><link rel="icon" href="favicon.ico"></head><body bgcolor="#ffffff"><table width=70% cellspacing=0 border=0 cellpadding=1><tr class=tabletop><td><a href="packetsd202d202.html?style=plain&amp;id=29">Plain</a> (Printer-friendly)</td><td><a href="packets533d533d.html?style=gold&amp;id=29">Gold</a> (Original packet guide style)</td><td><a href="packets166c166c.html?style=block&amp;id=29">Block</a> (Yellow and grey blocks)</td><td><a href="packetsa31aa31a.html?style=inverted&amp;id=29">Inverted</a> (Black background, white text)</td></tr></table><table width=70% border=0><tr><td><center><font size=2><a href='packetsd9c7d9c7.html?style=inverted'>Back to packet list</a></font></center></td></tr></table><p><table width=70% cellspacing=0 border=0 cellpadding=1 title='0x80 - Login & Request Shard List (62 bytes)'>
+<COLGROUP><COL width=15%><COL width=15%><COL width=70%></COLGROUP><tr class='tabletop'><td>Sent By: <b><font class="Client">Client</font></b></td><td colspan=2><font size='5'><font class='blue'><b>0x80 - Login & Request Shard List (62 bytes)</b></font></font></td></tr><tr class='tabletop'><td>Variable Type</td><td>Start Index</td><td>Packet/Variable Name</td></tr><tr class='packet'>
+<td>byte</td>
+<td>0</td>
+<td>Packet ID (0x80 - Login & Request Shard List)</td>
+</tr>
+<tr class='black'>
+<td>char[30]</td>
+<td>1</td>
+<td>Account Name</td>
+</tr>
+<tr class='black'>
+<td>char[30]</td>
+<td>31</td>
+<td>Account Password</td>
+</tr>
+<tr class='notes'><td colspan=3>When the client connects to the server, it always sends four bytes first, which are the client's local IP, but are intended to be used as the encryption seed. They're ignorable unless you're using encrypted clients.<br><p>Upon the first connection attempt to a server, the client sends this packet, which comes immediately after the four initialization bytes, though whether it is in its own TCP packet or not depends on the client sending. It is safe to disgregard the account name and pass in the packet and just send the server list, unless you don't want people without accounts to even see the name of your shard.<br><br>Server should respond with packet <a href='packets5dae5dae.html?id=33&amp;style=inverted'>0xA8</a></td></tr></table><table width=70%><COLGROUP><COL width=40%><COL width=10%><COL width=10%><COL width=40%></COLGROUP><tr><td></td></tr></table>
+<p><p><table width=70% cellspacing=0 border=0 cellpadding=1>
+<COLGROUP><COL width=40%><COL width=15%><COL width=45%></COLGROUP><tr class='tabletop'><td colspan=3 class=largerfnt><center>Subpackets for 0x80</center></td></tr><tr class='tabletop'><td>Packet Name</td><td>Packet ID</td><td>Sent By</td></tr></table>
+<br><hr noshade width=70% align=left><table width=70% border=0><tr><td><center><font size=2><a href='packetsd9c7d9c7.html?style=inverted'>Back to packet list</a></font></center></td></tr></table></body>
+<!-- Mirrored from www.twilightmanor.net/se/packets.php?style=inverted&id=29 by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:33:23 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/SE%20packet%20guide/www.twilightmanor.net/se/packetsa31a.html?style=inverted&id=29 by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:19:17 GMT -->
+</html>

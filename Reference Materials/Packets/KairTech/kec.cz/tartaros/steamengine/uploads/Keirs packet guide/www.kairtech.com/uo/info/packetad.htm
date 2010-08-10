@@ -1,0 +1,103 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/packetad.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:30:02 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packetad.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:24:01 GMT -->
+<head>
+    <title>Ultima Online Protocol :: Speech Unicode</title>
+  </head>
+  <link href="shared/style.css" type="text/css" rel="stylesheet">
+  <body>
+    <center><strong>Ultima Online Protocol :: Speech Unicode</strong></center>
+    <table align="center" border="1" cellpadding="5" cellspacing="0" bordercolor="#000000">
+      <tr>
+        <th width="100">Packet #</th>
+        <th width="150">Packet Name</th>
+        <th width="100">Length</th>
+        <th width="50"><acronym title="Does the client send this message?">Client</acronym></th>
+        <th width="50"><acronym title="Does the server send this message?">Server</acronym></th>
+        <th width="50"><acronym title="If the latest client does not use a packet, the packet is considered to be obsolete.">Obsolete</acronym></th>
+      </tr>
+      <!--0xAD - Speech Unicode-->
+      <tr>
+        <td align="center">0xAD</td>
+        <td align="center">Speech Unicode</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <tr>
+        <th>Data Type</th>
+        <th colspan="5">Description</th>
+      </tr>
+      <tr>
+        <td>byte 0xAD</td>
+        <td colspan="5">The packet number.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> Size</td>
+        <td colspan="5">The size of the packet.</td>
+      </tr>
+      <tr>
+        <td>byte Mode</td>
+        <td colspan="5">
+          The speech mode.
+          <ul>
+            <li>0x00 - Regular</li>
+            <li>0x01 - Broadcast</li>
+            <li>0x02 - Emote</li>
+            <li>0x06 - System</li>
+            <li>0x07 - Message</li>
+            <li>0x08 - Whisper</li>
+            <li>0x09 - Yell</li>
+          </ul>
+          The flag 0xC0 is included if the message contains keyword information.
+        </td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> Hue</td>
+        <td colspan="5">The hue of the message.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> Font</td>
+        <td colspan="5">The font number.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An array of characters.">char</acronym>[4] Language</td>
+        <td colspan="5">The client's language preference.</td>
+      </tr>
+      <tr>
+        <td>byte[] KeywordInfo</td>
+        <td colspan="5">
+          If Mode includes the keyword flag (0xC0), this information will be present.<br><br>
+          This is an array of 12-bit integers padded into a byte array.<br>
+          The first 12-bit integer contains the number of keywords in the array.<br><br>
+          nrKeywords = (KeywordInfo[0] << 4) + (KeywordInfo[1] >> 4);<br>
+          keyword1 = ((KeywordInfo[1] % 0x10) << 8) + KeywordInfo[2];<br>
+          keyword2 = (KeywordInfo[3] << 8) + (KeywordInfo[4] >> 4);<br>
+          keyword3 = ((KeywordInfo[4] % 0x10) << 8) + KeywordInfo[5];<br><br>
+          and so on...
+        </td>
+      </tr>
+      <tr>
+        <td><acronym title="An array of unicode characters.">uni</acronym>[] Text</td>
+        <td colspan="5">The client's message.</td>
+      </tr>
+      <tr>
+        <td>byte 0x00</td>
+        <td colspan="5">Null terminator for Text.</td>
+      </tr>
+      <tr>
+        <td colspan="6"><br>
+          <b>Packet Description:</b><br>
+          Clients send this packet when talking.<br><br>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/packetad.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:30:02 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packetad.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:24:01 GMT -->
+</html>

@@ -1,0 +1,104 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/packetd2.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:30:05 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packetd2.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:24:02 GMT -->
+<head>
+    <title>Ultima Online Protocol :: Update Mobile</title>
+  </head>
+  <link href="shared/style.css" type="text/css" rel="stylesheet">
+  <body>
+    <center><strong>Ultima Online Protocol :: Update Mobile</strong></center>
+    <table align="center" border="1" cellpadding="5" cellspacing="0" bordercolor="#000000">
+      <tr>
+        <th width="100">Packet #</th>
+        <th width="150">Packet Name</th>
+        <th width="100">Length</th>
+        <th width="50"><acronym title="Does the client send this message?">Client</acronym></th>
+        <th width="50"><acronym title="Does the server send this message?">Server</acronym></th>
+        <th width="50"><acronym title="If the latest client does not use a packet, the packet is considered to be obsolete.">Obsolete</acronym></th>
+      </tr>
+      <!--0xD2 - Update Mobile-->
+      <tr>
+        <td align="center">0xD2</td>
+        <td align="center">Update Mobile</td>
+        <td align="center">0x0019</td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <tr>
+        <th>Data Type</th>
+        <th colspan="5">Description</th>
+      </tr>
+      <tr>
+        <td>byte 0xD2</td>
+        <td colspan="5">The packet number.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 32-bit unsigned integer.">uint</acronym> Serial</td>
+        <td colspan="5">The character's serial.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> Body</td>
+        <td colspan="5">The character's body number.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> X</td>
+        <td colspan="5">The character's x-axis position.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> Y</td>
+        <td colspan="5">The character's y-axis position.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An 8-bit signed integer.">sbyte</acronym> Z</td>
+        <td colspan="5">The character's z-axis position.</td>
+      </tr>
+      <tr>
+        <td>byte Direction</td>
+        <td colspan="5">The character's direction (<a href="CS/direction.htm">C#</a>|<a href="VB7/direction.htm">VB7</a>).</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> Hue</td>
+        <td colspan="5">The character's hue.</td>
+      </tr>
+      <tr>
+        <td>byte Status</td>
+        <td colspan="5">The character's status (<a href="CS/mobilestatus.htm">C#</a>|<a href="VB7/mobilestatus.htm">VB7</a>).</td>
+      </tr>
+      <tr>
+        <td>byte Notoriety</td>
+        <td colspan="5">The character's notoriety.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> Unknown</td>
+        <td colspan="5">Unknown.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> Unknown</td>
+        <td colspan="5">Unknown.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> Unknown</td>
+        <td colspan="5">Unknown.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> Unknown</td>
+        <td colspan="5">Unknown.</td>
+      </tr>
+      <tr>
+        <td colspan="6"><br>
+          <b>Packet Description:</b><br>
+          This packet updates a character onscreen, similar to the <a href="packet77.htm">Naked MOB</a> packet.<br>
+          This packet works somewhat with an item, but whether or not this is intentional is not known.<br><br>
+          The exact purpose of this packet is unknown.<br><br>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/packetd2.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:30:05 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packetd2.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:24:02 GMT -->
+</html>

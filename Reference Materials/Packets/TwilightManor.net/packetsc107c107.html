@@ -1,0 +1,185 @@
+<style type='text/css'>
+.largerfnt	{font-size: larger}
+			A:link {text-decoration: none; color: #0099FF}
+			A:visited {text-decoration: none; color: #0099FF}
+			A:active {text-decoration: none; color: #0099FF}
+			A:hover {text-decoration: underline; color: #7D919F}
+		body,td,th {
+			font-family: Verdana, Arial, Helvetica, sans-serif;
+			font-size: 12px;
+			color: #FFFFFF;
+		}
+		body {
+			background-color: #000000;
+			margin-left: 0px;
+			margin-top: 0px;
+			margin-right: 0px;
+			margin-bottom: 0px;
+		}
+		.Server		{color: red; }
+		.Client		{color: blue; }
+		.Both		{color: green; }
+		.subpacket td	{color: #FFFFFF; }
+	</style><html>
+<!-- Mirrored from www.twilightmanor.net/se/packets.php?id=20&style= by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:33:48 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/SE%20packet%20guide/www.twilightmanor.net/se/packetsc107.html?id=20&style= by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:19:39 GMT -->
+<head><title>0x11 - Character Status - UO Packet Guide</title><link rel="icon" href="favicon.ico"></head><body bgcolor="#ffffff"><table width=70% cellspacing=0 border=0 cellpadding=1><tr class=tabletop><td><a href="packets73ff73ff.html?style=plain&amp;id=20">Plain</a> (Printer-friendly)</td><td><a href="packets59665966.html?style=gold&amp;id=20">Gold</a> (Original packet guide style)</td><td><a href="packetsf537f537.html?style=block&amp;id=20">Block</a> (Yellow and grey blocks)</td><td><a href="packets12491249.html?style=inverted&amp;id=20">Inverted</a> (Black background, white text)</td></tr></table><table width=70% border=0><tr><td><center><font size=2><a href='packets80bc80bc.html?style='>Back to packet list</a></font></center></td></tr></table><p><table width=70% cellspacing=0 border=0 cellpadding=1 title='0x11 - Character Status'>
+<COLGROUP><COL width=15%><COL width=15%><COL width=70%></COLGROUP><tr class='tabletop'><td>Sent By: <b><font class="Server">Server</font></b></td><td colspan=2><font size='5'><font class='blue'><b>0x11 - Character Status</b></font></font></td></tr><tr class='tabletop'><td>Variable Type</td><td>Start Index</td><td>Packet/Variable Name</td></tr><tr class='packet'>
+<td>byte</td>
+<td>0</td>
+<td>Packet ID (0x11 - Character Status)</td>
+</tr>
+<tr class='vardat'>
+<td>ushort</td>
+<td>1</td>
+<td>Blocksize</td>
+</tr>
+<tr class='vardat'>
+<td>uint</td>
+<td>3</td>
+<td>UID of character</td>
+</tr>
+<tr class='vardat'>
+<td>ASCII string (30 bytes)</td>
+<td>7</td>
+<td>Character name.</td>
+</tr>
+<tr class='vardat'>
+<td>short</td>
+<td>37</td>
+<td>Hitpoints</td>
+</tr>
+<tr class='vardat'>
+<td>short</td>
+<td>39</td>
+<td>Maximum hitpoints</td>
+</tr>
+<tr class='vardat'>
+<td>byte</td>
+<td>41</td>
+<td>Can be renamed (if 1)</td>
+</tr>
+<tr class='vardat'>
+<td>byte</td>
+<td>42</td>
+<td>More information (0 if the packet ends here, 1 to include gender, str, dex, int, stam, maxstam, mana, maxmana, gold, armor, and weight, 3 to also include skill cap, num pets, and max pets, 4 to also include fire resist, cold resist, poison resist, energy resist, luck, damage min, damage max, and the 4 unknown bytes.)</td>
+</tr>
+<tr class='vardat'>
+<td>byte</td>
+<td>43</td>
+<td>Gender</td>
+</tr>
+<tr class='vardat'>
+<td>short</td>
+<td>44</td>
+<td>Strength</td>
+</tr>
+<tr class='vardat'>
+<td>short</td>
+<td>46</td>
+<td>Dexterity</td>
+</tr>
+<tr class='vardat'>
+<td>short</td>
+<td>48</td>
+<td>Intelligence</td>
+</tr>
+<tr class='vardat'>
+<td>short</td>
+<td>50</td>
+<td>Stamina</td>
+</tr>
+<tr class='vardat'>
+<td>short</td>
+<td>52</td>
+<td>Max Stamina</td>
+</tr>
+<tr class='vardat'>
+<td>short</td>
+<td>54</td>
+<td>Mana</td>
+</tr>
+<tr class='vardat'>
+<td>short</td>
+<td>56</td>
+<td>Max Mana</td>
+</tr>
+<tr class='vardat'>
+<td>int</td>
+<td>58</td>
+<td>Gold belonging to the character</td>
+</tr>
+<tr class='vardat'>
+<td>ushort</td>
+<td>62</td>
+<td>Armor (Physical resistance)</td>
+</tr>
+<tr class='vardat'>
+<td>ushort</td>
+<td>64</td>
+<td>Weight (in stones)</td>
+</tr>
+<tr class='vardat'>
+<td>ushort</td>
+<td>66</td>
+<td>Stat cap</td>
+</tr>
+<tr class='vardat'>
+<td>byte</td>
+<td>68</td>
+<td>Number of followers</td>
+</tr>
+<tr class='vardat'>
+<td>byte</td>
+<td>69</td>
+<td>Maximum number of followers</td>
+</tr>
+<tr class='vardat'>
+<td>short</td>
+<td>70</td>
+<td>Fire resistance</td>
+</tr>
+<tr class='vardat'>
+<td>short</td>
+<td>72</td>
+<td>Cold resistance</td>
+</tr>
+<tr class='vardat'>
+<td>short</td>
+<td>74</td>
+<td>Poison resistance</td>
+</tr>
+<tr class='vardat'>
+<td>short</td>
+<td>76</td>
+<td>Energy resistance</td>
+</tr>
+<tr class='vardat'>
+<td>short</td>
+<td>78</td>
+<td>Luck</td>
+</tr>
+<tr class='vardat'>
+<td>short</td>
+<td>80</td>
+<td>Minimum damage</td>
+</tr>
+<tr class='vardat'>
+<td>short</td>
+<td>82</td>
+<td>Maximum damage</td>
+</tr>
+<tr class='vardat'>
+<td>byte[4]</td>
+<td>84</td>
+<td>Tithing points</td>
+</tr>
+<tr class='notes'><td colspan=3>This is sent by the server when the client requests status info (alt-s or drag HP bar from someone).<br>	<p>HP/MaxHP should be a ratio and not the actual HP/MaxHP when sending info on someone OTHER than the </td></tr></table><table width=70%><COLGROUP><COL width=40%><COL width=10%><COL width=10%><COL width=40%></COLGROUP><tr><td></td></tr></table>
+<p><p><table width=70% cellspacing=0 border=0 cellpadding=1>
+<COLGROUP><COL width=40%><COL width=15%><COL width=45%></COLGROUP><tr class='tabletop'><td colspan=3 class=largerfnt><center>Subpackets for 0x11</center></td></tr><tr class='tabletop'><td>Packet Name</td><td>Packet ID</td><td>Sent By</td></tr></table>
+<br><hr noshade width=70% align=left><table width=70% border=0><tr><td><center><font size=2><a href='packets80bc80bc.html?style='>Back to packet list</a></font></center></td></tr></table></body>
+<!-- Mirrored from www.twilightmanor.net/se/packets.php?id=20&style= by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:33:48 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/SE%20packet%20guide/www.twilightmanor.net/se/packetsc107.html?id=20&style= by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:19:39 GMT -->
+</html>

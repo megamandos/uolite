@@ -1,0 +1,71 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/packet21.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:43 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet21.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:57 GMT -->
+<head>
+    <title>Ultima Online Protocol :: Block Movement</title>
+  </head>
+  <link href="shared/style.css" type="text/css" rel="stylesheet">
+  <body>
+    <center><strong>Ultima Online Protocol :: Block Movement</strong></center>
+    <table align="center" border="1" cellpadding="5" cellspacing="0" bordercolor="#000000">
+      <tr>
+        <th width="100">Packet #</th>
+        <th width="150">Packet Name</th>
+        <th width="100">Length</th>
+        <th width="50"><acronym title="Does the client send this message?">Client</acronym></th>
+        <th width="50"><acronym title="Does the server send this message?">Server</acronym></th>
+        <th width="50"><acronym title="If the latest client does not use a packet, the packet is considered to be obsolete.">Obsolete</acronym></th>
+      </tr>
+      <!--0x21 - Block Movement-->
+      <tr>
+        <td align="center">0x21</td>
+        <td align="center">Block Movement</td>
+        <td align="center">0x0008</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <tr>
+        <th>Data Type</th>
+        <th colspan="5">Description</th>
+      </tr>
+      <tr>
+        <td>byte 0x21</td>
+        <td colspan="5">The packet number.</td>
+      </tr>
+      <tr>
+        <td>byte Sequence</td>
+        <td colspan="5">The movement sequence that was blocked.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> X</td>
+        <td colspan="5">The X-axis position to jump back to.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> Y</td>
+        <td colspan="5">The Y-axis position to jump back to.</td>
+      </tr>
+      <tr>
+        <td>byte Direction</td>
+        <td colspan="5">The direction (<a href="CS/direction.htm">C#</a>|<a href="VB7/direction.htm">VB7</a>) the player was facing.</td>
+      </tr>
+      <tr>
+        <td>byte Z</td>
+        <td colspan="5">The Z-axis position to jump back to.</td>
+      </tr>
+      <tr>
+        <td colspan="6"><br>
+          <b>Packet Description:</b><br>
+          This is sent by the server to reject a <a href="packet02.htm">movement request</a>.<br><br>
+          Note that sending this packet will reset the client's movement sequence to zero.<br><br>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/packet21.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:43 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet21.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:57 GMT -->
+</html>

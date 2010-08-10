@@ -1,0 +1,1361 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="design.xsl" ?>
+<!DOCTYPE Gumps SYSTEM "gumps.dtd">
+
+<Gumps>
+  <Gump id="0">
+    <Name>Do Not Display</Name>
+    <Desc>Stub gump, should never be sent</Desc>
+  </Gump>
+  <Gump id="69">
+    <Name>Siege Warning Gump</Name>
+    <Desc>Gump for siege warning</Desc>
+  </Gump>
+  <Gump id="71">
+    <Name>Test Center Warning Gump</Name>
+    <Desc>Gump for TC warning</Desc>
+  </Gump>
+  <Gump id="89">
+    <Name>Runebook Gump</Name>
+    <Desc>Sends on runebook opening</Desc>
+  </Gump>
+  <Gump id="130">
+    <Name>Young Dungeon Warning Gump</Name>
+    <Desc>Sends on entering in dungeons with young status</Desc>
+    <Note>Uses UO3D gump elements</Note>
+  </Gump>
+  <Gump id="200">
+    <Name>Treasure Map Instructions Gump</Name>
+    <Desc>Treasure Map Instructions Gump</Desc>
+  </Gump>
+  <Gump id="201">
+    <Name>Promotion Message Gump</Name>
+    <Desc>Sends after entering promocode</Desc>
+  </Gump>
+  <Gump id="244">
+    <Name>House Survey Test Gump</Name>
+    <Desc>Gump for house survey</Desc>
+  </Gump>
+  <Gump id="295">
+    <Name>Newbie Scam Gump</Name>
+    <Desc>Newbie Scam Gump</Desc>
+  </Gump>
+  <Gump id="296">
+    <Name>Stuck Menu Gump</Name>
+    <Desc>Sends on stuck menu request</Desc>
+  </Gump>
+  <Gump id="298">
+    <Name>Puzzle Gump</Name>
+    <Desc>Sends on opening puzzle chest in Khaldun. Also sends on using puzzle board in Puzzle Room in the Underworld.</Desc>
+    <Note>Uses UO3D gump elements</Note>
+  </Gump>
+  <Gump id="300">
+    <Name>Puzzle Status Gump</Name>
+    <Desc>Sends current status of puzzle (see 298 gump).</Desc>
+  </Gump>
+  <Gump id="302">
+    <Name>Query Maker's Mark Gump</Name>
+    <Desc>Gump for choice to set maker's mark in crafting.</Desc>
+  </Gump>
+  <Gump id="304">
+    <Name>SR Rating Gump</Name>
+    <Desc>Allows rating of GMs, companions, etc</Desc>
+  </Gump>
+  <Gump id="305">
+    <Name>Faction Sheriff Gump</Name>
+    <Desc>Gump for viewing faction sheriff options</Desc>
+    <Note>Uses UO3D gump elements</Note>
+  </Gump>
+  <Gump id="306">
+    <Name>Faction Finance Gump</Name>
+    <Desc>Gump for viewing faction finance options</Desc>
+    <Note>Uses UO3D gump elements</Note>
+  </Gump>
+  <Gump id="307">
+    <Name>Re-Deed Addon Gump</Name>
+    <Desc>Gump for confirmation of re-deeding addons</Desc>
+  </Gump>
+  <Gump id="308">
+    <Name>Banner Re-Deed Addon Gump</Name>
+    <Desc>Gump for confirmation of re-deeding banner addons</Desc>
+  </Gump>
+  <Gump id="309">
+    <Name>Choose ItemID For Addon With Description Gump</Name>
+    <Desc>Gump for choosing itemid for addon with description</Desc>
+  </Gump>
+  <Gump id="310">
+    <Name>Banner Choice Gump</Name>
+    <Desc>Gump for banner choice</Desc>
+  </Gump>
+  <Gump id="311">
+    <Name>Banner Deed Gump</Name>
+    <Desc>Gump for banner deed</Desc>
+  </Gump>
+  <Gump id="400">
+    <Name>Faction Master Stone Gump</Name>
+    <Desc>Gump for faction master stone</Desc>
+  </Gump>
+  <Gump id="401">
+    <Name>Facial Dye Gump</Name>
+    <Desc>Gump for choosing new facial's hue</Desc>
+  </Gump>
+  <Gump id="402">
+    <Name>Hue Picker Gump</Name>
+    <Desc>Gump for choosing hue from palette</Desc>
+  </Gump>
+  <Gump id="403">
+    <Name>Veteran Reward Statcap Gump</Name>
+    <Desc>Gump for confirming to receive veteran reward statcap bonus</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="452">
+    <Name>Veteran Reward Notice Gump</Name>
+    <Desc>Gump with information about available veteran rewards</Desc>
+  </Gump>
+  <Gump id="453">
+    <Name>Veteran Reward Choice Gump</Name>
+    <Desc>Gump for choosing available veteran rewards</Desc>
+  </Gump>
+  <Gump id="454">
+    <Name>Veteran Reward Confirm Choice Gump</Name>
+    <Desc>Gump for confirming selected veteran reward</Desc>
+  </Gump>
+  <Gump id="455">
+    <Name>BOD Accept Gump</Name>
+    <Desc>Gump for accepting new BOD offer</Desc>
+  </Gump>
+  <Gump id="456">
+    <Name>BOD Gump</Name>
+    <Desc>Gump for BOD</Desc>
+  </Gump>
+  <Gump id="460">
+    <Name>Craft Menu Gump</Name>
+    <Desc>Gump for craft menu</Desc>
+  </Gump>
+  <Gump id="462">
+    <Name>Claim List Gump</Name>
+    <Desc>Gump with claim list (stables)</Desc>
+  </Gump>
+  <Gump id="464">
+    <Name>House Placement Gump</Name>
+    <Desc>Gump for choosing house placement</Desc>
+  </Gump>
+  <Gump id="474">
+    <Name>Remove Treasure Chest Gump</Name>
+    <Desc>Gump for removing treasure chest</Desc>
+  </Gump>
+  <Gump id="475">
+    <Name>Animal Lore Gump</Name>
+    <Desc>Gump for animal lore skill</Desc>
+  </Gump>
+  <Gump id="477">
+    <Name>Pet Resurrect Gump</Name>
+    <Desc>Gump for resurrecting pets</Desc>
+  </Gump>
+  <Gump id="478">
+    <Name>Chyloth Doom Gauntlet Teleporting Gump</Name>
+    <Desc>Gump for teleporting to Doom Gauntlet</Desc>
+  </Gump>
+  <Gump id="479">
+    <Name>Doom Resurrect For Gold Gump</Name>
+    <Desc>Gump for resurrecting for gold in Doom</Desc>
+  </Gump>
+  <Gump id="484">
+    <Name>Scroll Of Abraxus Gump</Name>
+    <Desc>Scroll Of Abraxus Gump</Desc>
+  </Gump>
+  <Gump id="486">
+    <Name>House Claim Gump</Name>
+    <Desc>Gump for house claim</Desc>
+  </Gump>
+  <Gump id="487">
+    <Name>House Make Primary Confirm Gump</Name>
+    <Desc>Gump for make primary confirm</Desc>
+  </Gump>
+  <Gump id="492">
+    <Name>House Transfer Gump</Name>
+    <Desc>Gump for housing transfer</Desc>
+  </Gump>
+  <Gump id="493">
+    <Name>House Insuffient Funds Gump</Name>
+    <Desc>Gump for house insuffient funds</Desc>
+  </Gump>
+  <Gump id="494">
+    <Name>Base Notice Gump</Name>
+    <Desc>Gump for base notice</Desc>
+  </Gump>
+  <Gump id="495">
+    <Name>House Convert Gump</Name>
+    <Desc>Gump for house convert</Desc>
+  </Gump>
+  <Gump id="496">
+    <Name>House Replace Gump</Name>
+    <Desc>Gump for house replace</Desc>
+  </Gump>
+  <Gump id="500">
+    <Name>Select Reward Title Gump</Name>
+    <Desc>Gump for choosing your ML title</Desc>
+    <Note>No longer uses in SA.</Note>
+  </Gump>
+  <Gump id="501">
+    <Name>Customize House Notice Gump</Name>
+    <Desc>Gump for customize house notice</Desc>
+  </Gump>
+  <Gump id="502">
+    <Name>Clear House Access List Gump</Name>
+    <Desc>Gump for warning clear house access list</Desc>
+  </Gump>
+  <Gump id="503">
+    <Name>House Placement Commit Gump</Name>
+    <Desc>Gump for warning house placement commit</Desc>
+  </Gump>
+  <Gump id="504">
+    <Name>House Structure Notice Gump</Name>
+    <Desc>Gump for warning house structure</Desc>
+  </Gump>
+  <Gump id="506">
+    <Name>ML Hair Dye Gump</Name>
+    <Desc>Gump for ML hair dye</Desc>
+  </Gump>
+  <Gump id="507">
+    <Name>KR House Placement Tool Gump</Name>
+    <Desc>Gump for KR house placement tool</Desc>
+  </Gump>
+  <Gump id="508">
+    <Name>House Placement Warning Gump</Name>
+    <Desc>Gump for warning house placement</Desc>
+  </Gump>
+  <Gump id="600">
+    <Name>Public Moongate Gump</Name>
+    <Desc>Gump for public moongate</Desc>
+  </Gump>
+  <Gump id="601">
+    <Name>Confirm Release Gump</Name>
+    <Desc>Gump for confirm release</Desc>
+  </Gump>
+  <Gump id="603">
+    <Name>Zoo Donation Pet Gump</Name>
+    <Desc>Gump for zoo donation pet</Desc>
+  </Gump>
+  <Gump id="650">
+    <Name>Faction Vote Gump</Name>
+    <Desc>Gump for faction voting</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="651">
+    <Name>Faction Election Gump</Name>
+    <Desc>Gump for faction election</Desc>
+  </Gump>
+  <Gump id="652">
+    <Name>Interior Decorator Gump</Name>
+    <Desc>Gump for interior decorator</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="653">
+    <Name>Young Death Notice Gump</Name>
+    <Desc>Gump for young death notice</Desc>
+  </Gump>
+  <Gump id="658">
+    <Name>Summon Familiar Gump</Name>
+    <Desc>Gump for summoning familiar</Desc>
+  </Gump>
+  <Gump id="659">
+    <Name>Tithing Gump</Name>
+    <Desc>Gump for tithing</Desc>
+  </Gump>
+  <Gump id="660">
+    <Name>Sphynx Fortune Gump</Name>
+    <Desc>Gump for sphynx's fortune</Desc>
+  </Gump>
+  <Gump id="661">
+    <Name>Set Secure Level Gump</Name>
+    <Desc>Gump for settting secure level</Desc>
+  </Gump>
+  <Gump id="662">
+    <Name>Release Familiar Gump</Name>
+    <Desc>Gump for warning release familiar</Desc>
+  </Gump>
+  <Gump id="663">
+    <Name>Vendor Notice Gump</Name>
+    <Desc>Gump for vendor notice</Desc>
+  </Gump>
+  <Gump id="665">
+    <Name>Vendor Reclaim Gump</Name>
+    <Desc>Gump for vendor reclaim</Desc>
+  </Gump>
+  <Gump id="666">
+    <Name>Help Gump</Name>
+    <Desc>Gump for help menu</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="667">
+    <Name>Gift AOS Launch Gump</Name>
+    <Desc>Gump for gift aos launch menu</Desc>
+  </Gump>
+  <Gump id="668">
+    <Name>Bulk Order Book Gump</Name>
+    <Desc>Gump for bulk order book</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="669">
+    <Name>Bulk Order Book Filter Gump</Name>
+    <Desc>Gump for bulk order book filter</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="670">
+    <Name>Bulk Order Book Buy Gump</Name>
+    <Desc>Gump for bulk order book buy</Desc>
+  </Gump>
+  <Gump id="671">
+    <Name>Promotional System Failure Gump</Name>
+    <Desc>Gump for promo system failure</Desc>
+  </Gump>
+  <Gump id="672">
+    <Name>Help Problem Request Gump</Name>
+    <Desc>Gump for help problem request</Desc>
+  </Gump>
+  <Gump id="673">
+    <Name>Tapestry Of Sosaria Gump</Name>
+    <Desc>Gump for tapestry of Sosaria</Desc>
+  </Gump>
+  <Gump id="674">
+    <Name>Promo 7th Choice Gump</Name>
+    <Desc>Gump for Promo 7th Choice</Desc>
+  </Gump>
+  <Gump id="675">
+    <Name>Promo 7th Confirm Gump</Name>
+    <Desc>Gump for Promo 7th Confirm</Desc>
+  </Gump>
+  <Gump id="676">
+    <Name>House Oversecure Warning Gump</Name>
+    <Desc>Gump for house oversecure warning</Desc>
+  </Gump>
+  <Gump id="677">
+    <Name>Change Name Gump</Name>
+    <Desc>Gump for changing name</Desc>
+  </Gump>
+  <Gump id="678">
+    <Name>Change Gender Gump</Name>
+    <Desc>Gump for changing gender</Desc>
+  </Gump>
+  <Gump id="679">
+    <Name>Change Name Confirm Gump</Name>
+    <Desc>Gump for changing name confirmation</Desc>
+  </Gump>
+  <Gump id="680">
+    <Name>Change Gender Confirm Gump</Name>
+    <Desc>Gump for changing gender confirmation</Desc>
+  </Gump>
+  <Gump id="681">
+    <Name>Vendor Rental Contract Gump</Name>
+    <Desc>Gump for vendor rental contract</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="682">
+    <Name>Vendor Inventory Gump</Name>
+    <Desc>Gump for vendor inventory</Desc>
+  </Gump>
+  <Gump id="683">
+    <Name>New Player Vendor Owner Gump</Name>
+    <Desc>Gump for new player vendor owner</Desc>
+  </Gump>
+  <Gump id="684">
+    <Name>Vendor Rental Refound Gump</Name>
+    <Desc>Gump for vendor rental refound</Desc>
+  </Gump>
+  <Gump id="685">
+    <Name>Craft Item Gump</Name>
+    <Desc>Gump for craft item info</Desc>
+  </Gump>
+  <Gump id="686">
+    <Name>Single Line Text Entry Gump</Name>
+    <Desc>Gump for UO3D prompts</Desc>
+    <Note>Uses prompts ids, see link below.</Note>
+    <Link>http://ruosi.org/promptguide/index.xml</Link>
+  </Gump>
+  <Gump id="687">
+    <Name>House Vendors Gump</Name>
+    <Desc>House Vendors Gump</Desc>
+  </Gump>
+  <Gump id="688">
+    <Name>Change Roleplay Faces Gump</Name>
+    <Desc>Gump for changing faces</Desc>
+    <Note>Only in UO3D clients</Note>
+  </Gump>
+  <Gump id="689">
+    <Name>Body Sculptor Gump</Name>
+    <Desc>Gump for body sculptor</Desc>
+    <Note>Only in UO3D clients</Note>
+  </Gump>
+  <Gump id="725">
+    <Name>Create Guild Gump</Name>
+    <Desc>Gump for creating guild</Desc>
+  </Gump>
+  <Gump id="726">
+    <Name>Invite Player To Guild Gump</Name>
+    <Desc>Gump for inviting player to guild</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="727">
+    <Name>Guild Members List Gump</Name>
+    <Desc>Gump for guild members list</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="728">
+    <Name>Guild Roster Gump</Name>
+    <Desc>Gump for guild roster</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="729">
+    <Name>Guild List Gump</Name>
+    <Desc>Gump for guild list</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="730">
+    <Name>Diplomacy Gump</Name>
+    <Desc>Gump for diplomacy</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="731">
+    <Name>Declare War Gump</Name>
+    <Desc>Gump for declare war</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="733">
+    <Name>My Guild Gump</Name>
+    <Desc>Gump for my guild</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="734">
+    <Name>Advanced Guild Search Gump</Name>
+    <Desc>Gump for advanced guild search</Desc>
+  </Gump>
+  <Gump id="800">
+    <Name>New Quest Offer Gump</Name>
+    <Desc>Gump for new quest offer</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="801">
+    <Name>New Quest Cancel Gump</Name>
+    <Desc>Gump for new quest cancel</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="803">
+    <Name>New Quest Rewards Gump</Name>
+    <Desc>Gump for new quest rewards</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="805">
+    <Name>New Quests Gump</Name>
+    <Desc>Gump for new quests</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="806">
+    <Name>New Quest Conversation Gump</Name>
+    <Desc>Gump for new quest conversation</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="807">
+    <Name>New Quest History Gump</Name>
+    <Desc>Gump for new quest history</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="808">
+    <Name>Tour System Quest Conversation Gump</Name>
+    <Desc>Gump for tour system quest conversation</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="809">
+    <Name>New Quest Log Gump</Name>
+    <Desc>Gump for new quest log</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="810">
+    <Name>New Quest Continue Gump</Name>
+    <Desc>Gump for new quest continue</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="2222">
+    <Name>Camping Gump</Name>
+    <Desc>Gump for camping</Desc>
+  </Gump>
+  <Gump id="2223">
+    <Name>Resurrect Gump</Name>
+    <Desc>Gump for resurrect</Desc>
+  </Gump>
+  <Gump id="2533">
+    <Name>House Gump AOS</Name>
+    <Desc>Gump for house menu AOS</Desc>
+  </Gump>
+  <Gump id="2534">
+    <Name>Demolish House Gump</Name>
+    <Desc>Gump for demolish house</Desc>
+  </Gump>
+  <Gump id="2535">
+    <Name>Clear House Friends List Gump</Name>
+    <Desc>Gump for warning clear house friends list</Desc>
+  </Gump>
+  <Gump id="2536">
+    <Name>Clear House CoOwners List Gump</Name>
+    <Desc>Gump for warning clear house coowners list</Desc>
+  </Gump>
+  <Gump id="2538">
+    <Name>House CoOwner Removal Gump</Name>
+    <Desc>Gump for removal of house coowner</Desc>
+  </Gump>
+  <Gump id="2546">
+    <Name>Clear House Bans List Gump</Name>
+    <Desc>Gump for warning clear house bans list</Desc>
+  </Gump>
+  <Gump id="2547">
+    <Name>House None-Owner Gump</Name>
+    <Desc>None-Owner House Gump</Desc>
+  </Gump>
+  <Gump id="5008">
+    <Name>Polymorph Gump</Name>
+    <Desc>Gump for polymorph</Desc>
+  </Gump>
+  <Gump id="5009">
+    <Name>Vendor Barbie Gump</Name>
+    <Desc>Gump for vendor barbie</Desc>
+  </Gump>
+  <Gump id="9000">
+    <Name>Faction Stone Gump</Name>
+    <Desc>Gump for faction stone</Desc>
+  </Gump>
+  <Gump id="9001">
+    <Name>Leave Faction Gump</Name>
+    <Desc>Gump for leaving faction</Desc>
+  </Gump>
+  <Gump id="9002">
+    <Name>Leave Faction Guild Gump</Name>
+    <Desc>Gump for leaving guild from faction</Desc>
+  </Gump>
+  <Gump id="9005">
+    <Name>Moongate Confirm Gump</Name>
+    <Desc>Gump for moongate confirm</Desc>
+  </Gump>
+  <Gump id="9006">
+    <Name>Scroll Skill Item Gump</Name>
+    <Desc>Gump for powerscrolls, scrolls of alacrity, scrolls of transcendence, etc...</Desc>
+  </Gump>
+  <Gump id="9007">
+    <Name>Doom Gauntlet Exit Gump</Name>
+    <Desc>Gump for warning Doom Gauntlet exit</Desc>
+  </Gump>
+  <Gump id="9008">
+    <Name>Player BB Gump</Name>
+    <Desc>Gump for player's bulletin board</Desc>
+    <Note>Uses UO3D elements.</Note>
+  </Gump>
+  <Gump id="9009">
+    <Name>Vendor Warning Gump</Name>
+    <Desc>Gump for warning for house vendors</Desc>
+  </Gump>
+  <Gump id="9010">
+    <Name>Enter Promo Code Gump</Name>
+    <Desc>Gump for entering promo code</Desc>
+  </Gump>
+  <Gump id="9012">
+    <Name>Old Animal Form Gump</Name>
+    <Desc>Gump for old animal form menu</Desc>
+  </Gump>
+  <Gump id="9013">
+    <Name>Promo Token Unpack Gump</Name>
+    <Desc>Gump for unpacking promo token confirm</Desc>
+  </Gump>
+  <Gump id="9014">
+    <Name>Base Tile Art Buttons Gump</Name>
+    <Desc>Gump generic with new tile art buttons (First appearance: SE expansion)</Desc>
+  </Gump>
+  <Gump id="9015">
+    <Name>Confirm Cancel Insurance Gump</Name>
+    <Desc>Gump for confirm cancel insurance</Desc>
+  </Gump>
+  <Gump id="9016">
+    <Name>Advanced Character Choice Gump</Name>
+    <Desc>Gump for advanced character choice</Desc>
+  </Gump>
+  <Gump id="9017">
+    <Name>Advanced Character Confirm Gump</Name>
+    <Desc>Gump for advanced character confirm</Desc>
+  </Gump>
+  <Gump id="9018">
+    <Name>Advanced Character Warning Gump</Name>
+    <Desc>Gump for advanced character warning</Desc>
+  </Gump>
+  <Gump id="9019">
+    <Name>Target Involved Players Gump</Name>
+    <Desc>Gump for players harassment in help menu</Desc>
+  </Gump>
+  <Gump id="9020">
+    <Name>Type Names For Involved Players Gump</Name>
+    <Desc>Gump for players harassment in help menu</Desc>
+  </Gump>
+  <Gump id="9021">
+    <Name>Select Names Of Involved Players Gump</Name>
+    <Desc>Gump for players harassment in help menu</Desc>
+  </Gump>
+  <Gump id="9022">
+    <Name>Select Complaint Targets Gump</Name>
+    <Desc>Gump for players harassment in help menu</Desc>
+  </Gump>
+  <Gump id="9023">
+    <Name>Transfer Exchange 7th Gump</Name>
+    <Desc>Gump for transfer exchange 7th</Desc>
+  </Gump>
+  <Gump id="9024">
+    <Name>Trapped Creature In Crystal Gump</Name>
+    <Desc>Gump for trapped creature in the crystal</Desc>
+  </Gump>
+  <Gump id="9025">
+    <Name>Base Localized Buttons Gump</Name>
+    <Desc>Gump generic with buttons and htmllocalized descriptions</Desc>
+  </Gump>
+  <Gump id="9026">
+    <Name>Monorail Gump</Name>
+    <Desc>Gump for monorail</Desc>
+  </Gump>
+  <Gump id="9027">
+    <Name>Siege Unbless Gump</Name>
+    <Desc>Gump for siege unbless</Desc>
+  </Gump>
+  <Gump id="9028">
+    <Name>Siege Bless Gump</Name>
+    <Desc>Gump for siege Bless</Desc>
+  </Gump>
+  <Gump id="9030">
+    <Name>Choose Items Gump</Name>
+    <Desc>Gump for choosing items</Desc>
+    <Note>Uses UO3D elements. Based on 9014 gump.</Note>
+  </Gump>
+  <Gump id="9031">
+    <Name>Base Interaction Quest Gump</Name>
+    <Desc>Gump generic for special quests-victorines</Desc>
+  </Gump>
+  <Gump id="9032">
+    <Name>Base Start Quest Gump</Name>
+    <Desc>Gump generic for special quests-victorines</Desc>
+  </Gump>
+  <Gump id="9033">
+    <Name>Base Continue Quest Gump</Name>
+    <Desc>Gump generic for special quests-victorines</Desc>
+  </Gump>
+  <Gump id="9034">
+    <Name>Base Refuse Quest Gump</Name>
+    <Desc>Gump generic for special quests-victorines</Desc>
+  </Gump>
+  <Gump id="9035">
+    <Name>Base Question Quest Gump</Name>
+    <Desc>Gump generic for special quests-victorines</Desc>
+  </Gump>
+  <Gump id="9036">
+    <Name>Base NPC DClick Quest Gump</Name>
+    <Desc>Gump generic for special quests-victorines</Desc>
+  </Gump>
+  <Gump id="9037">
+    <Name>Base Quest Gump</Name>
+    <Desc>Gump generic for special quests-victorines</Desc>
+  </Gump>
+  <Gump id="9043">
+    <Name>Oracle Clear Confirm Gump</Name>
+    <Desc>Gump for oracle clear confirm</Desc>
+  </Gump>
+  <Gump id="9044">
+    <Name>Roll Dices Gump</Name>
+    <Desc>Gump for roll dices</Desc>
+  </Gump>
+  <Gump id="9045">
+    <Name>Fortune Teller Question Gump</Name>
+    <Desc>Gump for fortune teller</Desc>
+  </Gump>
+  <Gump id="9046">
+    <Name>Fortune Teller Answer Gump</Name>
+    <Desc>Gump for fortune teller</Desc>
+  </Gump>
+  <Gump id="9047">
+    <Name>Create Personal Attendant Contract Gump</Name>
+    <Desc>Gump for personal attendant</Desc>
+    <Note>Uses UO3D elements.</Note>
+  </Gump>
+  <Gump id="9048">
+    <Name>Set Herald Options Gump</Name>
+    <Desc>Gump for setting herald options</Desc>
+  </Gump>
+  <Gump id="9049">
+    <Name>Weapon Engraving Tool Recharge Gump</Name>
+    <Desc>Gump for recharging weapon engraving tool</Desc>
+  </Gump>
+  <Gump id="9050">
+    <Name>Weapon Engraving Tool Replace Tip Gump</Name>
+    <Desc>Gump for replacing tip weapon engraving tool</Desc>
+  </Gump>
+  <Gump id="9051">
+    <Name>Setup Character Statues Gump</Name>
+    <Desc>Gump for choosing character statue attributes</Desc>
+  </Gump>
+  <Gump id="9052">
+    <Name>Character Statue Status Gump</Name>
+    <Desc>Gump for character's statue status</Desc>
+  </Gump>
+  <Gump id="9053">
+    <Name>Recharge Decorative Cannon Gump</Name>
+    <Desc>Gump for recharging decorative cannon</Desc>
+  </Gump>
+  <Gump id="9054">
+    <Name>Auto Claim Error Gump</Name>
+    <Desc>Gump for auto claim error</Desc>
+  </Gump>
+  <Gump id="9055">
+    <Name>Confirm Promo Token Gump</Name>
+    <Desc>Gump for confirm promo token</Desc>
+    <Note>Uses UO3D elements.</Note>
+  </Gump>
+  <Gump id="9056">
+    <Name>Confirm Promo Token 2 Gump</Name>
+    <Desc>Gump for confirm promo token</Desc>
+    <Note>Uses UO3D elements.</Note>
+  </Gump>
+  <Gump id="9058">
+    <Name>Confirm Trash Gump</Name>
+    <Desc>Gump for confirm trash</Desc>
+  </Gump>
+  <Gump id="9063">
+    <Name>Mad Mage Andrews Card Gump</Name>
+    <Desc>Gump for mad mage andrews card</Desc>
+  </Gump>
+  <Gump id="9064">
+    <Name>Siege Trade-In Confirm Gump</Name>
+    <Desc>Gump for siege trade-in confirm</Desc>
+  </Gump>
+  <Gump id="9067">
+    <Name>Shrine Gem Gump</Name>
+    <Desc>Gump for shrine gem</Desc>
+    <Note>Uses UO3D elements.</Note>
+  </Gump>
+  <Gump id="9068">
+    <Name>Replace Active Balm Or Lotion Gump</Name>
+    <Desc>Gump for replacing balms, lotions</Desc>
+    <Note>Uses UO3D elements.</Note>
+  </Gump>
+  <Gump id="9069">
+    <Name>Gem Of Salvation Gump</Name>
+    <Desc>Gump for gem of salvation</Desc>
+    <Note>Uses UO3D elements.</Note>
+  </Gump>
+  <Gump id="9071">
+    <Name>Banner Deed 1 Gump</Name>
+    <Desc>Gump for banner deed</Desc>
+  </Gump>
+  <Gump id="9072">
+    <Name>Banner Deed 2 Gump</Name>
+    <Desc>Gump for banner deed</Desc>
+  </Gump>
+  <Gump id="9073">
+    <Name>Dismiss Vendor Gump</Name>
+    <Desc>Gump for dismissing vendor</Desc>
+  </Gump>
+  <Gump id="9074">
+    <Name>Change Race Gump</Name>
+    <Desc>Gump for changing race</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="9075">
+    <Name>Change Race To Human Gump</Name>
+    <Desc>Gump for changing to human race</Desc>
+  </Gump>
+  <Gump id="9076">
+    <Name>Change Race To Elf Gump</Name>
+    <Desc>Gump for changing to elf race</Desc>
+  </Gump>
+  <Gump id="9077">
+    <Name>Change Race To Gargoyle Gump</Name>
+    <Desc>Gump for changing to gargoyle race</Desc>
+  </Gump>
+  <Gump id="9078">
+    <Name>Hatching Mature Chicken Lizard Egg Gump</Name>
+    <Desc>Gump for hatching mature chicken lizard egg</Desc>
+  </Gump>
+  <Gump id="9079">
+    <Name>Hatching Non-Mature Or Burnt Chicken Lizard Egg Gump</Name>
+    <Desc>Gump for hatching non-mature or burnt chicken lizard egg</Desc>
+  </Gump>
+  <Gump id="9080">
+    <Name>Replace Active Gorgon Lens Gump</Name>
+    <Desc>Gump for replacing active gorgon lens</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="9081">
+    <Name>Start Sutek's Quest Gump</Name>
+    <Desc>Gump for Sutek's Quest</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="9083">
+    <Name>Generic Book Gump</Name>
+    <Desc>Gump for generic book gump (SA expansion)</Desc>
+  </Gump>
+  <Gump id="9084">
+    <Name>Puzzle Room Timer Gump</Name>
+    <Desc>Gump for puzzle room timer</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="9085">
+    <Name>Experimental Room Timer Gump</Name>
+    <Desc>Gump for experimental room timer</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="9087">
+    <Name>Change Race Confirm Gump</Name>
+    <Desc>Gump for changing race confirm</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="9088">
+    <Name>Change Race To Human Confirm Gump</Name>
+    <Desc>Gump for changing race to human confirm</Desc>
+  </Gump>
+  <Gump id="9089">
+    <Name>Change Race To Elf Confirm Gump</Name>
+    <Desc>Gump for changing race to elf confirm</Desc>
+  </Gump>
+  <Gump id="9090">
+    <Name>Change Race To Gargoyle Confirm Gump</Name>
+    <Desc>Gump for changing race to gargoyle confirm</Desc>
+  </Gump>
+  <Gump id="9091">
+    <Name>SA Peerless Exit Gump</Name>
+    <Desc>Gump for exit from SA peerless</Desc>
+  </Gump>
+  <Gump id="9092">
+    <Name>SA Champion Spawns Entrance Gump</Name>
+    <Desc>Gump for entrance to SA champion spawns</Desc>
+  </Gump>
+  <Gump id="9093">
+    <Name>SA Peerless Entrance Gump</Name>
+    <Desc>Gump for entrance to SA peerless</Desc>
+  </Gump>
+  <Gump id="9104">
+    <Name>Pen Of Wisdom Gump</Name>
+    <Desc>Gump for pen of wisdom</Desc>
+  </Gump>
+  <Gump id="9107">
+    <Name>New Factions Leader Boards Gump</Name>
+    <Desc>Gump for new factions leader boards</Desc>
+  </Gump>
+  <Gump id="9287">
+    <Name>Choose Form Gump</Name>
+    <Desc>Gump for choose form</Desc>
+  </Gump>
+  <Gump id="9495">
+    <Name>Painted Image Gump</Name>
+    <Desc>Gump for painted image</Desc>
+  </Gump>
+  <Gump id="9999">
+    <Name>Protection Offer Gump</Name>
+    <Desc>Gump for protection offer</Desc>
+  </Gump>  
+  <Gump id="10000">
+    <Name>Power Generator Gump</Name>
+    <Desc>Gump for power generator</Desc>
+  </Gump>
+  <Gump id="10001">
+    <Name>Barkeeper Gump</Name>
+    <Desc>Gump for barkeepers</Desc>
+  </Gump>
+  <Gump id="10002">
+    <Name>Barkeeper Title Gump</Name>
+    <Desc>Gump for barkeepers titles</Desc>
+  </Gump>
+  <Gump id="10003">
+    <Name>Pegs And Bars Puzzle Gump</Name>
+    <Desc>Gump for new SA puzzle in the Underworld with pegs and bars</Desc>
+  </Gump>
+  <Gump id="10004">
+    <Name>Control Device Gump</Name>
+    <Desc>Gump for control device</Desc>
+    <Note>Obsolete gump according to OSI developer Tim</Note>
+  </Gump>
+  <Gump id="10005">
+    <Name>Virtue Menu Gump</Name>
+    <Desc>Gump for virtue menu</Desc>
+  </Gump>
+  <Gump id="10006">
+    <Name>Humility Virtue Info Gump</Name>
+    <Desc>Gump for humility info</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="10007">
+    <Name>Sacrifice Virtue Info Gump</Name>
+    <Desc>Gump for sacrifice info</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="10008">
+    <Name>Compassion Virtue Info Gump</Name>
+    <Desc>Gump for compassion info</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="10009">
+    <Name>Spirituality Virtue Info Gump</Name>
+    <Desc>Gump for spirituality info</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="10010">
+    <Name>Valor Virtue Info Gump</Name>
+    <Desc>Gump for valor info</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="10011">
+    <Name>Honor Virtue Info Gump</Name>
+    <Desc>Gump for honor info</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="10012">
+    <Name>Justice Virtue Info Gump</Name>
+    <Desc>Gump for justice info</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="10013">
+    <Name>Honesty Virtue Info Gump</Name>
+    <Desc>Gump for honesty info</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="10014">
+    <Name>Virtues Gump</Name>
+    <Desc>Gump for virtues</Desc>
+  </Gump>
+  <Gump id="10017">
+    <Name>Sacrifice Warning Gump</Name>
+    <Desc>Gump for sacrifice warning</Desc>
+  </Gump>
+  <Gump id="10022">
+    <Name>Accept Justice Protection</Name>
+    <Desc>Gump for accept justice protection</Desc>
+  </Gump>
+  <Gump id="11022">
+    <Name>Quest Objectives Gump</Name>
+    <Desc>Gump for quest objectives</Desc>
+  </Gump>
+  <Gump id="11023">
+    <Name>Quest Offer Gump</Name>
+    <Desc>Gump for quest offer</Desc>
+  </Gump>
+  <Gump id="11024">
+    <Name>Quest Log Update Gump</Name>
+    <Desc>Gump for quest log update</Desc>
+  </Gump>
+  <Gump id="11025">
+    <Name>Quest Item Info Gump</Name>
+    <Desc>Gump for quest item info</Desc>
+  </Gump>
+  <Gump id="11026">
+    <Name>Quest Conversation Gump</Name>
+    <Desc>Gump for quest conversation</Desc>
+  </Gump>
+  <Gump id="11027">
+    <Name>Quest Cancel Gump</Name>
+    <Desc>Gump for quest cancel</Desc>
+  </Gump>
+  <Gump id="11028">
+    <Name>Quest Lore Transition Gump</Name>
+    <Desc>Gump for quest lore transition</Desc>
+  </Gump>
+  <Gump id="11029">
+    <Name>Sheet Music Offer Gump</Name>
+    <Desc>Gump for sheet music offer</Desc>
+  </Gump>
+  <Gump id="15000">
+    <Name>Gump Paladin</Name>
+    <Desc>Gump for paladin abilities</Desc>
+  </Gump>
+  <Gump id="15001">
+    <Name>Gump Evil</Name>
+    <Desc>Gump for evil abilities</Desc>
+  </Gump>
+  <Gump id="15002">
+    <Name>Report Murderer Gump</Name>
+    <Desc>Gump for reporting about murderer</Desc>
+  </Gump>
+  <Gump id="15010">
+    <Name>Soulstone Gumps</Name>
+    <Desc>Gumps for soulstone</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="16000">
+    <Name>Engraving Gump</Name>
+    <Desc>Gumps for engraving tool</Desc>
+  </Gump>
+  <Gump id="17000">
+    <Name>Community Collection Gump</Name>
+    <Desc>Gump for community collection</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="17001">
+    <Name>Community Collection Confirm Reward Gump</Name>
+    <Desc>Gump for community collection confirm reward</Desc>
+  </Gump>
+  <Gump id="17002">
+    <Name>Community Collection Donate Bag Gump</Name>
+    <Desc>Gump for community collection donate bag</Desc>
+  </Gump>
+  <Gump id="18001">
+    <Name>Aquarium Contents Gump</Name>
+    <Desc>Gump for aquarium contents</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="22222">
+    <Name>Plant Reproduction Gump</Name>
+    <Desc>Gump for plant reproduction options</Desc>
+  </Gump>
+  <Gump id="23452">
+    <Name>Renounce Young Status Gump</Name>
+    <Desc>Gump for renounce young status</Desc>
+  </Gump>
+  <Gump id="24811">
+    <Name>Plant GM Menu Gump</Name>
+    <Desc>Gump for plant menu GM options</Desc>
+  </Gump>
+  <Gump id="29582">
+    <Name>Plant Empty Bowl Gump</Name>
+    <Desc>Gump for plant empty bowl options</Desc>
+  </Gump>
+  <Gump id="29842">
+    <Name>Plant Menu Gump</Name>
+    <Desc>Gump for plant menu options</Desc>
+  </Gump>
+  <Gump id="42422">
+    <Name>Set To Decorative</Name>
+    <Desc>Gump for setting decorative plant</Desc>
+  </Gump>
+  <Gump id="42882">
+    <Name>Building Site Editor Gump</Name>
+    <Desc>Gump for building site editor</Desc>
+  </Gump>
+  <Gump id="90009">
+    <Name>Faction Horse Breeder Gump</Name>
+    <Desc>Gump for faction horse breeder</Desc>
+  </Gump>
+  <Gump id="99999">
+    <Name>Transfer Start Gump</Name>
+    <Desc>Gump for transfer start</Desc>
+  </Gump>
+  <Gump id="100001">
+    <Name>Trasfer Gump Warning</Name>
+    <Desc>Gump for transfer warning</Desc>
+  </Gump>
+  <Gump id="123456">
+    <Name>ML Peerless Entrance Gump</Name>
+    <Desc>Gump for ML peerless entrance</Desc>
+  </Gump>
+  <Gump id="123457">
+    <Name>ML Peerless Party Entrance Gump</Name>
+    <Desc>Gump for ML peerless party entrance</Desc>
+  </Gump>
+  <Gump id="123458">
+    <Name>ML Peerless Exit Gump</Name>
+    <Desc>Gump for ML peerless exit</Desc>
+  </Gump>
+  <Gump id="200001">
+    <Name>Transfer Shard List Gump</Name>
+    <Desc>Gump for transfer shard list</Desc>
+  </Gump>
+  <Gump id="300001">
+    <Name>Trasfer Display Items Gump</Name>
+    <Desc>Gump for transfer display items</Desc>
+  </Gump>
+  <Gump id="999001">
+    <Name>Recruit Gump</Name>
+    <Desc>Gump recruit</Desc>
+  </Gump>
+  <Gump id="999002">
+    <Name>TC Help Gump</Name>
+    <Desc>Gump for TC Help</Desc>
+  </Gump>
+  <Gump id="999003">
+    <Name>Change Hair Style Gump</Name>
+    <Desc>Gump for changing hair style</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="999004">
+    <Name>Change Beard Style Gump</Name>
+    <Desc>Gump for changing beard style</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="999005">
+    <Name>Notice Gump</Name>
+    <Desc>Gump for notices</Desc>
+  </Gump>
+  <Gump id="999006">
+    <Name>Personal Bless Gump</Name>
+    <Desc>Gump for personal bless</Desc>
+  </Gump>
+  <Gump id="999007">
+    <Name>Confirm Dry Dock Gump</Name>
+    <Desc>Gump for confirming dry dock</Desc>
+  </Gump>
+  <Gump id="999008">
+    <Name>Player Vendor Buy Gump</Name>
+    <Desc>Gump for player vendor buy</Desc>
+  </Gump>
+  <Gump id="999010">
+    <Name>Shopkeep Info For New Players Gump</Name>
+    <Desc>Gump for shopkeep info for new players</Desc>
+  </Gump>
+  <Gump id="999011">
+    <Name>UO3D Tour System Gump</Name>
+    <Desc>Gump for UO3D tour system</Desc>
+    <Note>Uses UO3D elements.</Note>
+  </Gump>
+  <Gump id="999012">
+    <Name>Town Barkeep Menu Gump</Name>
+    <Desc>Gump for town barkeep menu</Desc>
+  </Gump>
+  <Gump id="999013">
+    <Name>Transfer Info Gump</Name>
+    <Desc>Gump for transfer info</Desc>
+  </Gump>
+  <Gump id="999014">
+    <Name>New Player Vendor Customize Gump</Name>
+    <Desc>Gump for new player vendor customize</Desc>
+    <Note>Uses UO3D elements.</Note>
+  </Gump>
+  <Gump id="999015">
+    <Name>Turn On/Off Gump</Name>
+    <Desc>Gump for turning on/off</Desc>
+  </Gump>
+  <Gump id="999016">
+    <Name>Teleport Gump</Name>
+    <Desc>Gump for teleport</Desc>
+  </Gump>
+  <Gump id="999017">
+    <Name>Reindeer/Sleigh Status Gump</Name>
+    <Desc>Gump for reindeer/sleigh status</Desc>
+  </Gump>
+  <Gump id="999018">
+    <Name>Disguise Gump</Name>
+    <Desc>Gump for disguise</Desc>
+    <Note>Uses UO3D Elements</Note>
+  </Gump>
+  <Gump id="999019">
+    <Name>SOS Message Gump</Name>
+    <Desc>Gump for SOS messages</Desc>
+  </Gump>
+  <Gump id="999020">
+    <Name>Test Gump</Name>
+    <Desc>Gump for test</Desc>
+  </Gump>
+  <Gump id="999021">
+    <Name>Remove Destination Arrow Gump</Name>
+    <Desc>Gump for remove destination arrow</Desc>
+  </Gump>
+  <Gump id="999022">
+    <Name>Hair Color Selection Menu Gump</Name>
+    <Desc>Gump for hair color selection menu</Desc>
+  </Gump>
+  <Gump id="999023">
+    <Name>Hair Restling Gump</Name>
+    <Desc>Gump for hair restling</Desc>
+  </Gump>
+  <Gump id="999024">
+    <Name>Special Beard Dye Gump</Name>
+    <Desc>Gump for special beard dye</Desc>
+  </Gump>
+  <Gump id="999025">
+    <Name>Special Hair Dye Gump</Name>
+    <Desc>Gump for special hair dye</Desc>
+  </Gump>
+  <Gump id="999026">
+    <Name>Really Imprison Target Gump</Name>
+    <Desc>Gump for really imprison target</Desc>
+  </Gump>
+  <Gump id="999027">
+    <Name>Purifier Book Gump</Name>
+    <Desc>Gump for purifier book</Desc>
+  </Gump>
+  <Gump id="999028">
+    <Name>New Player Ticket Gump</Name>
+    <Desc>Gump for new player ticket</Desc>
+  </Gump>
+  <Gump id="999029">
+    <Name>Ticket Gump Zero</Name>
+    <Desc>Known Broken Gump in UOKR</Desc>
+  </Gump>
+  <Gump id="999030">
+    <Name>Ticket Gump One</Name>
+    <Desc>Known Broken Gump in UOKR</Desc>
+  </Gump>
+  <Gump id="999031">
+    <Name>Ticket Gump Two</Name>
+    <Desc>Known Broken Gump in UOKR</Desc>
+  </Gump>
+  <Gump id="999032">
+    <Name>Ticket Gump Three</Name>
+    <Desc>Known Broken Gump in UOKR</Desc>
+  </Gump>
+  <Gump id="999033">
+    <Name>Ticket Gump Four</Name>
+    <Desc>Known Broken Gump in UOKR</Desc>
+  </Gump>
+  <Gump id="999034">
+    <Name>Holiday Tree Choice Gump</Name>
+    <Desc>Gump for choosen holiday tree type</Desc>
+  </Gump>
+  <Gump id="999035">
+    <Name>Trophy Deed Gump</Name>
+    <Desc>Gump for placing trophy deed</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="999036">
+    <Name>Old Guild Diplomacy Gump</Name>
+    <Desc>Gump for old guild system diplomacy</Desc>
+  </Gump>
+  <Gump id="999037">
+    <Name>Change Hair Special Hue Gump (Two)</Name>
+    <Desc>Gump for changing hair's hue (special)</Desc>
+  </Gump>
+  <Gump id="999038">
+    <Name>Change Hair Hue Gump (Three)</Name>
+    <Desc>Gump for changing hair's hue</Desc>
+  </Gump>
+  <Gump id="999039">
+    <Name>HairStylist Four Gump</Name>
+    <Desc>Gump for hair stylist four</Desc>
+  </Gump>
+  <Gump id="999040">
+    <Name>HairStylist Five Gump</Name>
+    <Desc>Gump for hair stylist five</Desc>
+  </Gump>
+  <Gump id="999041">
+    <Name>HairStylist Six Gump</Name>
+    <Desc>Gump for hair stylist six</Desc>
+  </Gump>
+  <Gump id="999042">
+    <Name>HairStylist Seven Gump</Name>
+    <Desc>Gump for hair stylist seven</Desc>
+  </Gump>
+  <Gump id="999043">
+    <Name>Hair Style List Buy Gump (Eight)</Name>
+    <Desc>Gump for buying hair style list</Desc>
+  </Gump>
+  <Gump id="999044">
+    <Name>UO3D Tour System Exit Gump</Name>
+    <Desc>Gump for UO3D tour system exit</Desc>
+  </Gump>
+  <Gump id="999045">
+    <Name>Race Moprhing Gump</Name>
+    <Desc>Gump for morphing to another race</Desc>
+  </Gump>
+  <Gump id="999046">
+    <Name>Ballot Box Gump</Name>
+    <Desc>Gump for ballot box</Desc>
+  </Gump>
+  <Gump id="999047">
+    <Name>Volunteers Memorial Gump</Name>
+    <Desc>Gump for a memorial for volunteers</Desc>
+  </Gump>
+  <Gump id="999048">
+    <Name>Invoke Good Powers Gump</Name>
+    <Desc>Gump for invoking good powers</Desc>
+  </Gump>
+  <Gump id="999049">
+    <Name>Invoke Evil Powers Gump</Name>
+    <Desc>Gump for invoking evil powers</Desc>
+  </Gump>
+  <Gump id="999050">
+    <Name>Windchime Switch</Name>
+    <Desc>Gump for swithcing windchime</Desc>
+  </Gump>
+  <Gump id="999051">
+    <Name>Map Of Britannia Gump</Name>
+    <Desc>Gump for map of Britannia</Desc>
+  </Gump>
+  <Gump id="999054">
+    <Name>Cupid Menu Gump</Name>
+    <Desc>Gump for Cupid Menu</Desc>
+  </Gump>
+  <Gump id="999055">
+    <Name>Select Valentine Confirm Gump</Name>
+    <Desc>Gump for select Valentine confirm</Desc>
+  </Gump>
+  <Gump id="999056">
+    <Name>Imbuing Info Gump</Name>
+    <Desc>Gump for imbuing info</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="999057">
+    <Name>Enchant Weapon Gump</Name>
+    <Desc>Gump for enchant weapon</Desc>
+  </Gump>
+  <Gump id="999059">
+    <Name>Imbuing Main Menu Gump</Name>
+    <Desc>Gump for imbuing main menu</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="999060">
+    <Name>Loyalty Rating Gump</Name>
+    <Desc>Gump for loyalty rating</Desc>
+  </Gump>
+  <Gump id="999061">
+    <Name>Unravel Magic Item Confirm Gump</Name>
+    <Desc>Gump for unravel magic item confirm</Desc>
+  </Gump>
+  <Gump id="999062">
+    <Name>Veterinarian Pet Resurrect Gump</Name>
+    <Desc>Gump for veterinarian pet resurrect</Desc>
+  </Gump>
+  <Gump id="999063">
+    <Name>Abyss Map Gump</Name>
+    <Desc>Gump for Abyss map</Desc>
+  </Gump>
+  <Gump id="999064">
+    <Name>Choose Silver Sapling Replica Gump</Name>
+    <Desc>Gump for choosing silver sapling replica</Desc>
+  </Gump>
+  <Gump id="999065">
+    <Name>Generic Letter Gump</Name>
+    <Desc>Gump for generic letter (SA expansion)</Desc>
+  </Gump>
+  <Gump id="999069">
+    <Name>Choose Nutcracker Gump</Name>
+    <Desc>Gump for choosing nutcracker</Desc>
+  </Gump>
+  <Gump id="999070">
+    <Name>Choose Snow Statue Gump</Name>
+    <Desc>Gump for choosing snow statue</Desc>
+  </Gump>
+  <Gump id="999071">
+    <Name>New Insurance Menu Gump</Name>
+    <Desc>Gump for new insurance menu</Desc>
+    <Note>Uses UO3D elements</Note>
+  </Gump>
+  <Gump id="999072">
+    <Name>Insurance Item Confirm Gump</Name>
+    <Desc>Gump for insurance item confirm</Desc>
+  </Gump>
+  <Gump id="999073">
+    <Name>Skin Tingeing Tincture Gump</Name>
+    <Desc>Gump for skin tingeing tincture</Desc>
+  </Gump>
+  <Gump id="999074">
+    <Name>New Titles Menu Gump</Name>
+    <Desc>Gump for new titles menu</Desc>
+  </Gump>
+  <Gump id="999075">
+    <Name>House Teleporter PvP Warning Gump</Name>
+    <Desc>Gump for house teleporter PvP warning</Desc>
+  </Gump>
+  <Gump id="3289201">
+    <Name>Underworld Compass Gump</Name>
+    <Desc>Gump for Underworld compass</Desc>
+  </Gump>
+  <Gump id="12350000">
+    <Name>Tracking What Gump</Name>
+    <Desc>Gump for tracking what</Desc>
+  </Gump>
+  <Gump id="12350001">
+    <Name>Tracking Who Gump</Name>
+    <Desc>Gump for tracking who</Desc>
+  </Gump>
+  <Gump id ="4294967296">
+    <Name>Faction Imbue Item Gump</Name>
+    <Desc>Faction Imbue Item Gump</Desc>
+  </Gump>
+</Gumps>

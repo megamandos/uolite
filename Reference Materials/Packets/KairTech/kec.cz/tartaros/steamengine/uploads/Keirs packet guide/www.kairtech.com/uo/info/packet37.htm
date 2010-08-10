@@ -1,0 +1,66 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/packet37.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:45 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet37.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:58 GMT -->
+<head>
+    <title>Ultima Online Protocol :: Move Object</title>
+  </head>
+  <link href="shared/style.css" type="text/css" rel="stylesheet">
+  <body>
+    <center><strong>Ultima Online Protocol :: Move Object</strong></center>
+    <table align="center" border="1" cellpadding="5" cellspacing="0" bordercolor="#000000">
+      <tr>
+        <th width="100">Packet #</th>
+        <th width="150">Packet Name</th>
+        <th width="100">Length</th>
+        <th width="50"><acronym title="Does the client send this message?">Client</acronym></th>
+        <th width="50"><acronym title="Does the server send this message?">Server</acronym></th>
+        <th width="50"><acronym title="If the latest client does not use a packet, the packet is considered to be obsolete.">Obsolete</acronym></th>
+      </tr>
+      <!--0x37 - Move Object-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x37</td>
+        <td align="center">Move Object</td>
+        <td align="center">0x0008</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <tr>
+        <th>Data Type</th>
+        <th colspan="5">Description</th>
+      </tr>
+      <tr>
+        <td>byte 0x37</td>
+        <td colspan="5">The packet number.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 32-bit unsigned integer.">uint</acronym> serial</td>
+        <td colspan="5">The target object's serial.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An 8-bit signed integer.">sbyte</acronym> z_increase</td>
+        <td colspan="5">The amount to increase the object's z-axis position.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An 8-bit signed integer.">sbyte</acronym> y_increase</td>
+        <td colspan="5">The amount to increase the object's y-axis position.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An 8-bit signed integer.">sbyte</acronym> x_increase</td>
+        <td colspan="5">The amount to increase the object's x-axis position.</td>
+      </tr>
+      <tr>
+        <td colspan="6"><br>
+          <b>Packet Description:</b><br>
+          This packet is sent by the god client to move a dynamic object.<br><br>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/packet37.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:45 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet37.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:58 GMT -->
+</html>

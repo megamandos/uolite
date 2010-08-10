@@ -1,0 +1,87 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/packet3f.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:47 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet3f.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:58 GMT -->
+<head>
+    <title>Ultima Online Protocol :: Update Statics</title>
+  </head>
+  <link href="shared/style.css" type="text/css" rel="stylesheet">
+  <body>
+    <center><strong>Ultima Online Protocol :: Update Statics</strong></center>
+    <table align="center" border="1" cellpadding="5" cellspacing="0" bordercolor="#000000">
+      <tr>
+        <th width="100">Packet #</th>
+        <th width="150">Packet Name</th>
+        <th width="100">Length</th>
+        <th width="50"><acronym title="Does the client send this message?">Client</acronym></th>
+        <th width="50"><acronym title="Does the server send this message?">Server</acronym></th>
+        <th width="50"><acronym title="If the latest client does not use a packet, the packet is considered to be obsolete.">Obsolete</acronym></th>
+      </tr>
+      <!--0x3F - Update Statics-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x3F</td>
+        <td align="center">Update Statics</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <tr>
+        <th>Data Type</th>
+        <th colspan="5">Description</th>
+      </tr>
+      <tr>
+        <td>byte 0x3F</td>
+        <td colspan="5">The packet number.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> Size</td>
+        <td colspan="5">The size of the packet.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 32-bit unsigned integer.">uint</acronym> Block_Num</td>
+        <td colspan="5">The block number of the statics grid.  This can be derived by the following formula:<br><br>Block_Num = X / 8 * MapHeight + Y / 8<br><br>MapHeight is equal to the total number of tiles in the Y-axis divided by eight (0x0200 for map0.mul).</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 32-bit unsigned integer.">uint</acronym> Statics</td>
+        <td colspan="5">The number of static items in the grid.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 32-bit unsigned integer.">uint</acronym> Extra</td>
+        <td colspan="5">The "Extra" value in the statics index file.</td>
+      </tr>
+      <tr>
+        <td>
+          loop<br>
+          {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<acronym title="A 16-bit unsigned integer.">ushort</acronym> Artwork<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;byte X<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;byte Y<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<acronym title="An 8-bit signed integer.">sbyte</acronym> Z<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<acronym title="A 16-bit unsigned integer.">ushort</acronym> Hue<br>
+          }
+        </td>
+        <td colspan="5">
+          This loop contains the information below for each map cell in the 8x8 grid.<br><br>
+          <strong>Artwork</strong>: The item's artwork id.<br>
+          <strong>X</strong>: The item's X-axis position relative to the top-left corner of the grid.<br>
+          <strong>Y</strong>: The item's Y-axis position relative to the top-left corner of the grid.<br>
+          <strong>Z</strong>: The item's Z-axis position.<br>
+          <strong>Hue</strong>: The item's hue.
+        </td>
+      </tr>
+      <tr>
+        <td colspan="6"><br>
+          <b>Packet Description:</b><br>
+          This is sent by the server to update an 8x8 statics grid.<br><br>
+          For this packet to work, the server must be an <a href="godcli.htm">Edit Server</a> and the map width and height must be correctly specified in the <a href="packet1b.htm">Login Confirm</a> packet.<br><br>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/packet3f.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:47 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet3f.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:59 GMT -->
+</html>

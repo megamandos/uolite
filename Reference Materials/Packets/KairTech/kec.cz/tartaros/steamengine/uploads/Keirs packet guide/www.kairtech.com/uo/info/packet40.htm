@@ -1,0 +1,73 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/packet40.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:47 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet40.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:59 GMT -->
+<head>
+    <title>Ultima Online Protocol :: Update Terrain</title>
+  </head>
+  <link href="shared/style.css" type="text/css" rel="stylesheet">
+  <body>
+    <center><strong>Ultima Online Protocol :: Update Terrain</strong></center>
+    <table align="center" border="1" cellpadding="5" cellspacing="0" bordercolor="#000000">
+      <tr>
+        <th width="100">Packet #</th>
+        <th width="150">Packet Name</th>
+        <th width="100">Length</th>
+        <th width="50"><acronym title="Does the client send this message?">Client</acronym></th>
+        <th width="50"><acronym title="Does the server send this message?">Server</acronym></th>
+        <th width="50"><acronym title="If the latest client does not use a packet, the packet is considered to be obsolete.">Obsolete</acronym></th>
+      </tr>
+      <!--0x40 - Update Terrain-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x40</td>
+        <td align="center">Update Terrain</td>
+        <td align="center">0x00C9</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <tr>
+        <th>Data Type</th>
+        <th colspan="5">Description</th>
+      </tr>
+      <tr>
+        <td>byte 0x40</td>
+        <td colspan="5">The packet number.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 32-bit unsigned integer.">uint</acronym> Block_Num</td>
+        <td colspan="5">The block number of the map grid.  This can be derived by the following formula:<br><br>Block_Num = X / 8 * MapHeight + Y / 8<br><br>MapHeight is equal to the total number of tiles in the Y-axis divided by eight (0x0200 for map0.mul).</td>
+      </tr>
+      <tr>
+        <td>
+          loop<br>
+          {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<acronym title="A 16-bit unsigned integer.">ushort</acronym> tile_num<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<acronym title="An 8-bit signed integer.">sbyte</acronym> z<br>
+          }
+        </td>
+        <td colspan="5">
+          This loop contains the information below for each map cell in the 8x8 grid.<br><br>
+          <strong>tile_num</strong>: The map tile number.<br>
+          <strong>z</strong>: The z-axis position of the map tile.<br>
+        </td>
+      </tr>
+      <tr>
+        <td><acronym title="A 32-bit unsigned integer.">uint</acronym> Header</td>
+        <td colspan="5">The map grid header.</td>
+      </tr>
+      <tr>
+        <td colspan="6"><br>
+          <b>Packet Description:</b><br>
+          This is sent by the server to update an 8x8 map grid.<br><br>
+          For this packet to work, the server must be an <a href="godcli.htm">Edit Server</a> and the map width and height must be correctly specified in the <a href="packet1b.htm">Login Confirm</a> packet.<br><br>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/packet40.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:47 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet40.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:59 GMT -->
+</html>

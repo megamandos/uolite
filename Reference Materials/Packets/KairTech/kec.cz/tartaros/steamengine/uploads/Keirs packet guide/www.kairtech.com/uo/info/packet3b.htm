@@ -1,0 +1,82 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/packet3b.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:46 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet3b.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:58 GMT -->
+<head>
+    <title>Ultima Online Protocol :: Accept Offer</title>
+  </head>
+  <link href="shared/style.css" type="text/css" rel="stylesheet">
+  <body>
+    <center><strong>Ultima Online Protocol :: Accept Offer</strong></center>
+    <table align="center" border="1" cellpadding="5" cellspacing="0" bordercolor="#000000">
+      <tr>
+        <th width="100">Packet #</th>
+        <th width="150">Packet Name</th>
+        <th width="100">Length</th>
+        <th width="50"><acronym title="Does the client send this message?">Client</acronym></th>
+        <th width="50"><acronym title="Does the server send this message?">Server</acronym></th>
+        <th width="50"><acronym title="If the latest client does not use a packet, the packet is considered to be obsolete.">Obsolete</acronym></th>
+      </tr>
+      <!--0x3B - Accept Offer-->
+      <tr>
+        <td align="center">0x3B</td>
+        <td align="center">Accept Offer</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <tr>
+        <th>Data Type</th>
+        <th colspan="5">Description</th>
+      </tr>
+      <tr>
+        <td>byte 0x3B</td>
+        <td colspan="5">The packet number.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> Size</td>
+        <td colspan="5">The size of the packet.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 32-bit unsigned integer.">uint</acronym> Vendor</td>
+        <td colspan="5">The vendor's serial.</td>
+      </tr>
+      <tr>
+        <td>byte NumItems</td>
+        <td colspan="5">
+          The number of items in the list.<br><br>
+          Setting this to zero will remove the gump.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          loop<br>
+          {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;byte Layer<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<acronym title="A 32-bit unsigned integer.">uint</acronym> Serial<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<acronym title="A 16-bit unsigned integer.">ushort</acronym> Amount<br>
+          }
+        </td>
+        <td colspan="5">
+          This loop contains information for each item in the shop.  Loop for NumItems.<br><br>
+          <strong>Layer</strong>: The shop layer (<a href="CS/layer.htm">C#</a>|<a href="VB7/layer.htm">VB7</a>) that the item is in (usually 0x1A).<br>
+          <strong>Serial</strong>: The item's serial.<br>
+          <strong>Amount</strong>: The amount of the item to buy.<br>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="6"><br>
+          <b>Packet Description:</b><br>
+          This is sent by the client to buy items from a vendor.<br><br>
+          This is sent by the server to remove the list.<br><br>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/packet3b.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:46 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet3b.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:58 GMT -->
+</html>

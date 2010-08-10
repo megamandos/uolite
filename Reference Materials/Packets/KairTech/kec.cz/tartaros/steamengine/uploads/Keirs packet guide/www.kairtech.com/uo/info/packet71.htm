@@ -1,0 +1,68 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/packet71.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:50 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet71.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:59 GMT -->
+<head>
+    <title>Ultima Online Protocol :: Bulletin Board</title>
+  </head>
+  <link href="shared/style.css" type="text/css" rel="stylesheet">
+  <body>
+    <center><strong>Ultima Online Protocol :: Bulletin Board</strong></center>
+    <table align="center" border="1" cellpadding="5" cellspacing="0" bordercolor="#000000">
+      <tr>
+        <th width="100">Packet #</th>
+        <th width="150">Packet Name</th>
+        <th width="100">Length</th>
+        <th width="50"><acronym title="Does the client send this message?">Client</acronym></th>
+        <th width="50"><acronym title="Does the server send this message?">Server</acronym></th>
+        <th width="50"><acronym title="If the latest client does not use a packet, the packet is considered to be obsolete.">Obsolete</acronym></th>
+      </tr>
+      <!--0x71 - Bulletin Board-->
+      <tr>
+        <td align="center">0x71</td>
+        <td align="center">Bulletin Board</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <tr>
+        <th>Data Type</th>
+        <th colspan="5">Description</th>
+      </tr>
+      <tr>
+        <td>byte 0x71</td>
+        <td colspan="5">The packet number.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> Size</td>
+        <td colspan="5">The size of the packet.</td>
+      </tr>
+      <tr>
+        <td>byte Command</td>
+        <td colspan="5">The command being sent.<br><br>
+          <ul>
+            <li>0x00 - <a href="packet71.00.htm">Display Bulletin Board</a></li>
+            <li>0x01 - <a href="packet71.01.htm">Message Summary</a></li>
+            <li>0x02 - <a href="packet71.02.htm">Message Data</a></li>
+            <li>0x03 - <a href="packet71.03.htm">Request Message</a></li>
+            <li>0x04 - <a href="packet71.04.htm">Request Message Summary</a></li>
+            <li>0x05 - <a href="packet71.05.htm">Post Message</a></li>
+            <li>0x06 - <a href="packet71.06.htm">Delete Message</a></li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="6"><br>
+          <b>Packet Description:</b><br>
+          This packet is used to perform various bulletin board functions.<br><br>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/packet71.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:50 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet71.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:24:01 GMT -->
+</html>

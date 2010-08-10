@@ -1,0 +1,66 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/packet82.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:52 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet82.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:24:01 GMT -->
+<head>
+    <title>Ultima Online Protocol :: Account Login Failed</title>
+  </head>
+  <link href="shared/style.css" type="text/css" rel="stylesheet">
+  <body>
+    <center><strong>Ultima Online Protocol :: Account Login Failed</strong></center>
+    <table align="center" border="1" cellpadding="5" cellspacing="0" bordercolor="#000000">
+      <tr>
+        <th width="100">Packet #</th>
+        <th width="150">Packet Name</th>
+        <th width="100">Length</th>
+        <th width="50"><acronym title="Does the client send this message?">Client</acronym></th>
+        <th width="50"><acronym title="Does the server send this message?">Server</acronym></th>
+        <th width="50"><acronym title="If the latest client does not use a packet, the packet is considered to be obsolete.">Obsolete</acronym></th>
+      </tr>
+      <!--0x82 - Account Login Failed-->
+      <tr>
+        <td align="center">0x82</td>
+        <td align="center">Account Login Failed</td>
+        <td align="center">0x0002</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <tr>
+        <th>Data Type</th>
+        <th colspan="5">Description</th>
+      </tr>
+      <tr>
+        <td>byte 0x82</td>
+        <td colspan="5">The packet number.</td>
+      </tr>
+      <tr>
+        <td>byte Reason</td>
+        <td colspan="5">
+          The reason for the failure.<br><br>
+          <ul>
+            <li>0x00 - Incorrect name/password.</li>
+            <li>0x01 - Someone is already using this account.</li>
+            <li>0x02 - Your account has been blocked.</li>
+            <li>0x03 - Your account credentials are invalid.</li>
+            <li>0x04 - Communication problem.</li>
+            <li>0x05 - The IGR concurrency limit has been met.</li>
+            <li>0x06 - The IGR time limit has been met.</li>
+            <li>0x07 - General IGR authentication failure.</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="6"><br>
+          <b>Packet Description:</b><br>
+          This is sent to reject a login request.<br><br>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/packet82.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:52 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet82.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:24:01 GMT -->
+</html>

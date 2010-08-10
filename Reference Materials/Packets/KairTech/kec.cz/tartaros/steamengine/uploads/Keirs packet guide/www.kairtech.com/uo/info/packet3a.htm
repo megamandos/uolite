@@ -1,0 +1,86 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/packet3a.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:46 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet3a.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:58 GMT -->
+<head>
+    <title>Ultima Online Protocol :: Skills</title>
+  </head>
+  <link href="shared/style.css" type="text/css" rel="stylesheet">
+  <body>
+    <center><strong>Ultima Online Protocol :: Skills</strong></center>
+    <table align="center" border="1" cellpadding="5" cellspacing="0" bordercolor="#000000">
+      <tr>
+        <th width="100">Packet #</th>
+        <th width="150">Packet Name</th>
+        <th width="100">Length</th>
+        <th width="50"><acronym title="Does the client send this message?">Client</acronym></th>
+        <th width="50"><acronym title="Does the server send this message?">Server</acronym></th>
+        <th width="50"><acronym title="If the latest client does not use a packet, the packet is considered to be obsolete.">Obsolete</acronym></th>
+      </tr>
+      <!--0x3A - Skills-->
+      <tr>
+        <td align="center">0x3A</td>
+        <td align="center">Skills</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <tr>
+        <th>Data Type</th>
+        <th colspan="5">Description</th>
+      </tr>
+      <tr>
+        <td>byte 0x3A</td>
+        <td colspan="5">The packet number.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> Size</td>
+        <td colspan="5">The size of the packet.</td>
+      </tr>
+      <tr>
+        <td>byte Type</td>
+        <td colspan="5">
+          The type of packet:<br><br>
+          <ul>
+            <li>0x00 - Basic</li>
+            <li>0x01 - God View</li>
+            <li>0x02 - Basic + Skill Cap</li>
+            <li>0x03 - God View + Skill Cap</li>
+            <li>0xDF - Skill Update + Skill Cap</li>
+            <li>0xFF - Skill Update</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          loop<br>
+          {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<acronym title="A 16-bit unsigned integer.">ushort</acronym> SkillID<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<acronym title="A 16-bit unsigned integer.">ushort</acronym> Value<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<acronym title="A 16-bit unsigned integer.">ushort</acronym> BaseValue<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;byte Status<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<acronym title="A 16-bit unsigned integer.">ushort</acronym> MaxValue<br>
+          }
+        </td>
+        <td colspan="5">
+          This loop contains information for each skill.<br>
+          Loop only one time if Type is 0xFF, otherwise loop until SkillID is zero.<br><br>
+          <strong>SkillID</strong>: 1-based skill number (<a href="Common/skills.htm">See List</a>).<br>
+          <strong>Value</strong>: The value of the skill.<br>
+          <strong>BaseValue</strong>: The base value of the skill (what shows up when you click "Show Real").<br>
+          <strong>Status</strong>: The lock status of the skill (<a href="CS/locks.htm">C#</a>|<a href="VB7/locks.htm">VB7</a>).<br>
+          <strong>MaxValue</strong>: The skill cap.  This is only present if specified in the Type.
+        </td>
+      </tr>
+      <tr>
+        <td colspan="6"><br><b>Packet Description:</b><br>This is sent by the server to display and update skills.<br><br>The client sends this packet to alter skill locks.<br><br><strong>Since the client version of this packet is so different from the server version, it is documented on a <a href="packet3a.client.htm">separate page</a>.</strong><br><br></td>
+      </tr>
+    </table>
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/packet3a.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:46 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet3a.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:58 GMT -->
+</html>

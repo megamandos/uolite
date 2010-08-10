@@ -1,0 +1,107 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/packet71.01.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:30:09 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet71.01.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:24:06 GMT -->
+<head>
+    <title>Ultima Online Protocol :: Bulletin Board :: Message Summary</title>
+  </head>
+  <link href="shared/style.css" type="text/css" rel="stylesheet">
+  <body>
+    <center><strong>Ultima Online Protocol :: Bulletin Board :: Message Summary</strong></center>
+    <table align="center" border="1" cellpadding="5" cellspacing="0" bordercolor="#000000">
+      <tr>
+        <th width="100">Packet #</th>
+        <th width="150">Packet Name</th>
+        <th width="100">Length</th>
+        <th width="50"><acronym title="Does the client send this message?">Client</acronym></th>
+        <th width="50"><acronym title="Does the server send this message?">Server</acronym></th>
+        <th width="50"><acronym title="If the latest client does not use a packet, the packet is considered to be obsolete.">Obsolete</acronym></th>
+      </tr>
+      <!--0x71 - Bulletin Board-->
+      <tr>
+        <td align="center">0x71</td>
+        <td align="center">Bulletin Board</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <tr>
+        <th>Data Type</th>
+        <th colspan="5">Description</th>
+      </tr>
+      <tr>
+        <td>byte 0x71</td>
+        <td colspan="5">The packet number.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> Size</td>
+        <td colspan="5">The size of the packet.</td>
+      </tr>
+      <tr>
+        <td>byte Command</td>
+        <td colspan="5">The command being sent.<br><br>
+          <ul>
+            <li>0x01 - Message Summary</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 32-bit integer.">uint</acronym> Serial</td>
+        <td colspan="5">The board's item serial.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 32-bit integer.">uint</acronym> Message</td>
+        <td colspan="5">The message serial.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 32-bit integer.">uint</acronym> Parent</td>
+        <td colspan="5">The parent message's serial (0x00000000 means no parent).</td>
+      </tr>
+      <tr>
+        <td>byte Poster_Len</td>
+        <td colspan="5">
+          The length of the poster's name.<br><br>
+          Be sure to include an extra byte for the null terminator.
+        </td>
+      </tr>
+      <tr>
+        <td><acronym title="An array of characters (a byte representing a single string character).">char</acronym>[] Poster</td>
+        <td colspan="5">The name of poster.  This is null terminated (0x00).</td>
+      </tr>
+      <tr>
+        <td>byte Title_Len</td>
+        <td colspan="5">
+          The length of the message title.<br><br>
+          Be sure to include an extra byte for the null terminator.
+        </td>
+      </tr>
+      <tr>
+        <td><acronym title="An array of characters (a byte representing a single string character).">char</acronym>[] Title</td>
+        <td colspan="5">The title of the message.  This is null terminated (0x00).</td>
+      </tr>
+      <tr>
+        <td>byte Date_Len</td>
+        <td colspan="5">
+          The length of the date on which the message was posted.<br><br>
+          Be sure to include an extra byte for the null terminator.
+        </td>
+      </tr>
+      <tr>
+        <td><acronym title="An array of characters (a byte representing a single string character).">char</acronym>[]  Date</td>
+        <td colspan="5">The date on which the message was posted.  This is null terminated (0x00).</td>
+      </tr>
+      <tr>
+        <td colspan="6"><br>
+          <b>Packet Description:</b><br>
+          This is sent by the server in response to the <a href="packet70.04.htm">Request Message Summary</a> packet.<br><br>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/packet71.01.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:30:09 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet71.01.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:24:07 GMT -->
+</html>

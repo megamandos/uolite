@@ -1,0 +1,85 @@
+<style type='text/css'>
+.largerfnt	{font-size: larger}
+			A:link {text-decoration: none; color: #0099FF}
+			A:visited {text-decoration: none; color: #0099FF}
+			A:active {text-decoration: none; color: #0099FF}
+			A:hover {text-decoration: underline; color: #7D919F}
+		body,td,th {
+			font-family: Verdana, Arial, Helvetica, sans-serif;
+			font-size: 12px;
+			color: #FFFFFF;
+		}
+		body {
+			background-color: #000000;
+			margin-left: 0px;
+			margin-top: 0px;
+			margin-right: 0px;
+			margin-bottom: 0px;
+		}
+		.Server		{color: red; }
+		.Client		{color: blue; }
+		.Both		{color: green; }
+		.subpacket td	{color: #FFFFFF; }
+	</style><html>
+<!-- Mirrored from www.twilightmanor.net/se/packets.php?id=56&style=inverted by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:32:39 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/SE%20packet%20guide/www.twilightmanor.net/se/packetsea79.html?id=56&style=inverted by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:18:46 GMT -->
+<head><title>0x77 - Character Update (17 bytes) - UO Packet Guide</title><link rel="icon" href="favicon.ico"></head><body bgcolor="#ffffff"><table width=70% cellspacing=0 border=0 cellpadding=1><tr class=tabletop><td><a href="packetsda88da88.html?style=plain&amp;id=56">Plain</a> (Printer-friendly)</td><td><a href="packets7cf87cf8.html?style=gold&amp;id=56">Gold</a> (Original packet guide style)</td><td><a href="packetsbae4bae4.html?style=block&amp;id=56">Block</a> (Yellow and grey blocks)</td><td><a href="packets189c189c.html?style=inverted&amp;id=56">Inverted</a> (Black background, white text)</td></tr></table><table width=70% border=0><tr><td><center><font size=2><a href='packetsd9c7d9c7.html?style=inverted'>Back to packet list</a></font></center></td></tr></table><p><table width=70% cellspacing=0 border=0 cellpadding=1 title='0x77 - Character Update (17 bytes)'>
+<COLGROUP><COL width=15%><COL width=15%><COL width=70%></COLGROUP><tr class='tabletop'><td>Sent By: <b><font class="Server">Server</font></b></td><td colspan=2><font size='5'><font class='blue'><b>0x77 - Character Update (17 bytes)</b></font></font></td></tr><tr class='tabletop'><td>Variable Type</td><td>Start Index</td><td>Packet/Variable Name</td></tr><tr class='packet'>
+<td>byte</td>
+<td>0</td>
+<td>Packet ID (0x77 - Character Update)</td>
+</tr>
+<tr class='vardat'>
+<td>int</td>
+<td>1</td>
+<td>Character UID</td>
+</tr>
+<tr class='vardat'>
+<td>short</td>
+<td>5</td>
+<td>Character Model/DispID</td>
+</tr>
+<tr class='vardat'>
+<td>short</td>
+<td>7</td>
+<td>Character X</td>
+</tr>
+<tr class='vardat'>
+<td>short</td>
+<td>9</td>
+<td>Character Y</td>
+</tr>
+<tr class='vardat'>
+<td>byte</td>
+<td>11</td>
+<td>Character Z</td>
+</tr>
+<tr class='vardat'>
+<td>byte</td>
+<td>12</td>
+<td>Character Direction</td>
+</tr>
+<tr class='vardat'>
+<td>short</td>
+<td>13</td>
+<td>Character Color</td>
+</tr>
+<tr class='vardat'>
+<td>byte</td>
+<td>15</td>
+<td>Character Stats</td>
+</tr>
+<tr class='vardat'>
+<td>byte</td>
+<td>16</td>
+<td>Character Notoriety</td>
+</tr>
+<tr class='notes'><td colspan=3>If Character is running, Character Direction + 128<br><br>Character Stats <br>- Hidden = <a href='packetsbfb8bfb8.html?id=29&amp;style=inverted'>0x80</a> <br>- War = 0x40 <br>- Poisoned = 0x4 <br><br>Character Notoriety <br>- None = 0 <br>- Innocent = 1 <br>- Guild(Green) = 2 <br>- Neutral = 3 <br>- Criminal = 4 <br>- Enemy(Orange) = 5 <br>- Murderer = 6 <br>- Invulnerable = 7 <br><br>This packet is sent when a character in proximity has moved, the character must already be drawn using <a href='packetsba51ba51.html?id=55&amp;style=inverted'>0x78</a> (<a href='packetsba51ba51.html?id=55&amp;style=inverted'>Character Draw</a>)</td></tr></table><table width=70%><COLGROUP><COL width=40%><COL width=10%><COL width=10%><COL width=40%></COLGROUP><tr><td></td></tr></table>
+<p><p><table width=70% cellspacing=0 border=0 cellpadding=1>
+<COLGROUP><COL width=40%><COL width=15%><COL width=45%></COLGROUP><tr class='tabletop'><td colspan=3 class=largerfnt><center>Subpackets for 0x77</center></td></tr><tr class='tabletop'><td>Packet Name</td><td>Packet ID</td><td>Sent By</td></tr></table>
+<br><hr noshade width=70% align=left><table width=70% border=0><tr><td><center><font size=2><a href='packetsd9c7d9c7.html?style=inverted'>Back to packet list</a></font></center></td></tr></table></body>
+<!-- Mirrored from www.twilightmanor.net/se/packets.php?id=56&style=inverted by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:32:39 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/SE%20packet%20guide/www.twilightmanor.net/se/packetsea79.html?id=56&style=inverted by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:18:46 GMT -->
+</html>

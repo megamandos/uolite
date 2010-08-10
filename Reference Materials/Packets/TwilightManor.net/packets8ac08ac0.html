@@ -1,0 +1,70 @@
+<style type='text/css'>
+.largerfnt	{font-size: larger}
+			A:link {text-decoration: none; color: #0099FF}
+			A:visited {text-decoration: none; color: #0099FF}
+			A:active {text-decoration: none; color: #0099FF}
+			A:hover {text-decoration: underline; color: #7D919F}
+		body,td,th {
+			font-family: Verdana, Arial, Helvetica, sans-serif;
+			font-size: 12px;
+			color: #FFFFFF;
+		}
+		body {
+			background-color: #000000;
+			margin-left: 0px;
+			margin-top: 0px;
+			margin-right: 0px;
+			margin-bottom: 0px;
+		}
+		.Server		{color: red; }
+		.Client		{color: blue; }
+		.Both		{color: green; }
+		.subpacket td	{color: #FFFFFF; }
+	</style><html>
+<!-- Mirrored from www.twilightmanor.net/se/packets.php?id=18&style=inverted by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:32:39 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/SE%20packet%20guide/www.twilightmanor.net/se/packets8ac0.html?id=18&style=inverted by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:18:46 GMT -->
+<head><title>0x08 - Item Drop Request (14 bytes) - UO Packet Guide</title><link rel="icon" href="favicon.ico"></head><body bgcolor="#ffffff"><table width=70% cellspacing=0 border=0 cellpadding=1><tr class=tabletop><td><a href="packetsb070b070.html?style=plain&amp;id=18">Plain</a> (Printer-friendly)</td><td><a href="packets0fd90fd9.html?style=gold&amp;id=18">Gold</a> (Original packet guide style)</td><td><a href="packets49df49df.html?style=block&amp;id=18">Block</a> (Yellow and grey blocks)</td><td><a href="packets4c584c58.html?style=inverted&amp;id=18">Inverted</a> (Black background, white text)</td></tr></table><table width=70% border=0><tr><td><center><font size=2><a href='packetsd9c7d9c7.html?style=inverted'>Back to packet list</a></font></center></td></tr></table><p><table width=70% cellspacing=0 border=0 cellpadding=1 title='0x08 - Item Drop Request (14 bytes)'>
+<COLGROUP><COL width=15%><COL width=15%><COL width=70%></COLGROUP><tr class='tabletop'><td>Sent By: <b><font class="Client">Client</font></b></td><td colspan=2><font size='5'><font class='blue'><b>0x08 - Item Drop Request (14 bytes)</b></font></font></td></tr><tr class='tabletop'><td>Variable Type</td><td>Start Index</td><td>Packet/Variable Name</td></tr><tr class='packet'>
+<td>byte</td>
+<td>0</td>
+<td>Packet ID (0x08 - Item Drop Request)</td>
+</tr>
+<tr class='vardat'>
+<td>uint</td>
+<td>1</td>
+<td>UID to put down</td>
+</tr>
+<tr class='vardat'>
+<td>ushort</td>
+<td>5</td>
+<td>X coordinate</td>
+</tr>
+<tr class='vardat'>
+<td>ushort</td>
+<td>7</td>
+<td>Y coordinate</td>
+</tr>
+<tr class='vardat'>
+<td>sbyte</td>
+<td>9</td>
+<td>Z coordinate</td>
+</tr>
+<tr class='vardat'>
+<td>uint</td>
+<td>10</td>
+<td>Container UID or 0xffffffff (meaning on the ground)</td>
+</tr>
+<tr class='black'>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class='notes'><td colspan=3>The UID should be checked to make sure that it is already held (In the dragging layer).<br>	<p>This is sent when the client tries to put down or place into a container the item which it was dragging.<br>	<p>If the container uid is 0xffffffff, then the item is being dropped on the ground at the specified x/y/z coordinates.<br>	<p>If the container UID is NOT 0xffffffff, then the item is being dropped in the container. The container UID should be checked to be sure it exists, and is actually a container.<br>	<p>This packet will NOT be sent when dropping the item on a creature. Instead, <a href='packets70007000.html?id=21&amp;style=inverted'>0x13</a> is sent.</td></tr></table><table width=70%><COLGROUP><COL width=40%><COL width=10%><COL width=10%><COL width=40%></COLGROUP><tr><td></td></tr></table>
+<p><p><table width=70% cellspacing=0 border=0 cellpadding=1>
+<COLGROUP><COL width=40%><COL width=15%><COL width=45%></COLGROUP><tr class='tabletop'><td colspan=3 class=largerfnt><center>Subpackets for 0x08</center></td></tr><tr class='tabletop'><td>Packet Name</td><td>Packet ID</td><td>Sent By</td></tr></table>
+<br><hr noshade width=70% align=left><table width=70% border=0><tr><td><center><font size=2><a href='packetsd9c7d9c7.html?style=inverted'>Back to packet list</a></font></center></td></tr></table></body>
+<!-- Mirrored from www.twilightmanor.net/se/packets.php?id=18&style=inverted by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:32:39 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/SE%20packet%20guide/www.twilightmanor.net/se/packets8ac0.html?id=18&style=inverted by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:18:46 GMT -->
+</html>

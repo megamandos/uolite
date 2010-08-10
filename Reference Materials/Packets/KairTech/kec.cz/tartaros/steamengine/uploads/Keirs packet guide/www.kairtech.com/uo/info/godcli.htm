@@ -1,0 +1,26 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/godcli.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:30:08 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/godcli.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:24:06 GMT -->
+<head>
+    <title>Ultima Online Protocol :: The God Client</title>
+  </head>
+  <body bgcolor="#FFFFE1" link="#89A5F5" alink="#89A5F5" vlink="#89A5F5">
+    <center><strong>Ultima Online Protocol :: The God Client</strong></center><br><br>
+    The god client is a special client used by staff members to more efficiently carry out their jobs.  Some say that the god client was put on one of the UO installation discs, but they are probably confusing it with the UODemo server which is on the T2A disc.  I don't remember how the god client was leaked either, but I can tell you it's not on any disc that I have (and I have a lot).<br><br>
+    Perhaps the most interesting feature of the god client is its ability to directly alter the mul files, including maps and statics.  As far as I know, I'm the first non-OSI developer to discover the key to unlocking this feature :)  In order to enable editing, you must do the following:<br><br>
+    1. Add the line "EditServer=127.0.0.1,8558" to the uo.cfg file, where 127.0.0.1 is the server address and 8558 is the port.<br>
+    2. Enable <a href="encryption.htm">login encryption</a> for the god client.  Its keys are 0x2CD3257D and 0xA37F527F.<br>
+    3. Note that when the client connects to an Edit Server, it does NOT send the usual <a href="seed.htm">encryption seed</a> packets.<br>
+    4. Make sure you send the proper information in the <a href="packet1b.htm">Login Confirm</a> packet.  Note that there is new information for this packet that must be included to enable editing without causing client-side errors.<br>
+    5. Be aware that packets used with newer client versions may cause errors or freezing for the 2.0.8n god client.<br>
+    6. Turn on God Mode through the <a href="packet2b.htm">God Mode</a> packet.<br><br>
+    After adding the EditServer entry in uo.cfg, the client will only be able to login to an Edit Server until the entry is removed.  The address in the EditServer entry must also be in the login.cfg file.  After successfully logging in to the Edit Server, the mul updating packets such as <a href="packet3f.htm">Update Statics</a> and <a href="packet40.htm">Update Terrain</a> will cause the client's files to be altered.  A picture of the god client at work is displayed below:<br>
+    <center><img src="../../images/editserver.jpg"  border="0" vspace="20"></center>
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/godcli.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:30:08 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/godcli.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:24:06 GMT -->
+</html>

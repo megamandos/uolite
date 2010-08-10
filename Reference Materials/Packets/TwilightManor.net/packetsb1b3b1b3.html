@@ -1,0 +1,80 @@
+<style type='text/css'>
+.largerfnt	{font-size: larger}
+			A:link {text-decoration: none; color: #0099FF}
+			A:visited {text-decoration: none; color: #0099FF}
+			A:active {text-decoration: none; color: #0099FF}
+			A:hover {text-decoration: underline; color: #7D919F}
+		body,td,th {
+			font-family: Verdana, Arial, Helvetica, sans-serif;
+			font-size: 12px;
+			color: #FFFFFF;
+		}
+		body {
+			background-color: #000000;
+			margin-left: 0px;
+			margin-top: 0px;
+			margin-right: 0px;
+			margin-bottom: 0px;
+		}
+		.Server		{color: red; }
+		.Client		{color: blue; }
+		.Both		{color: green; }
+		.subpacket td	{color: #FFFFFF; }
+	</style><html>
+<!-- Mirrored from www.twilightmanor.net/se/packets.php?style=inverted&id=23 by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:33:23 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/SE%20packet%20guide/www.twilightmanor.net/se/packetsb1b3.html?style=inverted&id=23 by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:19:18 GMT -->
+<head><title>0xAD - Speech Request - Unicode - UO Packet Guide</title><link rel="icon" href="favicon.ico"></head><body bgcolor="#ffffff"><table width=70% cellspacing=0 border=0 cellpadding=1><tr class=tabletop><td><a href="packets0ee10ee1.html?style=plain&amp;id=23">Plain</a> (Printer-friendly)</td><td><a href="packetsdf86df86.html?style=gold&amp;id=23">Gold</a> (Original packet guide style)</td><td><a href="packets8d9d8d9d.html?style=block&amp;id=23">Block</a> (Yellow and grey blocks)</td><td><a href="packetsb1b3b1b3.html?style=inverted&amp;id=23">Inverted</a> (Black background, white text)</td></tr></table><table width=70% border=0><tr><td><center><font size=2><a href='packetsd9c7d9c7.html?style=inverted'>Back to packet list</a></font></center></td></tr></table><p><table width=70% cellspacing=0 border=0 cellpadding=1 title='0xAD - Speech Request - Unicode'>
+<COLGROUP><COL width=15%><COL width=15%><COL width=70%></COLGROUP><tr class='tabletop'><td>Sent By: <b><font class="Client">Client</font></b></td><td colspan=2><font size='5'><font class='blue'><b>0xAD - Speech Request - Unicode</b></font></font></td></tr><tr class='tabletop'><td>Variable Type</td><td>Start Index</td><td>Packet/Variable Name</td></tr><tr class='packet'>
+<td>byte</td>
+<td>0</td>
+<td>Packet ID (0xAD - Speech Request - Unicode)</td>
+</tr>
+<tr class='vardat'>
+<td>ushort</td>
+<td>1</td>
+<td>Blocksize</td>
+</tr>
+<tr class='vardat'>
+<td>byte</td>
+<td>3</td>
+<td>Speech type</td>
+</tr>
+<tr class='vardat'>
+<td>ushort</td>
+<td>4</td>
+<td>Speech color</td>
+</tr>
+<tr class='vardat'>
+<td>ushort</td>
+<td>6</td>
+<td>Speech font</td>
+</tr>
+<tr class='vardat'>
+<td>4 ASCII characters</td>
+<td>8</td>
+<td>Language)</td>
+</tr>
+<tr class='vardat'>
+<td>12-bit variables</td>
+<td>12</td>
+<td>These only exist if (type&0xc0). The first variable is the number of Keywords from speech.mul. From that, calculate the number of variables (one for each keyword plus the first), calculate the number of bits that is, and round up to the next whole byte (8 bits). This is how many bytes are taken up by these variables. The keywords can be safely ignored. numKeywords is (packet[12]<<4)+(packet[13]>>4).</td>
+</tr>
+<tr class='vardat'>
+<td>null terminated ASCII string</td>
+<td>12+(((numKeywords*12+12)+7)/8)</td>
+<td>ASCII Speech - This exists only if type&0xc0. Otherwise, unicode speech is sent.</td>
+</tr>
+<tr class='vardat'>
+<td>double null terminated unicode string</td>
+<td>12</td>
+<td>Unicode Speech - This exists only if (type&0xc0)==0. Otherwise, ASCII speech is sent.</td>
+</tr>
+<tr class='notes'><td colspan=3>Really old clients send <a href='packets81ab81ab.html?id=14&amp;style=inverted'>0x03</a>, the ASCII <a href='packets34663466.html?id=54&amp;style=inverted'>Speech</a> Request, instead of this packet.<br><br>Blocksize should ALWAYS be checked against the length of the packet, and checked against a maximum length, so that if someone tries to send you a 20000-letter speech, you'll disconnect them rather than proceeding to send it to every other client in hearing range.<br><br>Illegal characters should always be stripped from speech.<br><br>The keywords can be safely ignored, but you do need to get numKeywords to figure out how many bytes it all takes up. Oddly, what appears to be ASCII speech is sent whenever there are keywords.<br><br><a href='packets34663466.html?id=54&amp;style=inverted'>Speech</a> Type<br>- Regular = 1<br>- Emote = 2 (:)<br>- Whisper = 3 (;)<br>- Yell = 4 (!)<br><br>Respond with:<br><a href='packets34663466.html?id=54&amp;style=inverted'>0xAE</a>, <a href='packets34663466.html?id=54&amp;style=inverted'>Speech</a></td></tr></table><table width=70%><COLGROUP><COL width=40%><COL width=10%><COL width=10%><COL width=40%></COLGROUP><tr><td></td></tr></table>
+<p><p><table width=70% cellspacing=0 border=0 cellpadding=1>
+<COLGROUP><COL width=40%><COL width=15%><COL width=45%></COLGROUP><tr class='tabletop'><td colspan=3 class=largerfnt><center>Subpackets for 0xAD</center></td></tr><tr class='tabletop'><td>Packet Name</td><td>Packet ID</td><td>Sent By</td></tr></table>
+<br><hr noshade width=70% align=left><table width=70% border=0><tr><td><center><font size=2><a href='packetsd9c7d9c7.html?style=inverted'>Back to packet list</a></font></center></td></tr></table></body>
+<!-- Mirrored from www.twilightmanor.net/se/packets.php?style=inverted&id=23 by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:33:23 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/SE%20packet%20guide/www.twilightmanor.net/se/packetsb1b3.html?style=inverted&id=23 by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:19:18 GMT -->
+</html>

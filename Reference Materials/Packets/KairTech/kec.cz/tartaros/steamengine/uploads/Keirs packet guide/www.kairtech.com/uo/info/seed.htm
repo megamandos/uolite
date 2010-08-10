@@ -1,0 +1,52 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/seed.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:39 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/seed.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:55 GMT -->
+<head>
+    <title>Ultima Online Protocol :: Encrpyted Login Seed</title>
+  </head>
+  <link href="shared/style.css" type="text/css" rel="stylesheet">
+  <body>
+    <center><strong>Ultima Online Protocol :: Encrypted Login Seed</strong></center>
+    <table align="center" border="1" cellpadding="5" cellspacing="0" bordercolor="#000000">
+      <tr>
+        <th width="100">Packet #</th>
+        <th width="150">Packet Name</th>
+        <th width="100">Length</th>
+        <th width="50"><acronym title="Does the client send this message?">Client</acronym></th>
+        <th width="50"><acronym title="Does the server send this message?">Server</acronym></th>
+        <th width="50"><acronym title="If the latest client does not use a packet, the packet is considered to be obsolete.">Obsolete</acronym></th>
+      </tr>
+      <!--Encrypted Login Seed-->
+      <tr>
+        <td align="center">----</td>
+        <td align="center">Encrypted Login Seed</td>
+        <td align="center">0x0004</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <tr>
+        <th>Data Type</th>
+        <th colspan="5">Description</th>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 32-bit integer">uint</acronym> Seed</td>
+        <td colspan="5">The encryption seed for a particular client.</td>
+      </tr>
+      <tr>
+        <td colspan="6">
+          <br><b>Packet Description:</b><br>
+          This is a special packet sent by the client after it first connects to the server.<br>
+          The packet is a 32-bit value sent to the server to be used with encrypted login packets, and is usually the user's IP address.<br>
+          This packet is sent again before logging on to a game server to be used with the game encryption.<br><br>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/seed.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:39 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/seed.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:55 GMT -->
+</html>
