@@ -40,7 +40,10 @@ Partial Class frmMain
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.lbl_Direction = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.lbl_posz = New System.Windows.Forms.Label()
         Me.Button10 = New System.Windows.Forms.Button()
         Me.lbl_posy = New System.Windows.Forms.Label()
@@ -55,9 +58,6 @@ Partial Class frmMain
         Me.Button8 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
-        Me.lbl_Direction = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Button3 = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -179,7 +179,7 @@ Partial Class frmMain
         Me.TabControl1.Location = New System.Drawing.Point(0, 0)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(576, 364)
+        Me.TabControl1.Size = New System.Drawing.Size(576, 362)
         Me.TabControl1.TabIndex = 22
         '
         'TabPage1
@@ -229,7 +229,7 @@ Partial Class frmMain
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(568, 338)
+        Me.TabPage2.Size = New System.Drawing.Size(568, 336)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Console"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -245,6 +245,15 @@ Partial Class frmMain
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Character"
         Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(180, 56)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 23)
+        Me.Button3.TabIndex = 10
+        Me.Button3.Text = "Button3"
+        Me.Button3.UseVisualStyleBackColor = True
         '
         'GroupBox3
         '
@@ -270,6 +279,23 @@ Partial Class frmMain
         Me.GroupBox3.TabIndex = 9
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Walk"
+        '
+        'lbl_Direction
+        '
+        Me.lbl_Direction.AutoSize = True
+        Me.lbl_Direction.Location = New System.Drawing.Point(30, 152)
+        Me.lbl_Direction.Name = "lbl_Direction"
+        Me.lbl_Direction.Size = New System.Drawing.Size(0, 13)
+        Me.lbl_Direction.TabIndex = 16
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(7, 152)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(18, 13)
+        Me.Label9.TabIndex = 15
+        Me.Label9.Text = "D:"
         '
         'lbl_posz
         '
@@ -394,38 +420,12 @@ Partial Class frmMain
         Me.Button6.Text = "S"
         Me.Button6.UseVisualStyleBackColor = True
         '
-        'lbl_Direction
-        '
-        Me.lbl_Direction.AutoSize = True
-        Me.lbl_Direction.Location = New System.Drawing.Point(30, 152)
-        Me.lbl_Direction.Name = "lbl_Direction"
-        Me.lbl_Direction.Size = New System.Drawing.Size(0, 13)
-        Me.lbl_Direction.TabIndex = 16
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(7, 152)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(18, 13)
-        Me.Label9.TabIndex = 15
-        Me.Label9.Text = "D:"
-        '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(180, 56)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 23)
-        Me.Button3.TabIndex = 10
-        Me.Button3.Text = "Button3"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
         'frmMain
         '
         Me.AcceptButton = Me.Button1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(576, 364)
+        Me.ClientSize = New System.Drawing.Size(576, 362)
         Me.Controls.Add(Me.TabControl1)
         Me.Name = "frmMain"
         Me.Text = "UOLite"

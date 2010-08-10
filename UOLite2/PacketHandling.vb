@@ -1,8 +1,5 @@
 ﻿Imports System.IO, System.Threading
 
-'Decompressed the packets one at a time instead of all of them at once when they are recieved. (NEEDS TO BE ON!!)
-#Const CompressedBuffer = True
-
 'Saves the packets to a file, packetlog.txt.
 #Const LogPackets = False
 

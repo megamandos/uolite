@@ -181,8 +181,10 @@ Public Class LiteClient
 
     Private _GameServerList() As GameServerInfo
 
-    Public Event RecievedServerList(ByRef ServerList() As GameServerInfo)
-    Public Event LoginDenied(ByRef Reason As String)
+    Public Event onRecievedServerList(ByRef ServerList() As GameServerInfo)
+
+
+    Public Event onLoginDenied(ByRef Reason As String)
 
 #End Region
 
@@ -427,7 +429,7 @@ Public Class LiteClient
                     'copy the game server list into the GameServerList...
                     _GameServerList = svrlist
 
-                    RaiseEvent RecievedServerList(ServerList)
+                    RaiseEvent onRecievedServerList(ServerList)
 
                 Case 140
 
@@ -498,23 +500,23 @@ Public Class LiteClient
                 Case 130
                     Select Case bytes(1)
                         Case 0
-                            RaiseEvent LoginDenied("Invalid Username/Password")
+                            RaiseEvent onLoginDenied("Invalid Username/Password")
                         Case 1
-                            RaiseEvent LoginDenied("Someone is already using this account!")
+                            RaiseEvent onLoginDenied("Someone is already using this account!")
                         Case 2
-                            RaiseEvent LoginDenied("Your account has been locked!")
+                            RaiseEvent onLoginDenied("Your account has been locked!")
                         Case 3
-                            RaiseEvent LoginDenied("Your account credentials are invalid!")
+                            RaiseEvent onLoginDenied("Your account credentials are invalid!")
                         Case 4
-                            RaiseEvent LoginDenied("Commmunication Problem.")
+                            RaiseEvent onLoginDenied("Commmunication Problem.")
                         Case 5
-                            RaiseEvent LoginDenied("The IGR concurrency limit has been met")
+                            RaiseEvent onLoginDenied("The IGR concurrency limit has been met")
                         Case 6
-                            RaiseEvent LoginDenied("The IGR time limit has been met")
+                            RaiseEvent onLoginDenied("The IGR time limit has been met")
                         Case 7
-                            RaiseEvent LoginDenied("General IGR authentication failure")
+                            RaiseEvent onLoginDenied("General IGR authentication failure")
                         Case Else
-                            RaiseEvent LoginDenied("Login Denied: Unknown Reason")
+                            RaiseEvent onLoginDenied("Login Denied: Unknown Reason")
                     End Select
                 Case Else
                     'Handle unknown packet?!?
@@ -599,7 +601,18 @@ Public Class LiteClient
         'TODO: implement localization.
         'InitializeClientPaths()
         'Localize()
-        '_AllItems.Add(WorldSerial, _Items)
+
+#If Not Debug Then
+        ' Get the your application's application domain.
+        Dim currentDomain As AppDomain = AppDomain.CurrentDomain
+
+        ' Define a handler for unhandled exceptions.
+        AddHandler currentDomain.UnhandledException, AddressOf MYExnHandler
+#End If
+
+        ' Define a handler for unhandled exceptions for threads behind forms.
+        'AddHandler currentDomain.ThreadException, AddressOf MYThreadHandler
+
     End Sub
 
     Private Sub Localize()
