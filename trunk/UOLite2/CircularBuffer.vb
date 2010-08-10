@@ -1,4 +1,5 @@
 ﻿Partial Class LiteClient
+
     'see http://en.wikipedia.org/wiki/Circular_buffer
     ''' <summary>A highly efficient FIFO buffer class.</summary>
     ''' <typeparam name="T">The Type of objects you want to make a circular buff of.</typeparam>
@@ -144,6 +145,15 @@
         Public ReadOnly Property Size As Integer
             Get
                 Return _Size
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Return the true size of the circular buffer, not just how much it actualy contains.
+        ''' </summary>
+        Public ReadOnly Property RealSize As UInteger
+            Get
+                Return Bytes.Length
             End Get
         End Property
 

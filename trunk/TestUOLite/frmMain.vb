@@ -20,7 +20,7 @@ Public Class frmMain
 
     End Sub
 
-    Private Sub Client_LoginDenied(ByRef Reason As String) Handles Client.LoginDenied
+    Private Sub Client_onLoginDenied(ByRef Reason As String) Handles Client.onLoginDenied
         MsgBox(Reason)
     End Sub
 
@@ -245,7 +245,7 @@ Public Class frmMain
 
     Public Delegate Sub ConsoleWrite(ByRef Text As String)
 
-    Private Sub Client_RecievedServerList() Handles Client.RecievedServerList
+    Private Sub Client_onRecievedServerList() Handles Client.onRecievedServerList
         Client.ChooseServer(0)
     End Sub
 

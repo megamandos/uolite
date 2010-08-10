@@ -35,6 +35,10 @@
         End Enum
 
         Friend Sub Add(ByRef Type As ActionType, ByRef Target As Serial, Optional ByRef Amount As UShort = 0)
+            If ActionQueue.Size = ActionQueue.RealSize - 1 Then
+                Throw New ApplicationException("Action Queue has overflowed! To avoid this, check your code where actions like pickup items and drop items will be attempted in rapid succession.")
+            End If
+
             Dim BillyJohn As New Action With {.Type = Type, .TargetSerial = Target, .Amount = Amount}
             ActionQueue.WriteSingle(BillyJohn)
 
