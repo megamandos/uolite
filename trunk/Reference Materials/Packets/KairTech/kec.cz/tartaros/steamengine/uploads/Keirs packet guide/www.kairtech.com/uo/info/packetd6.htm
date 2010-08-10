@@ -1,0 +1,92 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/packetd6.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:30:05 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packetd6.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:24:02 GMT -->
+<head>
+    <title>Ultima Online Protocol :: Mega Cliloc</title>
+  </head>
+  <link href="shared/style.css" type="text/css" rel="stylesheet">
+  <body>
+    <center><strong>Ultima Online Protocol :: Mega Cliloc</strong></center>
+    <table align="center" border="1" cellpadding="5" cellspacing="0" bordercolor="#000000">
+      <tr>
+        <th width="100">Packet #</th>
+        <th width="150">Packet Name</th>
+        <th width="100">Length</th>
+        <th width="50"><acronym title="Does the client send this message?">Client</acronym></th>
+        <th width="50"><acronym title="Does the server send this message?">Server</acronym></th>
+        <th width="50"><acronym title="If the latest client does not use a packet, the packet is considered to be obsolete.">Obsolete</acronym></th>
+      </tr>
+      <!--0xD6 - Mega Cliloc-->
+      <tr class="aos">
+        <td align="center">0xD6</td>
+        <td align="center">Mega Cliloc</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <tr>
+        <th>Data Type</th>
+        <th colspan="5">Description</th>
+      </tr>
+      <tr>
+        <td>byte 0xD6</td>
+        <td colspan="5">The packet number.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> Size</td>
+        <td colspan="5">The size of the packet.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> 0x0001</td>
+        <td colspan="5">Unkown</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 32-bit integer.">uint</acronym> Serial</td>
+        <td colspan="5">The serial of the object (either a creature or an item).</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> 0x0000</td>
+        <td colspan="5">Unknown</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 32-bit integer.">uint</acronym> Serial2</td>
+        <td colspan="5">The serial of the object?</td>
+      </tr>
+      <tr>
+        <td>
+          loop<br>
+          {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<acronym title="An unsigned 32-bit integer.">uint</acronym> ClilocID<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<acronym title="An unsigned 16-bit integer.">ushort</acronym> AppendSize<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<acronym title="An array of unicode characters (a 16-bit integer representing a single string character).">uni[]</acronym> Text<br>
+          }
+        </td>
+        <td colspan="5">
+          This is a loop with the object's special properties.  Note that the first entry is the item's name ID.<br><br>
+          <strong>ClilocID</strong>: The special property's <a href="localization.htm">Cliloc</a> index.<br>
+          <strong>AppendSize</strong>: The size of the text in unicode that will be inserted as a <a href="tokens.htm">Cliloc Token</a>.<br>
+          <strong>Text</strong>: The text in unicode to be inserted.  This is not included if AppendSize is 0.<br><br>
+          If there are multiple strings to be inserted, the strings are separated inside of Text by the <acronym title="An unsigned 16-bit integer.">ushort</acronym> value of 0x0009.<br>
+          Take this into consideration when calculating AppendSize.
+        </td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 32-bit integer.">uint</acronym> 0x00000000</td>
+        <td colspan="5">This indicates the end of the packet/entries.</td>
+      </tr>
+      <tr>
+        <td colspan="6"><br>
+          <b>Packet Description:</b><br>
+          This packet typically follows any packet that displays a creature/item.<br><br>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/packetd6.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:30:05 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packetd6.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:24:03 GMT -->
+</html>

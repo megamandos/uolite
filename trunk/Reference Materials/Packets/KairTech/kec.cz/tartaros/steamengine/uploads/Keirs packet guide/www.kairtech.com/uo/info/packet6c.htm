@@ -1,0 +1,108 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/packet6c.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:49 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet6c.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:59 GMT -->
+<head>
+    <title>Ultima Online Protocol :: Target</title>
+  </head>
+  <link href="shared/style.css" type="text/css" rel="stylesheet">
+  <body>
+    <center><strong>Ultima Online Protocol :: Target</strong></center>
+    <table align="center" border="1" cellpadding="5" cellspacing="0" bordercolor="#000000">
+      <tr>
+        <th width="100">Packet #</th>
+        <th width="150">Packet Name</th>
+        <th width="100">Length</th>
+        <th width="50"><acronym title="Does the client send this message?">Client</acronym></th>
+        <th width="50"><acronym title="Does the server send this message?">Server</acronym></th>
+        <th width="50"><acronym title="If the latest client does not use a packet, the packet is considered to be obsolete.">Obsolete</acronym></th>
+      </tr>
+      <!--0x6C - Target-->
+      <tr>
+        <td align="center">0x6C</td>
+        <td align="center">Target</td>
+        <td align="center">0x0013</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <tr>
+        <th>Data Type</th>
+        <th colspan="5">Description</th>
+      </tr>
+      <tr>
+        <td>byte 0x6C</td>
+        <td colspan="5">The packet number.</td>
+      </tr>
+      <tr>
+        <td>byte Type</td>
+        <td colspan="5">
+          The type of target.<br><br>
+          <ul>
+            <li>0x00 - Target Object</li>
+            <li>0x01 - Target Ground</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td><acronym title="A 32-bit unsigned integer.">uint</acronym> Serial</td>
+        <td colspan="5">The targeting cursor's serial (usually this is just the player's serial).</td>
+      </tr>
+      <tr>
+        <td>byte Flag</td>
+        <td colspan="5">
+          <ul>
+            <li>0x00 - Normal</li>
+            <li>0x01 - Criminal Action</li>
+            <li>0x02 - Unknown</li>
+            <li>0x03 - Cancel Target (server-side)</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td><acronym title="A 32-bit unsigned integer.">uint</acronym> Target</td>
+        <td colspan="5">
+          The target object's serial.<br><br>
+          0x00000000 is the ground or a static object.
+        </td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> X</td>
+        <td colspan="5">
+          The X-axis position where the target is.<br><br>
+          0xFFFF is used to cancel the target.
+        </td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> Y</td>
+        <td colspan="5">
+          The Y-axis position where the target is.<br><br>
+          0xFFFF is used to cancel the target.
+        </td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit signed integer.">short</acronym> Z</td>
+        <td colspan="5">The Z-axis position where the target is.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> Artwork</td>
+        <td colspan="5">
+          The target object's artwork number (or body number if the target is a mobile).<br><br>
+          0x0000 is the ground if Type is 0x01.
+        </td>
+      </tr>
+      <tr>
+        <td colspan="6"><br>
+          <b>Packet Description:</b><br>
+          The server sends this packet to bring up a targeting cursor, and the client sends it back after targeting<br>
+          something or pressing the Escape key.<br><br>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/packet6c.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:49 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet6c.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:59 GMT -->
+</html>

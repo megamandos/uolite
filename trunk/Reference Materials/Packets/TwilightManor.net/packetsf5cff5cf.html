@@ -1,0 +1,84 @@
+<style type='text/css'>
+.largerfnt	{font-size: larger}
+		A:link {text-decoration: underline; color: #0000FF}
+        A:visited {text-decoration: underline; color: #0000FF}
+        A:active {text-decoration: underline; color: #0000FF}
+        A:hover {text-decoration: bold; color: #0000FF}
+		.groove {border-style:groove}
+		.tabletop td	{background-color: #e0e000; color: #000000;}
+		.gray td 		{background-color: #cccccc; color: #808080; }
+		.unused	td		{background-color: #cccccc; color: #808080; }
+		.black td		{background-color: #cccccc; color: #000000; }
+		.vardat td		{background-color: #cccccc; color: #000000; }
+		.packet td	{background-color: #cccccc; color: #2222ff; font-size: larger; }
+		.notes td	{background-color: #cccccc; color: #000000; }
+		.notestd	{background-color: #cccccc; color: #000000; }
+		.up			{border: solid #e0e0e0 1px; border-bottom: solid #d0d000 1px; background-color: #d0d000; margin: 0px;}
+		.Server		{color: red; }
+		.Client		{color: blue; }
+		.Both		{color: green; }
+		.subpacket td	{background-color: #999999; }
+		.blue		{color: #2222ff;}
+		</style><html>
+<!-- Mirrored from www.twilightmanor.net/se/packets.php?style=block&id=40 by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:33:23 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/SE%20packet%20guide/www.twilightmanor.net/se/packetsf5cf.html?style=block&id=40 by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:19:17 GMT -->
+<head><title>0xA9 - Character List - UO Packet Guide</title><link rel="icon" href="favicon.ico"></head><body bgcolor="#ffffff"><table class="groove" width=70% border=1 cellspacing=0 cellpadding=3><tr class=tabletop><td><a href="packetseee0eee0.html?style=plain&amp;id=40">Plain</a> (Printer-friendly)</td><td><a href="packets9ef39ef3.html?style=gold&amp;id=40">Gold</a> (Original packet guide style)</td><td><a href="packetsf5cff5cf.html?style=block&amp;id=40">Block</a> (Yellow and grey blocks)</td><td><a href="packetse39be39b.html?style=inverted&amp;id=40">Inverted</a> (Black background, white text)</td></tr></table><table width=70% border=0><tr><td><center><font size=2><a href='packets19561956.html?style=block'>Back to packet list</a></font></center></td></tr></table><p><table class="groove" width=70% border=1 cellspacing=0 cellpadding=3 title='0xA9 - Character List'>
+<COLGROUP><COL width=15%><COL width=15%><COL width=70%></COLGROUP><tr class='tabletop'><td>Sent By: <b><font class="Server">Server</font></b></td><td colspan=2><font size='5'><font class='blue'><b>0xA9 - Character List</b></font></font></td></tr><tr class='tabletop'><td>Variable Type</td><td>Start Index</td><td>Packet/Variable Name</td></tr><tr class='packet'>
+<td>byte</td>
+<td>0</td>
+<td>Packet ID (0xA9 - Character List)</td>
+</tr>
+<tr class='black'>
+<td>ushort</td>
+<td>1</td>
+<td>blocksize</td>
+</tr>
+<tr class='black'>
+<td>byte</td>
+<td>3</td>
+<td># of characters, 0 based</td>
+</tr>
+<tr class='black'>
+<td>char[30]</td>
+<td>4+char*60</td>
+<td>Character name</td>
+</tr>
+<tr class='black'>
+<td>char[30]</td>
+<td>34+char*60</td>
+<td>Character password</td>
+</tr>
+<tr class='black'>
+<td>byte</td>
+<td>64</td>
+<td># of starting locations, 0 based</td>
+</tr>
+<tr class='black'>
+<td>byte</td>
+<td>65+locationIndex*63</td>
+<td> locationIndex</td>
+</tr>
+<tr class='black'>
+<td>char[31]</td>
+<td>66+locationIndex*63</td>
+<td> location general name</td>
+</tr>
+<tr class='black'>
+<td>char[31]</td>
+<td>97+locationIndex*63</td>
+<td> location specific name</td>
+</tr>
+<tr class='black'>
+<td>byte</td>
+<td>128</td>
+<td> Flags</td>
+</tr>
+<tr class='notes'><td colspan=3>Sent in response to <a href='packets3fc83fc8.html?id=35&amp;style=block'>0x8C</a><br><br>for Flags, Jerrith's guide states, "<a href='packetscd78cd78.html?id=13&amp;style=block'>0x02</a> = send config/req logout (IGR?), 0x04 = single character (siege), <a href='packets21792179.html?id=18&amp;style=block'>0x08</a> = enable npcpopup menus, 0x10 = unknown"<br><br>the starting locations are no longer visually seen by the client, despite the server needing to send them.  Epsilon sends nothing for any town information.  For Flags, Epsilon sends 0x40.</td></tr></table><table width=70%><COLGROUP><COL width=40%><COL width=10%><COL width=10%><COL width=40%></COLGROUP><tr><td></td></tr></table>
+<p><p><table class="groove" width=70% border=1 cellspacing=0 cellpadding=3>
+<COLGROUP><COL width=40%><COL width=15%><COL width=45%></COLGROUP><tr class='tabletop'><td colspan=3 class=largerfnt><center>Subpackets for 0xA9</center></td></tr><tr class='tabletop'><td>Packet Name</td><td>Packet ID</td><td>Sent By</td></tr></table>
+<br><hr noshade width=70% align=left><table width=70% border=0><tr><td><center><font size=2><a href='packets19561956.html?style=block'>Back to packet list</a></font></center></td></tr></table></body>
+<!-- Mirrored from www.twilightmanor.net/se/packets.php?style=block&id=40 by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:33:23 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/SE%20packet%20guide/www.twilightmanor.net/se/packetsf5cf.html?style=block&id=40 by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:19:17 GMT -->
+</html>

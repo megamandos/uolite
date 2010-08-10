@@ -1,0 +1,154 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/packet00.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:39 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet00.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:55 GMT -->
+<head>
+    <title>Ultima Online Protocol :: Character Creation</title>
+  </head>
+  <link href="shared/style.css" type="text/css" rel="stylesheet">
+  <body>
+    <center><strong>Ultima Online Protocol :: Character Creation</strong></center>
+    <table align="center" border="1" cellpadding="5" cellspacing="0" bordercolor="#000000">
+      <tr>
+        <th width="100">Packet #</th>
+        <th width="150">Packet Name</th>
+        <th width="100">Length</th>
+        <th width="50"><acronym title="Does the client send this message?">Client</acronym></th>
+        <th width="50"><acronym title="Does the server send this message?">Server</acronym></th>
+        <th width="50"><acronym title="If the latest client does not use a packet, the packet is considered to be obsolete.">Obsolete</acronym></th>
+      </tr>
+      <!--0x00 - Character Creation-->
+      <tr>
+        <td align="center">0x00</td>
+        <td align="center">Character Creation</td>
+        <td align="center">0x0068</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <tr>
+        <th>Data Type</th>
+        <th colspan="5">Description</th>
+      </tr>
+      <tr>
+        <td>byte 0x00</td>
+        <td colspan="5">The packet number.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 32-bit unsigned integer.">uint</acronym> 0xEDEDEDED</td>
+        <td colspan="5">Unknown</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 32-bit unsigned integer.">uint</acronym> 0xFFFFFFFF</td>
+        <td colspan="5">Unknown</td>
+      </tr>
+      <tr>
+        <td>byte 0x00</td>
+        <td colspan="5">Unknown</td>
+      </tr>
+      <tr>
+        <td><acronym title="An array of characters (a byte representing a single string character).">char</acronym>[30] Name</td>
+        <td colspan="5">The character's name.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An array of characters (a byte representing a single string character).">char</acronym>[30] Password</td>
+        <td colspan="5">The character's password.</td>
+      </tr>
+      <tr>
+        <td>byte Gender</td>
+        <td colspan="5">The character's gender (<a href="CS/gender.htm">C#</a>|<a href="VB7/gender.htm">VB7</a>).</td>
+      </tr>
+      <tr>
+        <td>byte Strength</td>
+        <td colspan="5">The character's strength.</td>
+      </tr>
+      <tr>
+        <td>byte Dexterity</td>
+        <td colspan="5">The character's dexterity.</td>
+      </tr>
+      <tr>
+        <td>byte Intelligencer</td>
+        <td colspan="5">The character's intelligence.</td>
+      </tr>
+      <tr>
+        <td>byte Skill1</td>
+        <td colspan="5">The character's first skill (<a href="Common/skills.htm">See List</a>).</td>
+      </tr>
+      <tr>
+        <td>byte Skill1Amount</td>
+        <td colspan="5">The character's first skill value.</td>
+      </tr>
+      <tr>
+        <td>byte Skill2</td>
+        <td colspan="5">The character's second skill (<a href="Common/skills.htm">See List</a>).</td>
+      </tr>
+      <tr>
+        <td>byte Skill2Amount</td>
+        <td colspan="5">The character's second skill value.</td>
+      </tr>
+      <tr>
+        <td>byte Skill3</td>
+        <td colspan="5">The character's third skill (<a href="Common/skills.htm">See List</a>).</td>
+      </tr>
+      <tr>
+        <td>byte Skill3Amount</td>
+        <td colspan="5">The character's third skill value.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> Hue</td>
+        <td colspan="5">The character's skin color.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> HairStyle</td>
+        <td colspan="5">The artwork number for the character's hair.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> HairColor</td>
+        <td colspan="5">The character's hair color.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> BeardStyle</td>
+        <td colspan="5">The artwork number for the character's beard.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> BeardColor</td>
+        <td colspan="5">The character's beard color.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> City</td>
+        <td colspan="5">The character's starting city (as listed in the character list).</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> 0x0000</td>
+        <td colspan="5">Unknown.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> Slot</td>
+        <td colspan="5">The character slot number.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 32-bit unsigned integer.">uint</acronym> Key</td>
+        <td colspan="5">The user's gameplay encryption key.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> Shirt</td>
+        <td colspan="5">The color of the character's shirt.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> Pants</td>
+        <td colspan="5">The color of the character's pants.</td>
+      </tr>
+      <tr>
+        <td colspan="6"><br>
+          <b>Packet Description:</b><br>
+          This is sent to create a new character.<br><br>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/packet00.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:39 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet00.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:56 GMT -->
+</html>

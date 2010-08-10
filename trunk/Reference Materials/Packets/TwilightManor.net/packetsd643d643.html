@@ -1,0 +1,165 @@
+<style type='text/css'>
+.largerfnt	{font-size: larger}
+			A:link {text-decoration: none; color: #0099FF}
+			A:visited {text-decoration: none; color: #0099FF}
+			A:active {text-decoration: none; color: #0099FF}
+			A:hover {text-decoration: underline; color: #7D919F}
+		body,td,th {
+			font-family: Verdana, Arial, Helvetica, sans-serif;
+			font-size: 12px;
+			color: #FFFFFF;
+		}
+		body {
+			background-color: #000000;
+			margin-left: 0px;
+			margin-top: 0px;
+			margin-right: 0px;
+			margin-bottom: 0px;
+		}
+		.Server		{color: red; }
+		.Client		{color: blue; }
+		.Both		{color: green; }
+		.subpacket td	{color: #FFFFFF; }
+	</style><html>
+<!-- Mirrored from www.twilightmanor.net/se/packets.php?id=1&style=inverted by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:32:39 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/SE%20packet%20guide/www.twilightmanor.net/se/packetsd643.html?id=1&style=inverted by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:18:46 GMT -->
+<head><title>0x00 - Character Create (104 bytes) - UO Packet Guide</title><link rel="icon" href="favicon.ico"></head><body bgcolor="#ffffff"><table width=70% cellspacing=0 border=0 cellpadding=1><tr class=tabletop><td><a href="packetsca9cca9c.html?style=plain&amp;id=1">Plain</a> (Printer-friendly)</td><td><a href="packets58d758d7.html?style=gold&amp;id=1">Gold</a> (Original packet guide style)</td><td><a href="packetse984e984.html?style=block&amp;id=1">Block</a> (Yellow and grey blocks)</td><td><a href="packetsba67ba67.html?style=inverted&amp;id=1">Inverted</a> (Black background, white text)</td></tr></table><table width=70% border=0><tr><td><center><font size=2><a href='packetsd9c7d9c7.html?style=inverted'>Back to packet list</a></font></center></td></tr></table><p><table width=70% cellspacing=0 border=0 cellpadding=1 title='0x00 - Character Create (104 bytes)'>
+<COLGROUP><COL width=15%><COL width=15%><COL width=70%></COLGROUP><tr class='tabletop'><td>Sent By: <b><font class="Client">Client</font></b></td><td colspan=2><font size='5'><font class='blue'><b>0x00 - Character Create (104 bytes)</b></font></font></td></tr><tr class='tabletop'><td>Variable Type</td><td>Start Index</td><td>Packet/Variable Name</td></tr><tr class='packet'>
+<td>byte</td>
+<td>0</td>
+<td>Packet ID (0x00 - Character Create)</td>
+</tr>
+<tr class='unused'>
+<td>byte[8]</td>
+<td>1</td>
+<td>2 Patterns (0xedededed, 0xffffffff)</td>
+</tr>
+<tr class='unused'>
+<td>byte</td>
+<td>9</td>
+<td>KUOC Signal (0x00 normally. 0xff for Krrios' client)</td>
+</tr>
+<tr class='vardat'>
+<td>char[30]</td>
+<td>10</td>
+<td>Char Name</td>
+</tr>
+<tr class='unused'>
+<td>char[30]</td>
+<td>40</td>
+<td>Char Password </td>
+</tr>
+<tr class='vardat'>
+<td>byte</td>
+<td>70</td>
+<td>Gender (0=male, 1=female)</td>
+</tr>
+<tr class='vardat'>
+<td>byte</td>
+<td>71</td>
+<td>Strength</td>
+</tr>
+<tr class='vardat'>
+<td>byte</td>
+<td>72</td>
+<td>Dexterity</td>
+</tr>
+<tr class='vardat'>
+<td>byte</td>
+<td>73</td>
+<td>Intelligence</td>
+</tr>
+<tr class='vardat'>
+<td>byte</td>
+<td>74</td>
+<td>ID# of Skill #1</td>
+</tr>
+<tr class='vardat'>
+<td>byte</td>
+<td>75</td>
+<td>Skill level chosen for Skill #1</td>
+</tr>
+<tr class='vardat'>
+<td>byte</td>
+<td>76</td>
+<td>ID# of Skill #2</td>
+</tr>
+<tr class='vardat'>
+<td>byte</td>
+<td>77</td>
+<td>Skill level chosen for Skill #2</td>
+</tr>
+<tr class='vardat'>
+<td>byte</td>
+<td>78</td>
+<td>ID# of Skill #3</td>
+</tr>
+<tr class='vardat'>
+<td>byte</td>
+<td>79</td>
+<td>Skill level chosen for Skill #3</td>
+</tr>
+<tr class='vardat'>
+<td>ushort</td>
+<td>80</td>
+<td>Skin color (0x03ea-0x0422)</td>
+</tr>
+<tr class='vardat'>
+<td>ushort</td>
+<td>82</td>
+<td>Hair style (0x203b-0x203d, 0x2044-0x204a)</td>
+</tr>
+<tr class='vardat'>
+<td>ushort</td>
+<td>84</td>
+<td>Hair color (0x044e-0x04ad)</td>
+</tr>
+<tr class='vardat'>
+<td>ushort</td>
+<td>86</td>
+<td>Facial hair style (0x203e-0x2041, 0x204b-0x204d)</td>
+</tr>
+<tr class='vardat'>
+<td>ushort</td>
+<td>88</td>
+<td>Facial hair color (0x044e-0x04ad)</td>
+</tr>
+<tr class='vardat'>
+<td>ushort</td>
+<td>90</td>
+<td>Start location #</td>
+</tr>
+<tr class='unused'>
+<td>ushort</td>
+<td>92</td>
+<td>Unknown</td>
+</tr>
+<tr class='unused'>
+<td>ushort</td>
+<td>94</td>
+<td>Slot # (Ignore)</td>
+</tr>
+<tr class='unused'>
+<td>byte[4]</td>
+<td>96</td>
+<td>Client's IP (Don't trust it)</td>
+</tr>
+<tr class='vardat'>
+<td>ushort</td>
+<td>100</td>
+<td>Shirt color (0x02-0x3e9)</td>
+</tr>
+<tr class='vardat'>
+<td>ushort</td>
+<td>102</td>
+<td>Pants color (0x02-0x3e9)</td>
+</tr>
+<tr class='notes'><td colspan=3>This packet is sent when the client wants to make a new character. According to other documentation (I haven't tested this), Krrios' client(s) always sends 0xff for byte 9 ("KUOC Signal"). I definitely wouldn't trust the "Client's IP" field - No point in it anyhow, if you want the IP, just check the socket.<br></td></tr></table><table width=70%><COLGROUP><COL width=40%><COL width=10%><COL width=10%><COL width=40%></COLGROUP><tr><td></td></tr></table>
+<p><p><table width=70% cellspacing=0 border=0 cellpadding=1>
+<COLGROUP><COL width=40%><COL width=15%><COL width=45%></COLGROUP><tr class='tabletop'><td colspan=3 class=largerfnt><center>Subpackets for 0x00</center></td></tr><tr class='tabletop'><td>Packet Name</td><td>Packet ID</td><td>Sent By</td></tr></table>
+<br><hr noshade width=70% align=left><table width=70% border=0><tr><td><center><font size=2><a href='packetsd9c7d9c7.html?style=inverted'>Back to packet list</a></font></center></td></tr></table></body>
+<!-- Mirrored from www.twilightmanor.net/se/packets.php?id=1&style=inverted by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:32:39 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/SE%20packet%20guide/www.twilightmanor.net/se/packetsd643.html?id=1&style=inverted by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:18:46 GMT -->
+</html>

@@ -1,0 +1,79 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/packetd8.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:30:06 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packetd8.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:24:05 GMT -->
+<head>
+    <title>Ultima Online Protocol :: Custom House</title>
+  </head>
+  <link href="shared/style.css" type="text/css" rel="stylesheet">
+  <body>
+    <center><strong>Ultima Online Protocol :: Custom House</strong></center>
+    <table align="center" border="1" cellpadding="5" cellspacing="0" bordercolor="#000000">
+      <tr>
+        <th width="100">Packet #</th>
+        <th width="150">Packet Name</th>
+        <th width="100">Length</th>
+        <th width="50"><acronym title="Does the client send this message?">Client</acronym></th>
+        <th width="50"><acronym title="Does the server send this message?">Server</acronym></th>
+        <th width="50"><acronym title="If the latest client does not use a packet, the packet is considered to be obsolete.">Obsolete</acronym></th>
+      </tr>
+      <!--0xD8 - Custom House-->
+      <tr class="aos">
+        <td align="center">0xD8</td>
+        <td align="center">Custom House</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <tr>
+        <th>Data Type</th>
+        <th colspan="5">Description</th>
+      </tr>
+      <tr>
+        <td>byte 0xD8</td>
+        <td colspan="5">The packet number.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> Size</td>
+        <td colspan="5">The size of the packet.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> Method</td>
+        <td colspan="5">A number representing the compression method used by the packet.  Setting this to 0x0000 will indicate that the packet is not compressed.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 32-bit integer.">uint</acronym> Serial</td>
+        <td colspan="5">The serial of the house.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> 0x0000</td>
+        <td colspan="5">Unknown</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> 0x0000</td>
+        <td colspan="5">Unknown</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> Components</td>
+        <td colspan="5">The number of items that make up the design.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> dataSize</td>
+        <td colspan="5">The size of the data that contains component information.  Normally this is derived by multiplying Components by five.</td>
+      </tr>
+      <tr>
+        <td>loop<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;<acronym title="An unsigned 16-bit integer.">ushort</acronym> Artwork<br>&nbsp;&nbsp;&nbsp;&nbsp;byte X<br>&nbsp;&nbsp;&nbsp;&nbsp;byte Y<br>&nbsp;&nbsp;&nbsp;&nbsp;byte Z<br>}</td>
+        <td colspan="5">This loop contains the information below for each item that makes up the design of the house.<br><br>Artwork: The object's tile ID.<br>X: The object's X-position relative to the center of the house.<br>Y: The object's Y-position relative to the center of the house.<br>Z: The object's Z-position relative to the center of the house.<br></td>
+      </tr>
+      <tr>
+        <td colspan="6"><br><b>Packet Description:</b><br>This packet is sent by the server to display a house that has been customized.<br><br></td>
+      </tr>
+    </table>
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/packetd8.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:30:06 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packetd8.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:24:05 GMT -->
+</html>

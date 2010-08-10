@@ -1,0 +1,84 @@
+<style type='text/css'>
+.largerfnt	{font-size: larger}
+		A:link {text-decoration: underline; color: #000000}
+        A:visited {text-decoration: underline; color: #000000}
+        A:active {text-decoration: underline; color: #000000}
+        A:hover {text-decoration: bold; color: #000000}
+		.tabletop td 	{color: #000000; }
+		.gray td	 	{color: #000000; }
+		.unused td	 	{color: #000000; }
+		.black td		{color: #000000; }
+		.vardat td		{color: #000000; }
+		.packet td 	{color: #000000; font-size: larger; }
+		.notes td		{color: #000000; }
+		.notestd		{color: #000000; }
+		.table		{margin: 0px;}
+		.up			{border: solid #000000 1px; border-bottom: solid #000000 1px; background-color: #ffffff; margin: 0px;}
+		.Server		{color: #000000; }
+		.Client		{color: #000000; }
+		.Both		{color: #000000; }
+		.subpacket td	{background-color: #ffffff; }
+		.blue		{color: black;}
+		</style><html>
+<!-- Mirrored from www.twilightmanor.net/se/packets.php?id=33&style=plain by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:32:30 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/SE%20packet%20guide/www.twilightmanor.net/se/packets4907.html?id=33&style=plain by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:18:38 GMT -->
+<head><title>0xA8 - Server List (6+numServe bytes) - UO Packet Guide</title><link rel="icon" href="favicon.ico"></head><body bgcolor="#ffffff"><table width=70% border=2 cellspacing=2 cellpadding=2 class=table><tr class=tabletop><td><a href="packets115d115d.html?style=plain&amp;id=33">Plain</a> (Printer-friendly)</td><td><a href="packetsc47bc47b.html?style=gold&amp;id=33">Gold</a> (Original packet guide style)</td><td><a href="packetsf511f511.html?style=block&amp;id=33">Block</a> (Yellow and grey blocks)</td><td><a href="packets12141214.html?style=inverted&amp;id=33">Inverted</a> (Black background, white text)</td></tr></table><table width=70% border=0><tr><td><center><font size=2><a href='packetsd4b7d4b7.html?style=plain'>Back to packet list</a></font></center></td></tr></table><p><table width=70% border=2 cellspacing=2 cellpadding=2 class=table title='0xA8 - Server List (6+numServe bytes)'>
+<COLGROUP><COL width=15%><COL width=15%><COL width=70%></COLGROUP><tr class='tabletop'><td>Sent By: <b><font class="Server">Server</font></b></td><td colspan=2><font size='5'><font class='blue'><b>0xA8 - Server List (6+numServe bytes)</b></font></font></td></tr><tr class='tabletop'><td>Variable Type</td><td>Start Index</td><td>Packet/Variable Name</td></tr><tr class='packet'>
+<td>byte</td>
+<td>0</td>
+<td>Packet ID (0xA8 - Server List)</td>
+</tr>
+<tr class='vardat'>
+<td>ushort</td>
+<td>1</td>
+<td>blockSize</td>
+</tr>
+<tr class='vardat'>
+<td>byte</td>
+<td>3</td>
+<td>Flag</td>
+</tr>
+<tr class='vardat'>
+<td>ushort</td>
+<td>4</td>
+<td>Number of servers in the list</td>
+</tr>
+<tr class='vardat'>
+<td>ushort</td>
+<td>6+server*40</td>
+<td>Server # (Should go from 0 to 1 less than the number of servers listed. UOX starts at 1 instead. The client doesn't care, but the byte positions on this page were written with the server# starting at 0. If you start at one, change +server*40 to +(server-1)*40)</td>
+</tr>
+<tr class='vardat'>
+<td>char[30]</td>
+<td>8+server*40</td>
+<td>Server name</td>
+</tr>
+<tr class='unused'>
+<td>ushort</td>
+<td>38+server*40</td>
+<td>Unknown (Jerrith's says this is part of the server name, but I disagree. Of course, I could be wrong.)</td>
+</tr>
+<tr class='vardat'>
+<td>byte</td>
+<td>40+server*40</td>
+<td>Percent full (0-100)</td>
+</tr>
+<tr class='vardat'>
+<td>sbyte</td>
+<td>41+server*40</td>
+<td>Time zone the server is in</td>
+</tr>
+<tr class='vardat'>
+<td>byte[4]</td>
+<td>42+server*40</td>
+<td>Server IP address (to ping). Has to be sent in reverse order. For example, 192.168.0.1 is sent as [01 00 A8 C0]</td>
+</tr>
+<tr class='notes'><td colspan=3>Jerrith's calls "Flag" "System Info Flag," and says 0xCC means don't send and 0x64 means send video card. RunUO and SteamEngine send 0x5d, Sphere and UOX send 0xFF.<br><br>*40 is necessary since each server needs 40 new bytes.<br><br>Client will respond with <a href='packets3a783a78.html?id=34&amp;style=plain'>0xA0</a>(<a href='packets3a783a78.html?id=34&amp;style=plain'>Server Select</a>)</td></tr></table><table width=70%><COLGROUP><COL width=40%><COL width=10%><COL width=10%><COL width=40%></COLGROUP><tr><td></td></tr></table>
+<p><p><table width=70% border=2 cellspacing=2 cellpadding=2 class=table>
+<COLGROUP><COL width=40%><COL width=15%><COL width=45%></COLGROUP><tr class='tabletop'><td colspan=3 class=largerfnt><center>Subpackets for 0xA8</center></td></tr><tr class='tabletop'><td>Packet Name</td><td>Packet ID</td><td>Sent By</td></tr></table>
+<br><hr noshade width=70% align=left><table width=70% border=0><tr><td><center><font size=2><a href='packetsd4b7d4b7.html?style=plain'>Back to packet list</a></font></center></td></tr></table></body>
+<!-- Mirrored from www.twilightmanor.net/se/packets.php?id=33&style=plain by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:32:30 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/SE%20packet%20guide/www.twilightmanor.net/se/packets4907.html?id=33&style=plain by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:18:38 GMT -->
+</html>

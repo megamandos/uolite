@@ -1,0 +1,74 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/packet65.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:49 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet65.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:59 GMT -->
+<head>
+    <title>Ultima Online Protocol :: Weather Change</title>
+  </head>
+  <link href="shared/style.css" type="text/css" rel="stylesheet">
+  <body>
+    <center><strong>Ultima Online Protocol :: Weather Change</strong></center>
+    <table align="center" border="1" cellpadding="5" cellspacing="0" bordercolor="#000000">
+      <tr>
+        <th width="100">Packet #</th>
+        <th width="150">Packet Name</th>
+        <th width="100">Length</th>
+        <th width="50"><acronym title="Does the client send this message?">Client</acronym></th>
+        <th width="50"><acronym title="Does the server send this message?">Server</acronym></th>
+        <th width="50"><acronym title="If the latest client does not use a packet, the packet is considered to be obsolete.">Obsolete</acronym></th>
+      </tr>
+      <!--0x65 - Weather Change-->
+      <tr>
+        <td align="center">0x65</td>
+        <td align="center">Weather Change</td>
+        <td align="center">0x0004</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <tr>
+        <th>Data Type</th>
+        <th colspan="5">Description</th>
+      </tr>
+      <tr>
+        <td>byte 0x65</td>
+        <td colspan="5">The packet number.</td>
+      </tr>
+      <tr>
+        <td>byte Type</td>
+        <td colspan="5">
+          The type of weather.<br><br>
+          <ul>
+            <li>0x00 - It starts to rain.</li>
+            <li>0x01 - A fierce storm approaches.</li>
+            <li>0x02 - It begins to snow.</li>
+            <li>0x03 - A fierce storm is brewing.</li>
+            <li>0xFF - End weather effects.</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>byte Effects</td>
+        <td colspan="5">The number of particles to display on the screen.  The maximum is seventy.</td>
+      </tr>
+      <tr>
+        <td>byte Temperature</td>
+        <td colspan="5">The current temperature.  Use is unknown.</td>
+      </tr>
+      <tr>
+        <td colspan="6"><br>
+          <b>Packet Description:</b><br>
+          The is sent by the client after the user picks a character to login with.<br><br>
+          To display snow and rain, send a rain packet first and then send a snow packet with the number of effects<br>
+          equal to the number sent in the rain packet plus the number of snow effects to add.<br><br>
+          Weather ends after six minutes.<br><br>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/packet65.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:49 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet65.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:59 GMT -->
+</html>

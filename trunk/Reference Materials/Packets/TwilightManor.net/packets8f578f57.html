@@ -1,0 +1,94 @@
+<style type='text/css'>
+.largerfnt	{font-size: larger}
+		A:link {text-decoration: underline; color: #000000}
+        A:visited {text-decoration: underline; color: #000000}
+        A:active {text-decoration: underline; color: #000000}
+        A:hover {text-decoration: bold; color: #000000}
+		.tabletop td 	{color: #000000; }
+		.gray td	 	{color: #000000; }
+		.unused td	 	{color: #000000; }
+		.black td		{color: #000000; }
+		.vardat td		{color: #000000; }
+		.packet td 	{color: #000000; font-size: larger; }
+		.notes td		{color: #000000; }
+		.notestd		{color: #000000; }
+		.table		{margin: 0px;}
+		.up			{border: solid #000000 1px; border-bottom: solid #000000 1px; background-color: #ffffff; margin: 0px;}
+		.Server		{color: #000000; }
+		.Client		{color: #000000; }
+		.Both		{color: #000000; }
+		.subpacket td	{background-color: #ffffff; }
+		.blue		{color: black;}
+		</style><html>
+<!-- Mirrored from www.twilightmanor.net/se/packets.php?id=30&style=plain by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:32:30 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/SE%20packet%20guide/www.twilightmanor.net/se/packets8f57.html?id=30&style=plain by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:18:38 GMT -->
+<head><title>0x1A - Item Details (14-20 bytes) - UO Packet Guide</title><link rel="icon" href="favicon.ico"></head><body bgcolor="#ffffff"><table width=70% border=2 cellspacing=2 cellpadding=2 class=table><tr class=tabletop><td><a href="packetsee62ee62.html?style=plain&amp;id=30">Plain</a> (Printer-friendly)</td><td><a href="packets27f227f2.html?style=gold&amp;id=30">Gold</a> (Original packet guide style)</td><td><a href="packetsd4cad4ca.html?style=block&amp;id=30">Block</a> (Yellow and grey blocks)</td><td><a href="packetsb115b115.html?style=inverted&amp;id=30">Inverted</a> (Black background, white text)</td></tr></table><table width=70% border=0><tr><td><center><font size=2><a href='packetsd4b7d4b7.html?style=plain'>Back to packet list</a></font></center></td></tr></table><p><table width=70% border=2 cellspacing=2 cellpadding=2 class=table title='0x1A - Item Details (14-20 bytes)'>
+<COLGROUP><COL width=15%><COL width=15%><COL width=70%></COLGROUP><tr class='tabletop'><td>Sent By: <b><font class="Server">Server</font></b></td><td colspan=2><font size='5'><font class='blue'><b>0x1A - Item Details (14-20 bytes)</b></font></font></td></tr><tr class='tabletop'><td>Variable Type</td><td>Start Index</td><td>Packet/Variable Name</td></tr><tr class='packet'>
+<td>byte</td>
+<td>0</td>
+<td>Packet ID (0x1A - Item Details)</td>
+</tr>
+<tr class='vardat'>
+<td>ushort</td>
+<td>1</td>
+<td>blockSize</td>
+</tr>
+<tr class='vardat'>
+<td>uint</td>
+<td>3</td>
+<td>Item's UID - Includes 0x40000000. If the item has an amount > 1, also includes 0x80000000 (uid|0xc0000000).</td>
+</tr>
+<tr class='vardat'>
+<td>ushort</td>
+<td>7</td>
+<td>Item dispid (model #) - If this includes 0x8000, 'Increment model #' is sent.</td>
+</tr>
+<tr class='vardat'>
+<td>ushort</td>
+<td>9</td>
+<td>Amount, or corpse body dispid - Optional</td>
+</tr>
+<tr class='vardat'>
+<td>byte</td>
+<td>11</td>
+<td>Increment model # by this amount, included if model # includes 0x8000. Useless?</td>
+</tr>
+<tr class='vardat'>
+<td>ushort</td>
+<td>12</td>
+<td>X position of item. If this includes 0x8000, 'direction' is sent.</td>
+</tr>
+<tr class='vardat'>
+<td>ushort</td>
+<td>14</td>
+<td>Y position of item. If this includes 0x8000, 'color' is sent. If this includes 0x4000, 'flags' is sent.</td>
+</tr>
+<tr class='vardat'>
+<td>byte</td>
+<td>15</td>
+<td>Direction (Unused?)</td>
+</tr>
+<tr class='vardat'>
+<td>sbyte</td>
+<td>16</td>
+<td>Z position of item</td>
+</tr>
+<tr class='vardat'>
+<td>ushort</td>
+<td>17</td>
+<td>Color. Only sent if Y includes 0x8000.</td>
+</tr>
+<tr class='vardat'>
+<td>byte</td>
+<td>19</td>
+<td>Flags. Only sent if Y includes 0x4000.</td>
+</tr>
+<tr class='notes'><td colspan=3>Byte positions shown for this packet assume all optional fields are used. You can figure out the real byte positions if particular fields aren't included. If no optional fields are sent, the packet will only be 14 bytes long. If ALL optional fields are sent, the packet will be 20 bytes long.</td></tr></table><table width=70%><COLGROUP><COL width=40%><COL width=10%><COL width=10%><COL width=40%></COLGROUP><tr><td></td></tr></table>
+<p><p><table width=70% border=2 cellspacing=2 cellpadding=2 class=table>
+<COLGROUP><COL width=40%><COL width=15%><COL width=45%></COLGROUP><tr class='tabletop'><td colspan=3 class=largerfnt><center>Subpackets for 0x1A</center></td></tr><tr class='tabletop'><td>Packet Name</td><td>Packet ID</td><td>Sent By</td></tr></table>
+<br><hr noshade width=70% align=left><table width=70% border=0><tr><td><center><font size=2><a href='packetsd4b7d4b7.html?style=plain'>Back to packet list</a></font></center></td></tr></table></body>
+<!-- Mirrored from www.twilightmanor.net/se/packets.php?id=30&style=plain by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:32:30 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/SE%20packet%20guide/www.twilightmanor.net/se/packets8f57.html?id=30&style=plain by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:18:38 GMT -->
+</html>

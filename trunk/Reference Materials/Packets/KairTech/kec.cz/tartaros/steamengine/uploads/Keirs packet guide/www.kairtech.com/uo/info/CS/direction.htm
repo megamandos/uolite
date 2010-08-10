@@ -1,0 +1,35 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/CS/direction.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:30:06 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/CS/direction.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:24:06 GMT -->
+<head>
+    <title>Ultima Online Protocol :: Direction (C#)</title>
+  </head>
+  <body bgcolor="#FFFFE1" link="#89A5F5" alink="#89A5F5" vlink="#89A5F5">
+    <center><strong>Ultima Online Protocol :: Direction (C#)</strong></center>
+    <pre>
+      <font color="blue">using</font> System;
+      
+      <font color="blue">namespace</font> Mobiles
+      {
+          <font color="blue">public enum</font> Direction
+          {
+              Northeast,
+              East,
+              Southeast,
+              South,
+              Southwest,
+              West,
+              Northwest,
+              North
+          }
+      }
+    </pre>
+    The values in the enumeration run from 0 (Northeast) to 7 (North).  When used with a packet (such as the <a href="../packet02.htm">Request Movement</a> packet), the flag 0x80 will indicate that the character is running in the specified direction.
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/CS/direction.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:30:06 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/CS/direction.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:24:06 GMT -->
+</html>

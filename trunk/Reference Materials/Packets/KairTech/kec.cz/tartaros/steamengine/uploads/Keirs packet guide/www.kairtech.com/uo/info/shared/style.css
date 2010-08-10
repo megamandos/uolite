@@ -1,0 +1,25 @@
+A:link
+{
+  color : "#89A5F5";
+}
+
+A:visited
+{
+  color : "#89A5F5";
+}
+
+A:active
+{
+  color : "#89A5F5";
+}
+
+acronym
+{
+  border-bottom : 1px dashed;
+  cursor : help;
+}
+
+body
+{
+  background-color : "#FFFFE1";
+}

@@ -1,0 +1,110 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/packet1b.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:43 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet1b.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:57 GMT -->
+<head>
+    <title>Ultima Online Protocol :: Login Confirm</title>
+  </head>
+  <link href="shared/style.css" type="text/css" rel="stylesheet">
+  <body>
+    <center><strong>Ultima Online Protocol :: Login Confirm</strong></center>
+    <table align="center" border="1" cellpadding="5" cellspacing="0" bordercolor="#000000">
+      <tr>
+        <th width="100">Packet #</th>
+        <th width="150">Packet Name</th>
+        <th width="100">Length</th>
+        <th width="50"><acronym title="Does the client send this message?">Client</acronym></th>
+        <th width="50"><acronym title="Does the server send this message?">Server</acronym></th>
+        <th width="50"><acronym title="If the latest client does not use a packet, the packet is considered to be obsolete.">Obsolete</acronym></th>
+      </tr>
+      <!--0x1B - Login Confirm-->
+      <tr>
+        <td align="center">0x1B</td>
+        <td align="center">Login Confirm</td>
+        <td align="center">0x0025</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <tr>
+        <th>Data Type</th>
+        <th colspan="5">Description</th>
+      </tr>
+      <tr>
+        <td>byte 0x1B</td>
+        <td colspan="5">The packet number.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 32-bit unsigned integer.">uint</acronym> Serial</td>
+        <td colspan="5">The player's serial.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 32-bit unsigned integer.">uint</acronym> 0x00000000</td>
+        <td colspan="5">Unknown.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> Body</td>
+        <td colspan="5">The player's body number.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> X</td>
+        <td colspan="5">The player's X-axis position.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> Y</td>
+        <td colspan="5">The player's Y-axis position.</td>
+      </tr>
+      <tr>
+        <td>byte 0x00</td>
+        <td colspan="5">Unknown.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An 8-bit signed integer.">sbyte</acronym> Z</td>
+        <td colspan="5">The player's Z-axis position.</td>
+      </tr>
+      <tr>
+        <td>byte Direction</td>
+        <td colspan="5">The character's direction.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 32-bit unsigned integer.">uint</acronym> 0x00000000</td>
+        <td colspan="5">Unknown.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 32-bit unsigned integer.">uint</acronym> 0x00000000</td>
+        <td colspan="5">Unknown.</td>
+      </tr>
+      <tr>
+        <td>byte 0x00</td>
+        <td colspan="5">Unknown.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> MapWidth</td>
+        <td colspan="5">The total number of tiles in the X-axis minus eight.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> MapHeight</td>
+        <td colspan="5">The total number of tiles in the Y-axis.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> 0x0000</td>
+        <td colspan="5">Unknown.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 32-bit unsigned integer.">uint</acronym> 0x00000000</td>
+        <td colspan="5">Unknown.</td>
+      </tr>
+      <tr>
+        <td colspan="6"><br>
+          <b>Packet Description:</b><br>
+          This is sent to confirm a login on a shard.<br><br>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/packet1b.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:43 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet1b.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:57 GMT -->
+</html>

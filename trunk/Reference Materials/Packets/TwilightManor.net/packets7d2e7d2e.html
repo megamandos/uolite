@@ -1,0 +1,79 @@
+<style type='text/css'>
+.largerfnt	{font-size: larger}
+		A:link {text-decoration: underline; color: #000000}
+        A:visited {text-decoration: underline; color: #000000}
+        A:active {text-decoration: underline; color: #000000}
+        A:hover {text-decoration: bold; color: #000000}
+		.tabletop td 	{color: #000000; }
+		.gray td	 	{color: #000000; }
+		.unused td	 	{color: #000000; }
+		.black td		{color: #000000; }
+		.vardat td		{color: #000000; }
+		.packet td 	{color: #000000; font-size: larger; }
+		.notes td		{color: #000000; }
+		.notestd		{color: #000000; }
+		.table		{margin: 0px;}
+		.up			{border: solid #000000 1px; border-bottom: solid #000000 1px; background-color: #ffffff; margin: 0px;}
+		.Server		{color: #000000; }
+		.Client		{color: #000000; }
+		.Both		{color: #000000; }
+		.subpacket td	{background-color: #ffffff; }
+		.blue		{color: black;}
+		</style><html>
+<!-- Mirrored from www.twilightmanor.net/se/packets.php?id=49&style=plain by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:32:30 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/SE%20packet%20guide/www.twilightmanor.net/se/packets7d2e.html?id=49&style=plain by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:18:38 GMT -->
+<head><title>0x25 - Container Add Item (20 bytes) - UO Packet Guide</title><link rel="icon" href="favicon.ico"></head><body bgcolor="#ffffff"><table width=70% border=2 cellspacing=2 cellpadding=2 class=table><tr class=tabletop><td><a href="packetsb7f5b7f5.html?style=plain&amp;id=49">Plain</a> (Printer-friendly)</td><td><a href="packetsbb4abb4a.html?style=gold&amp;id=49">Gold</a> (Original packet guide style)</td><td><a href="packetsf61ff61f.html?style=block&amp;id=49">Block</a> (Yellow and grey blocks)</td><td><a href="packets67f067f0.html?style=inverted&amp;id=49">Inverted</a> (Black background, white text)</td></tr></table><table width=70% border=0><tr><td><center><font size=2><a href='packetsd4b7d4b7.html?style=plain'>Back to packet list</a></font></center></td></tr></table><p><table width=70% border=2 cellspacing=2 cellpadding=2 class=table title='0x25 - Container Add Item (20 bytes)'>
+<COLGROUP><COL width=15%><COL width=15%><COL width=70%></COLGROUP><tr class='tabletop'><td>Sent By: <b><font class="Server">Server</font></b></td><td colspan=2><font size='5'><font class='blue'><b>0x25 - Container Add Item (20 bytes)</b></font></font></td></tr><tr class='tabletop'><td>Variable Type</td><td>Start Index</td><td>Packet/Variable Name</td></tr><tr class='packet'>
+<td>byte</td>
+<td>0</td>
+<td>Packet ID (0x25 - Container Add Item)</td>
+</tr>
+<tr class='vardat'>
+<td>int</td>
+<td>1</td>
+<td>Item UID/Serial</td>
+</tr>
+<tr class='vardat'>
+<td>short</td>
+<td>5</td>
+<td>Item Model/DispID</td>
+</tr>
+<tr class='unused'>
+<td>byte</td>
+<td>7</td>
+<td>unknown=0</td>
+</tr>
+<tr class='vardat'>
+<td>short</td>
+<td>8</td>
+<td>Item amount</td>
+</tr>
+<tr class='vardat'>
+<td>short</td>
+<td>10</td>
+<td>Item X(in container 44-142)</td>
+</tr>
+<tr class='vardat'>
+<td>short</td>
+<td>12</td>
+<td>Item Y(in container 65-127)</td>
+</tr>
+<tr class='vardat'>
+<td>int</td>
+<td>14</td>
+<td>Container UID/Serial</td>
+</tr>
+<tr class='vardat'>
+<td>short</td>
+<td>18</td>
+<td>Item color</td>
+</tr>
+<tr class='notes'><td colspan=3>Container/Item UID + 0x40000000 (item offset)</td></tr></table><table width=70%><COLGROUP><COL width=40%><COL width=10%><COL width=10%><COL width=40%></COLGROUP><tr><td></td></tr></table>
+<p><p><table width=70% border=2 cellspacing=2 cellpadding=2 class=table>
+<COLGROUP><COL width=40%><COL width=15%><COL width=45%></COLGROUP><tr class='tabletop'><td colspan=3 class=largerfnt><center>Subpackets for 0x25</center></td></tr><tr class='tabletop'><td>Packet Name</td><td>Packet ID</td><td>Sent By</td></tr></table>
+<br><hr noshade width=70% align=left><table width=70% border=0><tr><td><center><font size=2><a href='packetsd4b7d4b7.html?style=plain'>Back to packet list</a></font></center></td></tr></table></body>
+<!-- Mirrored from www.twilightmanor.net/se/packets.php?id=49&style=plain by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:32:30 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/SE%20packet%20guide/www.twilightmanor.net/se/packets7d2e.html?id=49&style=plain by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:18:38 GMT -->
+</html>

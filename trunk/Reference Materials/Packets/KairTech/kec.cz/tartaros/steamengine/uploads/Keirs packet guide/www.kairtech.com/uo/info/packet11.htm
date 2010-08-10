@@ -1,0 +1,166 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/packet11.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:42 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet11.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:57 GMT -->
+<head>
+    <title>Ultima Online Protocol :: Mobile Stats</title>
+  </head>
+  <link href="shared/style.css" type="text/css" rel="stylesheet">
+  <body>
+    <center><strong>Ultima Online Protocol :: Mobile Stats</strong></center>
+    <table align="center" border="1" cellpadding="5" cellspacing="0" bordercolor="#000000">
+      <tr>
+        <th width="100">Packet #</th>
+        <th width="150">Packet Name</th>
+        <th width="100">Length</th>
+        <th width="50"><acronym title="Does the client send this message?">Client</acronym></th>
+        <th width="50"><acronym title="Does the server send this message?">Server</acronym></th>
+        <th width="50"><acronym title="If the latest client does not use a packet, the packet is considered to be obsolete.">Obsolete</acronym></th>
+      </tr>
+      <!--0x11 - Mobile Stats-->
+      <tr class="godcli">
+        <td align="center">0x11</td>
+        <td align="center">Mobile Stats</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <tr>
+        <th>Data Type</th>
+        <th colspan="5">Description</th>
+      </tr>
+      <tr>
+        <td>byte 0x11</td>
+        <td colspan="5">The packet number.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> Size</td>
+        <td colspan="5">The size of the packet.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 32-bit integer.">uint</acronym> Serial</td>
+        <td colspan="5">The character's serial.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An array of characters (a byte representing a single string character).">char[30]</acronym> Name</td>
+        <td colspan="5">The character's name.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> CurrentHP</td>
+        <td colspan="5">The character's current amount of hit points.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> MaximumHP</td>
+        <td colspan="5">The character's maximum amount of hit points.</td>
+      </tr>
+      <tr>
+        <td>byte flagName</td>
+        <td colspan="5"><br><ul><li>0x00 - Normal</li><li>0xFF - The user can set the character's name.</li></ul></td>
+      </tr>
+      <tr>
+        <td>byte flagDisplay</td>
+        <td colspan="5"><br><ul><li>0x01 - Normal</li><li>0x02 - Display Stat Cap</li><li>0x03 - Display Stat Cap and Followers.</li><li>0x04 - Display Stat Cap, Followers, and Resistances</li></ul></td>
+      </tr>
+      <tr>
+        <td>byte Gender</td>
+        <td colspan="5"><br><ul><li>0x00 - Male</li><li>0x01 - Female</li></ul></td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> Strength</td>
+        <td colspan="5">The character's Strength.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> Dexterity</td>
+        <td colspan="5">The character's Dexterity.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> Intelligence</td>
+        <td colspan="5">The character's Intelligence.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> currentStamina</td>
+        <td colspan="5">The character's current Stamina.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> maximumStamina</td>
+        <td colspan="5">The character's maximum Stamina.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> currentMana</td>
+        <td colspan="5">The character's current Mana.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> maximumMana</td>
+        <td colspan="5">The character's maximum Mana.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 32-bit integer.">uint</acronym> Gold</td>
+        <td colspan="5">How much gold the character is currently carrying.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> resistPhysical</td>
+        <td colspan="5">The character's physical resistance value (old clients: AC).</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> Weight</td>
+        <td colspan="5">The character's current weight value.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> StatCap</td>
+        <td colspan="5">The character's total allowable sum of Strength, Intelligence, and Dexterity.</td>
+      </tr>
+      <tr>
+        <td>byte currentFollowers</td>
+        <td colspan="5">The number of "Follower Slots" that are currently being used.</td>
+      </tr>
+      <tr>
+        <td>byte maximumFollowers</td>
+        <td colspan="5">The maximum number of "Follower Slots" the character has available.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> resistFire</td>
+        <td colspan="5">The character's resistance to fire.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> resistCold</td>
+        <td colspan="5">The character's resistance to cold.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> resistPoison</td>
+        <td colspan="5">The character's resistance to poison.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> resistEnergy</td>
+        <td colspan="5">The character's resistance to energy.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> Luck</td>
+        <td colspan="5">The character's Luck value.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> minDamage</td>
+        <td colspan="5">The minimum amount of damage the character can deal.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> maxDamage</td>
+        <td colspan="5">The maximum amount of damage the character can deal.</td>
+      </tr>
+      <tr>
+        <td><acronym title="An unsigned 16-bit integer.">ushort</acronym> TithingPoints</td>
+        <td colspan="5">The character's current amount of Tithing points.</td>
+      </tr>
+      <tr>
+        <td colspan="6"><br>
+          <b>Packet Description:</b><br>
+          Sends data containing information about various character stats that are displayed in the Status window.<br><br>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/packet11.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:42 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packet11.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:57 GMT -->
+</html>

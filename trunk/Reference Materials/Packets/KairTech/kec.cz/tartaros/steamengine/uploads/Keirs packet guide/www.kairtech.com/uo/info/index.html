@@ -1,0 +1,2048 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/ by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:38 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/ by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:27 GMT -->
+<head>
+    <title>Ultima Online Protocol</title>
+  </head>
+  <link href="shared/style.css" type="text/css" rel="stylesheet">
+  <body>
+    <center><strong>Ultima Online Protocol</strong></center>
+    <table align="center" border="1" cellpadding="5" cellspacing="0" bordercolor="#000000">
+      <tr>
+        <th width="100">Packet #</th>
+        <th width="150">Packet Name</th>
+        <th width="100">Length</th>
+        <th width="50"><acronym title="Does the client send this message?">Client</acronym></th>
+        <th width="50"><acronym title="Does the server send this message?">Server</acronym></th>
+        <th width="50"><acronym title="If the latest client does not use a packet, the packet is considered to be obsolete.">Obsolete</acronym></th>
+      </tr>
+      <!--Data Types-->
+      <tr>
+        <td align="center">----</td>
+        <td align="center"><a href="help.htm">Data Types</a></td>
+        <td align="center">----</td>
+        <td align="center">----</td>
+        <td align="center">----</td>
+        <td align="center">----</td>
+      </tr>
+      <!--Encrypted Login Seed-->
+      <tr>
+        <td align="center">----</td>
+        <td align="center"><a href="seed.htm">Encrypted Login Seed</a></td>
+        <td align="center">0x0004</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x00 - Character Creation-->
+      <tr>
+        <td align="center">0x00</td>
+        <td align="center"><a href="packet00.htm">Character Creation</a></td>
+        <td align="center">0x0068</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x01 - Logout-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x01</td>
+        <td align="center"><a href="packet01.htm">Logout</a></td>
+        <td align="center">0x0005</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x02 - Request Movement-->
+      <tr>
+        <td align="center">0x02</td>
+        <td align="center"><a href="packet02.htm">Request Movement</a></td>
+        <td align="center">0x0007</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x03 - Speech-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x03</td>
+        <td align="center">Speech</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x04 - Request God Mode-->
+      <tr bgcolor="#F0F0F0" class="godcli">
+        <td align="center">0x04</td>
+        <td align="center"><a href="packet04.htm">Request God Mode</a></td>
+        <td align="center">0x0002</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x05 - Attack-->
+      <tr>
+        <td align="center">0x05</td>
+        <td align="center"><a href="packet05.htm">Attack</a></td>
+        <td align="center">0x0005</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x06 - Double Click-->
+      <tr>
+        <td align="center">0x06</td>
+        <td align="center"><a href="packet06.htm">Double Click</a></td>
+        <td align="center">0x0005</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x07 - Take Object-->
+      <tr>
+        <td align="center">0x07</td>
+        <td align="center"><a href="packet07.htm">Take Object</a></td>
+        <td align="center">0x0007</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x08 - Drop Object-->
+      <tr>
+        <td align="center">0x08</td>
+        <td align="center"><a href="packet08.htm">Drop Object</a></td>
+        <td align="center">0x000E</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x09 - Single Click-->
+      <tr>
+        <td align="center">0x09</td>
+        <td align="center"><a href="packet09.htm">Single Click</a></td>
+        <td align="center">0x0005</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x0A - Edit-->
+      <tr bgcolor="#F0F0F0" class="godcli">
+        <td align="center">0x0A</td>
+        <td align="center"><a href="packet0a.htm">Edit</a></td>
+        <td align="center">0x000B</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x0B - Edit Area-->
+      <tr bgcolor="#F0F0F0" class="godcli">
+        <td align="center">0x0B</td>
+        <td align="center">Edit Area</td>
+        <td align="center">0x010A</td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x0C - Tile Data-->
+      <tr bgcolor="#F0F0F0" class="godcli">
+        <td align="center">0x0C</td>
+        <td align="center"><a href="packet0c.htm">Tile Data</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x0D - NPC Data-->
+      <tr bgcolor="#F0F0F0" class="godcli">
+        <td align="center">0x0D</td>
+        <td align="center">NPC Data</td>
+        <td align="center">0x0003</td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x0E - Edit Template Data-->
+      <tr bgcolor="#F0F0F0" class="godcli">
+        <td align="center">0x0E</td>
+        <td align="center">Edit Template Data</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x0F - Paperdoll (Old)-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x0F</td>
+        <td align="center">Paperdoll (Old)</td>
+        <td align="center">0x003D</td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><Strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x10 - Hue Data-->
+      <tr bgcolor="#F0F0F0" class="godcli">
+        <td align="center">0x10</td>
+        <td align="center">Hue Data</td>
+        <td align="center">0x00D7</td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x11 - Mobile Stats-->
+      <tr>
+        <td align="center">0x11</td>
+        <td align="center"><a href="packet11.htm">Mobile Stats</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x12 - God Command-->
+      <tr class="godcli">
+        <td align="center">0x12</td>
+        <td align="center"><a href="packet12.htm">God Command</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x13 - Equip Item Request-->
+      <tr>
+        <td align="center">0x13</td>
+        <td align="center"><a href="packet13.htm">Equip Item Request</a></td>
+        <td align="center">0x000A</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x14 - Change Elevation-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x14</td>
+        <td align="center"><a href="packet14.htm">Change Elevation</a></td>
+        <td align="center">0x0006</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x15 - Follow-->
+      <tr>
+        <td align="center">0x15</td>
+        <td align="center"><a href="packet15.htm">Follow</a></td>
+        <td align="center">0x0009</td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x16 - Request Script Names-->
+      <tr bgcolor="#F0F0F0" class="godcli">
+        <td align="center">0x16</td>
+        <td align="center">Request Script Names</td>
+        <td align="center">0x0001</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x17 - Script Tree Command-->
+      <tr bgcolor="#F0F0F0" class="godcli">
+        <td align="center">0x17</td>
+        <td align="center">Script Tree Command</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x18 - Script Attach-->
+      <tr bgcolor="#F0F0F0" class="godcli">
+        <td align="center">0x18</td>
+        <td align="center">Script Attach</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x19 - NPC Conversation Data-->
+      <tr bgcolor="#F0F0F0" class="godcli">
+        <td align="center">0x19</td>
+        <td align="center">NPC Conversation Data</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x1A - Show Item-->
+      <tr>
+        <td align="center">0x1A</td>
+        <td align="center"><a href="packet1a.htm">Show Item</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x1B - Login Confirm-->
+      <tr>
+        <td align="center">0x1B</td>
+        <td align="center"><a href="packet1b.htm">Login Confirm</a></td>
+        <td align="center">0x0025</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x1C - Text-->
+      <tr>
+        <td align="center">0x1C</td>
+        <td align="center"><a href="packet1c.htm">Text</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x1D - Destroy-->
+      <tr>
+        <td align="center">0x1D</td>
+        <td align="center"><a href="packet1d.htm">Destroy</a></td>
+        <td align="center">0x0005</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x1E - Animate-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x1E</td>
+        <td align="center">Animate</td>
+        <td align="center">0x0004</td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x1F - Explode-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x1F</td>
+        <td align="center">Explode</td>
+        <td align="center">0x0008</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x20 - Teleport-->
+      <tr>
+        <td align="center">0x20</td>
+        <td align="center"><a href="packet20.htm">Teleport</a></td>
+        <td align="center">0x0013</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x21 - Block Movement-->
+      <tr>
+        <td align="center">0x21</td>
+        <td align="center"><a href="packet21.htm">Block Movement</a></td>
+        <td align="center">0x0008</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x22 - Accept Movement/Resync Request-->
+      <tr>
+        <td align="center">0x22</td>
+        <td align="center"><a href="packet22.htm">Accept Movement/Resync Request</a></td>
+        <td align="center">0x0003</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x23 - Drag Item-->
+      <tr>
+        <td align="center">0x23</td>
+        <td align="center"><a href="packet23.htm">Drag Item</a></td>
+        <td align="center">0x001A</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x24 - Open Container-->
+      <tr>
+        <td align="center">0x24</td>
+        <td align="center"><a href="packet24.htm">Open Container</a></td>
+        <td align="center">0x0007</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x25 - Object to Object-->
+      <tr>
+        <td align="center">0x25</td>
+        <td align="center"><a href="packet25.htm">Object to Object</a></td>
+        <td align="center">0x0014</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x26 - Old Client-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x26</td>
+        <td align="center">Old Client</td>
+        <td align="center">0x0005</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x27 - Get Item Failed-->
+      <tr>
+        <td align="center">0x27</td>
+        <td align="center"><a href="packet27.htm">Get Item Failed</a></td>
+        <td align="center">0x0002</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x28 - Drop Item Failed-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x28</td>
+        <td align="center">Drop Item Failed</td>
+        <td align="center">0x0005</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x29 - Drop Item OK-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x29</td>
+        <td align="center">Drop Item OK</td>
+        <td align="center">0x0001</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x2A - Blood-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x2A</td>
+        <td align="center">Blood</td>
+        <td align="center">0x0005</td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x2B - God Mode-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x2B</td>
+        <td align="center"><a href="packet2b.htm">God Mode</a></td>
+        <td align="center">0x0002</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x2C - Death-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x2C</td>
+        <td align="center">Death</td>
+        <td align="center">0x0002</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x2D - Health-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x2D</td>
+        <td align="center">Health</td>
+        <td align="center">0x0011</td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x2E - Equip Item-->
+      <tr>
+        <td align="center">0x2E</td>
+        <td align="center"><a href="packet2e.htm">Equip Item</a></td>
+        <td align="center">0x000F</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x2F - Swing-->
+      <tr>
+        <td align="center">0x2F</td>
+        <td align="center"><a href="packet2f.htm">Swing</a></td>
+        <td align="center">0x000A</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x30 - Attack OK-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x30</td>
+        <td align="center">Attack OK</td>
+        <td align="center">0x0005</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x31 - Attack End-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x31</td>
+        <td align="center">Attack End</td>
+        <td align="center">0x0001</td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x32 - Hack Mover-->
+      <tr bgcolor="#F0F0F0" class="godcli">
+        <td align="center">0x32</td>
+        <td align="center"><a href="packet32.htm">Hack Mover</a></td>
+        <td align="center">0x0002</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x33 - Group-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x33</td>
+        <td align="center">Group</td>
+        <td align="center">0x0002</td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x34 - Client Query-->
+      <tr>
+        <td align="center">0x34</td>
+        <td align="center"><a href="packet34.htm">Client Query</a></td>
+        <td align="center">0x000A</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x35 - Resource Type-->
+      <tr bgcolor="#F0F0F0" class="godcli">
+        <td align="center">0x35</td>
+        <td align="center"><a href="packet35.htm">Resource Type</a></td>
+        <td align="center">0x028D</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x36 - Resource Tile Data-->
+      <tr bgcolor="#F0F0F0" class="godcli">
+        <td align="center">0x36</td>
+        <td align="center">Resource Tile Data</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x37 - Move Object-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x37</td>
+        <td align="center"><a href="packet37.htm">Move Object</a></td>
+        <td align="center">0x0008</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x38 - Follow Move-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x38</td>
+        <td align="center">Follow Move</td>
+        <td align="center">0x0007</td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x39 - Groups-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x39</td>
+        <td align="center"><a href="packet39.htm">Groups</a></td>
+        <td align="center">0x0009</td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x3A - Skills (Server Version)-->
+      <tr>
+        <td align="center">0x3A</td>
+        <td align="center"><a href="packet3a.htm">Skills</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x3B - Accept Offer-->
+      <tr>
+        <td align="center">0x3B</td>
+        <td align="center"><a href="packet3b.htm">Accept Offer</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x3C - Container Contents-->
+      <tr>
+        <td align="center">0x3C</td>
+        <td align="center"><a href="packet3c.htm">Container Contents</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x3D - Ship-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x3D</td>
+        <td align="center">Ship</td>
+        <td align="center">0x0002</td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x3E - Versions-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x3E</td>
+        <td align="center"><a href="packet3e.htm">Versions</a></td>
+        <td align="center">0x0025</td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x3F - Update Statics-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x3F</td>
+        <td align="center"><a href="packet3f.htm">Update Statics</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x40 - Update Terrain-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x40</td>
+        <td align="center"><a href="packet40.htm">Update Terrain</a></td>
+        <td align="center">0x00C9</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x41 - Update Tiledata-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x41</td>
+        <td align="center">Update Tiledata</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x42 - Update Art-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x42</td>
+        <td align="center">Update Art</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x43 - Update Anim-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x43</td>
+        <td align="center">Update Anim</td>
+        <td align="center">0x0229</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x44 - Update Hues-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x44</td>
+        <td align="center">Update Hues</td>
+        <td align="center">0x02C9</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x45 - Ver OK-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x45</td>
+        <td align="center">Ver OK</td>
+        <td align="center">0x0005</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x46 - New Art-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x46</td>
+        <td align="center">New Art</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x47 - New Terrain-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x47</td>
+        <td align="center"><a href="packet47.htm">New Terrain</a></td>
+        <td align="center">0x000B</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x48 - New Anim-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x48</td>
+        <td align="center">New Anim</td>
+        <td align="center">0x0049</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x49 - New Hues-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x49</td>
+        <td align="center">New Hues</td>
+        <td align="center">0x005D</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x4A - Destroy Art-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x4A</td>
+        <td align="center">Destroy Art</td>
+        <td align="center">0x0005</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x4B - Check Ver-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x4B</td>
+        <td align="center">Check Ver</td>
+        <td align="center">0x0009</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x4C - Script Names-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x4C</td>
+        <td align="center">Script Names</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x4D - Script File-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x4D</td>
+        <td align="center">Script File</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x4E - Light Change-->
+      <tr>
+        <td align="center">0x4E</td>
+        <td align="center"><a href="packet4e.htm">Light Change</a></td>
+        <td align="center">0x0006</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x4F - Sunlight-->
+      <tr>
+        <td align="center">0x4F</td>
+        <td align="center"><a href="packet4f.htm">Sunlight</a></td>
+        <td align="center">0x0002</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x50 - Board Header-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x50</td>
+        <td align="center">Board Header</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x51 - Board Message-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x51</td>
+        <td align="center">Board Message</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x52 - Post Message-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x52</td>
+        <td align="center">Post Message</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x53 - Login Reject-->
+      <tr>
+        <td align="center">0x53</td>
+        <td align="center"><a href="packet53.htm">Login Reject</a></td>
+        <td align="center">0x0002</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x54 - Sound-->
+      <tr>
+        <td align="center">0x54</td>
+        <td align="center"><a href="packet54.htm">Sound</a></td>
+        <td align="center">0x000C</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x55 - Login Complete-->
+      <tr>
+        <td align="center">0x55</td>
+        <td align="center"><a href="packet55.htm">Login Complete</a></td>
+        <td align="center">0x0001</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x56 - Map Command-->
+      <tr>
+        <td align="center">0x56</td>
+        <td align="center"><a href="packet56.htm">Map Command</a></td>
+        <td align="center">0x000B</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x57 - Update Regions-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x57</td>
+        <td align="center">Update Regions</td>
+        <td align="center">0x006E</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x58 - New Region-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x58</td>
+        <td align="center">New Region</td>
+        <td align="center">0x006A</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x59 - New Context FX-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x59</td>
+        <td align="center">New Context FX</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x5A - Update Context FX-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x5A</td>
+        <td align="center">Update Context FX</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x5B - Game Time-->
+      <tr>
+        <td align="center">0x5B</td>
+        <td align="center"><a href="packet5b.htm">Game Time</a></td>
+        <td align="center">0x0004</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x5C - Restart Ver-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x5C</td>
+        <td align="center">Restart Ver</td>
+        <td align="center">0x0002</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x5D - Pre Login-->
+      <tr>
+        <td align="center">0x5D</td>
+        <td align="center"><a href="packet5d.htm">Pre Login</a></td>
+        <td align="center">0x0049</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x5E - Server List-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x5E</td>
+        <td align="center">Server List</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x5F - Add Server-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x5F</td>
+        <td align="center">Add Server</td>
+        <td align="center">0x0031</td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x60 - Server Remove-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x60</td>
+        <td align="center">Server Remove</td>
+        <td align="center">0x0005</td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x61 - Destroy Static-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x61</td>
+        <td align="center"><a href="packet61.htm">Destroy Static</a></td>
+        <td align="center">0x0009</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x62 - Move Static-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x62</td>
+        <td align="center"><a href="packet62.htm">Move Static</a></td>
+        <td align="center">0x000F</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x63 - Area Load-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x63</td>
+        <td align="center">Area Load</td>
+        <td align="center">0x000D</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x64 - Area Load Request-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x64</td>
+        <td align="center">Area Load Request</td>
+        <td align="center">0x0001</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x65 - Weather Change-->
+      <tr>
+        <td align="center">0x65</td>
+        <td align="center"><a href="packet65.htm">Weather Change</a></td>
+        <td align="center">0x0004</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x66 - Book Contents-->
+      <tr>
+        <td align="center">0x66</td>
+        <td align="center"><a href="packet66.htm">Book Contents</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x67 - Simple Edit-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x67</td>
+        <td align="center">Simple Edit</td>
+        <td align="center">0x0015</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x68 - Script LS Attach-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x68</td>
+        <td align="center">Script LS Attach</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x69 - Friends-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x69</td>
+        <td align="center">Friends</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x6A - Friend Notify-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x6A</td>
+        <td align="center">Friend Notify</td>
+        <td align="center">0x0003</td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x6B - Key Use-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x6B</td>
+        <td align="center">Key Use</td>
+        <td align="center">0x0009</td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x6C - Target-->
+      <tr>
+        <td align="center">0x6C</td>
+        <td align="center"><a href="packet6c.htm">Target</a></td>
+        <td align="center">0x0013</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x6D - Music-->
+      <tr>
+        <td align="center">0x6D</td>
+        <td align="center"><a href="packet6d.htm">Music</a></td>
+        <td align="center">0x0003</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x6E - Animation-->
+      <tr>
+        <td align="center">0x6E</td>
+        <td align="center"><a href="packet6e.htm">Animation</a></td>
+        <td align="center">0x000E</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x6F - Trade-->
+      <tr>
+        <td align="center">0x6F</td>
+        <td align="center">Trade</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x70 - Effect-->
+      <tr>
+        <td align="center">0x70</td>
+        <td align="center">Effect</td>
+        <td align="center">0x001C</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x71 - Bulletin Board-->
+      <tr>
+        <td align="center">0x71</td>
+        <td align="center"><a href="packet71.htm">Bulletin Board</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x72 - Combat-->
+      <tr>
+        <td align="center">0x72</td>
+        <td align="center"><a href="packet72.htm">Combat</a></td>
+        <td align="center">0x0005</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x73 - Ping-->
+      <tr>
+        <td align="center">0x73</td>
+        <td align="center"><a href="packet73.htm">Ping</a></td>
+        <td align="center">0x0002</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x74 - Shop Data-->
+      <tr>
+        <td align="center">0x74</td>
+        <td align="center"><a href="packet74.htm">Shop Data</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x75 - Rename MOB-->
+      <tr>
+        <td align="center">0x75</td>
+        <td align="center"><a href="packet75.htm">Rename MOB</a></td>
+        <td align="center">0x0023</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x76 - Server Change-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x76</td>
+        <td align="center">Server Change</td>
+        <td align="center">0x0010</td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x77 - Naked MOB-->
+      <tr>
+        <td align="center">0x77</td>
+        <td align="center"><a href="packet77.htm">Naked MOB</a></td>
+        <td align="center">0x0011</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x78 - Equipped MOB-->
+      <tr>
+        <td align="center">0x78</td>
+        <td align="center"><a href="packet78.htm">Equipped MOB</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x79 - Resource Query-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x79</td>
+        <td align="center">Resource Query</td>
+        <td align="center">0x0009</td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x7A - Resource Data-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x7A</td>
+        <td align="center">Resource Data</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x7B - Sequence-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x7B</td>
+        <td align="center">Sequence</td>
+        <td align="center">0x0002</td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x7C - Object Picker-->
+      <tr>
+        <td align="center">0x7C</td>
+        <td align="center"><a href="packet7c.htm">Object Picker</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x7D - Picked Object-->
+      <tr>
+        <td align="center">0x7D</td>
+        <td align="center"><a href="packet7d.htm">Picked Object</a></td>
+        <td align="center">0x000D</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x7E - God View Query-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x7E</td>
+        <td align="center">God View Query</td>
+        <td align="center">0x0002</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x7F - God View Data-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x7F</td>
+        <td align="center">God View Data</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x80 - Account Login Request-->
+      <tr>
+        <td align="center">0x80</td>
+        <td align="center"><a href="packet80.htm">Account Login Request</a></td>
+        <td align="center">0x003E</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x81 - Account Login OK-->
+      <tr>
+        <td align="center">0x81</td>
+        <td align="center">Account Login OK</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x82 - Account Login Failed-->
+      <tr>
+        <td align="center">0x82</td>
+        <td align="center"><a href="packet82.htm">Account Login Failed</a></td>
+        <td align="center">0x0002</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x83 - Account Delete Character-->
+      <tr>
+        <td align="center">0x83</td>
+        <td align="center"><a href="packet83.htm">Account Delete Character</a></td>
+        <td align="center">0x0027</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x84 - Change Character Password-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x84</td>
+        <td align="center">Change Character Password</td>
+        <td align="center">0x0045</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x85 - Delete Character Failed-->
+      <tr>
+        <td align="center">0x85</td>
+        <td align="center"><a href="packet85.htm">Delete Character Failed</a></td>
+        <td align="center">0x0002</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x86 - All Characters-->
+      <tr>
+        <td align="center">0x86</td>
+        <td align="center"><a href="packet86.htm">All Characters</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x87 - Send Resources-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x87</td>
+        <td align="center">Send Resources</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x88 - Open Paperdoll-->
+      <tr>
+        <td align="center">0x88</td>
+        <td align="center"><a href="packet88.htm">Open Paperdoll</a></td>
+        <td align="center">0x0042</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x89 - Corpse Equipment-->
+      <tr>
+        <td align="center">0x89</td>
+        <td align="center"><a href="packet89.htm">Corpse Equipment</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x8A - Trigger Edit-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x8A</td>
+        <td align="center">Trigger Edit</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x8B - Display Sign-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x8B</td>
+        <td align="center">Display Sign</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x8C - Server Redirect-->
+      <tr>
+        <td align="center">0x8C</td>
+        <td align="center"><a href="packet8c.htm">Server Redirect</a></td>
+        <td align="center">0x000B</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x8D - Unused3-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x8D</td>
+        <td align="center">Unused3</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x8E - Move Character-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x8E</td>
+        <td align="center">Move Character</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x8F - Unused4-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x8F</td>
+        <td align="center">Unused4</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x90 - Open Course Gump-->
+      <tr>
+        <td align="center">0x90</td>
+        <td align="center"><a href="packet90.htm">Open Course Gump</a></td>
+        <td align="center">0x0013</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x91 - Post Login-->
+      <tr>
+        <td align="center">0x91</td>
+        <td align="center"><a href="packet91.htm">Post Login</a></td>
+        <td align="center">0x0041</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x92 - Update Multi-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x92</td>
+        <td align="center">Update Multi</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x93 - Book Header-->
+      <tr>
+        <td align="center">0x93</td>
+        <td align="center"><a href="packet93.htm">Book Header</a></td>
+        <td align="center">0x0063</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x94 - Update Skill-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x94</td>
+        <td align="center">Update Skill</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x95 - Hue Picker-->
+      <tr>
+        <td align="center">0x95</td>
+        <td align="center"><a href="packet95.htm">Hue Picker</a></td>
+        <td align="center">0x0009</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x96 - Game Central Monitor-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x96</td>
+        <td align="center">Game Central Monitor</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x97 - Move Player-->
+      <tr>
+        <td align="center">0x97</td>
+        <td align="center"><a href="packet97.htm">Move Player</a></td>
+        <td align="center">0x0002</td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x98 - MOB Name-->
+      <tr>
+        <td align="center">0x98</td>
+        <td align="center"><a href="packet98.htm">MOB Name</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x99 - Target Multi-->
+      <tr>
+        <td align="center">0x99</td>
+        <td align="center"><a href="packet99.htm">Target Multi</a></td>
+        <td align="center">0x001A</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x9A - Text Entry-->
+      <tr>
+        <td align="center">0x9A</td>
+        <td align="center"><a href="packet9a.htm">Text Entry</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x9B - Request Assistance-->
+      <tr>
+        <td align="center">0x9B</td>
+        <td align="center"><a href="packet9b.htm">Request Assistance</a></td>
+        <td align="center">0x0102</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x9C - Assist Request-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x9C</td>
+        <td align="center">Assist Request</td>
+        <td align="center">0x0135</td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x9D - GM Single-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0x9D</td>
+        <td align="center">GM Single</td>
+        <td align="center">0x0033</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0x9E - Shop Sell-->
+      <tr>
+        <td align="center">0x9E</td>
+        <td align="center"><a href="packet9e.htm">Shop Sell</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0x9F - Shop Offer-->
+      <tr>
+        <td align="center">0x9F</td>
+        <td align="center"><a href="packet9f.htm">Shop Offer</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xA0 - Server Select-->
+      <tr>
+        <td align="center">0xA0</td>
+        <td align="center"><a href="packeta0.htm">Server Select</a></td>
+        <td align="center">0x0003</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xA1 - HP Health-->
+      <tr>
+        <td align="center">0xA1</td>
+        <td align="center"><a href="packeta1.htm">HP Health</a></td>
+        <td align="center">0x0009</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xA2 - Mana Health-->
+      <tr>
+        <td align="center">0xA2</td>
+        <td align="center"><a href="packeta2.htm">Mana Health</a></td>
+        <td align="center">0x0009</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xA3 - Fat Health-->
+      <tr>
+        <td align="center">0xA3</td>
+        <td align="center"><a href="packeta3.htm">Fat Health</a></td>
+        <td align="center">0x0009</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xA4 - Hardware Info-->
+      <tr>
+        <td align="center">0xA4</td>
+        <td align="center">Hardware Info</td>
+        <td align="center">0x0095</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xA5 - Web Browser-->
+      <tr>
+        <td align="center">0xA5</td>
+        <td align="center"><a href="packeta5.htm">Web Browser</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xA6 - Message-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0xA6</td>
+        <td align="center"><a href="packeta6.htm">Message</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0xA7 - Request Tip-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0xA7</td>
+        <td align="center"><a href="packeta7.htm">Request Tip</a></td>
+        <td align="center">0x0004</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0xA8 - Server List-->
+      <tr>
+        <td align="center">0xA8</td>
+        <td align="center"><a href="packeta8.htm">Server List</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xA9 - Character List-->
+      <tr>
+        <td align="center">0xA9</td>
+        <td align="center"><a href="packeta9.htm">Character List</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xAA - Current Target-->
+      <tr>
+        <td align="center">0xAA</td>
+        <td align="center"><a href="packetaa.htm">Current Target</a></td>
+        <td align="center">0x0005</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xAB - String Query-->
+      <tr>
+        <td align="center">0xAB</td>
+        <td align="center"><a href="packetab.htm">String Query</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xAC - String Response-->
+      <tr>
+        <td align="center">0xAC</td>
+        <td align="center"><a href="packetac.htm">String Response</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xAD - Speech Unicode-->
+      <tr>
+        <td align="center">0xAD</td>
+        <td align="center"><a href="packetad.htm">Speech Unicode</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xAE - Text Unicode-->
+      <tr>
+        <td align="center">0xAE</td>
+        <td align="center"><a href="packetae.htm">Text Unicode</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xAF - Death Animation-->
+      <tr>
+        <td align="center">0xAF</td>
+        <td align="center"><a href="packetaf.htm">Death Animation</a></td>
+        <td align="center">0x000D</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xB0 - Generic Gump-->
+      <tr>
+        <td align="center">0xB0</td>
+        <td align="center"><a href="packetb0.htm">Generic Gump</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xB1 - Generic Gump Trigger-->
+      <tr>
+        <td align="center">0xB1</td>
+        <td align="center"><a href="packetb1.htm">Generic Gump Trigger</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xB2 - Chat Message-->
+      <tr>
+        <td align="center">0xB2</td>
+        <td align="center">Chat Message</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xB3 - Chat Text-->
+      <tr>
+        <td align="center">0xB3</td>
+        <td align="center">Chat Text</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xB4 - Target Object List-->
+      <tr>
+        <td align="center">0xB4</td>
+        <td align="center">Target Object List</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xB5 - Open Chat-->
+      <tr>
+        <td align="center">0xB5</td>
+        <td align="center">Open Chat</td>
+        <td align="center">0x0040</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xB6 - Help Request-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0xB6</td>
+        <td align="center">Help Request</td>
+        <td align="center">0x0009</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0xB7 - Help Text-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0xB7</td>
+        <td align="center">Help Text</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0xB8 - Character Profile-->
+      <tr>
+        <td align="center">0xB8</td>
+        <td align="center">Character Profile</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xB9 - Features-->
+      <tr>
+        <td align="center">0xB9</td>
+        <td align="center"><a href="packetb9.htm">Features</a></td>
+        <td align="center">0x0003</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xBA - Pointer-->
+      <tr>
+        <td align="center">0xBA</td>
+        <td align="center">Pointer</td>
+        <td align="center">0x0006</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xBB - Account ID-->
+      <tr>
+        <td align="center">0xBB</td>
+        <td align="center">Account ID</td>
+        <td align="center">0x0009</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xBC - Game Season-->
+      <tr>
+        <td align="center">0xBC</td>
+        <td align="center">Game Season</td>
+        <td align="center">0x0003</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xBD - Client Version-->
+      <tr>
+        <td align="center">0xBD</td>
+        <td align="center">Client Version</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xBE - Assist Version-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0xBE</td>
+        <td align="center">Assist Version</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0xBF - Generic Command-->
+      <tr>
+        <td align="center">0xBF</td>
+        <td align="center">Generic Command</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xC0 - Hued FX-->
+      <tr>
+        <td align="center">0xC0</td>
+        <td align="center">Hued FX</td>
+        <td align="center">0x0024</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xC1 - Localized Text-->
+      <tr>
+        <td align="center">0xC1</td>
+        <td align="center">Localized Text</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xC2 - Unicode Text Entry-->
+      <tr>
+        <td align="center">0xC2</td>
+        <td align="center"><a href="packetc2.htm">Unicode Text Entry</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xC3 - Global Queue-->
+      <tr class="gm">
+        <td align="center">0xC3</td>
+        <td align="center"><a href="packetc3.htm">Global Queue</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xC4 - Semivisible-->
+      <tr class="gm">
+        <td align="center">0xC4</td>
+        <td align="center"><a href="packetc4.htm">Semivisible</a></td>
+        <td align="center">0x0006</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xC5 - Invalid Map-->
+      <tr>
+        <td align="center">0xC5</td>
+        <td align="center">Invalid Map</td>
+        <td align="center">0x00CB</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xC6 - Invalid Map Enable-->
+      <tr>
+        <td align="center">0xC6</td>
+        <td align="center">Invalid Map Enable</td>
+        <td align="center">0x0001</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xC7 - Particle Effect-->
+      <tr>
+        <td align="center">0xC7</td>
+        <td align="center">Particle Effect</td>
+        <td align="center">0x0031</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xC8 - Change Update Range-->
+      <tr>
+        <td align="center">0xC8</td>
+        <td align="center">Change Update Range</td>
+        <td align="center">0x0002</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xC9 - Trip Time-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0xC9</td>
+        <td align="center">Trip Time</td>
+        <td align="center">0x0006</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0xCA - UTrip Time-->
+      <tr bgcolor="#F0F0F0">
+        <td align="center">0xCA</td>
+        <td align="center">UTrip Time</td>
+        <td align="center">0x0006</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+      </tr>
+      <!--0xCB - Global Queue Count-->
+      <tr class="gm">
+        <td align="center">0xCB</td>
+        <td align="center"><a href="packetcb.htm">Global Queue Count</a></td>
+        <td align="center">0x0007</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xCC - Localized Text Plus String-->
+      <tr>
+        <td align="center">0xCC</td>
+        <td align="center">Localized Text Plus String</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xCD - Unknown God Packet-->
+      <tr>
+        <td align="center">0xCD</td>
+        <td align="center">Unknown God Packet</td>
+        <td align="center">0x0001</td>
+        <td align="center"><strong>?</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xCE - IGR Client-->
+      <tr>
+        <td align="center">0xCE</td>
+        <td align="center">IGR Client</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xCF - IGR Login-->
+      <tr>
+        <td align="center">0xCF</td>
+        <td align="center">IGR Login</td>
+        <td align="center">0x004E</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xD0 - IGR Configuration-->
+      <tr>
+        <td align="center">0xD0</td>
+        <td align="center">IGR Configuration</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xD1 - IGR Logout-->
+      <tr>
+        <td align="center">0xD1</td>
+        <td align="center"><a href="packetd1.htm">IGR Logout</a></td>
+        <td align="center">0x0002</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xD2 - Update Mobile-->
+      <tr>
+        <td align="center">0xD2</td>
+        <td align="center"><a href="packetd2.htm">Update Mobile</a></td>
+        <td align="center">0x0019</td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xD3 - Show Mobile-->
+      <tr>
+        <td align="center">0xD3</td>
+        <td align="center"><a href="packetd3.htm">Show Mobile</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xD4 - Book Info-->
+      <tr>
+        <td align="center">0xD4</td>
+        <td align="center"><a href="packetd4.htm">Book Info</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xD5 - Unknown Client Packet-->
+      <tr>
+        <td align="center">0xD5</td>
+        <td align="center">Unknown Client Packet</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xD6 - Mega Cliloc-->
+      <tr class="aos">
+        <td align="center">0xD6</td>
+        <td align="center"><a href="packetd6.htm">Mega Cliloc</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xD7 - AOS Command-->
+      <tr class="aos">
+        <td align="center">0xD7</td>
+        <td align="center"><a href="packetd7.htm">AOS Command</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xD8 - Custom House-->
+      <tr class="aos">
+        <td align="center">0xD8</td>
+        <td align="center"><a href="packetd8.htm">Custom House</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xD9 - Metrics-->
+      <tr>
+        <td align="center">0xD9</td>
+        <td align="center">Metrics</td>
+        <td align="center">0x010C</td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xDA - Mahjong-->
+      <tr>
+        <td align="center">0xDA</td>
+        <td align="center">Mahjong</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <!--0xDB - Character Transfer Log-->
+      <tr>
+        <td align="center">0xDB</td>
+        <td align="center"><a href="packetdb.htm">Character Transfer Log</a></td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+    </table>
+    <br><br>
+    <table align="center" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <th width="100">Item</th>
+        <th width="200">Meaning</th>
+      </tr>
+      <tr>
+        <td bgcolor="#F0F0F0"></td>
+        <td align="center">Obsolete packets</td>
+      </tr>
+      <tr>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center">Yes</td>
+      </tr>
+      <tr>
+        <td align="center"><strong>X</strong></td>
+        <td align="center">No</td>
+      </tr>
+      <tr>
+        <td align="center"><strong>?</strong></td>
+        <td align="center">Unknown</td>
+      </tr>
+    </table>
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/ by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:29:38 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/ by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:23:55 GMT -->
+</html>

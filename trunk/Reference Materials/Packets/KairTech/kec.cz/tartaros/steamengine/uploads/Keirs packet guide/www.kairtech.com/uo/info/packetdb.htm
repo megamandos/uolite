@@ -1,0 +1,104 @@
+<html>
+  
+<!-- Mirrored from www.kairtech.com/uo/info/packetdb.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:30:06 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packetdb.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:24:05 GMT -->
+<head>
+    <title>Ultima Online Protocol :: Character Transfer Log</title>
+  </head>
+  <link href="shared/style.css" type="text/css" rel="stylesheet">
+  <body>
+    <center><strong>Ultima Online Protocol :: Character Transfer Log</strong></center>
+    <table align="center" border="1" cellpadding="5" cellspacing="0" bordercolor="#000000">
+      <tr>
+        <th width="100">Packet #</th>
+        <th width="150">Packet Name</th>
+        <th width="100">Length</th>
+        <th width="50"><acronym title="Does the client send this message?">Client</acronym></th>
+        <th width="50"><acronym title="Does the server send this message?">Server</acronym></th>
+        <th width="50"><acronym title="If the latest client does not use a packet, the packet is considered to be obsolete.">Obsolete</acronym></th>
+      </tr>
+      <!--0xDB - Character Transfer Log-->
+      <tr>
+        <td align="center">0xDB</td>
+        <td align="center">Character Transfer Log</td>
+        <td align="center"><strong>dynamic</strong></td>
+        <td align="center"><strong>X</strong></td>
+        <td align="center"><img src="shared/check.gif" border="0"></td>
+        <td align="center"><strong>X</strong></td>
+      </tr>
+      <tr>
+        <th>Data Type</th>
+        <th colspan="5">Description</th>
+      </tr>
+      <tr>
+        <td>byte 0xDB</td>
+        <td colspan="5">The packet number.</td>
+      </tr
+      <tr>
+        <td><acronym title="A 16-bit unsigned integer.">ushort</acronym> Size</td>
+        <td colspan="5">The size of the packet.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 32-bit unsigned integer.">uint</acronym> 0x000000BB</td>
+        <td colspan="5">Unknown.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 32-bit unsigned integer.">uint</acronym> Size - 7</td>
+        <td colspan="5">The remaining length of the packet.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 32-bit unsigned integer.">uint</acronym> Transfer_ID</td>
+        <td colspan="5">The ID number of the character transfer.  This is in Big Endian format.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 32-bit unsigned integer.">uint</acronym> 0x00000000</td>
+        <td colspan="5">Unknown.</td>
+      </tr>
+      <tr>
+        <td><acronym title="A 32-bit unsigned integer.">uint</acronym> 0x00000000</td>
+        <td colspan="5">Unknown.</td>
+      </tr>
+      <tr>
+        <td>
+          loop<br>
+          {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<acronym title="A 32-bit unsigned integer.">uint</acronym> item_serial<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<acronym title="An 32-bit signed integer.">uint</acronym> info_size<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;loop<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;{<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<acronym title="A 32-bit unsigned integer.">uint</acronym> text_id<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;byte token_length<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loop<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<acronym title="An array of unicode characters (a 16-bit integer representing a single string character).">uni</acronym>[] token_text<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<acronym title="A 16-bit unsigned integer.">ushort</acronym> 0x0009<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+          }
+        </td>
+        <td colspan="5">
+          This loop contains all the items included in the character transfer.<br><br>
+          <strong>item_serial</strong>: The item's serial.  This is in Big Endian format.<br>
+          <strong>info_size</strong>: The length of the info that follows in the next loop.  This is in Big Endian format.<br>
+          <strong>text_id</strong>: The cliloc number of the item's name or property.  If this is zero, it defaults to 'Transfer Crate.'<br>
+          <strong>token_length</strong>: The length of the following loop.<br>
+          <strong>token_text</strong>: The text to insert into the cliloc token.<br>
+          <strong>0x0009</strong>: This signals the end of a token.
+        </td>
+      </tr>
+      <tr>
+        <td colspan="6"><br>
+          <b>Packet Description:</b><br>
+          When a character transfer is confirmed, the server sends this to create a log of all the items being included in the transfer.<br>
+          This log is saved to translog.txt.<br>Item properties are also included in this packet.<br>
+          Be very careful about calculating lengths and sizes or you might end up with a very large log file.<br><br>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+<!-- Mirrored from www.kairtech.com/uo/info/packetdb.htm by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:30:06 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/Keirs%20packet%20guide/www.kairtech.com/uo/info/packetdb.htm by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:24:05 GMT -->
+</html>

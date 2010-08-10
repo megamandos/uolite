@@ -1,0 +1,74 @@
+<style type='text/css'>
+.largerfnt	{font-size: larger}
+		A:link {text-decoration: underline; color: #000000}
+        A:visited {text-decoration: underline; color: #000000}
+        A:active {text-decoration: underline; color: #000000}
+        A:hover {text-decoration: bold; color: #000000}
+		.tabletop td 	{color: #000000; }
+		.gray td	 	{color: #000000; }
+		.unused td	 	{color: #000000; }
+		.black td		{color: #000000; }
+		.vardat td		{color: #000000; }
+		.packet td 	{color: #000000; font-size: larger; }
+		.notes td		{color: #000000; }
+		.notestd		{color: #000000; }
+		.table		{margin: 0px;}
+		.up			{border: solid #000000 1px; border-bottom: solid #000000 1px; background-color: #ffffff; margin: 0px;}
+		.Server		{color: #000000; }
+		.Client		{color: #000000; }
+		.Both		{color: #000000; }
+		.subpacket td	{background-color: #ffffff; }
+		.blue		{color: black;}
+		</style><html>
+<!-- Mirrored from www.twilightmanor.net/se/packets.php?style=plain&id=41 by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:33:23 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/SE%20packet%20guide/www.twilightmanor.net/se/packetsf1ff.html?style=plain&id=41 by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:19:17 GMT -->
+<head><title>0x5D - Character List Select (72 bytes) - UO Packet Guide</title><link rel="icon" href="favicon.ico"></head><body bgcolor="#ffffff"><table width=70% border=2 cellspacing=2 cellpadding=2 class=table><tr class=tabletop><td><a href="packetsf1fff1ff.html?style=plain&amp;id=41">Plain</a> (Printer-friendly)</td><td><a href="packets42714271.html?style=gold&amp;id=41">Gold</a> (Original packet guide style)</td><td><a href="packetsa254a254.html?style=block&amp;id=41">Block</a> (Yellow and grey blocks)</td><td><a href="packets360a360a.html?style=inverted&amp;id=41">Inverted</a> (Black background, white text)</td></tr></table><table width=70% border=0><tr><td><center><font size=2><a href='packetsd4b7d4b7.html?style=plain'>Back to packet list</a></font></center></td></tr></table><p><table width=70% border=2 cellspacing=2 cellpadding=2 class=table title='0x5D - Character List Select (72 bytes)'>
+<COLGROUP><COL width=15%><COL width=15%><COL width=70%></COLGROUP><tr class='tabletop'><td>Sent By: <b><font class="Client">Client</font></b></td><td colspan=2><font size='5'><font class='blue'><b>0x5D - Character List Select (72 bytes)</b></font></font></td></tr><tr class='tabletop'><td>Variable Type</td><td>Start Index</td><td>Packet/Variable Name</td></tr><tr class='packet'>
+<td>byte</td>
+<td>0</td>
+<td>Packet ID (0x5D - Character List Select)</td>
+</tr>
+<tr class='unused'>
+<td>int</td>
+<td>1</td>
+<td>Pattern (0xedededed)</td>
+</tr>
+<tr class='vardat'>
+<td>char[30]</td>
+<td>5</td>
+<td>Character Name, null termininated</td>
+</tr>
+<tr class='unused'>
+<td>byte[33]</td>
+<td>35</td>
+<td>Mostly 0's</td>
+</tr>
+<tr class='vardat'>
+<td>byte</td>
+<td>68</td>
+<td>Selected Character(0 based)</td>
+</tr>
+<tr class='vardat'>
+<td>byte[4]</td>
+<td>69</td>
+<td>Client IP(don't trust)</td>
+</tr>
+<tr class='black'>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class='black'>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class='notes'><td colspan=3>Jerriths guide, about the unknown 33 bytes, "(Byte# 0x27, 0x28, 0x30 seem to be the only non 0's of these 33 bytes. Perhaps password data that's not send anymore)"<br><br>Respond with: <br><a href='packetsf811f811.html?id=52&amp;style=plain'>0x1B</a>, <a href='packetsf811f811.html?id=52&amp;style=plain'>Login Confirm</a><br><a href='packetsfc0cfc0c.html?id=50&amp;style=plain'>0xB9</a>, <a href='packetsfc0cfc0c.html?id=50&amp;style=plain'>Client Features</a> <br><a href='packets0ab20ab2.html?id=51&amp;style=plain'>0x72</a>, <a href='packets0ab20ab2.html?id=51&amp;style=plain'>Character Warmode</a><br><a href='packets53125312.html?id=25&amp;style=plain'>0xBF</a>, <a href='packetsb566b566.html?id=42&amp;style=plain'>Character Map Change</a><br><a href='packetsf3f1f3f1.html?id=32&amp;style=plain'>0x20</a>, <a href='packetsf3f1f3f1.html?id=32&amp;style=plain'>Character Sync/DrawSelf</a> <br><a href='packets579d579d.html?id=55&amp;style=plain'>0x78</a>, <a href='packets579d579d.html?id=55&amp;style=plain'>Character Draw</a><br>(send <a href='packets579d579d.html?id=55&amp;style=plain'>Character Draw</a> to all players in proximity, including self)<br><a href='packets51cd51cd.html?id=39&amp;style=plain'>0x55</a>, <a href='packets51cd51cd.html?id=39&amp;style=plain'>Login Complete</a><br><a href='packets28982898.html?id=20&amp;style=plain'>0x11</a>, <a href='packets28982898.html?id=20&amp;style=plain'>Character Status</a><br><br><br></td></tr></table><table width=70%><COLGROUP><COL width=40%><COL width=10%><COL width=10%><COL width=40%></COLGROUP><tr><td></td></tr></table>
+<p><p><table width=70% border=2 cellspacing=2 cellpadding=2 class=table>
+<COLGROUP><COL width=40%><COL width=15%><COL width=45%></COLGROUP><tr class='tabletop'><td colspan=3 class=largerfnt><center>Subpackets for 0x5D</center></td></tr><tr class='tabletop'><td>Packet Name</td><td>Packet ID</td><td>Sent By</td></tr></table>
+<br><hr noshade width=70% align=left><table width=70% border=0><tr><td><center><font size=2><a href='packetsd4b7d4b7.html?style=plain'>Back to packet list</a></font></center></td></tr></table></body>
+<!-- Mirrored from www.twilightmanor.net/se/packets.php?style=plain&id=41 by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:33:23 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/SE%20packet%20guide/www.twilightmanor.net/se/packetsf1ff.html?style=plain&id=41 by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:19:17 GMT -->
+</html>

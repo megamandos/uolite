@@ -1,0 +1,70 @@
+<style type='text/css'>
+.largerfnt	{font-size: larger}
+
+		.tabletop td	{color: #000000; padding: 4px 4px 0px 4px; border-top: solid #e0e000 1px; border-left: solid #e0e000 1px; border-right: solid #c0c000 1px; border-bottom: solid #c0c000 1px; background-color: #d0d000; border-collapse: collapse; }
+		.unused td	{color: #808080; padding: 1px 4px 1px 4px; border-top: solid #e0e0e0 1px; border-left: solid #e0e0e0 1px; border-right: solid #c0c0c0 1px; border-bottom: solid #c0c0c0 1px; background-color: #d0d0d0;}
+		.gray td	{color: #808080; padding: 1px 4px 1px 4px; border-top: solid #e0e0e0 1px; border-left: solid #e0e0e0 1px; border-right: solid #c0c0c0 1px; border-bottom: solid #c0c0c0 1px; background-color: #d0d0d0;}
+		.packet td	{color: #2222ff; font-size: larger;  padding: 1px 4px 1px 4px; border-top: solid #e0e0e0 1px; border-left: solid #e0e0e0 1px; border-right: solid #c0c0c0 1px; border-bottom: solid #c0c0c0 1px; background-color: #d0d0d0; }
+		.vardat td	{color: #000000;  padding: 1px 4px 1px 4px; border-top: solid #e0e0e0 1px; border-left: solid #e0e0e0 1px; border-right: solid #c0c0c0 1px; border-bottom: solid #c0c0c0 1px; background-color: #d0d0d0; }
+		.black td	{color: #000000;  padding: 1px 4px 1px 4px; border-top: solid #e0e0e0 1px; border-left: solid #e0e0e0 1px; border-right: solid #c0c0c0 1px; border-bottom: solid #c0c0c0 1px; background-color: #d0d0d0; }
+		.notes td	{color: #000000;  padding: 1px 4px 1px 4px; border-top: solid #e0e0e0 1px; border-left: solid #e0e0e0 1px; border-right: solid #c0c0c0 1px; border-bottom: solid #c0c0c0 1px; background-color: #d0d0d0; }
+		.notestd	{color: #000000;  padding: 1px 4px 1px 4px; border-top: solid #e0e0e0 1px; border-left: solid #e0e0e0 1px; border-right: solid #c0c0c0 1px; border-bottom: solid #c0c0c0 1px; background-color: #d0d0d0; }
+		.up			{border: solid #e0e0e0 1px; border-bottom: solid #d0d000 1px; background-color: #d0d000; margin: 0px;}
+		.Server		{color: red; }
+		.Client		{color: #2222ff; }
+		.Both		{color: green; }
+		.subpacket td	{padding: 1px 4px 1px 4px; border-top: solid #b0b0b0 1px; border-left: solid #b0b0b0 1px; border-right: solid #909090 1px; border-bottom: solid #909090 1px; background-color: #a0a0a0; }
+		.blue		{color: #2222ff;}
+		</style><html>
+<!-- Mirrored from www.twilightmanor.net/se/packets.php?id=27&style=gold by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:32:14 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/SE%20packet%20guide/www.twilightmanor.net/se/packets6a46.html?id=27&style=gold by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:18:29 GMT -->
+<head><title>0x01 - Initialize Fast Walk Prevention (29 bytes) - UO Packet Guide</title><link rel="icon" href="favicon.ico"></head><body bgcolor="#ffffff"><table width=70% cellspacing=0 border=0 cellpadding=0><tr class=tabletop><td><a href="packetsbd62bd62.html?style=plain&amp;id=27">Plain</a> (Printer-friendly)</td><td><a href="packets0b410b41.html?style=gold&amp;id=27">Gold</a> (Original packet guide style)</td><td><a href="packetsc70ac70a.html?style=block&amp;id=27">Block</a> (Yellow and grey blocks)</td><td><a href="packets9a889a88.html?style=inverted&amp;id=27">Inverted</a> (Black background, white text)</td></tr></table><table width=70% border=0><tr><td><center><font size=2><a href='packets40894089.html?style=gold'>Back to packet list</a></font></center></td></tr></table><p><table width=70% cellspacing=0 border=0 cellpadding=0 title='0x01 - Initialize Fast Walk Prevention (29 bytes)'>
+<COLGROUP><COL width=15%><COL width=15%><COL width=70%></COLGROUP><tr class='tabletop'><td>Sent By: <b><font class="Server">Server</font></b></td><td colspan=2><font size='5'><font class='blue'><b>0x01 - Initialize Fast Walk Prevention (29 bytes)</b></font></font></td></tr><tr class='tabletop'><td>Variable Type</td><td>Start Index</td><td>Packet/Variable Name</td></tr><tr class='unused'>
+<td>byte[3]</td>
+<td>0</td>
+<td>See parent packet/unused bytes.</td>
+</tr>
+<tr class='packet'>
+<td>byte</td>
+<td>3</td>
+<td>Packet ID (0x01 - Initialize Fast Walk Prevention)</td>
+</tr>
+<tr class='vardat'>
+<td>int</td>
+<td>5</td>
+<td>Key #1</td>
+</tr>
+<tr class='vardat'>
+<td>int</td>
+<td>9</td>
+<td>Key #2</td>
+</tr>
+<tr class='vardat'>
+<td>int</td>
+<td>13</td>
+<td>Key #3</td>
+</tr>
+<tr class='vardat'>
+<td>int</td>
+<td>17</td>
+<td>Key #4</td>
+</tr>
+<tr class='vardat'>
+<td>int</td>
+<td>21</td>
+<td>Key #5</td>
+</tr>
+<tr class='vardat'>
+<td>int</td>
+<td>25</td>
+<td>Key #6</td>
+</tr>
+<tr class='notes'><td colspan=3>(Contributed by Beholder)<p><br>Packet 0xbf subcommand 1<br>	<p>This sets up stack on the client and whenever it moves, it takes the top value from this stack and uses it.  (key1 starts at the top, key6 at the bottom).<br></td></tr></table><table width=70%><COLGROUP><COL width=40%><COL width=10%><COL width=10%><COL width=40%></COLGROUP><tr><td></td></tr></table>
+<p><p><table width=70% cellspacing=0 border=0 cellpadding=0>
+<COLGROUP><COL width=40%><COL width=15%><COL width=45%></COLGROUP><tr class='tabletop'><td colspan=3 class=largerfnt><center>Parent packet for 0x01</center></td></tr><tr class='tabletop'><td>Packet Name</td><td>Packet ID</td><td>Sent By</td></tr><tr class='vardat'><td><a href='packets6f4f6f4f.html?id=25&amp;style=gold'>Subcommands</a></td><td>0xBF</td><td><font class="Both">Both</font></td></tr></table>
+<br><hr noshade width=70% align=left><table width=70% border=0><tr><td><center><font size=2><a href='packets40894089.html?style=gold'>Back to packet list</a></font></center></td></tr></table></body>
+<!-- Mirrored from www.twilightmanor.net/se/packets.php?id=27&style=gold by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:32:16 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/SE%20packet%20guide/www.twilightmanor.net/se/packets6a46.html?id=27&style=gold by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:18:30 GMT -->
+</html>

@@ -1,0 +1,50 @@
+<style type='text/css'>
+.largerfnt	{font-size: larger}
+			A:link {text-decoration: none; color: #0099FF}
+			A:visited {text-decoration: none; color: #0099FF}
+			A:active {text-decoration: none; color: #0099FF}
+			A:hover {text-decoration: underline; color: #7D919F}
+		body,td,th {
+			font-family: Verdana, Arial, Helvetica, sans-serif;
+			font-size: 12px;
+			color: #FFFFFF;
+		}
+		body {
+			background-color: #000000;
+			margin-left: 0px;
+			margin-top: 0px;
+			margin-right: 0px;
+			margin-bottom: 0px;
+		}
+		.Server		{color: red; }
+		.Client		{color: blue; }
+		.Both		{color: green; }
+		.subpacket td	{color: #FFFFFF; }
+	</style><html>
+<!-- Mirrored from www.twilightmanor.net/se/packets.php?style=inverted&id=31 by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:33:23 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/SE%20packet%20guide/www.twilightmanor.net/se/packetsf773.html?style=inverted&id=31 by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:19:17 GMT -->
+<head><title>0x22 - Walk Request Succeed (3 bytes) - UO Packet Guide</title><link rel="icon" href="favicon.ico"></head><body bgcolor="#ffffff"><table width=70% cellspacing=0 border=0 cellpadding=1><tr class=tabletop><td><a href="packets22e022e0.html?style=plain&amp;id=31">Plain</a> (Printer-friendly)</td><td><a href="packetsd5e8d5e8.html?style=gold&amp;id=31">Gold</a> (Original packet guide style)</td><td><a href="packets488d488d.html?style=block&amp;id=31">Block</a> (Yellow and grey blocks)</td><td><a href="packetsf773f773.html?style=inverted&amp;id=31">Inverted</a> (Black background, white text)</td></tr></table><table width=70% border=0><tr><td><center><font size=2><a href='packetsd9c7d9c7.html?style=inverted'>Back to packet list</a></font></center></td></tr></table><p><table width=70% cellspacing=0 border=0 cellpadding=1 title='0x22 - Walk Request Succeed (3 bytes)'>
+<COLGROUP><COL width=15%><COL width=15%><COL width=70%></COLGROUP><tr class='tabletop'><td>Sent By: <b><font class="Both">Both</font></b></td><td colspan=2><font size='5'><font class='blue'><b>0x22 - Walk Request Succeed (3 bytes)</b></font></font></td></tr><tr class='tabletop'><td>Variable Type</td><td>Start Index</td><td>Packet/Variable Name</td></tr><tr class='packet'>
+<td>byte</td>
+<td>0</td>
+<td>Packet ID (0x22 - Walk Request Succeed)</td>
+</tr>
+<tr class='vardat'>
+<td>byte</td>
+<td>1</td>
+<td>Sequence Number</td>
+</tr>
+<tr class='unused'>
+<td>byte</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr class='notes'><td colspan=3>The client sends this packet when it thinks it's really out of sync, basically as a resync request. The sequence number is ignorable in that case. Obviously if the client spams this packet, it needs kicking.<br><br>The move sequence # starts at 0, and is increased by 1 after every step, but if it would become 256, it is instead reset to 1. You should check the move sequence # sent in the <a href='packetsad85ad85.html?id=13&amp;style=inverted'>0x02</a> (move request) packet to see if it is the same as the one that should be next. If so, accept the move, send this packet, and increase move seq #, resetting it to 1 if it passes 255. (This packet is sent in response to <a href='packetsad85ad85.html?id=13&amp;style=inverted'>0x02</a>.)<br><br><a href='packetsba51ba51.html?id=55&amp;style=inverted'>0x78</a> (<a href='packetsba51ba51.html?id=55&amp;style=inverted'>Character Draw</a>) should be sent to all newly seen players, and to the moving player(max proximity is 18)<br><a href='packetsea79ea79.html?id=56&amp;style=inverted'>0x77</a> (<a href='packetsea79ea79.html?id=56&amp;style=inverted'>Character Update</a>) should be sent to all players in proximity</td></tr></table><table width=70%><COLGROUP><COL width=40%><COL width=10%><COL width=10%><COL width=40%></COLGROUP><tr><td></td></tr></table>
+<p><p><table width=70% cellspacing=0 border=0 cellpadding=1>
+<COLGROUP><COL width=40%><COL width=15%><COL width=45%></COLGROUP><tr class='tabletop'><td colspan=3 class=largerfnt><center>Subpackets for 0x22</center></td></tr><tr class='tabletop'><td>Packet Name</td><td>Packet ID</td><td>Sent By</td></tr></table>
+<br><hr noshade width=70% align=left><table width=70% border=0><tr><td><center><font size=2><a href='packetsd9c7d9c7.html?style=inverted'>Back to packet list</a></font></center></td></tr></table></body>
+<!-- Mirrored from www.twilightmanor.net/se/packets.php?style=inverted&id=31 by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:33:23 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/SE%20packet%20guide/www.twilightmanor.net/se/packetsf773.html?style=inverted&id=31 by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:19:17 GMT -->
+</html>

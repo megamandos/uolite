@@ -1,0 +1,75 @@
+<style type='text/css'>
+.largerfnt	{font-size: larger}
+			A:link {text-decoration: none; color: #0099FF}
+			A:visited {text-decoration: none; color: #0099FF}
+			A:active {text-decoration: none; color: #0099FF}
+			A:hover {text-decoration: underline; color: #7D919F}
+		body,td,th {
+			font-family: Verdana, Arial, Helvetica, sans-serif;
+			font-size: 12px;
+			color: #FFFFFF;
+		}
+		body {
+			background-color: #000000;
+			margin-left: 0px;
+			margin-top: 0px;
+			margin-right: 0px;
+			margin-bottom: 0px;
+		}
+		.Server		{color: red; }
+		.Client		{color: blue; }
+		.Both		{color: green; }
+		.subpacket td	{color: #FFFFFF; }
+	</style><html>
+<!-- Mirrored from www.twilightmanor.net/se/packets.php?style=inverted&id=27 by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:33:24 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/SE%20packet%20guide/www.twilightmanor.net/se/packets9a88.html?style=inverted&id=27 by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:19:18 GMT -->
+<head><title>0x01 - Initialize Fast Walk Prevention (29 bytes) - UO Packet Guide</title><link rel="icon" href="favicon.ico"></head><body bgcolor="#ffffff"><table width=70% cellspacing=0 border=0 cellpadding=1><tr class=tabletop><td><a href="packetsbd62bd62.html?style=plain&amp;id=27">Plain</a> (Printer-friendly)</td><td><a href="packets0b410b41.html?style=gold&amp;id=27">Gold</a> (Original packet guide style)</td><td><a href="packetsc70ac70a.html?style=block&amp;id=27">Block</a> (Yellow and grey blocks)</td><td><a href="packets9a889a88.html?style=inverted&amp;id=27">Inverted</a> (Black background, white text)</td></tr></table><table width=70% border=0><tr><td><center><font size=2><a href='packetsd9c7d9c7.html?style=inverted'>Back to packet list</a></font></center></td></tr></table><p><table width=70% cellspacing=0 border=0 cellpadding=1 title='0x01 - Initialize Fast Walk Prevention (29 bytes)'>
+<COLGROUP><COL width=15%><COL width=15%><COL width=70%></COLGROUP><tr class='tabletop'><td>Sent By: <b><font class="Server">Server</font></b></td><td colspan=2><font size='5'><font class='blue'><b>0x01 - Initialize Fast Walk Prevention (29 bytes)</b></font></font></td></tr><tr class='tabletop'><td>Variable Type</td><td>Start Index</td><td>Packet/Variable Name</td></tr><tr class='unused'>
+<td>byte[3]</td>
+<td>0</td>
+<td>See parent packet/unused bytes.</td>
+</tr>
+<tr class='packet'>
+<td>byte</td>
+<td>3</td>
+<td>Packet ID (0x01 - Initialize Fast Walk Prevention)</td>
+</tr>
+<tr class='vardat'>
+<td>int</td>
+<td>5</td>
+<td>Key #1</td>
+</tr>
+<tr class='vardat'>
+<td>int</td>
+<td>9</td>
+<td>Key #2</td>
+</tr>
+<tr class='vardat'>
+<td>int</td>
+<td>13</td>
+<td>Key #3</td>
+</tr>
+<tr class='vardat'>
+<td>int</td>
+<td>17</td>
+<td>Key #4</td>
+</tr>
+<tr class='vardat'>
+<td>int</td>
+<td>21</td>
+<td>Key #5</td>
+</tr>
+<tr class='vardat'>
+<td>int</td>
+<td>25</td>
+<td>Key #6</td>
+</tr>
+<tr class='notes'><td colspan=3>(Contributed by Beholder)<p><br>Packet 0xbf subcommand 1<br>	<p>This sets up stack on the client and whenever it moves, it takes the top value from this stack and uses it.  (key1 starts at the top, key6 at the bottom).<br></td></tr></table><table width=70%><COLGROUP><COL width=40%><COL width=10%><COL width=10%><COL width=40%></COLGROUP><tr><td></td></tr></table>
+<p><p><table width=70% cellspacing=0 border=0 cellpadding=1>
+<COLGROUP><COL width=40%><COL width=15%><COL width=45%></COLGROUP><tr class='tabletop'><td colspan=3 class=largerfnt><center>Parent packet for 0x01</center></td></tr><tr class='tabletop'><td>Packet Name</td><td>Packet ID</td><td>Sent By</td></tr><tr class='vardat'><td><a href='packets3ab53ab5.html?id=25&amp;style=inverted'>Subcommands</a></td><td>0xBF</td><td><font class="Both">Both</font></td></tr></table>
+<br><hr noshade width=70% align=left><table width=70% border=0><tr><td><center><font size=2><a href='packetsd9c7d9c7.html?style=inverted'>Back to packet list</a></font></center></td></tr></table></body>
+<!-- Mirrored from www.twilightmanor.net/se/packets.php?style=inverted&id=27 by HTTrack Website Copier/3.x [XR&CO'2003], Sat, 07 Aug 2004 20:33:24 GMT -->
+
+<!-- Mirrored from kec.cz/tartaros/steamengine/uploads/SE%20packet%20guide/www.twilightmanor.net/se/packets9a88.html?style=inverted&id=27 by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 10 Aug 2010 07:19:18 GMT -->
+</html>
