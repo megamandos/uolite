@@ -6,7 +6,19 @@ UOLite2
 </name>
 </assembly>
 <members>
-<member name="P:UOLite2.LiteClient.ContextMenu.ContextMenuOption.Index">
+<member name="P:UOLite2.LiteClient.Gump.GumpObject.Page">
+	<summary>
+ The page number in the gump that this object belongs on.
+ </summary>
+</member><member name="P:UOLite2.LiteClient.Gump.GumpObject.X">
+	<summary>
+ The X axis position, relative to the gump's 0,0
+ </summary>
+</member><member name="P:UOLite2.LiteClient.Gump.GumpObject.Y">
+	<summary>
+ The Y axis position, relative to the gump's 0,0
+ </summary>
+</member><member name="P:UOLite2.LiteClient.ContextMenu.ContextMenuOption.Index">
 	<summary>The index of the option in the menu.</summary>
 </member><member name="P:UOLite2.LiteClient.ContextMenu.ContextMenuOption.CliLocNumber">
 	<summary>A cliloc number from 3006505 to 3006077.</summary>

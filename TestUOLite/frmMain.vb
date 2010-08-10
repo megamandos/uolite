@@ -310,11 +310,6 @@ Public Class frmMain
         Client.Walk(UOLite2.LiteClient.Enums.Direction.NorthEast)
     End Sub
 
-    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
-        Dim packet() As Byte = {7, &H41, &HD6, &H85, &HEF, 0, 1}
-        Client.Send(packet)
-    End Sub
-
 #End Region
 
 End Class

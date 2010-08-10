@@ -3,7 +3,7 @@
     Public Event onNewGump(ByRef Client As LiteClient, ByRef Gump As Gump)
 
     Public Class Gump
-        Private _Pages As HashSet(Of Page)
+        Private _Pages As New HashSet(Of Page)
         Private _GumpID As UInteger
         Private _Serial As UInteger
         Private _X As UInteger
@@ -27,6 +27,8 @@
             For Each s As String In Data
                 tim = s.Split(" ")
 
+                If tim.Count <= 1 Then Continue For
+
                 'TODO: finish implementing the gump system.
                 Select Case tim(1)
                     Case "page"
@@ -45,6 +47,7 @@
                         End Select
 
                 End Select
+
             Next
 
         End Sub
@@ -52,9 +55,9 @@
         'Page [id]
         Public NotInheritable Class Page
             Protected Friend _Gump As Gump
-            Private _Buttons As HashSet(Of Button)
+            Private _Buttons As New HashSet(Of Button)
             Private _PageNumber As UShort
-            Private _GumpPics As HashSet(Of GumpPic)
+            Private _GumpPics As New HashSet(Of GumpPic)
 
             Friend Sub New(ByRef PageNumber As UShort, ByRef Gump As Gump)
                 _PageNumber = PageNumber
