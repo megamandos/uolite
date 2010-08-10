@@ -1,4 +1,6 @@
-﻿Partial Class LiteClient
+﻿'To handle unhandled exceptions in the UOLite code.
+
+Partial Class LiteClient
 
     Private Sub MYExnHandler(ByVal sender As Object,
                              ByVal e As UnhandledExceptionEventArgs)

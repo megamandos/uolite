@@ -1,4 +1,6 @@
-﻿Imports System.Net, System.Net.Sockets, System.Text, System.IO, System.Net.NetworkInformation, Microsoft.Win32
+﻿'This is the base class, with most of the events being in this file, along with commonly used attributes and methods.
+
+Imports System.Net, System.Net.Sockets, System.Text, System.IO, System.Net.NetworkInformation, Microsoft.Win32
 
 Public Class LiteClient
 
@@ -159,18 +161,28 @@ Public Class LiteClient
     End Property
 
     Private _AccountUID As UInt32 = 0
+
+    ''' <summary>
+    ''' The account ID given to the client by the server at login.
+    ''' </summary>
     Public ReadOnly Property AccountUID As UInt32
         Get
             Return _AccountUID
         End Get
     End Property
 
+    ''' <summary>
+    ''' The player.
+    ''' </summary>
     Public ReadOnly Property Player() As Mobile
         Get
             Return _Player
         End Get
     End Property
 
+    ''' <summary>
+    ''' A list of the mobiles currently on the screen.
+    ''' </summary>
     Public ReadOnly Property Mobiles() As MobileList
         Get
             Return _Mobiles
@@ -181,9 +193,13 @@ Public Class LiteClient
 
     Private _GameServerList() As GameServerInfo
 
+    ''' <summary>
+    ''' Called when the client receives the server list durring the login process.
+    ''' </summary>
     Public Event onRecievedServerList(ByRef ServerList() As GameServerInfo)
 
-
+    ''' <summary>Called during the login process when the server rejects the username and password.</summary>
+    ''' <param name="Reason">The reason for the failure.</param>
     Public Event onLoginDenied(ByRef Reason As String)
 
 #End Region
@@ -668,10 +684,17 @@ Public Class LiteClient
 
 #Region "Actions: walk/talk/etc..."
 
-    Public Sub Speak(ByRef Text As String, Optional ByRef Type As Enums.SpeechTypes = Enums.SpeechTypes.Regular)
-        Dim packet As New Packets.UnicodeSpeechPacket(Enums.SpeechTypes.Regular, CUShort(52), Enums.Fonts.Default, "ENU", Text)
+    ''' <summary>Causes the player to speak the specified text.</summary>
+    ''' <param name="Text">The text to speak.</param>
+    ''' <param name="Hue">The Hue of the text.</param>
+    ''' <param name="Type">The type, (ie. Yell, Whisper, etc.)</param>
+    ''' <param name="Font">The font.</param>
+    Public Sub Speak(ByRef Text As String, Optional ByRef Hue As Enums.Common.Hues = Enums.Common.Hues.Yellow, Optional ByRef Type As Enums.SpeechTypes = Enums.SpeechTypes.Regular, Optional ByRef Font As Enums.Fonts = Enums.Fonts.Default)
+        Dim packet As New Packets.UnicodeSpeechPacket(Type, Hue, Enums.Fonts.Default, "ENU", Text)
         Send(packet)
     End Sub
+
+
 
 #End Region
 

@@ -1,4 +1,6 @@
-﻿Partial Class LiteClient
+﻿'For scavenging items, much like razor scavenger, but a LOT more powerful.
+
+Partial Class LiteClient
 
     Private WithEvents _Scavenger As New ScavengerObject(Me)
 

@@ -1,4 +1,6 @@
-﻿Partial Class LiteClient
+﻿'Made to organize the math, like calculating relative direction between two mobiles, and 2D/3D distance.
+
+Partial Class LiteClient
     ''' <summary>Returns the direction of Y, relative to X.</summary>
     Public Function GetDirection(ByRef X1 As UShort, ByRef Y1 As UShort, ByRef X2 As UShort, ByRef Y2 As UShort) As Enums.Direction
         If X1 = X2 And Y1 = Y2 Then
@@ -132,7 +134,7 @@
     End Function
 
     Protected Friend Function GetSerialFromString(ByRef SerialString As String) As Serial
-        Return New Serial(GetHexStringToUint(Serialstring))
+        Return New Serial(GetHexStringToUint(SerialString))
     End Function
 
 End Class

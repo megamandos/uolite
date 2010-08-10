@@ -1,4 +1,6 @@
-﻿Partial Class LiteClient
+﻿'A not-yet-implemented party class, for things like tracking party members and sending/receiving private messages and party messages.
+
+Partial Class LiteClient
 
     Public Event onPartyInvitation(ByRef Client As LiteClient, ByRef PartyLeader As Serial)
 

@@ -1,20 +1,42 @@
-﻿Imports UOLite2
+﻿' This is simply an example application of how to use the UOLite DLL.
+' This demonstrates very BASIC usage principals.
+
+Imports UOLite2
 
 Public Class frmMain
+    'Declare a new instance of the "LiteClient" class named "Client"
     Public WithEvents Client As New LiteClient
+
+    'Used to track the master of this bot in the game, via serial#
     Public Master As LiteClient.Serial = New LiteClient.Serial(0)
+
+    'Used to track the bot's mount.
     Public Mount As UOLite2.LiteClient.Mobile = Nothing
+
+    'The password for a normal user to say to gain exclusive control over the user.
     Public Password As String = "obey"
 
+    'What happens when the login button is clicked.
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
 
         Dim ConnectResponse As String = Client.GetServerList(TextBox1.Text, TextBox2.Text, TextBox3.Text, TextBox4.Text)
+
+        'ConnectedResponse is equal to "SUCCESS" if the CONNECTION was successful, authentication errors are handled by the "onLoginDenied" event.
         If ConnectResponse = "SUCCESS" Then
+
+            'Logs the event in a textbox, using a delegate.
             Log("Connected to server: " & Client.LoginServerAddress & ":" & Client.LoginPort)
+
+            'Changes the current tab in the tabview control.
             TabControl1.SelectTab(1)
+
+            'Sets the "Send" button to be pressed when the user hits "enter" on the keyboard.
             Me.AcceptButton = SendButton
+
+            'Moves the cursor to the command entry box.
             CmdBox.Select()
         Else
+            'Logs a failure to connect and the reason for failure.
             Log(ConnectResponse)
         End If
 
@@ -25,42 +47,62 @@ Public Class frmMain
     End Sub
 
     Private Sub Client_onCharacterListReceive(ByRef Client As LiteClient, ByVal CharacterList As System.Collections.ArrayList) Handles Client.onCharacterListReceive
+        'Chooses the first character in the list.
         Client.ChooseCharacter(DirectCast(CharacterList.Item(0), CharListEntry).Name, DirectCast(CharacterList.Item(0), CharListEntry).Password, DirectCast(CharacterList.Item(0), CharListEntry).Slot)
     End Sub
 
     Private Sub Client_onCliLocSpeech(ByRef Client As UOLite2.LiteClient, ByVal Serial As UOLite2.LiteClient.Serial, ByVal BodyType As UShort, ByVal SpeechType As UOLite2.LiteClient.Enums.SpeechTypes, ByVal Hue As UShort, ByVal Font As UOLite2.LiteClient.Enums.Fonts, ByVal CliLocNumber As UInteger, ByVal Name As String, ByVal ArgsString As String) Handles Client.onCliLocSpeech
+        'Logs the cliloc speech.
         Log("CliLoc: " & Name & " : " & Client.GetCliLocString(CliLocNumber))
     End Sub
 
     Private Sub Client_onError(ByRef Description As String) Handles Client.onError
+        'Logs the error.
         Log(Description)
     End Sub
 
 #Region "Scavenger Stuff"
-    Private Sub AddScavengerTypes()
-        Client.Scavenger.AddType(UOLite2.LiteClient.Enums.Common.ItemTypes.GoldCoins)
 
+    Private Sub AddScavengerTypes()
+        'Add gold coins to the list of item types for the scavenger to look for.
+        Client.Scavenger.AddType(UOLite2.LiteClient.Enums.Common.ItemTypes.GoldCoins)
     End Sub
 
 #End Region
 
     Private Sub Client_onLoginComplete() Handles Client.onLoginComplete
+        'Invokes a delegate to update the player position labels on the character tab.
         Me.Invoke(New _UpdatePlayerPosition(AddressOf UpdatePlayerPosition))
+
+        'Logs the completion of login.
         Log("Login Complete")
+
+        'Adds the types of things for the scavenger to look for.
         AddScavengerTypes()
+
+        'Enables the scavenger.
         Client.Scavenger.Enabled = True
     End Sub
 
+    'All of this code my be implemented in the next UOLite release.
 #Region "Finding the player's mount"
 
+    'A boolean used to tell the onNewMobile code that the next mobile that shows up should be marked as the player's mount.
     Private WaitingForMount As Boolean = False
 
+    'When a mobile enters the screen this is called.
     Private Sub Client_onNewMobile(ByRef Client As UOLite2.LiteClient, ByVal Mobile As UOLite2.LiteClient.Mobile) Handles Client.onNewMobile
         If WaitingForMount = True Then
+            'Sents the mount as a refernce to the mobile that just showed up.
             Mount = Mobile
+
+            'Sets this to false so that way the mount isnt changed arbitrarily.
             WaitingForMount = False
+
+            'Causes the client to say in-game, the mount's serial.
             Client.Speak("Mount Found: " & Mount.Serial.ToRazorString)
 
+            'Checks to see if the player's mount is a beetle.
             If Mount.Type = 791 Then
                 'Announce the setting change.
                 Client.Speak("Setting beetle mount as scavenger storage container.")
@@ -73,6 +115,7 @@ Public Class frmMain
                 Client.Scavenger.AlternateContainer.DismountToAccess = True
             End If
 
+            'Double clicks the mount to remount it.
             Mount.DoubleClick()
         End If
     End Sub

@@ -1,4 +1,6 @@
-﻿Partial Class LiteClient
+﻿'This is used to handle a database of items. As an end user, you should NEVER make a new instance of this.
+
+Partial Class LiteClient
 
     Protected Friend Shared ReadOnly WorldSerial As Serial = New Serial(Convert.ToUInt32(4294967295))
     Protected Friend Shared ReadOnly ZeroSerial As Serial = New Serial(Convert.ToUInt32(0))

@@ -1,4 +1,6 @@
-﻿Partial Class LiteClient
+﻿'This is the class that represents an in-game item.
+
+Partial Class LiteClient
 
     Public Class Item
 

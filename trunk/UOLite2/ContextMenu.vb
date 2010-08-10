@@ -1,4 +1,6 @@
-﻿Partial Class LiteClient
+﻿'This will be used for handling context menus later.
+
+Partial Class LiteClient
 
     ''' <summary>
     ''' An object oriented representation of an in-game context menu.

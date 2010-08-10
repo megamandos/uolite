@@ -1,4 +1,6 @@
-﻿Imports System.IO
+﻿'Implements skills use and skill change tracking.
+
+Imports System.IO
 
 Partial Class LiteClient
 

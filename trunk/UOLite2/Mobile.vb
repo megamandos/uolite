@@ -1,4 +1,6 @@
-﻿#Const DebugMobiles = False
+﻿'The Mobile class represents an in-game mobile, such as the player, any "mob" (which is short for "mobile" anyways...), enemies, friends, w/e.
+
+#Const DebugMobiles = False
 
 Partial Class LiteClient
 

@@ -1,4 +1,6 @@
-﻿Imports System.IO
+﻿' This file contains the invidual packet classes, which contain the code to parse the different types of packets.
+
+Imports System.IO
 Imports System.Text
 
 #Const PacketLogging = False
