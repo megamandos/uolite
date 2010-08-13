@@ -69,6 +69,7 @@
     <Compile Include="ActionBuffer.vb" />
     <Compile Include="CircularBuffer.vb" />
     <Compile Include="ContextMenu.vb" />
+    <Compile Include="Encryption.vb" />
     <Compile Include="Enums.vb" />
     <Compile Include="ErrorHandler.vb" />
     <Compile Include="Gumps.vb" />

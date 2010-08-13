@@ -61,13 +61,13 @@ Partial Class LiteClient
 
         '--Did we receive anything?
         If numBytes > 0 Then
-            '--Resize the array to match the number of bytes received. Also keep the current data
+            'Resize the array to match the number of bytes received. Also keep the current data
             ReDim Preserve bytes(numBytes - 1)
 
             'Write compressed data to the buffer.
             GameBuffer.Write(bytes)
 
-            If GameBuffer.Size > BufferSize - 1 Then Throw New ApplicationException("Game Buffer Overflow!")
+            If GameBuffer.Size > BufferSize - 1 Then Throw New ApplicationException("Game Buffer Overflow! This should NEVER happen, please report this IMMEDIATELY.")
 
 #If TrafficStats Then
             Debug.WriteLine("Recieved " & bytes.Length & " compressed bytes from the server.")
@@ -654,6 +654,13 @@ Partial Class LiteClient
         Debug.WriteLine("SENDING: " & BitConverter.ToString(Packet))
 #End If
 
+        If _Encrypted Then
+            'TODO: Add some code to encrypt the bytes.
+            'GameCryptBytes(Packet)
+        End If
+
+        'TODO: This might have to write to a threadsafe buffer, but we will see.
+
         If _LoginClient.Connected Then
             _LoginStream.Write(Packet, 0, Packet.Length)
         ElseIf _GameClient.Connected Then
@@ -661,7 +668,6 @@ Partial Class LiteClient
         Else
             Throw New ApplicationException("Unable to send packet, you are not connected!")
         End If
-
 
     End Sub
 
@@ -982,6 +988,12 @@ Partial Class LiteClient
                     Case -256
                         MyNode = 0
                         If Not Peek Then GameBuffer.AdvanceTail(x + 1)
+
+                        If _Encrypted Then
+                            'TODO: Add some code to decrypt the bytes.
+                            'GameCryptBytes(Packet)
+                        End If
+
                         Return DecomBytes.ToArray
 
                         'No need to exit for, it will never come back.
