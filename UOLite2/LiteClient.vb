@@ -5,7 +5,7 @@ Imports System.Net, System.Net.Sockets, System.Text, System.IO, System.Net.Netwo
 Public Class LiteClient
 
 #Region "Base Declarations"
-    Private _EmulatedVersion() As Byte = {0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0} 'Version 6.0.13.0
+    Private _EmulatedVersion() As Byte = {0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 2} 'Version 7.0.8.2
 
     Friend Shared StrLst As StringList
     Private _LoginClient As TcpClient
@@ -13,13 +13,13 @@ Public Class LiteClient
     Private _GameClient As TcpClient
     Private _GameStream As NetworkStream
     Protected Friend Shared ClientPath As String
-    'Protected Friend _AllItems As New Hashtable
     Protected Friend _Mobiles As New MobileList(Me)
     Protected Friend _WaitingForTarget As Boolean
     Protected Friend _Targeting As Boolean = False
     Protected Friend _TargetUID As UInteger
     Protected Friend _TargetType As Byte
     Protected Friend _TargetFlag As Byte
+    Protected Friend _Encrypted As Boolean = False
 
     Private Shared ProcessingPacket As Boolean = False
 
@@ -613,11 +613,30 @@ Public Class LiteClient
 
     End Sub
 
+    ''' <summary>
+    ''' Creates a new instance of LiteClient
+    ''' </summary>
     Public Sub New()
         'TODO: implement localization.
         'InitializeClientPaths()
         'Localize()
 
+        SetupErrorHandling()
+
+        'Define a handler for unhandled exceptions for threads behind forms.
+        'AddHandler currentDomain.ThreadException, AddressOf MYThreadHandler
+
+    End Sub
+
+    Public Sub New(ByRef Seed As UInt32, ByRef FirstClientKey As UInt32, ByRef SecondClientKey As UInt32)
+        _Encrypted = True
+        GenerateEncryptKeys(Seed)
+        _FirstClientKey = FirstClientKey
+        _SecondClientKey = SecondClientKey
+        SetupErrorHandling()
+    End Sub
+
+    Private Sub SetupErrorHandling()
 #If Not Debug Then
         ' Get the your application's application domain.
         Dim currentDomain As AppDomain = AppDomain.CurrentDomain
@@ -625,11 +644,8 @@ Public Class LiteClient
         ' Define a handler for unhandled exceptions.
         AddHandler currentDomain.UnhandledException, AddressOf MYExnHandler
 #End If
-
-        ' Define a handler for unhandled exceptions for threads behind forms.
-        'AddHandler currentDomain.ThreadException, AddressOf MYThreadHandler
-
     End Sub
+
 
     Private Sub Localize()
         'Sets the default language of the string list to the language of the OS
@@ -693,8 +709,6 @@ Public Class LiteClient
         Dim packet As New Packets.UnicodeSpeechPacket(Type, Hue, Enums.Fonts.Default, "ENU", Text)
         Send(packet)
     End Sub
-
-
 
 #End Region
 
