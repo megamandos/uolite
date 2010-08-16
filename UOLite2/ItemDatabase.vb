@@ -108,7 +108,7 @@ Partial Class LiteClient
                 j._Y = i._Y
                 j._Container = i._Container
                 j._Hue = i._Hue
-
+                j._Amount = i._Amount
 #If DebugItemList Then
                 Console.WriteLine("-Adding Item by ContainerContents: Container: " & j._Container.ToString & " Serial:" & i.Serial.ToString)
 #End If

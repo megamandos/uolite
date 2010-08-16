@@ -31,3 +31,14 @@ Z:\Projects\UOLite\UOLite2\obj\Debug\GenerateResource.write.1.tlog
 Z:\Projects\UOLite\UOLite2\obj\Debug\UOLite2.dll
 Z:\Projects\UOLite\UOLite2\obj\Debug\UOLite2.xml
 Z:\Projects\UOLite\UOLite2\obj\Debug\UOLite2.pdb
+X:\Projects\UOLite\UOLite2\bin\Debug\Cliloclist.txt
+X:\Projects\UOLite\UOLite2\bin\Debug\UOLite2.dll
+X:\Projects\UOLite\UOLite2\bin\Debug\UOLite2.pdb
+X:\Projects\UOLite\UOLite2\bin\Debug\UOLite2.xml
+X:\Projects\UOLite\UOLite2\obj\Debug\ResolveAssemblyReference.cache
+X:\Projects\UOLite\UOLite2\obj\Debug\UOLite2.Resources.resources
+X:\Projects\UOLite\UOLite2\obj\Debug\GenerateResource.read.1.tlog
+X:\Projects\UOLite\UOLite2\obj\Debug\GenerateResource.write.1.tlog
+X:\Projects\UOLite\UOLite2\obj\Debug\UOLite2.dll
+X:\Projects\UOLite\UOLite2\obj\Debug\UOLite2.xml
+X:\Projects\UOLite\UOLite2\obj\Debug\UOLite2.pdb

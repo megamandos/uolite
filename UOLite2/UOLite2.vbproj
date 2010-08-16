@@ -104,6 +104,8 @@
     <Compile Include="StringList.vb" />
     <Compile Include="Structures.vb" />
     <Compile Include="Trade.vb" />
+    <None Include="TwoFish.vb" />
+    <None Include="TwoFishBase.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
