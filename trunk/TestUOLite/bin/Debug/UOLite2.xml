@@ -139,8 +139,6 @@ UOLite2
 </member><member name="E:UOLite2.LiteClient.onLoginDenied">
 	<summary>Called during the login process when the server rejects the username and password.</summary>
 	<param name="Reason">The reason for the failure.</param>
-</member><member name="M:UOLite2.LiteClient.InitializeClientPaths">
-	<summary>Gets the working directory and location of client.exe from the registry.</summary>
 </member><member name="F:UOLite2.LiteClient.GameServerInfo._Address">
 	<summary>The IP address of the server.</summary>
 </member><member name="F:UOLite2.LiteClient.GameServerInfo._Name">
@@ -150,18 +148,17 @@ UOLite2
 </member><member name="T:UOLite2.LiteClient.GameServerInfo">
  Hide this class from the user, there is no reason from him/her to see it.
  <summary>Simply a class to hold information about game servers when recieved from the login server.</summary>
-</member><member name="M:UOLite2.LiteClient.GetServerList(System.String,System.String,System.String,System.UInt16)">
-	<summary>Connects to the specified login server and populates the ServerList property.</summary>
-	<param name="Address">The address of the login server to connect to.</param>
-	<param name="Port">The port to connect to (default is 2593).</param>
-	<param name="Username">The username to connect with.</param>
-	<param name="Password">The cooresponding password for the supplied username.</param>
+</member><member name="M:UOLite2.LiteClient.#ctor(System.Boolean@)">
+	<summary>Creates a new client.</summary>
+	<param name="EnableOSIEncryption">Whether or not to use OSI encryption, for OSI servers.</param>
 </member><member name="M:UOLite2.LiteClient.Speak(System.String@,UOLite2.LiteClient.Enums.Common.Hues@,UOLite2.LiteClient.Enums.SpeechTypes@,UOLite2.LiteClient.Enums.Fonts@)">
 	<summary>Causes the player to speak the specified text.</summary>
 	<param name="Text">The text to speak.</param>
 	<param name="Hue">The Hue of the text.</param>
 	<param name="Type">The type, (ie. Yell, Whisper, etc.)</param>
 	<param name="Font">The font.</param>
+</member><member name="M:UOLite2.LiteClient.GenerateLoginKeys">
+	<summary>Generates two keys for client side encryption.</summary>
 </member><member name="E:UOLite2.LiteClient.Mobile.onDeath">
 	<summary>
  Called when the hitpoint value of a mobile reaches zero (0).
@@ -750,6 +747,12 @@ UOLite2
 </member><member name="M:UOLite2.LiteClient.PacketHandling(UOLite2.LiteClient.Packet@)">
 	<summary>Handles a packet however it needs to be handled.</summary>
 	<param name="currentpacket">The packet to process.</param>
+</member><member name="M:UOLite2.LiteClient.GetServerList(System.String,System.String,System.String,System.UInt16)">
+	<summary>Connects to the specified login server and populates the ServerList property.</summary>
+	<param name="Address">The address of the login server to connect to.</param>
+	<param name="Port">The port to connect to (default is 2593).</param>
+	<param name="Username">The username to connect with.</param>
+	<param name="Password">The cooresponding password for the supplied username.</param>
 </member>
 </members>
 </doc>

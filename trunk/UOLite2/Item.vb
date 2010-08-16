@@ -29,6 +29,7 @@ Partial Class LiteClient
         Friend _X As UShort = 0
         Friend _Y As UShort = 0
         Friend _Z As Byte = 0
+        Friend _GridIndex As Byte = 0
         Friend _Contents As ItemDatabase.ContentsList = Nothing
         Friend _Container As Serial = WorldSerial
         Friend _Hue As UShort = 0

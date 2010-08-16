@@ -806,7 +806,7 @@ Partial Class LiteClient
                 _size = bytes.Length
                 buff = New BufferHandler(bytes, True)
 
-                _size = &H14
+                _size = _Data.Length
 
                 buff.Position = 1
                 '1-4
@@ -880,7 +880,7 @@ Partial Class LiteClient
                 End Set
             End Property
 
-            Public Property amount() As UShort
+            Public Property Amount() As UShort
                 Get
                     Return _amount
                 End Get
@@ -946,7 +946,7 @@ Partial Class LiteClient
             Private _reason As Enums.GetItemFailedReason
 
             Sub New(ByVal bytes() As Byte)
-                MyBase.New(Enums.PacketType.ObjecttoObject)
+                MyBase.New(Enums.PacketType.GetItemFailed)
                 _Data = bytes
                 _size = bytes.Length
                 buff = New BufferHandler(bytes, True)
@@ -1105,11 +1105,7 @@ Partial Class LiteClient
                 Console.WriteLine("Container Contents: " & BitConverter.ToString(bytes))
 #End If
 
-                buff.Position = 1
-                buff.networkorder = False
-                '1-2
-                _size = buff.readushort
-                buff.networkorder = True
+                buff.Position = 3
 
                 '3-4
                 _Count = buff.readushort
@@ -1140,8 +1136,7 @@ Partial Class LiteClient
                             it._Y = buff.readushort
 
                             '18
-                            'Grid Index, since 6.0.1.7
-                            buff.Position += 1
+                            it._GridIndex = buff.readbyte
 
                             '19-22
                             it._Container = buff.readuint
@@ -1149,11 +1144,11 @@ Partial Class LiteClient
                             '23-24
                             it._Hue = buff.readushort
 
-#If DebugItems Then
-                    Console.WriteLine("Adding item to Container Contents Packet ItemList.")
-                    Console.WriteLine("Container Serial: " & it.Container.Value)
-                    Console.WriteLine("Serial: " & it.Serial.Value)
-#End If
+                            'Debug.WriteLine("-Adding item to Container Contents Packet ItemList.")
+                            'Debug.WriteLine(" Container Serial: " & it.Container.Value)
+                            'Debug.WriteLine(" Serial: " & it.Serial.Value)
+                            'Debug.WriteLine(" Count: " & it.Amount)
+
                             _ItemList.Add(it)
                         Next
                     Else
