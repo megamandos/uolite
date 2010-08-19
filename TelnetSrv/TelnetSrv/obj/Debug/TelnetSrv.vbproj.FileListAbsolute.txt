@@ -1,0 +1,10 @@
+C:\Users\Eroc\documents\visual studio 2010\Projects\TelnetSrv\TelnetSrv\bin\Debug\TelnetSrv.dll
+C:\Users\Eroc\documents\visual studio 2010\Projects\TelnetSrv\TelnetSrv\bin\Debug\TelnetSrv.pdb
+C:\Users\Eroc\documents\visual studio 2010\Projects\TelnetSrv\TelnetSrv\bin\Debug\TelnetSrv.xml
+C:\Users\Eroc\documents\visual studio 2010\Projects\TelnetSrv\TelnetSrv\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Eroc\documents\visual studio 2010\Projects\TelnetSrv\TelnetSrv\obj\Debug\TelnetSrv.Resources.resources
+C:\Users\Eroc\documents\visual studio 2010\Projects\TelnetSrv\TelnetSrv\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\Eroc\documents\visual studio 2010\Projects\TelnetSrv\TelnetSrv\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\Eroc\documents\visual studio 2010\Projects\TelnetSrv\TelnetSrv\obj\Debug\TelnetSrv.dll
+C:\Users\Eroc\documents\visual studio 2010\Projects\TelnetSrv\TelnetSrv\obj\Debug\TelnetSrv.xml
+C:\Users\Eroc\documents\visual studio 2010\Projects\TelnetSrv\TelnetSrv\obj\Debug\TelnetSrv.pdb

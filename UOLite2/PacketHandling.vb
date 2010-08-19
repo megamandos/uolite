@@ -667,7 +667,12 @@ Partial Class LiteClient
                 GameCryptBytes(Packet)
             End If
 
-            _GameStream.Write(Packet, 0, Packet.Length)
+            Try
+                _GameStream.Write(Packet, 0, Packet.Length)
+            Catch ex As Exception
+                RaiseEvent onConnectionLoss(Me)
+            End Try
+
         ElseIf _LoginClient.Connected Then
 
 #If DebugLoginPackets Then

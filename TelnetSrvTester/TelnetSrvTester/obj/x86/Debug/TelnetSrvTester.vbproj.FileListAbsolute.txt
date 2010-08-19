@@ -1,0 +1,13 @@
+C:\Users\Eroc\documents\visual studio 2010\Projects\TelnetSrvTester\TelnetSrvTester\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Eroc\documents\visual studio 2010\Projects\TelnetSrvTester\TelnetSrvTester\obj\x86\Debug\TelnetSrvTester.Resources.resources
+C:\Users\Eroc\documents\visual studio 2010\Projects\TelnetSrvTester\TelnetSrvTester\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Eroc\documents\visual studio 2010\Projects\TelnetSrvTester\TelnetSrvTester\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Eroc\documents\visual studio 2010\Projects\TelnetSrvTester\TelnetSrvTester\bin\Debug\TelnetSrvTester.exe
+C:\Users\Eroc\documents\visual studio 2010\Projects\TelnetSrvTester\TelnetSrvTester\bin\Debug\TelnetSrvTester.pdb
+C:\Users\Eroc\documents\visual studio 2010\Projects\TelnetSrvTester\TelnetSrvTester\bin\Debug\TelnetSrvTester.xml
+C:\Users\Eroc\documents\visual studio 2010\Projects\TelnetSrvTester\TelnetSrvTester\bin\Debug\TelnetSrv.dll
+C:\Users\Eroc\documents\visual studio 2010\Projects\TelnetSrvTester\TelnetSrvTester\bin\Debug\TelnetSrv.pdb
+C:\Users\Eroc\documents\visual studio 2010\Projects\TelnetSrvTester\TelnetSrvTester\bin\Debug\TelnetSrv.xml
+C:\Users\Eroc\documents\visual studio 2010\Projects\TelnetSrvTester\TelnetSrvTester\obj\x86\Debug\TelnetSrvTester.exe
+C:\Users\Eroc\documents\visual studio 2010\Projects\TelnetSrvTester\TelnetSrvTester\obj\x86\Debug\TelnetSrvTester.xml
+C:\Users\Eroc\documents\visual studio 2010\Projects\TelnetSrvTester\TelnetSrvTester\obj\x86\Debug\TelnetSrvTester.pdb
