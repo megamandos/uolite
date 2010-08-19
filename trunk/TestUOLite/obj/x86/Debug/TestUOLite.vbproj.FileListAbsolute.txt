@@ -58,3 +58,6 @@ X:\Projects\UOLite\TestUOLite\obj\x86\Debug\TestUOLite.frmMain.resources
 X:\Projects\UOLite\TestUOLite\obj\x86\Debug\TestUOLite.Resources.resources
 X:\Projects\UOLite\TestUOLite\obj\x86\Debug\GenerateResource.read.1.tlog
 X:\Projects\UOLite\TestUOLite\obj\x86\Debug\GenerateResource.write.1.tlog
+X:\public\Projects\UOLite\TestUOLite\obj\x86\Debug\TestUOLite.exe
+X:\public\Projects\UOLite\TestUOLite\obj\x86\Debug\TestUOLite.xml
+X:\public\Projects\UOLite\TestUOLite\obj\x86\Debug\TestUOLite.pdb
