@@ -101,6 +101,7 @@
     <Compile Include="Scavenger.vb" />
     <Compile Include="Serial.vb" />
     <Compile Include="skills.vb" />
+    <Compile Include="Spellcasting.vb" />
     <Compile Include="StringList.vb" />
     <Compile Include="Structures.vb" />
     <Compile Include="Trade.vb" />
