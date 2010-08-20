@@ -27,7 +27,7 @@
         End Enum
 
         ''' <summary>Enumeration of Spells.</summary>
-        Public Enum Spell
+        Public Enum Spell As Byte
             ' First circle
             Clumsy = 1
             CreateFood
