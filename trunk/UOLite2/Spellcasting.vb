@@ -9,7 +9,7 @@ Partial Class LiteClient
         packet.WriteByte(&H12)
         packet.WriteByte(0)
         packet.WriteByte(5)
-        packet.WriteByte(&H24)
+        packet.WriteByte(&H56)
         packet.WriteByte(Spell.ToString(0))
 
         Send(packet.ToArray)
