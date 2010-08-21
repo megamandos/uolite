@@ -306,11 +306,13 @@ Public Class LiteClient
 
         _Encrypted = EnableOSIEncryption
 
+        _EncryptionLoginSeed = 3232235520 + CUInt(New Random(TimeOfDay.Millisecond).Next Mod 510) + 2
+
         If _Encrypted Then
             GenerateLoginKeys()
         End If
 
-        _EncryptionLoginSeed = 3232235520 + CUInt(New Random(TimeOfDay.Millisecond).Next Mod 510) + 2
+
 
         SetupErrorHandling()
 

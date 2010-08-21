@@ -16,6 +16,7 @@ Partial Class TelnetSrv
         Public Property Prompt As String
         Public CmdBuffer As New System.Text.StringBuilder
         Private _Closed As Boolean = False
+        Private ReceivingCommands As Boolean = False
 
         Friend Sub New(ByRef Client As TcpClient, ByRef ClientList As ClientList)
             _TelnetServer = ClientList.Server
@@ -31,6 +32,15 @@ Partial Class TelnetSrv
             Dim RecBuffer(4096) As Byte
             _Stream.BeginRead(RecBuffer, 0, RecBuffer.Length, AddressOf Recieve, RecBuffer)
 
+            'http://support.microsoft.com/kb/231866
+
+            'Setup the configuration options.
+            Dim packet1() As Byte = {&HFF, &HFD, &H27, &HFF, &HFA, &H27, &H1, &HFF, &HF0, &HFF, &HFD, &H25, &HFF, &HFA, &H25, &H1, &H7, &H0, &HFF, &HF0,
+                                     &HFF, &HFD, &H18, &HFF, &HFD, &H20, &HFF, &HFD, &H23, &HFF, &HFD, &H1F, &HFF, &HFA, &H27, &H1, &HFF, &HF0, &HFF,
+                                     &HFA, &H18, &H1, &HFF, &HF0, &HFF, &HFB, &H3, &HFF, &HFD, &H1, &HFF, &HFB, &H5, &HFF, &HFD, &H21, &HFF, &HFE, &H1,
+                                     &HFF, &HFB, &H1}
+
+            Send(packet1)
 
             Send(_TelnetServer.MOTD & Prompt)
 
@@ -41,6 +51,7 @@ Partial Class TelnetSrv
         End Sub
 
         Private Sub Recieve(ByVal ar As IAsyncResult)
+
             '--Retreive array of bytes
             Dim bytes() As Byte = ar.AsyncState
 
@@ -59,14 +70,13 @@ Partial Class TelnetSrv
                     Case Chr(30) To Chr(126)
                         CmdBuffer.Append(Chr(bytes(0)))
                         _TelnetServer.onKeyReceiveSub(Me, bytes(0))
+                        Send(bytes(0))
 
                     Case Chr(8)
-                        If CmdBuffer.ToString.Length > 0 Then
+                        If CmdBuffer.ToString.Length > 2 Then
                             CmdBuffer.Remove(CmdBuffer.Length - 1, 1)
-                            Send({CByte(32), CByte(8)})
+                            Send({CByte(&H1B), CByte(&H5B), CByte(&H44), CByte(&H1B), CByte(&H5B), CByte(&H4B)})
                             _TelnetServer.onKeyReceiveSub(Me, bytes(0))
-                        Else
-                            Send(CByte(System.Text.ASCIIEncoding.ASCII.GetBytes(Prompt)(Prompt.Length - 1)))
                         End If
 
                     Case Chr(13) & Chr(10)

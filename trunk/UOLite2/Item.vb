@@ -36,9 +36,17 @@ Partial Class LiteClient
         Friend _Direction As Enums.Direction = Enums.Direction.North
         Friend _IsMobile As Boolean = False
 
+
 #End Region
 
 #Region "Properties"
+
+        Public ReadOnly Property PropertyString As String
+            Get
+                Dim _PropertyString As String = ""
+                Return _PropertyString
+            End Get
+        End Property
 
         ''' <summary>The serial of the item.</summary>
         Public ReadOnly Property Serial() As Serial
@@ -219,6 +227,17 @@ Partial Class LiteClient
 
     Public Sub DoubleClick(ByRef Serial As Serial)
         ActionBuffer.Add(ActionBufferClass.ActionType.DoubleClick, Serial)
+    End Sub
+
+    Public Sub SingleClick(ByRef Serial As Serial)
+        'Make the packet
+        Dim sc As New Packets.Singleclick
+
+        'Assign the serial
+        sc.Serial = Serial
+
+        'Send the packet to the server.
+        Send(sc)
     End Sub
 
 End Class
