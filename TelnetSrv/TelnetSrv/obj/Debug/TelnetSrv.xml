@@ -6,7 +6,20 @@ TelnetSrv
 </name>
 </assembly>
 <members>
-<member name="M:TelnetSrv.TelnetSrv.Client.Send(System.Byte[]@)">
+<member name="P:TelnetSrv.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:TelnetSrv.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:TelnetSrv.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:TelnetSrv.TelnetSrv.Client.Send(System.Byte[]@)">
 	<summary>Sends the bytes to the client.</summary>
 	<param name="Bytes">The array of bytes to send.</param>
 </member><member name="M:TelnetSrv.TelnetSrv.Client.Send(System.Byte@)">
@@ -23,19 +36,6 @@ TelnetSrv
 	<summary>Returns the underlying network stream.</summary>
 </member><member name="P:TelnetSrv.TelnetSrv.Client.UID">
 	<summary>The UID used to keep track of the client. This is actualy a string of bytes made of the remote ip and port number.</summary>
-</member><member name="P:TelnetSrv.My.Resources.Resources.ResourceManager">
-	<summary>
-  Returns the cached ResourceManager instance used by this class.
-</summary>
-</member><member name="P:TelnetSrv.My.Resources.Resources.Culture">
-	<summary>
-  Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
-</summary>
-</member><member name="T:TelnetSrv.My.Resources.Resources">
-	<summary>
-  A strongly-typed resource class, for looking up localized strings, etc.
-</summary>
 </member>
 </members>
 </doc>

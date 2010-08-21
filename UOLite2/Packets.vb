@@ -1323,6 +1323,29 @@ Partial Class LiteClient
 
         End Class
 
+        Public Class MegaCliLoc
+            Inherits Packet
+
+            Friend _Serial As Serial
+            Friend _Serial2 As Serial
+
+
+            Friend Sub New(ByVal bytes() As Byte)
+                MyBase.New(Enums.PacketType.MegaCliloc)
+                _Data = bytes
+                _size = bytes.Length
+                buff = New BufferHandler(bytes, True)
+
+                With buff
+                    .Position = 3
+                    _Serial = .readuint
+
+
+                End With
+
+            End Sub
+        End Class
+
 #End Region
 
 #Region "Mobiles"
