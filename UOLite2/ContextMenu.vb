@@ -49,7 +49,7 @@ Partial Class LiteClient
             ''' <summary>Returns a the CliLoc string that corresponds to the CliLoc number.</summary>
             Public ReadOnly Property CliLocString() As String
                 Get
-                    Return StrLst.Table(_CliLocNumber)
+                    Return StrLst.Entry(_CliLocNumber)
                 End Get
             End Property
 

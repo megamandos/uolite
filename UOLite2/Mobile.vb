@@ -19,13 +19,13 @@ Partial Class LiteClient
 
 #Region "Private Variables"
         Friend _Name As String = ""
-        Friend _Status As Enums.MobileStatus
-        Friend _Notoriety As Enums.Reputation
+        Friend _Status As UOLite2.Enums.MobileStatus
+        Friend _Notoriety As UOLite2.Enums.Reputation
         Friend _Hits As UShort = 1
         Friend _HitsMax As UShort = 1
         Friend _Renamable As Enums.Renamable = Enums.Renamable.NotRenamable
         Friend _DisplayMode As Enums.DisplayMode = Enums.DisplayMode.Normal
-        Friend _Gender As Enums.Gender = Enums.Gender.Neutral
+        Friend _Gender As UOLite2.Enums.Gender = UOLite2.Enums.Gender.Neutral
         Friend _Strength As UShort = 1
         Friend _Dexterity As UShort = 1
         Friend _Intelligence As UShort = 1
@@ -105,8 +105,8 @@ Partial Class LiteClient
         ''' </summary>
         ''' <param name="Client">The <see cref="LiteClient"/> that the mobile update was handled by.</param>
         ''' <param name="Mobile">The <see cref="Mobile"/> that was updated.</param>
-        ''' <param name="EquipmentLayers">The <see cref="Enums.Layers">layers</see> that were changed.</param>
-        Public Event onEquipmentUpdate(ByVal Client As LiteClient, ByVal Mobile As Mobile, ByVal EquipmentLayers() As Enums.Layers)
+        ''' <param name="EquipmentLayers">The <see cref="UOLite2.Enums.Layers">layers</see> that were changed.</param>
+        Public Event onEquipmentUpdate(ByVal Client As LiteClient, ByVal Mobile As Mobile, ByVal EquipmentLayers() As UOLite2.Enums.Layers)
 
         ''' <summary>Fired when this mobile moves.</summary>
         Public Event onMove(ByRef Client As LiteClient, ByRef Mobile As Mobile)
@@ -117,7 +117,7 @@ Partial Class LiteClient
 
         'hide the layer property. It makes no sense for a mobile to have this, and can be misleading since mobiles have the "Layers" property.
         <System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)> _
-        Public Overrides ReadOnly Property Layer() As Enums.Layers
+        Public Overrides ReadOnly Property Layer() As UOLite2.Enums.Layers
             Get
                 'throw an exception if it is called
                 Throw New Exception("Mobiles do not have a clothing layer! If you need an item on a layer of the mobile please use Mobiles.Layers.<layername>")
@@ -200,7 +200,7 @@ Partial Class LiteClient
         ''' <summary>
         ''' The gender of the mobile.
         ''' </summary>
-        Public ReadOnly Property Gender() As Enums.Gender
+        Public ReadOnly Property Gender() As UOLite2.Enums.Gender
             Get
                 Return _Gender
             End Get
@@ -401,19 +401,19 @@ Partial Class LiteClient
             End Get
         End Property
 
-        Public ReadOnly Property Notoriety() As Enums.Reputation
+        Public ReadOnly Property Notoriety() As UOLite2.Enums.Reputation
             Get
                 Return _Notoriety
             End Get
         End Property
 
-        Public ReadOnly Property Status() As Enums.MobileStatus
+        Public ReadOnly Property Status() As UOLite2.Enums.MobileStatus
             Get
                 Return _Status
             End Get
         End Property
 
-        Public ReadOnly Property Direction() As Enums.Direction
+        Public ReadOnly Property Direction() As UOLite2.Enums.Direction
             Get
                 Return _Direction
             End Get
@@ -438,108 +438,108 @@ Partial Class LiteClient
                 _Client = Client
             End Sub
 
-            Friend Sub SetLayer(ByVal Layer As Enums.Layers, ByVal Serial As Serial)
+            Friend Sub SetLayer(ByVal Layer As UOLite2.Enums.Layers, ByVal Serial As Serial)
                 Select Case Layer
-                    Case Enums.Layers.LeftHand
+                    Case UOLite2.Enums.Layers.LeftHand
                         _LeftHand = Serial
-                    Case Enums.Layers.RightHand
+                    Case UOLite2.Enums.Layers.RightHand
                         _RightHand = Serial
-                    Case Enums.Layers.Shoes
+                    Case UOLite2.Enums.Layers.Shoes
                         _Shoes = Serial
-                    Case Enums.Layers.Pants
+                    Case UOLite2.Enums.Layers.Pants
                         _Pants = Serial
-                    Case Enums.Layers.Shirt
+                    Case UOLite2.Enums.Layers.Shirt
                         _Shirt = Serial
-                    Case Enums.Layers.Head
+                    Case UOLite2.Enums.Layers.Head
                         _Head = Serial
-                    Case Enums.Layers.Gloves
+                    Case UOLite2.Enums.Layers.Gloves
                         _Gloves = Serial
-                    Case Enums.Layers.Ring
+                    Case UOLite2.Enums.Layers.Ring
                         _Ring = Serial
-                    Case Enums.Layers.Neck
+                    Case UOLite2.Enums.Layers.Neck
                         _Neck = Serial
-                    Case Enums.Layers.Hair
+                    Case UOLite2.Enums.Layers.Hair
                         _Hair = Serial
-                    Case Enums.Layers.Waist
+                    Case UOLite2.Enums.Layers.Waist
                         _Waist = Serial
-                    Case Enums.Layers.InnerTorso
+                    Case UOLite2.Enums.Layers.InnerTorso
                         _InnerTorso = Serial
-                    Case Enums.Layers.Bracelet
+                    Case UOLite2.Enums.Layers.Bracelet
                         _Bracelet = Serial
-                    Case Enums.Layers.FacialHair
+                    Case UOLite2.Enums.Layers.FacialHair
                         _FacialHair = Serial
-                    Case Enums.Layers.MiddleTorso
+                    Case UOLite2.Enums.Layers.MiddleTorso
                         _MiddleTorso = Serial
-                    Case Enums.Layers.Ears
+                    Case UOLite2.Enums.Layers.Ears
                         _Ears = Serial
-                    Case Enums.Layers.Arms
+                    Case UOLite2.Enums.Layers.Arms
                         _Arms = Serial
-                    Case Enums.Layers.Back
+                    Case UOLite2.Enums.Layers.Back
                         _Back = Serial
-                    Case Enums.Layers.BackPack
+                    Case UOLite2.Enums.Layers.BackPack
                         _BackPack = Serial
-                    Case Enums.Layers.OuterTorso
+                    Case UOLite2.Enums.Layers.OuterTorso
                         _OuterTorso = Serial
-                    Case Enums.Layers.OuterLegs
+                    Case UOLite2.Enums.Layers.OuterLegs
                         _OuterLegs = Serial
-                    Case Enums.Layers.InnerLegs
+                    Case UOLite2.Enums.Layers.InnerLegs
                         _InnerLegs = Serial
-                    Case Enums.Layers.Mount
+                    Case UOLite2.Enums.Layers.Mount
                         _Mount = Serial
-                    Case Enums.Layers.Bank
+                    Case UOLite2.Enums.Layers.Bank
                         _Bank = Serial
                 End Select
             End Sub
 
-            Friend Sub ResetLayer(ByVal Layer As Enums.Layers)
+            Friend Sub ResetLayer(ByVal Layer As UOLite2.Enums.Layers)
                 Select Case Layer
-                    Case Enums.Layers.LeftHand
+                    Case UOLite2.Enums.Layers.LeftHand
                         _LeftHand = New Serial(0)
-                    Case Enums.Layers.RightHand
+                    Case UOLite2.Enums.Layers.RightHand
                         _RightHand = New Serial(0)
-                    Case Enums.Layers.Shoes
+                    Case UOLite2.Enums.Layers.Shoes
                         _Shoes = New Serial(0)
-                    Case Enums.Layers.Pants
+                    Case UOLite2.Enums.Layers.Pants
                         _Pants = New Serial(0)
-                    Case Enums.Layers.Shirt
+                    Case UOLite2.Enums.Layers.Shirt
                         _Shirt = New Serial(0)
-                    Case Enums.Layers.Head
+                    Case UOLite2.Enums.Layers.Head
                         _Head = New Serial(0)
-                    Case Enums.Layers.Gloves
+                    Case UOLite2.Enums.Layers.Gloves
                         _Gloves = New Serial(0)
-                    Case Enums.Layers.Ring
+                    Case UOLite2.Enums.Layers.Ring
                         _Ring = New Serial(0)
-                    Case Enums.Layers.Neck
+                    Case UOLite2.Enums.Layers.Neck
                         _Neck = New Serial(0)
-                    Case Enums.Layers.Hair
+                    Case UOLite2.Enums.Layers.Hair
                         _Hair = New Serial(0)
-                    Case Enums.Layers.Waist
+                    Case UOLite2.Enums.Layers.Waist
                         _Waist = New Serial(0)
-                    Case Enums.Layers.InnerTorso
+                    Case UOLite2.Enums.Layers.InnerTorso
                         _InnerTorso = New Serial(0)
-                    Case Enums.Layers.Bracelet
+                    Case UOLite2.Enums.Layers.Bracelet
                         _Bracelet = New Serial(0)
-                    Case Enums.Layers.FacialHair
+                    Case UOLite2.Enums.Layers.FacialHair
                         _FacialHair = New Serial(0)
-                    Case Enums.Layers.MiddleTorso
+                    Case UOLite2.Enums.Layers.MiddleTorso
                         _MiddleTorso = New Serial(0)
-                    Case Enums.Layers.Ears
+                    Case UOLite2.Enums.Layers.Ears
                         _Ears = New Serial(0)
-                    Case Enums.Layers.Arms
+                    Case UOLite2.Enums.Layers.Arms
                         _Arms = New Serial(0)
-                    Case Enums.Layers.Back
+                    Case UOLite2.Enums.Layers.Back
                         _Back = New Serial(0)
-                    Case Enums.Layers.BackPack
+                    Case UOLite2.Enums.Layers.BackPack
                         _Back = New Serial(0)
-                    Case Enums.Layers.OuterTorso
+                    Case UOLite2.Enums.Layers.OuterTorso
                         _OuterTorso = New Serial(0)
-                    Case Enums.Layers.OuterLegs
+                    Case UOLite2.Enums.Layers.OuterLegs
                         _OuterLegs = New Serial(0)
-                    Case Enums.Layers.InnerLegs
+                    Case UOLite2.Enums.Layers.InnerLegs
                         _InnerLegs = New Serial(0)
-                    Case Enums.Layers.Mount
+                    Case UOLite2.Enums.Layers.Mount
                         _Mount = New Serial(0)
-                    Case Enums.Layers.Bank
+                    Case UOLite2.Enums.Layers.Bank
                         _Bank = New Serial(0)
                 End Select
             End Sub
@@ -955,7 +955,7 @@ Partial Class LiteClient
             'Assign the item to the proper layer on this mobile.
             Layers.SetLayer(Packet.Layer, Packet.Serial)
 
-            Dim k() As Enums.Layers = {Packet.Layer}
+            Dim k() As UOLite2.Enums.Layers = {Packet.Layer}
             RaiseEvent onEquipmentUpdate(_Client, Me, k)
         End Sub
 
@@ -978,106 +978,106 @@ Partial Class LiteClient
             Me._Status = Packet.Status
 
             If Packet.Count >= 1 Then
-                Dim k(Packet.EquippedItems.Count - 1) As Enums.Layers
+                Dim k(Packet.EquippedItems.Count - 1) As UOLite2.Enums.Layers
 
                 'Loop through the items and add their serials to the proper layers for later reference
                 For i As Byte = 0 To Packet.Count - 1
                     Select Case Packet.EquippedItems(i).Layer
-                        Case Enums.Layers.Arms
-                            Me._Layers.SetLayer(Enums.Layers.Arms, Packet.EquippedItems(i).Serial)
-                            k(i) = Enums.Layers.Arms
+                        Case UOLite2.Enums.Layers.Arms
+                            Me._Layers.SetLayer(UOLite2.Enums.Layers.Arms, Packet.EquippedItems(i).Serial)
+                            k(i) = UOLite2.Enums.Layers.Arms
 
-                        Case Enums.Layers.Back
-                            Me._Layers.SetLayer(Enums.Layers.Back, Packet.EquippedItems(i).Serial)
-                            k(i) = Enums.Layers.Back
+                        Case UOLite2.Enums.Layers.Back
+                            Me._Layers.SetLayer(UOLite2.Enums.Layers.Back, Packet.EquippedItems(i).Serial)
+                            k(i) = UOLite2.Enums.Layers.Back
 
-                        Case Enums.Layers.BackPack
-                            Me._Layers.SetLayer(Enums.Layers.BackPack, Packet.EquippedItems(i).Serial)
-                            k(i) = Enums.Layers.BackPack
+                        Case UOLite2.Enums.Layers.BackPack
+                            Me._Layers.SetLayer(UOLite2.Enums.Layers.BackPack, Packet.EquippedItems(i).Serial)
+                            k(i) = UOLite2.Enums.Layers.BackPack
 
-                        Case Enums.Layers.Bank
-                            Me._Layers.SetLayer(Enums.Layers.Bank, Packet.EquippedItems(i).Serial)
-                            k(i) = Enums.Layers.Bank
+                        Case UOLite2.Enums.Layers.Bank
+                            Me._Layers.SetLayer(UOLite2.Enums.Layers.Bank, Packet.EquippedItems(i).Serial)
+                            k(i) = UOLite2.Enums.Layers.Bank
 
-                        Case Enums.Layers.Bracelet
-                            Me._Layers.SetLayer(Enums.Layers.Bracelet, Packet.EquippedItems(i).Serial)
-                            k(i) = Enums.Layers.Bracelet
+                        Case UOLite2.Enums.Layers.Bracelet
+                            Me._Layers.SetLayer(UOLite2.Enums.Layers.Bracelet, Packet.EquippedItems(i).Serial)
+                            k(i) = UOLite2.Enums.Layers.Bracelet
 
-                        Case Enums.Layers.Ears
-                            Me._Layers.SetLayer(Enums.Layers.Ears, Packet.EquippedItems(i).Serial)
-                            k(i) = Enums.Layers.Ears
+                        Case UOLite2.Enums.Layers.Ears
+                            Me._Layers.SetLayer(UOLite2.Enums.Layers.Ears, Packet.EquippedItems(i).Serial)
+                            k(i) = UOLite2.Enums.Layers.Ears
 
-                        Case Enums.Layers.FacialHair
-                            Me._Layers.SetLayer(Enums.Layers.FacialHair, Packet.EquippedItems(i).Serial)
-                            k(i) = Enums.Layers.FacialHair
+                        Case UOLite2.Enums.Layers.FacialHair
+                            Me._Layers.SetLayer(UOLite2.Enums.Layers.FacialHair, Packet.EquippedItems(i).Serial)
+                            k(i) = UOLite2.Enums.Layers.FacialHair
 
-                        Case Enums.Layers.Gloves
-                            Me._Layers.SetLayer(Enums.Layers.Gloves, Packet.EquippedItems(i).Serial)
-                            k(i) = Enums.Layers.Gloves
+                        Case UOLite2.Enums.Layers.Gloves
+                            Me._Layers.SetLayer(UOLite2.Enums.Layers.Gloves, Packet.EquippedItems(i).Serial)
+                            k(i) = UOLite2.Enums.Layers.Gloves
 
-                        Case Enums.Layers.Hair
-                            Me._Layers.SetLayer(Enums.Layers.Hair, Packet.EquippedItems(i).Serial)
-                            k(i) = Enums.Layers.Hair
+                        Case UOLite2.Enums.Layers.Hair
+                            Me._Layers.SetLayer(UOLite2.Enums.Layers.Hair, Packet.EquippedItems(i).Serial)
+                            k(i) = UOLite2.Enums.Layers.Hair
 
-                        Case Enums.Layers.Head
-                            Me._Layers.SetLayer(Enums.Layers.Head, Packet.EquippedItems(i).Serial)
-                            k(i) = Enums.Layers.Head
+                        Case UOLite2.Enums.Layers.Head
+                            Me._Layers.SetLayer(UOLite2.Enums.Layers.Head, Packet.EquippedItems(i).Serial)
+                            k(i) = UOLite2.Enums.Layers.Head
 
-                        Case Enums.Layers.InnerLegs
-                            Me._Layers.SetLayer(Enums.Layers.InnerLegs, Packet.EquippedItems(i).Serial)
-                            k(i) = Enums.Layers.InnerLegs
+                        Case UOLite2.Enums.Layers.InnerLegs
+                            Me._Layers.SetLayer(UOLite2.Enums.Layers.InnerLegs, Packet.EquippedItems(i).Serial)
+                            k(i) = UOLite2.Enums.Layers.InnerLegs
 
-                        Case Enums.Layers.InnerTorso
-                            Me._Layers.SetLayer(Enums.Layers.InnerTorso, Packet.EquippedItems(i).Serial)
-                            k(i) = Enums.Layers.InnerTorso
+                        Case UOLite2.Enums.Layers.InnerTorso
+                            Me._Layers.SetLayer(UOLite2.Enums.Layers.InnerTorso, Packet.EquippedItems(i).Serial)
+                            k(i) = UOLite2.Enums.Layers.InnerTorso
 
-                        Case Enums.Layers.LeftHand
-                            Me._Layers.SetLayer(Enums.Layers.LeftHand, Packet.EquippedItems(i).Serial)
-                            k(i) = Enums.Layers.LeftHand
+                        Case UOLite2.Enums.Layers.LeftHand
+                            Me._Layers.SetLayer(UOLite2.Enums.Layers.LeftHand, Packet.EquippedItems(i).Serial)
+                            k(i) = UOLite2.Enums.Layers.LeftHand
 
-                        Case Enums.Layers.MiddleTorso
-                            Me._Layers.SetLayer(Enums.Layers.MiddleTorso, Packet.EquippedItems(i).Serial)
-                            k(i) = Enums.Layers.MiddleTorso
+                        Case UOLite2.Enums.Layers.MiddleTorso
+                            Me._Layers.SetLayer(UOLite2.Enums.Layers.MiddleTorso, Packet.EquippedItems(i).Serial)
+                            k(i) = UOLite2.Enums.Layers.MiddleTorso
 
-                        Case Enums.Layers.Mount
-                            Me._Layers.SetLayer(Enums.Layers.Mount, Packet.EquippedItems(i).Serial)
-                            k(i) = Enums.Layers.Mount
+                        Case UOLite2.Enums.Layers.Mount
+                            Me._Layers.SetLayer(UOLite2.Enums.Layers.Mount, Packet.EquippedItems(i).Serial)
+                            k(i) = UOLite2.Enums.Layers.Mount
 
-                        Case Enums.Layers.Neck
-                            Me._Layers.SetLayer(Enums.Layers.Neck, Packet.EquippedItems(i).Serial)
-                            k(i) = Enums.Layers.Neck
+                        Case UOLite2.Enums.Layers.Neck
+                            Me._Layers.SetLayer(UOLite2.Enums.Layers.Neck, Packet.EquippedItems(i).Serial)
+                            k(i) = UOLite2.Enums.Layers.Neck
 
-                        Case Enums.Layers.OuterLegs
-                            Me._Layers.SetLayer(Enums.Layers.OuterLegs, Packet.EquippedItems(i).Serial)
-                            k(i) = Enums.Layers.OuterLegs
+                        Case UOLite2.Enums.Layers.OuterLegs
+                            Me._Layers.SetLayer(UOLite2.Enums.Layers.OuterLegs, Packet.EquippedItems(i).Serial)
+                            k(i) = UOLite2.Enums.Layers.OuterLegs
 
-                        Case Enums.Layers.OuterTorso
-                            Me._Layers.SetLayer(Enums.Layers.OuterTorso, Packet.EquippedItems(i).Serial)
-                            k(i) = Enums.Layers.OuterTorso
+                        Case UOLite2.Enums.Layers.OuterTorso
+                            Me._Layers.SetLayer(UOLite2.Enums.Layers.OuterTorso, Packet.EquippedItems(i).Serial)
+                            k(i) = UOLite2.Enums.Layers.OuterTorso
 
-                        Case Enums.Layers.Pants
-                            Me._Layers.SetLayer(Enums.Layers.Pants, Packet.EquippedItems(i).Serial)
-                            k(i) = Enums.Layers.Pants
+                        Case UOLite2.Enums.Layers.Pants
+                            Me._Layers.SetLayer(UOLite2.Enums.Layers.Pants, Packet.EquippedItems(i).Serial)
+                            k(i) = UOLite2.Enums.Layers.Pants
 
-                        Case Enums.Layers.RightHand
-                            Me._Layers.SetLayer(Enums.Layers.RightHand, Packet.EquippedItems(i).Serial)
-                            k(i) = Enums.Layers.RightHand
+                        Case UOLite2.Enums.Layers.RightHand
+                            Me._Layers.SetLayer(UOLite2.Enums.Layers.RightHand, Packet.EquippedItems(i).Serial)
+                            k(i) = UOLite2.Enums.Layers.RightHand
 
-                        Case Enums.Layers.Ring
-                            Me._Layers.SetLayer(Enums.Layers.Ring, Packet.EquippedItems(i).Serial)
-                            k(i) = Enums.Layers.Ring
+                        Case UOLite2.Enums.Layers.Ring
+                            Me._Layers.SetLayer(UOLite2.Enums.Layers.Ring, Packet.EquippedItems(i).Serial)
+                            k(i) = UOLite2.Enums.Layers.Ring
 
-                        Case Enums.Layers.Shirt
-                            Me._Layers.SetLayer(Enums.Layers.Shirt, Packet.EquippedItems(i).Serial)
-                            k(i) = Enums.Layers.Shirt
+                        Case UOLite2.Enums.Layers.Shirt
+                            Me._Layers.SetLayer(UOLite2.Enums.Layers.Shirt, Packet.EquippedItems(i).Serial)
+                            k(i) = UOLite2.Enums.Layers.Shirt
 
-                        Case Enums.Layers.Shoes
-                            Me._Layers.SetLayer(Enums.Layers.Shoes, Packet.EquippedItems(i).Serial)
-                            k(i) = Enums.Layers.Shoes
+                        Case UOLite2.Enums.Layers.Shoes
+                            Me._Layers.SetLayer(UOLite2.Enums.Layers.Shoes, Packet.EquippedItems(i).Serial)
+                            k(i) = UOLite2.Enums.Layers.Shoes
 
-                        Case Enums.Layers.Waist
-                            Me._Layers.SetLayer(Enums.Layers.Waist, Packet.EquippedItems(i).Serial)
-                            k(i) = Enums.Layers.Waist
+                        Case UOLite2.Enums.Layers.Waist
+                            Me._Layers.SetLayer(UOLite2.Enums.Layers.Waist, Packet.EquippedItems(i).Serial)
+                            k(i) = UOLite2.Enums.Layers.Waist
 
                     End Select
 

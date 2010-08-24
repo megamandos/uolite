@@ -23,7 +23,7 @@ Partial Class LiteClient
         Friend _Client As LiteClient
         Friend _Serial As New Serial(0)
         Friend _Type As UShort
-        Friend _Layer As Enums.Layers
+        Friend _Layer As UOLite2.Enums.Layers
         Friend _StackID As Byte = 0
         Friend _Amount As UShort = 1
         Friend _X As UShort = 0
@@ -33,20 +33,73 @@ Partial Class LiteClient
         Friend _Contents As ItemDatabase.ContentsList = Nothing
         Friend _Container As Serial = WorldSerial
         Friend _Hue As UShort = 0
-        Friend _Direction As Enums.Direction = Enums.Direction.North
+        Friend _Direction As UOLite2.Enums.Direction = UOLite2.Enums.Direction.North
         Friend _IsMobile As Boolean = False
-
+        Friend _Properties As New PropertyListClass(Me)
 
 #End Region
 
 #Region "Properties"
 
-        Public ReadOnly Property PropertyString As String
+        Public ReadOnly Property Properties As PropertyListClass
             Get
-                Dim _PropertyString As String = ""
-                Return _PropertyString
+                Return _Properties
             End Get
         End Property
+
+        'Hide this class from the user, there is no reason from him/her to see it.
+        <System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)> _
+        Public Class PropertyListClass
+            Private _Props As New Hashtable
+            Private _item As Item
+
+            Friend Sub New(ByRef Item As Item)
+                _item = Item
+            End Sub
+
+            Default Public ReadOnly Property byName(ByVal PropertyName As String) As ItemProperty
+                Get
+                    For Each p As ItemProperty In _Props
+                        If p.Cliloc.Text = PropertyName Then Return p
+                    Next
+
+                    Return New ItemProperty(New CliLoc(0, ""), "")
+                End Get
+            End Property
+
+            Public ReadOnly Property byCliLocNumber(ByVal CliLocNumber As UInteger) As ItemProperty
+                Get
+
+                    If _Props.ContainsKey(CliLocNumber) Then
+                        Return DirectCast(_Props(CliLocNumber), ItemProperty)
+                    Else
+                        Return New ItemProperty(New CliLoc(0, ""), "")
+                    End If
+
+                End Get
+            End Property
+
+            Public ReadOnly Property ToArray As ItemProperty()
+                Get
+                    Dim RetArray(_Props.Count - 1) As ItemProperty
+
+                    _Props.Values.CopyTo(RetArray, 0)
+
+                    Return RetArray
+                End Get
+            End Property
+
+            Friend Sub Clear()
+                _Props.Clear()
+            End Sub
+
+            Friend Sub Import(ByRef Properties As HashSet(Of ItemProperty))
+                For Each p As ItemProperty In Properties
+                    _Props.Add(p.Cliloc.Number, p)
+                Next
+            End Sub
+
+        End Class
 
         ''' <summary>The serial of the item.</summary>
         Public ReadOnly Property Serial() As Serial
@@ -122,11 +175,7 @@ Partial Class LiteClient
         ''' </summary>
         Public ReadOnly Property TypeName() As String
             Get
-                If StrLst.Table(1036383 + _Type) Is Nothing Then
-                    Return "Blank"
-                End If
-
-                Return StrLst.Table(1036383 + _Type)
+                Return _Client.GetTypeString(_Type)
             End Get
         End Property
 
@@ -136,7 +185,7 @@ Partial Class LiteClient
             End Get
         End Property
 
-        Public Overridable ReadOnly Property Layer() As Enums.Layers
+        Public Overridable ReadOnly Property Layer() As UOLite2.Enums.Layers
             Get
                 Return _Layer
             End Get

@@ -31,7 +31,6 @@ C:\Users\Eroc\Desktop\UOLite\UOLite\TestUOLite\obj\x86\Debug\GenerateResource.wr
 Z:\Projects\UOLite\TestUOLite\obj\x86\Debug\TestUOLite.exe
 Z:\Projects\UOLite\TestUOLite\obj\x86\Debug\TestUOLite.xml
 Z:\Projects\UOLite\TestUOLite\obj\x86\Debug\TestUOLite.pdb
-Z:\Projects\UOLite\TestUOLite\bin\Debug\Cliloclist.txt
 Z:\Projects\UOLite\TestUOLite\bin\Debug\TestUOLite.exe
 Z:\Projects\UOLite\TestUOLite\bin\Debug\TestUOLite.pdb
 Z:\Projects\UOLite\TestUOLite\bin\Debug\TestUOLite.xml
@@ -61,3 +60,4 @@ X:\Projects\UOLite\TestUOLite\obj\x86\Debug\GenerateResource.write.1.tlog
 X:\public\Projects\UOLite\TestUOLite\obj\x86\Debug\TestUOLite.exe
 X:\public\Projects\UOLite\TestUOLite\obj\x86\Debug\TestUOLite.xml
 X:\public\Projects\UOLite\TestUOLite\obj\x86\Debug\TestUOLite.pdb
+Z:\Projects\UOLite\TestUOLite\bin\Debug\Cliloc.enu

@@ -68,13 +68,16 @@
   <ItemGroup>
     <Compile Include="ActionBuffer.vb" />
     <Compile Include="CircularBuffer.vb" />
+    <Compile Include="CliLocList.vb" />
     <Compile Include="ContextMenu.vb" />
     <Compile Include="Encryption.vb" />
     <Compile Include="Enums.vb" />
     <Compile Include="ErrorHandler.vb" />
+    <Compile Include="Features.vb" />
     <Compile Include="Gumps.vb" />
     <Compile Include="Item.vb" />
     <Compile Include="ItemDatabase.vb" />
+    <Compile Include="ItemProperty.vb" />
     <Compile Include="LiteClient.vb" />
     <Compile Include="Math.vb" />
     <Compile Include="Mobile.vb" />
@@ -105,6 +108,9 @@
     <Compile Include="StringList.vb" />
     <Compile Include="Structures.vb" />
     <Compile Include="Trade.vb" />
+    <Content Include="Cliloc.enu">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="TwoFish.vb" />
     <None Include="TwoFishBase.vb" />
   </ItemGroup>
@@ -126,11 +132,6 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Cliloclist.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{94E38DFF-614B-4CBD-B67C-F211BB35CE8B}" />

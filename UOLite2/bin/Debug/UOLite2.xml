@@ -109,7 +109,7 @@ UOLite2
 </member><member name="E:UOLite2.LiteClient.onCharacterListReceive">
 	<summary>Called when the server sends the list of characters.</summary>
 	<param name="Client">The client making the call</param>
-	<param name="CharacterList">The list of characters as <see cref="T:UOLite2.CharListEntry">CharacterListEntry</see>'s.</param>
+	<param name="CharacterList">The list of characters as <see cref="!:CharListEntry">CharacterListEntry</see>'s.</param>
 </member><member name="P:UOLite2.LiteClient.Password">
 	<summary>The password used to connect to the server.</summary>
 </member><member name="P:UOLite2.LiteClient.Username">
@@ -148,9 +148,10 @@ UOLite2
 </member><member name="T:UOLite2.LiteClient.GameServerInfo">
  Hide this class from the user, there is no reason from him/her to see it.
  <summary>Simply a class to hold information about game servers when recieved from the login server.</summary>
-</member><member name="M:UOLite2.LiteClient.#ctor(System.Boolean@)">
+</member><member name="M:UOLite2.LiteClient.#ctor(System.String@,System.Boolean@)">
 	<summary>Creates a new client.</summary>
 	<param name="EnableOSIEncryption">Whether or not to use OSI encryption, for OSI servers.</param>
+	<param name="ContentFolderPath">The path to the directory containing cliloc.enu without the "\" at the end.</param>
 </member><member name="M:UOLite2.LiteClient.Speak(System.String@,UOLite2.LiteClient.Enums.Common.Hues@,UOLite2.LiteClient.Enums.SpeechTypes@,UOLite2.LiteClient.Enums.Fonts@)">
 	<summary>Causes the player to speak the specified text.</summary>
 	<param name="Text">The text to speak.</param>
@@ -703,6 +704,10 @@ UOLite2
 </member><member name="M:UOLite2.LiteClient.DropItem">
 	<summary>
  Drops the item in the players hand into the player's backpack.
+ </summary>
+</member><member name="P:UOLite2.LiteClient.ItemDatabase.Items">
+	<summary>
+ Returns an array of all of the items the client is currently tracking.
  </summary>
 </member><member name="M:UOLite2.LiteClient.ItemDatabase.ContentsList.#ctor(UOLite2.LiteClient.ItemDatabase@,UOLite2.LiteClient.Serial@)">
 	<param name="Database">The Database that contains the items in this list.</param>

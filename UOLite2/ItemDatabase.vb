@@ -312,6 +312,17 @@ Partial Class LiteClient
             End If
         End Function
 
+        ''' <summary>
+        ''' Returns an array of all of the items the client is currently tracking.
+        ''' </summary>
+        Public ReadOnly Property Items As Item()
+            Get
+                Dim retarray(_AllItems.Count - 1) As Item
+                _AllItems.Values.CopyTo(retarray, 0)
+                Return retarray
+            End Get
+        End Property
+
 #End Region
 
         Public Class ContentsList
