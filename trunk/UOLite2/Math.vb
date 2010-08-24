@@ -2,25 +2,25 @@
 
 Partial Class LiteClient
     ''' <summary>Returns the direction of Y, relative to X.</summary>
-    Public Function GetDirection(ByRef X1 As UShort, ByRef Y1 As UShort, ByRef X2 As UShort, ByRef Y2 As UShort) As Enums.Direction
+    Public Function GetDirection(ByRef X1 As UShort, ByRef Y1 As UShort, ByRef X2 As UShort, ByRef Y2 As UShort) As UOLite2.Enums.Direction
         If X1 = X2 And Y1 = Y2 Then
-            Return Enums.Direction.None
+            Return UOLite2.Enums.Direction.None
         ElseIf X1 = X2 And Y1 < Y2 Then
-            Return Enums.Direction.South
+            Return UOLite2.Enums.Direction.South
         ElseIf X1 = X2 And Y1 > Y2 Then
-            Return Enums.Direction.North
+            Return UOLite2.Enums.Direction.North
         ElseIf X1 > X2 And Y1 = Y2 Then
-            Return Enums.Direction.West
+            Return UOLite2.Enums.Direction.West
         ElseIf X1 > X2 And Y1 < Y2 Then
-            Return Enums.Direction.SouthWest
+            Return UOLite2.Enums.Direction.SouthWest
         ElseIf X1 > X2 And Y1 > Y2 Then
-            Return Enums.Direction.NorthWest
+            Return UOLite2.Enums.Direction.NorthWest
         ElseIf X1 < X2 And Y1 = Y2 Then
-            Return Enums.Direction.East
+            Return UOLite2.Enums.Direction.East
         ElseIf X1 < X2 And Y1 < Y2 Then
-            Return Enums.Direction.SouthEast
+            Return UOLite2.Enums.Direction.SouthEast
         Else 'If X1 < X2 And Y1 > Y2 Then
-            Return Enums.Direction.NorthEast
+            Return UOLite2.Enums.Direction.NorthEast
         End If
     End Function
 

@@ -1,14 +1,15 @@
 ﻿' This is simply an example application of how to use the UOLite DLL.
 ' This demonstrates very BASIC usage principals.
 
-Imports UOLite2
+'Imports UOLite2
 
 Public Class frmMain
     'Declare a new instance of the "LiteClient" class named "Client"
-    Public WithEvents Client As New LiteClient
+    'The content folder can either be the real UO Client directory or any folder containing the static*.mul files and cliloc.enu
+    Public WithEvents Client As New UOLite2.LiteClient(Application.StartupPath)
 
     'Used to track the master of this bot in the game, via serial#
-    Public Master As LiteClient.Serial = New LiteClient.Serial(0)
+    Public Master As UOLite2.LiteClient.Serial = New UOLite2.LiteClient.Serial(0)
 
     'Used to track the bot's mount.
     Public Mount As UOLite2.LiteClient.Mobile = Nothing
@@ -44,17 +45,18 @@ Public Class frmMain
 
     Private Sub Client_onLoginDenied(ByRef Reason As String) Handles Client.onLoginDenied
         MsgBox(Reason)
+
     End Sub
 
-    Private Sub Client_onCharacterListReceive(ByRef Client As LiteClient, ByVal CharacterList As System.Collections.ArrayList) Handles Client.onCharacterListReceive
+    Private Sub Client_onCharacterListReceive(ByRef Client As UOLite2.LiteClient, ByVal CharacterList As System.Collections.ArrayList) Handles Client.onCharacterListReceive
         'Chooses the first character in the list.
 
-        Client.ChooseCharacter(DirectCast(CharacterList.Item(0), CharListEntry).Name, DirectCast(CharacterList.Item(0), CharListEntry).Password, DirectCast(CharacterList.Item(0), CharListEntry).Slot)
+        Client.ChooseCharacter(DirectCast(CharacterList.Item(0), UOLite2.Structures.CharListEntry).Name, DirectCast(CharacterList.Item(0), UOLite2.Structures.CharListEntry).Password, DirectCast(CharacterList.Item(0), UOLite2.Structures.CharListEntry).Slot)
     End Sub
 
-    Private Sub Client_onCliLocSpeech(ByRef Client As UOLite2.LiteClient, ByVal Serial As UOLite2.LiteClient.Serial, ByVal BodyType As UShort, ByVal SpeechType As UOLite2.LiteClient.Enums.SpeechTypes, ByVal Hue As UShort, ByVal Font As UOLite2.LiteClient.Enums.Fonts, ByVal CliLocNumber As UInteger, ByVal Name As String, ByVal ArgsString As String) Handles Client.onCliLocSpeech
+    Private Sub Client_onCliLocSpeech(ByRef Client As UOLite2.LiteClient, ByVal Serial As UOLite2.LiteClient.Serial, ByVal BodyType As UShort, ByVal SpeechType As UOLite2.Enums.SpeechTypes, ByVal Hue As UShort, ByVal Font As UOLite2.Enums.Fonts, ByVal CliLocNumber As UInteger, ByVal Name As String, ByVal ArgsString As String) Handles Client.onCliLocSpeech
         'Logs the cliloc speech.
-        Log("CliLoc: " & Name & " : " & Client.GetCliLocString(CliLocNumber))
+        Log("CliLoc: " & Name & " : " & Client.CliLocStrings.Entry(CliLocNumber))
     End Sub
 
     Private Sub Client_onError(ByRef Description As String) Handles Client.onError
@@ -66,7 +68,7 @@ Public Class frmMain
 
     Private Sub AddScavengerTypes()
         'Add gold coins to the list of item types for the scavenger to look for.
-        Client.Scavenger.AddType(UOLite2.LiteClient.Enums.Common.ItemTypes.GoldCoins)
+        Client.Scavenger.AddType(UOLite2.Enums.Common.ItemTypes.GoldCoins)
     End Sub
 
 #End Region
@@ -129,7 +131,8 @@ Public Class frmMain
         End If
     End Sub
 
-    Private Sub Client_onSpeech(ByRef Client As UOLite2.LiteClient, ByVal Serial As UOLite2.LiteClient.Serial, ByVal BodyType As UShort, ByVal SpeechType As UOLite2.LiteClient.Enums.SpeechTypes, ByVal Hue As UShort, ByVal Font As UOLite2.LiteClient.Enums.Fonts, ByVal Text As String, ByVal Name As String) Handles Client.onSpeech
+    'Handles in-game speech.
+    Private Sub Client_onSpeech(ByRef Client As UOLite2.LiteClient, ByVal Serial As UOLite2.LiteClient.Serial, ByVal BodyType As UShort, ByVal SpeechType As UOLite2.Enums.SpeechTypes, ByVal Hue As UShort, ByVal Font As UOLite2.Enums.Fonts, ByVal Text As String, ByVal Name As String) Handles Client.onSpeech
         'Debug.WriteLine(Text)
         Log("SPEECH: " & Name & " : " & Text)
 
@@ -159,41 +162,41 @@ Public Class frmMain
                         Case 2
                             Select Case LCase(Text.Split(" ")(1))
                                 Case "north"
-                                    Client.Walk(UOLite2.LiteClient.Enums.Direction.North)
+                                    Client.Walk(UOLite2.Enums.Direction.North)
                                 Case "east"
-                                    Client.Walk(UOLite2.LiteClient.Enums.Direction.East)
+                                    Client.Walk(UOLite2.Enums.Direction.East)
                                 Case "south"
-                                    Client.Walk(UOLite2.LiteClient.Enums.Direction.South)
+                                    Client.Walk(UOLite2.Enums.Direction.South)
                                 Case "west"
-                                    Client.Walk(UOLite2.LiteClient.Enums.Direction.West)
+                                    Client.Walk(UOLite2.Enums.Direction.West)
                                 Case "up"
-                                    Client.Walk(UOLite2.LiteClient.Enums.Direction.NorthWest)
+                                    Client.Walk(UOLite2.Enums.Direction.NorthWest)
                                 Case "right"
-                                    Client.Walk(UOLite2.LiteClient.Enums.Direction.NorthEast)
+                                    Client.Walk(UOLite2.Enums.Direction.NorthEast)
                                 Case "down"
-                                    Client.Walk(UOLite2.LiteClient.Enums.Direction.SouthEast)
+                                    Client.Walk(UOLite2.Enums.Direction.SouthEast)
                                 Case "left"
-                                    Client.Walk(UOLite2.LiteClient.Enums.Direction.SouthWest)
+                                    Client.Walk(UOLite2.Enums.Direction.SouthWest)
                             End Select
 
                         Case 3
                             Select Case LCase(Text.Split(" ")(1))
                                 Case "north"
-                                    Client.Walk(UOLite2.LiteClient.Enums.Direction.North, Text.Split(" ")(2))
+                                    Client.Walk(UOLite2.Enums.Direction.North, Text.Split(" ")(2))
                                 Case "east"
-                                    Client.Walk(UOLite2.LiteClient.Enums.Direction.East, Text.Split(" ")(2))
+                                    Client.Walk(UOLite2.Enums.Direction.East, Text.Split(" ")(2))
                                 Case "south"
-                                    Client.Walk(UOLite2.LiteClient.Enums.Direction.South, Text.Split(" ")(2))
+                                    Client.Walk(UOLite2.Enums.Direction.South, Text.Split(" ")(2))
                                 Case "west"
-                                    Client.Walk(UOLite2.LiteClient.Enums.Direction.West, Text.Split(" ")(2))
+                                    Client.Walk(UOLite2.Enums.Direction.West, Text.Split(" ")(2))
                                 Case "up"
-                                    Client.Walk(UOLite2.LiteClient.Enums.Direction.NorthWest, Text.Split(" ")(2))
+                                    Client.Walk(UOLite2.Enums.Direction.NorthWest, Text.Split(" ")(2))
                                 Case "right"
-                                    Client.Walk(UOLite2.LiteClient.Enums.Direction.NorthEast, Text.Split(" ")(2))
+                                    Client.Walk(UOLite2.Enums.Direction.NorthEast, Text.Split(" ")(2))
                                 Case "down"
-                                    Client.Walk(UOLite2.LiteClient.Enums.Direction.SouthEast, Text.Split(" ")(2))
+                                    Client.Walk(UOLite2.Enums.Direction.SouthEast, Text.Split(" ")(2))
                                 Case "left"
-                                    Client.Walk(UOLite2.LiteClient.Enums.Direction.SouthWest, Text.Split(" ")(2))
+                                    Client.Walk(UOLite2.Enums.Direction.SouthWest, Text.Split(" ")(2))
                             End Select
 
 
@@ -208,11 +211,11 @@ Public Class frmMain
                     Client.StopFollowing()
 
                 Case "hide"
-                    Client.Skills(UOLite2.LiteClient.Enums.Skills.Hiding).Use()
+                    Client.Skills(UOLite2.Enums.Skills.Hiding).Use()
 
                 Case "skill"
                     If Text.Split(" ").Length = 2 Then
-                        Dim skillnum As UOLite2.LiteClient.Enums.Skills = Text.Split(" ")(1)
+                        Dim skillnum As UOLite2.Enums.Skills = Text.Split(" ")(1)
                         Client.Speak("Skill: " & Client.Skills(skillnum).Name)
                         Client.Speak("Value: " & Math.Round(CDec(Client.Skills(skillnum).Value / 10), 1))
                         Client.Speak("Base Value: " & Math.Round(CDec(Client.Skills(skillnum).BaseValue / 10), 1))
@@ -267,6 +270,7 @@ Public Class frmMain
 
                 Case "dmount", "dismount"
                     _Client.Player.DoubleClick()
+
                 Case "sc"
                     Client.Speak("Container: " & Client.Scavenger.AlternateContainer.Container.ToRazorString)
 
@@ -277,11 +281,17 @@ Public Class frmMain
 
     Private Sub SendButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SendButton.Click
         Select Case LCase(CmdBox.Text.Split(" ")(0))
+            Case "cliloccount"
+                Log(Client.CliLocStrings.Count)
             Case "say"
-                Client.Speak(CmdBox.Text.Substring(CmdBox.Text.Split(" ")(0).Length + 1), LiteClient.Enums.SpeechTypes.Regular)
+                Client.Speak(CmdBox.Text.Substring(CmdBox.Text.Split(" ")(0).Length + 1), UOLite2.Enums.SpeechTypes.Regular)
                 CmdBox.Clear()
             Case "send"
                 Client.Send(CmdBox.Text.Substring(CmdBox.Text.Split(" ")(0).Length + 1))
+            Case "allitems"
+                For Each i As UOLite2.LiteClient.Item In Client.Items.Items
+                    Log("-Item: " & i.Serial.ToRazorString & vbNewLine & " Type: " & i.Type & " = " & i.TypeName)
+                Next
         End Select
     End Sub
 
@@ -323,35 +333,35 @@ Public Class frmMain
     End Sub
 
     Private Sub Button8_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button8.Click
-        Client.Walk(UOLite2.LiteClient.Enums.Direction.North)
+        Client.Walk(UOLite2.Enums.Direction.North)
     End Sub
 
     Private Sub Button6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button6.Click
-        Client.Walk(UOLite2.LiteClient.Enums.Direction.South)
+        Client.Walk(UOLite2.Enums.Direction.South)
     End Sub
 
     Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
-        Client.Walk(UOLite2.LiteClient.Enums.Direction.East)
+        Client.Walk(UOLite2.Enums.Direction.East)
     End Sub
 
     Private Sub Button10_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button10.Click
-        Client.Walk(UOLite2.LiteClient.Enums.Direction.West)
+        Client.Walk(UOLite2.Enums.Direction.West)
     End Sub
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
-        Client.Walk(UOLite2.LiteClient.Enums.Direction.NorthWest)
+        Client.Walk(UOLite2.Enums.Direction.NorthWest)
     End Sub
 
     Private Sub Button7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button7.Click
-        Client.Walk(UOLite2.LiteClient.Enums.Direction.SouthEast)
+        Client.Walk(UOLite2.Enums.Direction.SouthEast)
     End Sub
 
     Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
-        Client.Walk(UOLite2.LiteClient.Enums.Direction.SouthWest)
+        Client.Walk(UOLite2.Enums.Direction.SouthWest)
     End Sub
 
     Private Sub Button9_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button9.Click
-        Client.Walk(UOLite2.LiteClient.Enums.Direction.NorthEast)
+        Client.Walk(UOLite2.Enums.Direction.NorthEast)
     End Sub
 
 #End Region

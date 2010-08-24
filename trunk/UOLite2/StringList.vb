@@ -8,23 +8,6 @@ Imports System, System.IO, System.Text, System.Collections
 
 Partial Class LiteClient
 
-    Public Function GetTypeString(ByVal Type As UShort)
-        If StrLst.Table(1020000 + Type) Is Nothing Then
-            Return ""
-        End If
-
-        Return StrLst.Table(1020000 + Type)
-    End Function
-
-    Public Function GetCliLocString(ByVal CliLocNumber As UInteger)
-        Return "<CliLoc String: " & CliLocNumber & ">"
-
-        If StrLst.Table(CliLocNumber) Is Nothing Then
-            Return "<Empty String: " & CliLocNumber & ">"
-        End If
-
-        Return StrLst.Table(CliLocNumber)
-    End Function
 
 #If DEBUG Then
     ''' <summary>
@@ -68,12 +51,7 @@ Partial Class LiteClient
             m_Language = language
             m_Table = New Hashtable()
 
-            Dim path As String = Clientpath & "cliloc." & language
-
-            If path Is Nothing Then
-                m_Entries = New StringEntry(-1) {}
-                Return
-            End If
+            Dim path As String = ContentPath & "\cliloc." & language
 
             Dim list As New ArrayList()
 
@@ -117,6 +95,7 @@ Partial Class LiteClient
                 Return m_Number
             End Get
         End Property
+
         Public ReadOnly Property Text() As String
             Get
                 Return m_Text

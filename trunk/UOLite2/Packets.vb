@@ -56,14 +56,14 @@ Partial Class LiteClient
         Public Class UnicodeSpeechPacket
             Inherits LiteClient.Packet
 
-            Private _mode As Enums.SpeechTypes
+            Private _mode As UOLite2.Enums.SpeechTypes
             Private _hue As UShort
-            Private _font As Enums.Fonts
+            Private _font As UOLite2.Enums.Fonts
             Private _lang As String
             Private _text As String
             Private _Skip12BitBytes As UShort = 0
 
-            Friend Sub New(ByVal SpeechType As Enums.SpeechTypes, ByVal Hue As UShort, ByVal Font As Enums.Fonts, ByVal Language As String, ByVal Text As String)
+            Friend Sub New(ByVal SpeechType As UOLite2.Enums.SpeechTypes, ByVal Hue As UShort, ByVal Font As UOLite2.Enums.Fonts, ByVal Language As String, ByVal Text As String)
                 MyBase.New(Enums.PacketType.SpeechUnicode)
                 Dim bytes(13 + (Text.Length * 2)) As Byte
                 bytes(0) = 173 '0xAD
@@ -154,12 +154,12 @@ Partial Class LiteClient
 
             End Sub
 
-            ''' <summary>Gets or Sets the speech type as <see cref="Enums.SpeechTypes"/>.</summary>
-            Public Property SpeechType() As Enums.SpeechTypes
+            ''' <summary>Gets or Sets the speech type as <see cref="UOLite2.Enums.SpeechTypes"/>.</summary>
+            Public Property SpeechType() As UOLite2.Enums.SpeechTypes
                 Get
                     Return _mode
                 End Get
-                Set(ByVal value As Enums.SpeechTypes)
+                Set(ByVal value As UOLite2.Enums.SpeechTypes)
                     _mode = value
                     buff.Position = 3
                     buff.writebyte(_mode)
@@ -179,11 +179,11 @@ Partial Class LiteClient
             End Property
 
             ''' <summary>Gets or Sets the font of the text.</summary>
-            Public Property Font() As Enums.Fonts
+            Public Property Font() As UOLite2.Enums.Fonts
                 Get
                     Return _font
                 End Get
-                Set(ByVal value As Enums.Fonts)
+                Set(ByVal value As UOLite2.Enums.Fonts)
                     _hue = value
                     buff.Position = 6
                     buff.writeushort(value)
@@ -229,9 +229,9 @@ Partial Class LiteClient
         Public Class UnicodeText
             Inherits Packet
             Private _text As String = ""
-            Private _Mode As Enums.SpeechTypes
+            Private _Mode As UOLite2.Enums.SpeechTypes
             Private _hue As UShort
-            Private _font As Enums.Fonts
+            Private _font As UOLite2.Enums.Fonts
             Private _body As UShort
             Private _Serial As Serial
             Private _lang As String
@@ -352,12 +352,12 @@ Partial Class LiteClient
                 End Set
             End Property
 
-            ''' <summary>Gets or Sets the speech type as <see cref="Enums.SpeechTypes"/>.</summary>
-            Public Property Mode() As Enums.SpeechTypes
+            ''' <summary>Gets or Sets the speech type as <see cref="UOLite2.Enums.SpeechTypes"/>.</summary>
+            Public Property Mode() As UOLite2.Enums.SpeechTypes
                 Get
                     Return _Mode
                 End Get
-                Set(ByVal value As Enums.SpeechTypes)
+                Set(ByVal value As UOLite2.Enums.SpeechTypes)
                     _Mode = value
                     buff.Position = 9
                     buff.writebyte(_Mode)
@@ -401,11 +401,11 @@ Partial Class LiteClient
             End Property
 
             ''' <summary>Gets or Sets the font of the text.</summary>
-            Public Property Font() As Enums.Fonts
+            Public Property Font() As UOLite2.Enums.Fonts
                 Get
                     Return _font
                 End Get
-                Set(ByVal value As Enums.Fonts)
+                Set(ByVal value As UOLite2.Enums.Fonts)
                     _font = value
                     buff.Position = 12
                     buff.writeushort(value)
@@ -434,9 +434,9 @@ Partial Class LiteClient
             Inherits Packet
             Friend _Serial As Serial
             Friend _BodyType As UShort
-            Friend _SpeechType As Enums.SpeechTypes
+            Friend _SpeechType As UOLite2.Enums.SpeechTypes
             Friend _TextHue As UShort = 0
-            Friend _TextFont As Enums.Fonts = Enums.Fonts.Default
+            Friend _TextFont As UOLite2.Enums.Fonts = UOLite2.Enums.Fonts.Default
             Friend _Name As String = ""
             Friend _Text As String = ""
 
@@ -462,7 +462,7 @@ Partial Class LiteClient
                 Name = "System"
                 Serial = New Serial(CUInt(4294967295))
                 BodyType = CUShort(&HFFFF)
-                TextFont = Enums.Fonts.Default
+                TextFont = UOLite2.Enums.Fonts.Default
 
             End Sub
 
@@ -537,11 +537,11 @@ Partial Class LiteClient
                 End Set
             End Property
 
-            Public Property SpeechType() As Enums.SpeechTypes
+            Public Property SpeechType() As UOLite2.Enums.SpeechTypes
                 Get
                     Return _SpeechType
                 End Get
-                Set(ByVal Value As Enums.SpeechTypes)
+                Set(ByVal Value As UOLite2.Enums.SpeechTypes)
                     _SpeechType = Value
                     buff.Position = 9
                     buff.writebyte(Value)
@@ -559,11 +559,11 @@ Partial Class LiteClient
                 End Set
             End Property
 
-            Public Property TextFont() As Enums.Fonts
+            Public Property TextFont() As UOLite2.Enums.Fonts
                 Get
                     Return _TextFont
                 End Get
-                Set(ByVal Value As Enums.Fonts)
+                Set(ByVal Value As UOLite2.Enums.Fonts)
                     _TextFont = Value
                     buff.Position = 12
                     buff.writeushort(Value)
@@ -598,9 +598,9 @@ Partial Class LiteClient
             Inherits Packet
             Friend _Serial As Serial
             Friend _BodyType As UShort
-            Friend _SpeechType As Enums.SpeechTypes
+            Friend _SpeechType As UOLite2.Enums.SpeechTypes
             Friend _Hue As UShort
-            Friend _Font As Enums.Fonts
+            Friend _Font As UOLite2.Enums.Fonts
             Friend _CliLocNumber As UInt32
             Friend _Name As String
             Friend _ArgString As String
@@ -656,11 +656,11 @@ Partial Class LiteClient
                 End Set
             End Property
 
-            Public Property SpeechType() As Enums.SpeechTypes
+            Public Property SpeechType() As UOLite2.Enums.SpeechTypes
                 Get
                     Return _SpeechType
                 End Get
-                Set(ByVal Value As Enums.SpeechTypes)
+                Set(ByVal Value As UOLite2.Enums.SpeechTypes)
                     _SpeechType = Value
                     buff.Position = 9
                     buff.writebyte(Value)
@@ -678,11 +678,11 @@ Partial Class LiteClient
                 End Set
             End Property
 
-            Public Property Font() As Enums.Fonts
+            Public Property Font() As UOLite2.Enums.Fonts
                 Get
                     Return _Font
                 End Get
-                Set(ByVal Value As Enums.Fonts)
+                Set(ByVal Value As UOLite2.Enums.Fonts)
                     _Font = Value
                     buff.Position = 12
                     buff.writeushort(Value)
@@ -980,7 +980,7 @@ Partial Class LiteClient
 
             Private _serial As Serial
             Private _itemtype As UShort = 0
-            Private _layer As Enums.Layers
+            Private _layer As UOLite2.Enums.Layers
             Private _container As Serial
             Private _hue As UShort
 
@@ -1043,11 +1043,11 @@ Partial Class LiteClient
             ''' <summary>
             ''' The item's layer
             ''' </summary>
-            Public Property Layer() As Enums.Layers
+            Public Property Layer() As UOLite2.Enums.Layers
                 Get
                     Return _layer
                 End Get
-                Set(ByVal value As Enums.Layers)
+                Set(ByVal value As UOLite2.Enums.Layers)
                     _layer = value
                     buff.Position = 8
                     buff.writebyte(value)
@@ -1297,7 +1297,7 @@ Partial Class LiteClient
                 End Get
             End Property
 
-            Public ReadOnly Property Direction() As Enums.Direction
+            Public ReadOnly Property Direction() As UOLite2.Enums.Direction
                 Get
                     Return _Direction
                 End Get
@@ -1418,7 +1418,7 @@ Partial Class LiteClient
             Friend _HitsMax As UShort = 1
             Friend _Renamable As Enums.Renamable = Enums.Renamable.NotRenamable
             Friend _DisplayMode As Enums.DisplayMode = Enums.DisplayMode.Normal
-            Friend _Gender As Enums.Gender = Enums.Gender.Neutral
+            Friend _Gender As UOLite2.Enums.Gender = UOLite2.Enums.Gender.Neutral
             Friend _Strength As UShort = 1
             Friend _Dexterity As UShort = 1
             Friend _Intelligence As UShort = 1
@@ -1645,11 +1645,11 @@ Partial Class LiteClient
                 End Set
             End Property
 
-            Public Property Gender() As Enums.Gender
+            Public Property Gender() As UOLite2.Enums.Gender
                 Get
                     Return _Gender
                 End Get
-                Set(ByVal Value As Enums.Gender)
+                Set(ByVal Value As UOLite2.Enums.Gender)
                     _Gender = Value
                     buff.Position = 43
                     buff.writebyte(Value)
@@ -2359,10 +2359,10 @@ Partial Class LiteClient
             Private _X As UShort
             Private _Y As UShort
             Private _Z As Byte
-            Private _Direction As Enums.Direction
+            Private _Direction As UOLite2.Enums.Direction
             Private _Hue As UShort
-            Private _Status As Enums.MobileStatus
-            Private _Notoriety As Enums.Reputation
+            Private _Status As UOLite2.Enums.MobileStatus
+            Private _Notoriety As UOLite2.Enums.Reputation
             Private _EquippedItems As New HashSet(Of Item)
             Private _AmountOrCorpse As UShort = 1
 
@@ -2500,10 +2500,10 @@ Partial Class LiteClient
             Private _X As UShort
             Private _Y As UShort
             Private _Z As Byte
-            Private _Direction As Enums.Direction
+            Private _Direction As UOLite2.Enums.Direction
             Private _Hue As UShort
-            Private _Status As Enums.MobileStatus
-            Private _Notoriety As Enums.Reputation
+            Private _Status As UOLite2.Enums.MobileStatus
+            Private _Notoriety As UOLite2.Enums.Reputation
 
             Friend Sub New(ByVal bytes() As Byte)
                 MyBase.New(Enums.PacketType.NakedMOB)
@@ -2855,7 +2855,7 @@ Partial Class LiteClient
             Private _sequence As Byte
             Private _x As UShort
             Private _y As UShort
-            Private _direction As Enums.Direction
+            Private _direction As UOLite2.Enums.Direction
             Private _z As Byte
 #End Region
 
@@ -2910,7 +2910,7 @@ Partial Class LiteClient
                 End Get
             End Property
 
-            Public ReadOnly Property Direction As Enums.Direction
+            Public ReadOnly Property Direction As UOLite2.Enums.Direction
                 Get
                     Return _direction
                 End Get
@@ -2924,7 +2924,7 @@ Partial Class LiteClient
 
 #Region "Variables"
             Private _sequence As Byte
-            Private _Reputation As Enums.Reputation
+            Private _Reputation As UOLite2.Enums.Reputation
 #End Region
 
 #Region "Constructor/Packet Breakdown"
@@ -2951,7 +2951,7 @@ Partial Class LiteClient
                 End Get
             End Property
 
-            Public ReadOnly Property Reputation As Enums.Reputation
+            Public ReadOnly Property Reputation As UOLite2.Enums.Reputation
                 Get
                     Return _Reputation
                 End Get
@@ -2967,10 +2967,10 @@ Partial Class LiteClient
             Private _serial As Serial
             Private _artwork As UShort
             Private _hue As UShort
-            Private _status As Enums.MobileStatus
+            Private _status As UOLite2.Enums.MobileStatus
             Private _x As UShort
             Private _y As UShort
-            Private _direction As Enums.Direction
+            Private _direction As UOLite2.Enums.Direction
             Private _z As Byte
 #End Region
 
@@ -3028,7 +3028,7 @@ Partial Class LiteClient
                 End Get
             End Property
 
-            Public ReadOnly Property Status As Enums.MobileStatus
+            Public ReadOnly Property Status As UOLite2.Enums.MobileStatus
                 Get
                     Return _status
                 End Get
@@ -3052,7 +3052,7 @@ Partial Class LiteClient
                 End Get
             End Property
 
-            Public ReadOnly Property Direction As Enums.Direction
+            Public ReadOnly Property Direction As UOLite2.Enums.Direction
                 Get
                     Return _direction
                 End Get
@@ -3192,7 +3192,7 @@ Partial Class LiteClient
                     Dim NameBytes(29) As Byte
                     Dim PasswordBytes(29) As Byte
 
-                    Dim Character As New CharListEntry
+                    Dim Character As New Structures.CharListEntry
 
                     For i As Integer = 0 To CharCount - 1
 
@@ -3212,7 +3212,7 @@ Partial Class LiteClient
                             Character.Password = System.Text.Encoding.ASCII.GetString(PasswordBytes).Replace(Chr(0), "")
                             Character.Slot = i
                             _CharList.Add(Character)
-                            Character = New CharListEntry
+                            Character = New Structures.CharListEntry
                         End If
 
                     Next

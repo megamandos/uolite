@@ -7,12 +7,12 @@ Public Class LiteClient
 #Region "Base Declarations"
     Private _EmulatedVersion() As Byte = {0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 2} 'Version 7.0.8.2
 
-    Friend Shared StrLst As StringList
+    Friend Shared StrLst As CliLocList
     Private _LoginClient As TcpClient
     Private _LoginStream As NetworkStream
     Private _GameClient As New TcpClient
     Private _GameStream As NetworkStream
-    Protected Friend Shared ClientPath As String
+    Protected Friend Shared ContentPath As String
     Protected Friend _Mobiles As New MobileList(Me)
     Protected Friend _WaitingForTarget As Boolean
     Protected Friend _Targeting As Boolean = False
@@ -86,7 +86,7 @@ Public Class LiteClient
     ''' <param name="CliLocNumber">The cliloc number.</param>
     ''' <param name="Name">The name of the speaker. "SYSTEM" for System.</param>
     ''' <param name="ArgsString">The arguements string, for formatting the speech. Each arguement is seperated by a "\t".</param>
-    Public Event onCliLocSpeech(ByRef Client As LiteClient, ByVal Serial As Serial, ByVal BodyType As UShort, ByVal SpeechType As Enums.SpeechTypes, ByVal Hue As UShort, ByVal Font As Enums.Fonts, ByVal CliLocNumber As UInteger, ByVal Name As String, ByVal ArgsString As String)
+    Public Event onCliLocSpeech(ByRef Client As LiteClient, ByVal Serial As Serial, ByVal BodyType As UShort, ByVal SpeechType As UOLite2.Enums.SpeechTypes, ByVal Hue As UShort, ByVal Font As UOLite2.Enums.Fonts, ByVal CliLocNumber As UInteger, ByVal Name As String, ByVal ArgsString As String)
 
     ''' <summary>Called when the client recieves a "text" or "Unicode Text" packet from the server.</summary>
     ''' <param name="Client">The client to which this applies.</param>
@@ -97,11 +97,11 @@ Public Class LiteClient
     ''' <param name="Font">The font of the message.</param>
     ''' <param name="Text">The text to be displayed.</param>
     ''' <param name="Name">The name of the speaker. "SYSTEM" for System.</param>
-    Public Event onSpeech(ByRef Client As LiteClient, ByVal Serial As Serial, ByVal BodyType As UShort, ByVal SpeechType As Enums.SpeechTypes, ByVal Hue As UShort, ByVal Font As Enums.Fonts, ByVal Text As String, ByVal Name As String)
+    Public Event onSpeech(ByRef Client As LiteClient, ByVal Serial As Serial, ByVal BodyType As UShort, ByVal SpeechType As UOLite2.Enums.SpeechTypes, ByVal Hue As UShort, ByVal Font As UOLite2.Enums.Fonts, ByVal Text As String, ByVal Name As String)
 
     ''' <summary>Called when the server sends the list of characters.</summary>
     ''' <param name="Client">The client making the call</param>
-    ''' <param name="CharacterList">The list of characters as <see cref="CharListEntry">CharacterListEntry</see>'s.</param>
+    ''' <param name="CharacterList">The list of characters as <see cref="UOLite2.Structures.CharListEntry">CharacterListEntry</see>'s.</param>
     Public Event onCharacterListReceive(ByRef Client As LiteClient, ByVal CharacterList As ArrayList)
 
 #End Region
@@ -111,6 +111,7 @@ Public Class LiteClient
     End Sub
 
 #Region "Properties"
+
     ''' <summary>The password used to connect to the server.</summary>
     Public Property Password As String
 
@@ -204,7 +205,7 @@ Public Class LiteClient
 
 #End Region
 
-#Region "Low Level Connection stuff"
+#Region "Low Level stuff"
 
 #Region "Stupid BF-xx-xx-00-24 timer and emulation stuff"
     Private WithEvents BF24Ticker As New System.Timers.Timer(3800)
@@ -300,9 +301,13 @@ Public Class LiteClient
 
     ''' <summary>Creates a new client.</summary>
     ''' <param name="EnableOSIEncryption">Whether or not to use OSI encryption, for OSI servers.</param>
-    Public Sub New(Optional ByRef EnableOSIEncryption As Boolean = False)
+    ''' <param name="ContentFolderPath" >The path to the directory containing cliloc.enu without the "\" at the end.</param>
+    Public Sub New(ByRef ContentFolderPath As String, Optional ByRef EnableOSIEncryption As Boolean = False)
         'TODO: implement localization.
-        'Localize()
+
+        ContentPath = ContentFolderPath
+
+        SetupErrorHandling()
 
         _Encrypted = EnableOSIEncryption
 
@@ -312,10 +317,7 @@ Public Class LiteClient
             GenerateLoginKeys()
         End If
 
-
-
-        SetupErrorHandling()
-
+        StrLst = New CliLocList(ContentFolderPath & "\cliloc.enu")
 
     End Sub
 
@@ -329,58 +331,6 @@ Public Class LiteClient
 #End If
     End Sub
 
-    Private Sub Localize()
-        'Sets the default language of the string list to the language of the OS
-        'used for clilocs, item types, etc. That way people with non-english can get the
-        'right info.
-        'Languages: enu,chs,cht,deu,esp,fra,jpn,kor
-        Select Case My.Application.Culture.ThreeLetterISOLanguageName
-            Case "chi" 'Chinese
-                StrLst = New StringList("chs")
-            Case "zho" 'Chinese Traditional
-                StrLst = New StringList("cht")
-
-            Case "eng" 'English
-                StrLst = New StringList("enu")
-            Case "enm" 'English
-                StrLst = New StringList("enu")
-
-            Case "fre" 'French
-                StrLst = New StringList("fra")
-            Case "fra" 'French
-                StrLst = New StringList("fra")
-            Case "frm" 'French
-                StrLst = New StringList("fra")
-            Case "fro" 'French
-                StrLst = New StringList("fra")
-
-            Case "ger" 'German
-                StrLst = New StringList("deu")
-
-            Case "deu" 'German
-                StrLst = New StringList("deu")
-
-            Case "gmh" 'German
-                StrLst = New StringList("deu")
-
-            Case "goh" 'German
-                StrLst = New StringList("deu")
-
-            Case "spa" 'Spanish
-                StrLst = New StringList("esp")
-
-            Case "jpn" 'Japanese
-                StrLst = New StringList("jpn")
-
-            Case "kor" 'Korean
-                StrLst = New StringList("kor")
-
-            Case Else 'Don't know what to set it to? Then English.
-                StrLst = New StringList("enu")
-
-        End Select
-    End Sub
-
 #End Region
 
 #Region "Actions: walk/talk/etc..."
@@ -390,9 +340,9 @@ Public Class LiteClient
     ''' <param name="Hue">The Hue of the text.</param>
     ''' <param name="Type">The type, (ie. Yell, Whisper, etc.)</param>
     ''' <param name="Font">The font.</param>
-    Public Sub Speak(ByRef Text As String, Optional ByRef Hue As Enums.Common.Hues = Enums.Common.Hues.Yellow, Optional ByRef Type As Enums.SpeechTypes = Enums.SpeechTypes.Regular, Optional ByRef Font As Enums.Fonts = Enums.Fonts.Default)
-        Dim packet As New Packets.UnicodeSpeechPacket(Type, Hue, Enums.Fonts.Default, "ENU", Text)
-        Send(packet)
+    Public Sub Speak(ByRef Text As String, Optional ByRef Hue As UOLite2.Enums.Common.Hues = UOLite2.Enums.Common.Hues.Yellow, Optional ByRef Type As UOLite2.Enums.SpeechTypes = UOLite2.Enums.SpeechTypes.Regular, Optional ByRef Font As UOLite2.Enums.Fonts = UOLite2.Enums.Fonts.Default)
+        Dim packets As New Packets.UnicodeSpeechPacket(Type, Hue, UOLite2.Enums.Fonts.Default, "ENU", Text)
+        Send(packets)
     End Sub
 
 #End Region

@@ -42,17 +42,17 @@ Partial Public Class LiteClient
     End Property
 
     Private Structure MoveRequest
-        Public Direction As Enums.Direction
+        Public Direction As UOLite2.Enums.Direction
         Public Follow As Boolean
     End Structure
 
-    Public Sub Walk(ByRef Direction As Enums.Direction, Optional ByRef NumberOfSteps As UInteger = 1)
+    Public Sub Walk(ByRef Direction As UOLite2.Enums.Direction, Optional ByRef NumberOfSteps As UInteger = 1)
         'Stop following someone if you are, since this will take you off track anyways.
         StopFollowing()
         TakeStep(Direction, NumberOfSteps, False)
     End Sub
 
-    Private Sub TakeStep(ByRef Direction As Enums.Direction, Optional ByRef NumberOfSteps As UInteger = 1, Optional ByRef Follow As Boolean = False)
+    Private Sub TakeStep(ByRef Direction As UOLite2.Enums.Direction, Optional ByRef NumberOfSteps As UInteger = 1, Optional ByRef Follow As Boolean = False)
         If Not _MovementPaused Then
             Dim x As MoveRequest
 
@@ -122,31 +122,31 @@ Partial Public Class LiteClient
             'if he is, then take a step.
             'Adjust the player's position, assuming that it will accept your movement request.
             Select Case x.Direction
-                Case Enums.Direction.North
+                Case UOLite2.Enums.Direction.North
                     Player._Y -= 1
 
-                Case Enums.Direction.NorthEast
+                Case UOLite2.Enums.Direction.NorthEast
                     Player._Y -= 1
                     Player._X += 1
 
-                Case Enums.Direction.East
+                Case UOLite2.Enums.Direction.East
                     Player._X += 1
 
-                Case Enums.Direction.SouthEast
+                Case UOLite2.Enums.Direction.SouthEast
                     Player._X += 1
                     Player._Y += 1
 
-                Case Enums.Direction.South
+                Case UOLite2.Enums.Direction.South
                     Player._Y += 1
 
-                Case Enums.Direction.SouthWest
+                Case UOLite2.Enums.Direction.SouthWest
                     Player._Y += 1
                     Player._X -= 1
 
-                Case Enums.Direction.West
+                Case UOLite2.Enums.Direction.West
                     Player._X -= 1
 
-                Case Enums.Direction.NorthWest
+                Case UOLite2.Enums.Direction.NorthWest
                     Player._X -= 1
                     Player._Y -= 1
 
