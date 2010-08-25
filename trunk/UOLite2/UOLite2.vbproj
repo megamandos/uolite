@@ -107,6 +107,7 @@
     <Compile Include="Spellcasting.vb" />
     <Compile Include="StringList.vb" />
     <Compile Include="Structures.vb" />
+    <Compile Include="Targeting.vb" />
     <Compile Include="Trade.vb" />
     <Content Include="Cliloc.enu">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

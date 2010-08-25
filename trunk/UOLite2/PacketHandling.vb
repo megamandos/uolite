@@ -267,6 +267,9 @@ Partial Class LiteClient
                 Case UOLite2.Enums.PacketType.LocalizedText
                     Return New Packets.LocalizedText(packetbuffer)
 
+                Case Enums.PacketType.Target
+                    Return New Packets.Target(packetbuffer)
+
                 Case UOLite2.Enums.PacketType.LoginComplete
                     Return New Packets.LoginComplete(packetbuffer)
 
@@ -535,6 +538,9 @@ Partial Class LiteClient
 
                 'Check surroundings for scavengable items.
                 Scavenger.CheckSurroundings()
+
+            Case Enums.PacketType.Target
+                HandleTargetPacket(DirectCast(currentpacket, Packets.Target))
 
             Case UOLite2.Enums.PacketType.BlockMovement
                 MovementBlocked(DirectCast(currentpacket, Packets.BlockMovement))
