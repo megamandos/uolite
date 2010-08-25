@@ -95,7 +95,7 @@ UOLite2
 </member><member name="E:UOLite2.LiteClient.onLoginDenied">
 	<summary>Called during the login process when the server rejects the username and password.</summary>
 	<param name="Reason">The reason for the failure.</param>
-</member><member name="M:UOLite2.LiteClient.#ctor(System.String@,System.Boolean@)">
+</member><member name="M:UOLite2.LiteClient.#ctor(System.String,System.Boolean)">
 	<summary>Creates a new client.</summary>
 	<param name="EnableOSIEncryption">Whether or not to use OSI encryption, for OSI servers.</param>
 	<param name="ContentFolderPath">The path to the directory containing cliloc.enu without the "\" at the end.</param>
