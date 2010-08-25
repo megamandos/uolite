@@ -1,30 +1,6 @@
 ﻿
 Namespace Enums
 
-    ''' <summary>Enumeration of Login state.</summary>
-    Public Enum LoginState
-        AT_LOGIN_GUMP
-        AT_CHARACTERLIST
-        AT_SERVERLIST
-        LOGIN_FAILURE
-        LOGIN_SUCCESS
-    End Enum
-
-    ''' <summary>Enumeration of Entity types.</summary>
-    Public Enum EntityType
-        Item
-        Mobile
-        ItemList
-        Gump
-        GumpList
-        GumpElement
-        GumpElementList
-        Journal
-        JournalEntry
-        PacketQueue
-        Packet
-    End Enum
-
     ''' <summary>Enumeration of Spells.</summary>
     Public Enum Spell As Byte
         ' First circle
@@ -191,46 +167,6 @@ Namespace Enums
         InvokeVirtue
     End Enum
 
-    ''' <summary>Enumeration of element types.</summary>
-    Public Enum Element
-        Configuration
-        Paperdoll
-        Status
-        Journal
-        Skills
-        MageSpellbook
-        Chat
-        Backpack
-        Overview
-        Mail
-        PartyManifest
-        PartyChat
-        NecroSpellbook
-        PaladinSpellbook
-        CombatBook
-        BushidoSpellbook
-        NinjitsuSpellbook
-        Guild
-        SpellWeavingSpellbook
-        QuestLog
-    End Enum
-
-    <Flags()> _
-    Public Enum Features As Short
-        enableT2Afeatures_chatbutton_regions = &H1
-        enablerenaissancefeatures = &H2
-        enablethirddownfeatures = &H4
-        enableLBRfeatures_skills_map = &H8
-        enableAOSfeatures_skills_spells_map_fightbook = &H10
-        enable6thcharacterslot = &H20
-        enableSEfeatures_spells_skills_map = &H40
-        enableMLfeatures_elvenrace_spells_skills = &H80
-        enableTheEightAgesplashscreen = &H100
-        enableTheNinthAgesplashscreen = &H200
-        enable7thcharacterslot = &H1000
-        enableTheTenthAgeKRfaces = &H2000
-    End Enum
-
     ''' <summary>Enumeration of mobile gender.</summary>
     Public Enum Gender As Byte
         Male = &H0
@@ -259,17 +195,6 @@ Namespace Enums
         Malas
         Tokuno
         Internal = &H7F
-    End Enum
-
-    Public Enum PacketOrigin
-        FROMCLIENT
-        FROMSERVER
-        INTERNAL
-    End Enum
-
-    Public Enum PacketDestination
-        SERVER
-        CLIENT
     End Enum
 
     'Supported Clients

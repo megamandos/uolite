@@ -3,13 +3,17 @@
 ' attempts when they are made in rapid succession.
 
 Partial Class LiteClient
-    Protected Friend ActionBuffer As ActionBufferClass
+    Protected Friend ActionBuffer As SupportClasses.ActionBufferClass
 
     Public ReadOnly Property PlayerBusy As Boolean
         Get
             Return ActionBuffer.Busy
         End Get
     End Property
+
+End Class
+
+Namespace SupportClasses
 
     Public Class ActionBufferClass
         Private _Client As LiteClient
@@ -100,4 +104,4 @@ Partial Class LiteClient
 
     End Class
 
-End Class
+End Namespace

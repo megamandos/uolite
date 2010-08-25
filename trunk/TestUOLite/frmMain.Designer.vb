@@ -40,7 +40,6 @@ Partial Class frmMain
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.Button3 = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.lbl_Direction = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -190,7 +189,7 @@ Partial Class frmMain
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(568, 338)
+        Me.TabPage1.Size = New System.Drawing.Size(568, 336)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Login"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -236,24 +235,14 @@ Partial Class frmMain
         '
         'TabPage3
         '
-        Me.TabPage3.Controls.Add(Me.Button3)
         Me.TabPage3.Controls.Add(Me.GroupBox3)
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(568, 338)
+        Me.TabPage3.Size = New System.Drawing.Size(568, 336)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Character"
         Me.TabPage3.UseVisualStyleBackColor = True
-        '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(180, 56)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 23)
-        Me.Button3.TabIndex = 10
-        Me.Button3.Text = "Button3"
-        Me.Button3.UseVisualStyleBackColor = True
         '
         'GroupBox3
         '
@@ -478,5 +467,4 @@ Partial Class frmMain
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents lbl_Direction As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents Button3 As System.Windows.Forms.Button
 End Class
