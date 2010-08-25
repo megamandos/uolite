@@ -257,7 +257,7 @@ Public Class LiteClient
     ''' <summary>Creates a new client.</summary>
     ''' <param name="EnableOSIEncryption">Whether or not to use OSI encryption, for OSI servers.</param>
     ''' <param name="ContentFolderPath" >The path to the directory containing cliloc.enu without the "\" at the end.</param>
-    Public Sub New(ByRef ContentFolderPath As String, Optional ByRef EnableOSIEncryption As Boolean = False)
+    Public Sub New(ByVal ContentFolderPath As String, Optional ByVal EnableOSIEncryption As Boolean = False)
         'TODO: implement localization.
 
         ContentPath = ContentFolderPath
