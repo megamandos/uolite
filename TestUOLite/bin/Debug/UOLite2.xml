@@ -6,40 +6,7 @@ UOLite2
 </name>
 </assembly>
 <members>
-<member name="P:UOLite2.LiteClient.Targeting">
-	<summary>
- Whether or not the server is requesting a target from the client, setting it to false will tell the server that you cancelled your target.
- </summary>
-</member><member name="P:UOLite2.LiteClient.LastTarget">
-	<summary>
- Gets or Sets the LastTarget.
- </summary>
-</member><member name="P:UOLite2.LiteClient.TargetType">
-	<summary>
- The type of target requested, either Ground or Object.
- </summary>
-</member><member name="P:UOLite2.LiteClient.TargetFlag">
-	<summary>
- The result of your target action on your target. Such as the target will be harmed or healed.
- </summary>
-</member><member name="M:UOLite2.LiteClient.Target(UOLite2.Serial)">
-	<summary>
- Responds to a target request from the server.
- </summary>
-	<param name="Serial">The serial of the object to be targeted.</param>
-</member><member name="M:UOLite2.LiteClient.Target(System.UInt16,System.UInt16,System.UInt16,System.UInt16)">
-	<summary>
- Responds to a target request from the server.
- </summary>
-	<param name="X">The X position to target.</param>
-	<param name="Y">The Y position to target.</param>
-	<param name="Z">The Z position to target.</param>
-	<param name="Graphic">The graphic of the tile, if the tile is a static tile, its 0 if it is a ground/map tile.</param>
-</member><member name="M:UOLite2.Item.Target">
-	<summary>
- Target's the object, if the server has requested a target.
- </summary>
-</member><member name="E:UOLite2.LiteClient.onLoginConfirm">
+<member name="E:UOLite2.LiteClient.onLoginConfirm">
 	<summary>
  Called when the client recieves a login confirm packets from the game server, and the player character is created.
  </summary>
@@ -489,6 +456,39 @@ UOLite2
 	<summary>
   A strongly-typed resource class, for looking up localized strings, etc.
 </summary>
+</member><member name="P:UOLite2.LiteClient.Targeting">
+	<summary>
+ Whether or not the server is requesting a target from the client, setting it to false will tell the server that you cancelled your target.
+ </summary>
+</member><member name="P:UOLite2.LiteClient.LastTarget">
+	<summary>
+ Gets or Sets the LastTarget.
+ </summary>
+</member><member name="P:UOLite2.LiteClient.TargetType">
+	<summary>
+ The type of target requested, either Ground or Object.
+ </summary>
+</member><member name="P:UOLite2.LiteClient.TargetFlag">
+	<summary>
+ The result of your target action on your target. Such as the target will be harmed or healed.
+ </summary>
+</member><member name="M:UOLite2.LiteClient.Target(UOLite2.Serial)">
+	<summary>
+ Responds to a target request from the server.
+ </summary>
+	<param name="Serial">The serial of the object to be targeted.</param>
+</member><member name="M:UOLite2.LiteClient.Target(System.UInt16,System.UInt16,System.UInt16,System.UInt16)">
+	<summary>
+ Responds to a target request from the server.
+ </summary>
+	<param name="X">The X position to target.</param>
+	<param name="Y">The Y position to target.</param>
+	<param name="Z">The Z position to target.</param>
+	<param name="Graphic">The graphic of the tile, if the tile is a static tile, its 0 if it is a ground/map tile.</param>
+</member><member name="M:UOLite2.Item.Target">
+	<summary>
+ Target's the object, if the server has requested a target.
+ </summary>
 </member><member name="P:UOLite2.Packets.Packet.Data">
 	<summary>Returns the raw packet data as a byte array.</summary>
 </member><member name="T:UOLite2.Packets.Packet">

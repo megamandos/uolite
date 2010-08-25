@@ -58,7 +58,7 @@ Public Class ItemDatabase
 
 #Region "Add Item(s)"
 
-    Public Overloads Sub Add(ByRef Item As Item)
+    Friend Overloads Sub Add(ByRef Item As Item)
         'Don't add the same thing twice.
         If _AllSerials.Contains(Item.Serial) Then Exit Sub
 
@@ -100,13 +100,13 @@ Public Class ItemDatabase
 
     End Sub
 
-    Public Overloads Sub Add(ByRef Items As HashSet(Of Item))
+    Friend Overloads Sub Add(ByRef Items As HashSet(Of Item))
         For Each i As Item In Items
             Add(i)
         Next
     End Sub
 
-    Public Overloads Sub Add(ByRef Items As ContentsList)
+    Friend Overloads Sub Add(ByRef Items As ContentsList)
         For Each i As Item In Items.Items
             Add(i)
         Next
@@ -181,6 +181,16 @@ Public Class ItemDatabase
 #End If
 
         Add(j)
+    End Sub
+
+#End Region
+
+#Region "Update Item(s)"
+
+    Friend Overloads Sub UpdateItem(ByRef Packet As Packets.MegaCliLoc)
+        If _AllItems.ContainsKey(Packet.Serial) Then
+            DirectCast(_AllItems(Packet.Serial), Item)._Properties = New SupportClasses.PropertyListClass(DirectCast(_AllItems(Packet.Serial), Item), Packet.Properties)
+        End If
     End Sub
 
 #End Region

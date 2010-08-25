@@ -34,71 +34,18 @@ Public Class Item
     Friend _Hue As UShort = 0
     Friend _Direction As UOLite2.Enums.Direction = UOLite2.Enums.Direction.North
     Friend _IsMobile As Boolean = False
-    Friend _Properties As New PropertyListClass(Me)
+    Friend _Properties As New SupportClasses.PropertyListClass(Me)
 
 #End Region
 
 #Region "Properties"
 
-    Public ReadOnly Property Properties As PropertyListClass
+    Public ReadOnly Property Properties As SupportClasses.PropertyListClass
         Get
             Return _Properties
         End Get
     End Property
 
-    'Hide this class from the user, there is no reason from him/her to see it.
-    <System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)> _
-    Public Class PropertyListClass
-        Private _Props As New Hashtable
-        Private _item As Item
-
-        Friend Sub New(ByRef Item As Item)
-            _item = Item
-        End Sub
-
-        Default Public ReadOnly Property byName(ByVal PropertyName As String) As SupportClasses.ItemProperty
-            Get
-                For Each p As SupportClasses.ItemProperty In _Props
-                    If p.Cliloc.Text = PropertyName Then Return p
-                Next
-
-                Return New SupportClasses.ItemProperty(New SupportClasses.CliLoc(0, ""), "")
-            End Get
-        End Property
-
-        Public ReadOnly Property byCliLocNumber(ByVal CliLocNumber As UInteger) As SupportClasses.ItemProperty
-            Get
-
-                If _Props.ContainsKey(CliLocNumber) Then
-                    Return DirectCast(_Props(CliLocNumber), SupportClasses.ItemProperty)
-                Else
-                    Return New SupportClasses.ItemProperty(New SupportClasses.CliLoc(0, ""), "")
-                End If
-
-            End Get
-        End Property
-
-        Public ReadOnly Property ToArray As SupportClasses.ItemProperty()
-            Get
-                Dim RetArray(_Props.Count - 1) As SupportClasses.ItemProperty
-
-                _Props.Values.CopyTo(RetArray, 0)
-
-                Return RetArray
-            End Get
-        End Property
-
-        Friend Sub Clear()
-            _Props.Clear()
-        End Sub
-
-        Friend Sub Import(ByRef Properties As HashSet(Of SupportClasses.ItemProperty))
-            For Each p As SupportClasses.ItemProperty In Properties
-                _Props.Add(p.Cliloc.Number, p)
-            Next
-        End Sub
-
-    End Class
 
     ''' <summary>The serial of the item.</summary>
     Public ReadOnly Property Serial() As Serial

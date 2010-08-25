@@ -21,8 +21,6 @@ End Class
 
 Namespace SupportClasses
 
-    'Hide this class from the user, there is no reason from him/her to see it.
-    <System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)> _
     Public Class CliLocList
         Private _StringHash As New Hashtable(100000)
         Private _ReadBuffer(4096) As Byte
@@ -81,10 +79,16 @@ Namespace SupportClasses
             End Get
         End Property
 
+        Public Function GetCliLoc(ByRef CliLocNumber As UInt32) As CliLoc
+            If _StringHash.ContainsKey(CliLocNumber) Then
+                Return DirectCast(_StringHash(CliLocNumber), CliLoc)
+            Else
+                Return New CliLoc(0, "")
+            End If
+        End Function
+
     End Class
 
-    'Hide this class from the user, there is no reason from him/her to see it.
-    <System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)> _
     Public Class CliLoc
         Friend _CliLocNumber As UInt32
         Friend _Text As String

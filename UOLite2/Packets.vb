@@ -1320,29 +1320,6 @@ Namespace Packets
 
     End Class
 
-    Public Class MegaCliLoc
-        Inherits Packet
-
-        Friend _Serial As Serial
-        Friend _Serial2 As Serial
-
-
-        Friend Sub New(ByVal bytes() As Byte)
-            MyBase.New(UOLite2.Enums.PacketType.MegaCliloc)
-            _Data = bytes
-            _size = bytes.Length
-            buff = New UOLite2.SupportClasses.BufferHandler(bytes, True)
-
-            With buff
-                .Position = 3
-                _Serial = .readuint
-
-
-            End With
-
-        End Sub
-    End Class
-
 #End Region
 
 #Region "Mobiles"
@@ -3829,7 +3806,7 @@ Namespace SupportClasses
     'Buffer Serialization and Deserialization
     ''' Hide this class from the user, there is no reason from him/her to see it.
     <System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)> _
-    Public Class UOLite2.SupportClasses.BufferHandler
+    Public Class BufferHandler
 #End If
         Inherits Stream
         Public curpos As Long
