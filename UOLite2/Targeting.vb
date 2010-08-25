@@ -8,13 +8,31 @@
     Public Event onTargetRequest(ByRef Client As LiteClient)
 
     ''' <summary>
-    ''' Whether or not the server is requesting a target from the client.
+    ''' Whether or not the server is requesting a target from the client, setting it to false will tell the server that you cancelled your target.
     ''' </summary>
-    Public ReadOnly Property Targeting As Boolean
+    Public Property Targeting As Boolean
         Get
             Return _Targeting
         End Get
+        Set(ByVal value As Boolean)
+            If _Targeting And Not value Then
+                Dim tpacket As New Packets.Target
+
+                tpacket.TargetType = Enums.TargetActionType.Cancel
+                tpacket.Serial = _TargetUID
+                tpacket.Flag = _TargetFlag
+                tpacket.Target = LiteClient.ZeroSerial
+
+                Send(tpacket)
+                _Targeting = value
+            End If
+        End Set
     End Property
+
+    ''' <summary>
+    ''' Gets or Sets the LastTarget.
+    ''' </summary>
+    Public Property LastTarget As Serial
 
     ''' <summary>
     ''' The type of target requested, either Ground or Object.
@@ -56,6 +74,8 @@
         tpacket.Target = Serial
 
         Send(tpacket)
+
+        _LastTarget = Serial
     End Sub
 
     ''' <summary>
