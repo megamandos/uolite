@@ -42,7 +42,7 @@ Imports System.IO, System.Threading, System.Net.Sockets
 Partial Class LiteClient
 
     Const PacketSize As Integer = 1024 * 32 '32kB packet buffer.
-    Private Shared BufferSize As UInteger = 1024 * 1024 * 5 '5 Megabytes
+    Private Shared BufferSize As UInteger = 1024 * 1024 * 1 ' Megabytes
     Private Shared GameBuffer As New SupportClasses.CircularBuffer(Of Byte)(BufferSize)
     Private PacketHandlerThread As New Thread(AddressOf HandleBuffer)
 
@@ -270,6 +270,9 @@ Partial Class LiteClient
 
                 Case Enums.PacketType.Target
                     Return New Packets.Target(packetbuffer)
+
+                Case Enums.PacketType.MegaCliloc
+                    Return New Packets.MegaCliLoc(packetbuffer)
 
                 Case UOLite2.Enums.PacketType.LoginComplete
                     Return New Packets.LoginComplete(packetbuffer)
@@ -546,6 +549,9 @@ Partial Class LiteClient
 
                 'Check surroundings for scavengable items.
                 'Scavenger.CheckSurroundings()
+
+            Case Enums.PacketType.MegaCliloc
+                Items.UpdateItem(DirectCast(currentpacket, Packets.MegaCliLoc))
 
             Case UOLite2.Enums.PacketType.Skills
                 HandleSkillPacket(DirectCast(currentpacket, Packets.Skills))

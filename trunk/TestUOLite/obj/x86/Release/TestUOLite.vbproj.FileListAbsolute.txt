@@ -13,7 +13,6 @@ Z:\Projects\UOAI2\UOLite\TestUOLite\obj\x86\Release\GenerateResource.write.1.tlo
 Z:\Projects\UOAI2\UOLite\TestUOLite\obj\x86\Release\TestUOLite.exe
 Z:\Projects\UOAI2\UOLite\TestUOLite\obj\x86\Release\TestUOLite.xml
 Z:\Projects\UOAI2\UOLite\TestUOLite\obj\x86\Release\TestUOLite.pdb
-Z:\Projects\UOLite\TestUOLite\bin\Release\Cliloclist.txt
 Z:\Projects\UOLite\TestUOLite\bin\Release\TestUOLite.exe
 Z:\Projects\UOLite\TestUOLite\bin\Release\TestUOLite.pdb
 Z:\Projects\UOLite\TestUOLite\bin\Release\TestUOLite.xml
@@ -28,3 +27,4 @@ Z:\Projects\UOLite\TestUOLite\obj\x86\Release\GenerateResource.write.1.tlog
 Z:\Projects\UOLite\TestUOLite\obj\x86\Release\TestUOLite.exe
 Z:\Projects\UOLite\TestUOLite\obj\x86\Release\TestUOLite.xml
 Z:\Projects\UOLite\TestUOLite\obj\x86\Release\TestUOLite.pdb
+Z:\Projects\UOLite\TestUOLite\bin\Release\Cliloc.enu
