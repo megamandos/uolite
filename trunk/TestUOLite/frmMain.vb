@@ -293,6 +293,9 @@ Public Class frmMain
                 For Each i As UOLite2.Item In Client.Items.Items
                     Log("-Item: " & i.Serial.ToRazorString & vbNewLine & " Type: " & i.Type & " = " & i.TypeName)
                 Next
+            Case "test"
+                Client.CastSpell(UOLite2.Enums.Spell.GreaterHeal)
+
         End Select
     End Sub
 
