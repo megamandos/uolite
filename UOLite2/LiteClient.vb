@@ -15,12 +15,7 @@ Public Class LiteClient
     Protected Friend Shared ContentPath As String
     Protected Friend _Mobiles As New MobileList(Me)
     Protected Friend _WaitingForTarget As Boolean
-    Protected Friend _Targeting As Boolean = False
-    Protected Friend _TargetUID As UInteger
-    Protected Friend _TargetType As Byte
-    Protected Friend _TargetFlag As Byte
     Protected Friend _Encrypted As Boolean = False
-
     Private Shared ProcessingPacket As Boolean = False
 
     Protected Friend _CharacterList As New ArrayList
