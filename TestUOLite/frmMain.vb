@@ -370,4 +370,7 @@ Public Class frmMain
 
 #End Region
 
+    Private Sub Client_onTargetRequest(ByRef Client As UOLite2.LiteClient) Handles Client.onTargetRequest
+        Log("Targets Requested")
+    End Sub
 End Class

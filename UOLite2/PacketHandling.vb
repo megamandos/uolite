@@ -23,6 +23,8 @@
 
 Imports System.IO, System.Threading, System.Net.Sockets
 
+#If DEBUG Then
+
 'Saves the packets to a file, packetlog.txt.
 #Const LogPackets = False
 
@@ -34,6 +36,8 @@ Imports System.IO, System.Threading, System.Net.Sockets
 
 'Prints the contents of login packets to the debug output.
 #Const DebugLoginPackets = False
+
+#End If
 
 Partial Class LiteClient
 
@@ -204,9 +208,6 @@ Partial Class LiteClient
 
                 Case UOLite2.Enums.PacketType.ShowItem
                     Return New Packets.ShowItem(packetbuffer)
-
-                Case UOLite2.Enums.PacketType.Target
-                    Return New Packets.Target(packetbuffer)
 
                 Case UOLite2.Enums.PacketType.DoubleClick
                     Return New Packets.Doubleclick(packetbuffer)
@@ -428,6 +429,7 @@ Partial Class LiteClient
 #If DebugGamePackets Then
                 Debug.WriteLine("Target Request")
 #End If
+                HandleTargetPacket(DirectCast(currentpacket, Packets.Target))
 
             Case UOLite2.Enums.PacketType.HuePicker
 #If DebugGamePackets Then
@@ -538,9 +540,6 @@ Partial Class LiteClient
 
                 'Check surroundings for scavengable items.
                 Scavenger.CheckSurroundings()
-
-            Case Enums.PacketType.Target
-                HandleTargetPacket(DirectCast(currentpacket, Packets.Target))
 
             Case UOLite2.Enums.PacketType.BlockMovement
                 MovementBlocked(DirectCast(currentpacket, Packets.BlockMovement))
