@@ -2,7 +2,7 @@
 
 Partial Class LiteClient
 
-    Public Sub CastSpell(ByRef Spell As UOLite2.Enums.Spell)
+    Public Sub CastSpell(ByVal Spell As UOLite2.Enums.Spell)
         Dim packet As New MemoryStream
         Spell += 1
 

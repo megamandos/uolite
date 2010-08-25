@@ -64,7 +64,7 @@ Partial Class LiteClient
     ''' <param name="Text">The text you want encoded in bytes.</param>
     ''' <param name="Unicode">Whether or not you want unicode or not.</param>
     ''' <param name="NullTerminate">Whether to add the null bytes to the end of the string.</param>
-    Private Function GetBytesFromString(ByRef Length As Integer, ByRef Text As String, Optional ByRef NullTerminate As Boolean = False, Optional ByRef Unicode As Boolean = False) As Byte()
+    Friend Function GetBytesFromString(ByRef Length As Integer, ByRef Text As String, Optional ByRef NullTerminate As Boolean = False, Optional ByRef Unicode As Boolean = False) As Byte()
         Dim bytes(Length - 1) As Byte 'make an empty array the size specified.
         Dim encoding As New System.Text.ASCIIEncoding() 'make an encoder.
         Dim strbytes() As Byte = encoding.GetBytes(Text) 'get the encoder to encode the bytes.
@@ -84,7 +84,7 @@ Partial Class LiteClient
     ''' <param name="SourceStartIndex">The position in the source array to start reading.</param>
     ''' <param name="TargetStartIndex">The position in the target array to start writing.</param>
     ''' <param name="Size">The number of bytes to copy.</param>
-    Private Sub InsertBytes(ByRef SourceArray() As Byte, ByRef TargetArray() As Byte, ByRef SourceStartIndex As Integer, ByRef TargetStartIndex As Integer, ByRef Size As Integer)
+    Friend Sub InsertBytes(ByRef SourceArray() As Byte, ByRef TargetArray() As Byte, ByRef SourceStartIndex As Integer, ByRef TargetStartIndex As Integer, ByRef Size As Integer)
         For i As Integer = TargetStartIndex To TargetStartIndex + Size - 1
             TargetArray(i) = SourceArray(i - TargetStartIndex + SourceStartIndex)
         Next

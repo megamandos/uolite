@@ -2,6 +2,25 @@
 
 Partial Class LiteClient
 
+
+    Public ReadOnly Property CliLocStrings As SupportClasses.CliLocList
+        Get
+            Return StrLst
+        End Get
+    End Property
+
+    Public Function GetTypeString(ByVal Type As UShort)
+        If StrLst.Entry(1020000 + Type) Is Nothing Then
+            Return ""
+        End If
+
+        Return StrLst.Entry(1020000 + Type)
+    End Function
+
+End Class
+
+Namespace SupportClasses
+
     'Hide this class from the user, there is no reason from him/her to see it.
     <System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)> _
     Public Class CliLocList
@@ -88,19 +107,4 @@ Partial Class LiteClient
         End Property
 
     End Class
-
-    Public ReadOnly Property CliLocStrings As CliLocList
-        Get
-            Return StrLst
-        End Get
-    End Property
-
-    Public Function GetTypeString(ByVal Type As UShort)
-        If StrLst.Entry(1020000 + Type) Is Nothing Then
-            Return ""
-        End If
-
-        Return StrLst.Entry(1020000 + Type)
-    End Function
-
-End Class
+End Namespace

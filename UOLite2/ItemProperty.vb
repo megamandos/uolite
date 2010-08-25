@@ -1,5 +1,4 @@
-﻿Partial Class LiteClient
-
+﻿Namespace SupportClasses
     Public Class ItemProperty
         Friend _CliLoc As CliLoc
         Friend _Text As String
@@ -22,5 +21,4 @@
         End Property
 
     End Class
-
-End Class
+End Namespace

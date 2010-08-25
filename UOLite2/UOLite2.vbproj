@@ -69,7 +69,7 @@
     <Compile Include="ActionBuffer.vb" />
     <Compile Include="CircularBuffer.vb" />
     <Compile Include="CliLocList.vb" />
-    <Compile Include="ContextMenu.vb" />
+    <None Include="ContextMenu.vb" />
     <Compile Include="Encryption.vb" />
     <Compile Include="Enums.vb" />
     <Compile Include="ErrorHandler.vb" />

@@ -2,12 +2,13 @@
 'If you want to know how a circular buffer class actually operates, check the wikipedia entry.
 'It is a generic class and can be used in many ways that a FIFO buffer is needed.
 
-Partial Class LiteClient
+Namespace SupportClasses
+
 
     'see http://en.wikipedia.org/wiki/Circular_buffer
     ''' <summary>A highly efficient FIFO buffer class.</summary>
     ''' <typeparam name="T">The Type of objects you want to make a circular buff of.</typeparam>
-    Private Class CircularBuffer(Of T)
+    Public Class CircularBuffer(Of T)
         Private Shared Bytes() As T
         Private ReadPosition As UInteger = 0
         Private WritePosition As UInteger = 0
@@ -202,4 +203,6 @@ Partial Class LiteClient
 #End Region
 
     End Class
-End Class
+
+End Namespace
+

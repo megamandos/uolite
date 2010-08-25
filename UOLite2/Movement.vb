@@ -11,7 +11,7 @@ Partial Public Class LiteClient
     Private FastWalkEnabled As Boolean = False
     Private Shared _FastWalkKeys As New Stack(Of UInteger)
     Private MovementInterval As UShort = 200 'ms between sending movement request packets.
-    Private MovementBuffer As New CircularBuffer(Of MoveRequest)(1000)
+    Private MovementBuffer As New SupportClasses.CircularBuffer(Of MoveRequest)(1000)
     Private WithEvents MoveTicker As New System.Timers.Timer(MovementInterval) With {.Enabled = False}
     Private _MovementPaused As Boolean = False
 

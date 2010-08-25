@@ -8,7 +8,11 @@
 
 Partial Class LiteClient
 
-    Public Event onNewGump(ByRef Client As LiteClient, ByRef Gump As Gump)
+    Public Event onNewGump(ByRef Client As LiteClient, ByRef Gump As SupportClasses.Gump)
+
+End Class
+
+Namespace SupportClasses
 
     Public Class Gump
         Private _Pages As New HashSet(Of Page)
@@ -267,4 +271,4 @@ Partial Class LiteClient
 
     End Class
 
-End Class
+End Namespace

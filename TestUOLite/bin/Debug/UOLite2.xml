@@ -6,51 +6,7 @@ UOLite2
 </name>
 </assembly>
 <members>
-<member name="P:UOLite2.LiteClient.ContextMenu.ContextMenuOption.Index">
-	<summary>The index of the option in the menu.</summary>
-</member><member name="P:UOLite2.LiteClient.ContextMenu.ContextMenuOption.CliLocNumber">
-	<summary>A cliloc number from 3006505 to 3006077.</summary>
-</member><member name="P:UOLite2.LiteClient.ContextMenu.ContextMenuOption.CliLocString">
-	<summary>Returns a the CliLoc string that corresponds to the CliLoc number.</summary>
-</member><member name="P:UOLite2.LiteClient.ContextMenu.ContextMenuOption.Hue">
-	<summary>
- The hue of the text. Default is zero.
- </summary>
-</member><member name="P:UOLite2.LiteClient.ContextMenu.ContextMenuOption.Enabled">
-	<summary>
- Whether or not the option will be displayed as "greyed out".
- </summary>
-</member><member name="M:UOLite2.LiteClient.ContextMenu.ContextMenuOption.Remove">
-	<summary>Removes the option from the menu.</summary>
-</member><member name="M:UOLite2.LiteClient.ContextMenu.Add(System.UInt32)">
-	<summary>
- Adds a new option to the end of the context menu, using the supplied CliLoc number.
- </summary>
-	<param name="CliLocNumber">A cliloc number from 3006505 to 3006077</param>
-</member><member name="M:UOLite2.LiteClient.ContextMenu.Add(System.UInt32,System.UInt32)">
-	<summary>
- Adds a new option at the specified index with the supplied CliLocNumber.
- </summary>
-	<param name="CliLocNumber">A cliloc number from 3006505 to 3006077</param>
-	<param name="Index">The index to insert the new option at.</param>
-</member><member name="M:UOLite2.LiteClient.ContextMenu.Clear">
-	<summary>
- Removes all of the options.
- </summary>
-</member><member name="P:UOLite2.LiteClient.ContextMenu.Count">
-	<summary>
- Returns the number of the options in the menu.
- </summary>
-</member><member name="M:UOLite2.LiteClient.ContextMenu.Remove(System.UInt32)">
-	<summary>
- Removes the option at the specified index.
- </summary>
-	<param name="Index">The index of the option to remove.</param>
-</member><member name="T:UOLite2.LiteClient.ContextMenu">
-	<summary>
- An object oriented representation of an in-game context menu.
- </summary>
-</member><member name="E:UOLite2.LiteClient.onLoginConfirm">
+<member name="E:UOLite2.LiteClient.onLoginConfirm">
 	<summary>
  Called when the client recieves a login confirm packets from the game server, and the player character is created.
  </summary>
@@ -109,7 +65,7 @@ UOLite2
 </member><member name="E:UOLite2.LiteClient.onCharacterListReceive">
 	<summary>Called when the server sends the list of characters.</summary>
 	<param name="Client">The client making the call</param>
-	<param name="CharacterList">The list of characters as <see cref="!:CharListEntry">CharacterListEntry</see>'s.</param>
+	<param name="CharacterList">The list of characters as <see cref="T:UOLite2.Structures.CharListEntry">CharacterListEntry</see>'s.</param>
 </member><member name="P:UOLite2.LiteClient.Password">
 	<summary>The password used to connect to the server.</summary>
 </member><member name="P:UOLite2.LiteClient.Username">
@@ -139,198 +95,198 @@ UOLite2
 </member><member name="E:UOLite2.LiteClient.onLoginDenied">
 	<summary>Called during the login process when the server rejects the username and password.</summary>
 	<param name="Reason">The reason for the failure.</param>
-</member><member name="F:UOLite2.LiteClient.GameServerInfo._Address">
-	<summary>The IP address of the server.</summary>
-</member><member name="F:UOLite2.LiteClient.GameServerInfo._Name">
-	<summary>The name of the server, as provided by the login server.</summary>
-</member><member name="P:UOLite2.LiteClient.GameServerInfo.Latency">
-	<summary>The latency from the client to the server and back in milliseconds (ms). This is retrieved by sending a ping to the server when this property is called.</summary>
-</member><member name="T:UOLite2.LiteClient.GameServerInfo">
- Hide this class from the user, there is no reason from him/her to see it.
- <summary>Simply a class to hold information about game servers when recieved from the login server.</summary>
 </member><member name="M:UOLite2.LiteClient.#ctor(System.String@,System.Boolean@)">
 	<summary>Creates a new client.</summary>
 	<param name="EnableOSIEncryption">Whether or not to use OSI encryption, for OSI servers.</param>
 	<param name="ContentFolderPath">The path to the directory containing cliloc.enu without the "\" at the end.</param>
-</member><member name="M:UOLite2.LiteClient.Speak(System.String@,UOLite2.LiteClient.Enums.Common.Hues@,UOLite2.LiteClient.Enums.SpeechTypes@,UOLite2.LiteClient.Enums.Fonts@)">
+</member><member name="M:UOLite2.LiteClient.Speak(System.String@,UOLite2.Enums.Common.Hues@,UOLite2.Enums.SpeechTypes@,UOLite2.Enums.Fonts@)">
 	<summary>Causes the player to speak the specified text.</summary>
 	<param name="Text">The text to speak.</param>
 	<param name="Hue">The Hue of the text.</param>
 	<param name="Type">The type, (ie. Yell, Whisper, etc.)</param>
 	<param name="Font">The font.</param>
+</member><member name="F:UOLite2.SupportClasses.GameServerInfo._Address">
+	<summary>The IP address of the server.</summary>
+</member><member name="F:UOLite2.SupportClasses.GameServerInfo._Name">
+	<summary>The name of the server, as provided by the login server.</summary>
+</member><member name="P:UOLite2.SupportClasses.GameServerInfo.Latency">
+	<summary>The latency from the client to the server and back in milliseconds (ms). This is retrieved by sending a ping to the server when this property is called.</summary>
+</member><member name="T:UOLite2.SupportClasses.GameServerInfo">
+ Hide this class from the user, there is no reason from him/her to see it.
+ <summary>Simply a class to hold information about game servers when recieved from the login server.</summary>
 </member><member name="M:UOLite2.LiteClient.GenerateLoginKeys">
 	<summary>Generates two keys for client side encryption.</summary>
-</member><member name="E:UOLite2.LiteClient.Mobile.onDeath">
+</member><member name="E:UOLite2.Mobile.onDeath">
 	<summary>
  Called when the hitpoint value of a mobile reaches zero (0).
  </summary>
 	<param name="Client">The <see cref="T:UOLite2.LiteClient"/> that called this.</param>
-	<param name="Mobile">The <see cref="T:UOLite2.LiteClient.Mobile"/> that has died.</param>
-</member><member name="E:UOLite2.LiteClient.Mobile.onUpdate">
+	<param name="Mobile">The <see cref="T:UOLite2.Mobile"/> that has died.</param>
+</member><member name="E:UOLite2.Mobile.onUpdate">
 	<summary>
  This is called immediately before the client handles an update to a mobile.
  </summary>
 	<param name="Client">The <see cref="T:UOLite2.LiteClient"/> that the mobile update was handled by.</param>
-	<param name="Mobile">The <see cref="T:UOLite2.LiteClient.Mobile"/> that was updated.</param>
-</member><member name="E:UOLite2.LiteClient.Mobile.onEquipmentUpdate">
+	<param name="Mobile">The <see cref="T:UOLite2.Mobile"/> that was updated.</param>
+</member><member name="E:UOLite2.Mobile.onEquipmentUpdate">
 	<summary>
  This is called immediately after a packet is recieved to equip an item.
  </summary>
 	<param name="Client">The <see cref="T:UOLite2.LiteClient"/> that the mobile update was handled by.</param>
-	<param name="Mobile">The <see cref="T:UOLite2.LiteClient.Mobile"/> that was updated.</param>
-	<param name="EquipmentLayers">The <see cref="T:UOLite2.LiteClient.Enums.Layers">layers</see> that were changed.</param>
-</member><member name="E:UOLite2.LiteClient.Mobile.onMove">
+	<param name="Mobile">The <see cref="T:UOLite2.Mobile"/> that was updated.</param>
+	<param name="EquipmentLayers">The <see cref="T:UOLite2.Enums.Layers">layers</see> that were changed.</param>
+</member><member name="E:UOLite2.Mobile.onMove">
 	<summary>Fired when this mobile moves.</summary>
-</member><member name="P:UOLite2.LiteClient.Mobile.Layers">
+</member><member name="P:UOLite2.Mobile.Layers">
 	<summary>
  Returns the item on the specified layer.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Mobile.PoisonLevel">
+</member><member name="P:UOLite2.Mobile.PoisonLevel">
 	<summary>
  The level of poison that the mobile is aflicted with, 0 = no poison.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Mobile.Serial">
+</member><member name="P:UOLite2.Mobile.Serial">
 	<summary>
  The character's serial.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Mobile.Name">
+</member><member name="P:UOLite2.Mobile.Name">
 	<summary>
  The character's name.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Mobile.Hits">
+</member><member name="P:UOLite2.Mobile.Hits">
 	<summary>
  The character's current amount of hit points.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Mobile.HitsMax">
+</member><member name="P:UOLite2.Mobile.HitsMax">
 	<summary>
  The character's maximum amount of hit points.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Mobile.Renamable">
+</member><member name="P:UOLite2.Mobile.Renamable">
 	<summary>
  Specifies whether or not the player can rename this mobile. Generaly only the player's pets are renamable.
  This is a good way to tell if a mobile is a follower of the player. Although, It will be false for NPC followers like escorts.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Mobile.DisplayMode">
+</member><member name="P:UOLite2.Mobile.DisplayMode">
 	<summary>
  Specifies what of information is displayed by the client.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Mobile.Gender">
+</member><member name="P:UOLite2.Mobile.Gender">
 	<summary>
  The gender of the mobile.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Mobile.Strength">
+</member><member name="P:UOLite2.Mobile.Strength">
 	<summary>
  The character's Strength.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Mobile.Dexterity">
+</member><member name="P:UOLite2.Mobile.Dexterity">
 	<summary>
  The character's Dexterity.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Mobile.Intelligence">
+</member><member name="P:UOLite2.Mobile.Intelligence">
 	<summary>
  The character's Intelligence.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Mobile.Stamina">
+</member><member name="P:UOLite2.Mobile.Stamina">
 	<summary>
  The character's current Stamina.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Mobile.StaminaMax">
+</member><member name="P:UOLite2.Mobile.StaminaMax">
 	<summary>
  The character's maximum Stamina.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Mobile.Mana">
+</member><member name="P:UOLite2.Mobile.Mana">
 	<summary>
  The character's current Mana.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Mobile.ManaMax">
+</member><member name="P:UOLite2.Mobile.ManaMax">
 	<summary>
  The character's maximum Mana.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Mobile.Gold">
+</member><member name="P:UOLite2.Mobile.Gold">
 	<summary>
  How much gold the character is currently carrying.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Mobile.ResistPhysical">
+</member><member name="P:UOLite2.Mobile.ResistPhysical">
 	<summary>
  The character's physical resistance value (old clients: AC).
  </summary>
-</member><member name="P:UOLite2.LiteClient.Mobile.Weight">
+</member><member name="P:UOLite2.Mobile.Weight">
 	<summary>
  The character's current weight value.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Mobile.StatCap">
+</member><member name="P:UOLite2.Mobile.StatCap">
 	<summary>
  The character's total allowable sum of Strength, Intelligence, and Dexterity.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Mobile.Followers">
+</member><member name="P:UOLite2.Mobile.Followers">
 	<summary>
  The number of "Follower Slots" that are currently being used.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Mobile.FollowersMax">
+</member><member name="P:UOLite2.Mobile.FollowersMax">
 	<summary>
  The maximum number of "Follower Slots" the character has available.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Mobile.ResistFire">
+</member><member name="P:UOLite2.Mobile.ResistFire">
 	<summary>
  The character's resistance to fire.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Mobile.ResistCold">
+</member><member name="P:UOLite2.Mobile.ResistCold">
 	<summary>
  The character's resistance to cold.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Mobile.ResistPoison">
+</member><member name="P:UOLite2.Mobile.ResistPoison">
 	<summary>
  The character's resistance to poison.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Mobile.ResistEnergy">
+</member><member name="P:UOLite2.Mobile.ResistEnergy">
 	<summary>
  The character's resistance to energy.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Mobile.Luck">
+</member><member name="P:UOLite2.Mobile.Luck">
 	<summary>
  The character's Luck value.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Mobile.DamangeMin">
+</member><member name="P:UOLite2.Mobile.DamangeMin">
 	<summary>
  The minimum amount of damage the character can deal.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Mobile.DamageMax">
+</member><member name="P:UOLite2.Mobile.DamageMax">
 	<summary>
  The maximum amount of damage the character can deal.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Mobile.TithingPoints">
+</member><member name="P:UOLite2.Mobile.TithingPoints">
 	<summary>
  The character's current amount of Tithing points.
  </summary>
-</member><member name="M:UOLite2.LiteClient.Mobile.HandleUpdatePacket(UOLite2.LiteClient.Packets.MobileStats)">
+</member><member name="M:UOLite2.Mobile.HandleUpdatePacket(UOLite2.Packets.MobileStats)">
 	<summary>
  Updates the class given a mobile related packet.
  </summary>
-</member><member name="T:UOLite2.LiteClient.Enums.Renamable">
+</member><member name="T:UOLite2.Enums.Renamable">
 	<summary>
  Whether or not a mobile can be renamed by the player.
  </summary>
-</member><member name="T:UOLite2.LiteClient.Enums.DisplayMode">
+</member><member name="T:UOLite2.Enums.DisplayMode">
 	<summary>
  What data is displayed about the mobile.
  </summary>
-</member><member name="M:UOLite2.LiteClient.MobileList.AddMobile(UOLite2.LiteClient.Mobile)">
+</member><member name="M:UOLite2.LiteClient.MobileList.AddMobile(UOLite2.Mobile)">
 	<summary>
  Adds the specified mobile to the mobile list.
  </summary>
-</member><member name="M:UOLite2.LiteClient.MobileList.AddMobile(UOLite2.LiteClient.Packets.EquippedMobile)">
+</member><member name="M:UOLite2.LiteClient.MobileList.AddMobile(UOLite2.Packets.EquippedMobile)">
 	<summary>
  Adds the a new mobile to the <see cref="T:UOLite2.LiteClient.MobileList"/> based on a supplied packet.
  </summary>
-	<param name="Packet">The packet as a <see cref="T:UOLite2.LiteClient.Packets.EquippedMobile"/>.</param>
-</member><member name="M:UOLite2.LiteClient.MobileList.AddMobile(UOLite2.LiteClient.Packets.NakedMobile)">
-	<param name="Packet">The packet as a <see cref="T:UOLite2.LiteClient.Packets.NakedMobile"/>.</param>
-</member><member name="M:UOLite2.LiteClient.MobileList.RemoveMobile(UOLite2.LiteClient.Serial)">
+	<param name="Packet">The packet as a <see cref="T:UOLite2.Packets.EquippedMobile"/>.</param>
+</member><member name="M:UOLite2.LiteClient.MobileList.AddMobile(UOLite2.Packets.NakedMobile)">
+	<param name="Packet">The packet as a <see cref="T:UOLite2.Packets.NakedMobile"/>.</param>
+</member><member name="M:UOLite2.LiteClient.MobileList.RemoveMobile(UOLite2.Serial)">
 	<summary>
  Removes the specified mobile from the MobileList.
  </summary>
 	<param name="Serial">The serial of the mobile to be removed.</param>
-</member><member name="M:UOLite2.LiteClient.MobileList.Exists(UOLite2.LiteClient.Serial)">
+</member><member name="M:UOLite2.LiteClient.MobileList.Exists(UOLite2.Serial)">
 	<summary>
  Checks to see if the specified mobile exists in the MobileList.
  </summary>
@@ -340,7 +296,7 @@ UOLite2
  Returns a MobileList containing all of the mobiles with the specified name.
  </summary>
 	<param name="Name">The name you want to search for.</param>
-</member><member name="P:UOLite2.LiteClient.MobileList.Mobile(UOLite2.LiteClient.Serial)">
+</member><member name="P:UOLite2.LiteClient.MobileList.Mobile(UOLite2.Serial)">
 	<summary>
  Returns mobile specified by serial.
  </summary>
@@ -348,84 +304,76 @@ UOLite2
 	<value></value>
 	<returns></returns>
 	<remarks></remarks>
-</member><member name="M:UOLite2.LiteClient.CircularBuffer`1.ReadSingle">
+</member><member name="M:UOLite2.SupportClasses.CircularBuffer`1.ReadSingle">
 	<summary>Returns the object at the tail of the buffer and advances the read position by 1.</summary>
-</member><member name="M:UOLite2.LiteClient.CircularBuffer`1.Read(System.UInt32@)">
+</member><member name="M:UOLite2.SupportClasses.CircularBuffer`1.Read(System.UInt32@)">
 	<summary>Returns an array containing the number of objects requested, and advances the tail of the buffer.</summary>
 	<param name="Number">Number of objects to get from the tail of the buffer.</param>
-</member><member name="M:UOLite2.LiteClient.CircularBuffer`1.AdvanceTail(System.UInt32@)">
+</member><member name="M:UOLite2.SupportClasses.CircularBuffer`1.AdvanceTail(System.UInt32@)">
 	<summary>Advances the tail of the buffer, returns nothing, effectively skipping the specified number of objects.</summary>
 	<param name="NumberToSkip">The amount by which to advance.</param>
-</member><member name="M:UOLite2.LiteClient.CircularBuffer`1.WriteSingle(`0@)">
+</member><member name="M:UOLite2.SupportClasses.CircularBuffer`1.WriteSingle(`0@)">
 	<summary>
  Writes a single object to the buffer, then advances the head position by 1.
  </summary>
 	<param name="ObjectToWrite">The object to insert into the buffer.</param>
 	<remarks></remarks>
-</member><member name="M:UOLite2.LiteClient.CircularBuffer`1.Write(`0[]@)">
+</member><member name="M:UOLite2.SupportClasses.CircularBuffer`1.Write(`0[]@)">
 	<summary>
  Writes the array of objects to the buffer and advances the head position by that number of objects.
  </summary>
 	<param name="ObjectsToWrite">An array of the objects to write to the buffer.</param>
 	<remarks></remarks>
-</member><member name="M:UOLite2.LiteClient.CircularBuffer`1.Clear">
+</member><member name="M:UOLite2.SupportClasses.CircularBuffer`1.Clear">
 	<summary>
  Empties the buffer.
  </summary>
-</member><member name="M:UOLite2.LiteClient.CircularBuffer`1.PeekMultiple(System.UInt32@,System.UInt32@)">
+</member><member name="M:UOLite2.SupportClasses.CircularBuffer`1.PeekMultiple(System.UInt32@,System.UInt32@)">
 	<summary>
  Returns the specified number of objects as the desired position, but does NOT advance the tail position.
  </summary>
 	<param name="Size">The number of objects to retreive</param>
 	<param name="Offset">The position to start reading from.</param>
-</member><member name="M:UOLite2.LiteClient.CircularBuffer`1.Peek(System.UInt32@)">
+</member><member name="M:UOLite2.SupportClasses.CircularBuffer`1.Peek(System.UInt32@)">
 	<summary>
  Returns the object as the given postion, but does NOT advance the tail position.
  </summary>
 	<param name="Offset"></param>
 	<returns></returns>
 	<remarks></remarks>
-</member><member name="P:UOLite2.LiteClient.CircularBuffer`1.Size">
+</member><member name="P:UOLite2.SupportClasses.CircularBuffer`1.Size">
 	<summary>
  The total number of objects current held in the buffer. (not the actual buffer size)
  </summary>
-</member><member name="P:UOLite2.LiteClient.CircularBuffer`1.RealSize">
+</member><member name="P:UOLite2.SupportClasses.CircularBuffer`1.RealSize">
 	<summary>
  Return the true size of the circular buffer, not just how much it actualy contains.
  </summary>
-</member><member name="P:UOLite2.LiteClient.CircularBuffer`1.TailPosition">
+</member><member name="P:UOLite2.SupportClasses.CircularBuffer`1.TailPosition">
 	<summary>
  The offset of the tail from the true beginning of the buffer.
  </summary>
-</member><member name="P:UOLite2.LiteClient.CircularBuffer`1.HeadPosition">
+</member><member name="P:UOLite2.SupportClasses.CircularBuffer`1.HeadPosition">
 	<summary>
  The offset of the head from the true beginning of the buffer.
  </summary>
-</member><member name="P:UOLite2.LiteClient.CircularBuffer`1.ToArray">
+</member><member name="P:UOLite2.SupportClasses.CircularBuffer`1.ToArray">
 	<summary>
  Copies the entire buffer to an array and returns the array, does NOT move the head or tail position.
  </summary>
-</member><member name="T:UOLite2.LiteClient.CircularBuffer`1">
+</member><member name="T:UOLite2.SupportClasses.CircularBuffer`1">
 	<summary>A highly efficient FIFO buffer class.</summary>
 	<typeparam name="T">The Type of objects you want to make a circular buff of.</typeparam>
-</member><member name="T:UOLite2.LiteClient.Enums.LoginState">
-	<summary>Enumeration of Login state.</summary>
-</member><member name="T:UOLite2.LiteClient.Enums.EntityType">
-	<summary>Enumeration of Entity types.</summary>
-</member><member name="T:UOLite2.LiteClient.Enums.Spell">
+</member><member name="T:UOLite2.Enums.Spell">
 	<summary>Enumeration of Spells.</summary>
-</member><member name="T:UOLite2.LiteClient.Enums.Macros">
+</member><member name="T:UOLite2.Enums.Macros">
 	<summary>Enumeration of macro types.</summary>
-</member><member name="T:UOLite2.LiteClient.Enums.Element">
-	<summary>Enumeration of element types.</summary>
-</member><member name="T:UOLite2.LiteClient.Enums.Gender">
+</member><member name="T:UOLite2.Enums.Gender">
 	<summary>Enumeration of mobile gender.</summary>
-</member><member name="T:UOLite2.LiteClient.Enums.MobileStatus">
+</member><member name="T:UOLite2.Enums.MobileStatus">
 	<summary>Enumeration of mobile status.</summary>
-</member><member name="T:UOLite2.LiteClient.Enums.Facets">
+</member><member name="T:UOLite2.Enums.Facets">
 	<summary>Enumeration of the different facets.</summary>
-</member><member name="T:UOLite2.LiteClient.Enums">
-	<summary>A simple list of enumerations used primarily internally.</summary>
 </member><member name="M:UOLite2.LiteClient.GetDirection(System.UInt16@,System.UInt16@,System.UInt16@,System.UInt16@)">
 	<summary>Returns the direction of Y, relative to X.</summary>
 </member><member name="M:UOLite2.LiteClient.GetBytesFromString(System.Int32@,System.String@,System.Boolean@,System.Boolean@)">
@@ -451,36 +399,36 @@ UOLite2
 	<summary>
  Pauses player movement and prevents adding movements to the movement queue when set to false.
  </summary>
-</member><member name="M:UOLite2.LiteClient.Follow(UOLite2.LiteClient.Serial@,System.Byte@,System.Byte@)">
+</member><member name="M:UOLite2.LiteClient.Follow(UOLite2.Serial@,System.Byte@,System.Byte@)">
 	<summary>Follows the target.</summary>
 	<param name="Target">The serial of the target to follow.</param>
-</member><member name="P:UOLite2.LiteClient.Skill.Lock">
+</member><member name="P:UOLite2.SupportClasses.Skill.Lock">
 	<summary>Gets or sets the skill's lock status.</summary>
-</member><member name="P:UOLite2.LiteClient.Skill.Value">
+</member><member name="P:UOLite2.SupportClasses.Skill.Value">
 	<summary>
  The skill's value.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Skill.BaseValue">
+</member><member name="P:UOLite2.SupportClasses.Skill.BaseValue">
 	<summary>
  What you see when you click "show real".
  </summary>
-</member><member name="P:UOLite2.LiteClient.Skill.Cap">
+</member><member name="P:UOLite2.SupportClasses.Skill.Cap">
 	<summary>
  The cap of the skill.
  </summary>
-</member><member name="M:UOLite2.LiteClient.Skill.Use">
+</member><member name="M:UOLite2.SupportClasses.Skill.Use">
 	<summary>
  Attempt to use the skill, if the skill isn't a usable skill, nothing will happen.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Gump.GumpObject.Page">
+</member><member name="P:UOLite2.SupportClasses.Gump.GumpObject.Page">
 	<summary>
  The page number in the gump that this object belongs on.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Gump.GumpObject.X">
+</member><member name="P:UOLite2.SupportClasses.Gump.GumpObject.X">
 	<summary>
  The X axis position, relative to the gump's 0,0
  </summary>
-</member><member name="P:UOLite2.LiteClient.Gump.GumpObject.Y">
+</member><member name="P:UOLite2.SupportClasses.Gump.GumpObject.Y">
 	<summary>
  The Y axis position, relative to the gump's 0,0
  </summary>
@@ -508,188 +456,184 @@ UOLite2
 	<summary>
   A strongly-typed resource class, for looking up localized strings, etc.
 </summary>
-</member><member name="P:UOLite2.LiteClient.Packet.Data">
+</member><member name="P:UOLite2.Packets.Packet.Data">
 	<summary>Returns the raw packet data as a byte array.</summary>
-</member><member name="T:UOLite2.LiteClient.Packet">
+</member><member name="T:UOLite2.Packets.Packet">
 	<summary>The base packet class, inherited by all classes in UOAI.Packets</summary>
-</member><member name="P:UOLite2.LiteClient.Packets.UnicodeSpeechPacket.SpeechType">
-	<summary>Gets or Sets the speech type as <see cref="T:UOLite2.LiteClient.Enums.SpeechTypes"/>.</summary>
-</member><member name="P:UOLite2.LiteClient.Packets.UnicodeSpeechPacket.Hue">
+</member><member name="P:UOLite2.Packets.UnicodeSpeechPacket.SpeechType">
+	<summary>Gets or Sets the speech type as <see cref="T:UOLite2.Enums.SpeechTypes"/>.</summary>
+</member><member name="P:UOLite2.Packets.UnicodeSpeechPacket.Hue">
 	<summary>Gets or Sets the hue of the text.</summary>
-</member><member name="P:UOLite2.LiteClient.Packets.UnicodeSpeechPacket.Font">
+</member><member name="P:UOLite2.Packets.UnicodeSpeechPacket.Font">
 	<summary>Gets or Sets the font of the text.</summary>
-</member><member name="P:UOLite2.LiteClient.Packets.UnicodeSpeechPacket.Language">
+</member><member name="P:UOLite2.Packets.UnicodeSpeechPacket.Language">
 	<summary>Gets or Sets the language key of the packet. This only effects how it is interpreted, it does NOT change the actual language.</summary>
-</member><member name="P:UOLite2.LiteClient.Packets.UnicodeSpeechPacket.Text">
+</member><member name="P:UOLite2.Packets.UnicodeSpeechPacket.Text">
 	<summary>Gets or Sets the text that will be displayed. Will not allow a value longer than the current one.</summary>
-</member><member name="T:UOLite2.LiteClient.Packets.UnicodeSpeechPacket">
+</member><member name="T:UOLite2.Packets.UnicodeSpeechPacket">
 	<summary>Clients send this packet when talking.</summary>
 	<remarks>Packet 0xAD</remarks>
-</member><member name="P:UOLite2.LiteClient.Packets.UnicodeText.Text">
+</member><member name="P:UOLite2.Packets.UnicodeText.Text">
 	<summary>Gets or Sets the text that will be displayed. Will not allow a value longer than the current one.</summary>
-</member><member name="P:UOLite2.LiteClient.Packets.UnicodeText.Name">
+</member><member name="P:UOLite2.Packets.UnicodeText.Name">
 	<summary>Gets or Sets the name of the speaker. Maximum of 30 characters.</summary>
-</member><member name="P:UOLite2.LiteClient.Packets.UnicodeText.Mode">
-	<summary>Gets or Sets the speech type as <see cref="T:UOLite2.LiteClient.Enums.SpeechTypes"/>.</summary>
-</member><member name="P:UOLite2.LiteClient.Packets.UnicodeText.Serial">
+</member><member name="P:UOLite2.Packets.UnicodeText.Mode">
+	<summary>Gets or Sets the speech type as <see cref="T:UOLite2.Enums.SpeechTypes"/>.</summary>
+</member><member name="P:UOLite2.Packets.UnicodeText.Serial">
 	<summary>Gets or sets the serial of the person or object speaking. 0xFFFFFFFF is used for system.</summary>
-</member><member name="P:UOLite2.LiteClient.Packets.UnicodeText.Body">
+</member><member name="P:UOLite2.Packets.UnicodeText.Body">
 	<summary>Gets or Sets the body value of the character that is talking. 0xFFFF is used for system.</summary>
-</member><member name="P:UOLite2.LiteClient.Packets.UnicodeText.Hue">
+</member><member name="P:UOLite2.Packets.UnicodeText.Hue">
 	<summary>Gets or Sets the hue of the text.</summary>
-</member><member name="P:UOLite2.LiteClient.Packets.UnicodeText.Font">
+</member><member name="P:UOLite2.Packets.UnicodeText.Font">
 	<summary>Gets or Sets the font of the text.</summary>
-</member><member name="P:UOLite2.LiteClient.Packets.UnicodeText.Language">
+</member><member name="P:UOLite2.Packets.UnicodeText.Language">
 	<summary>Gets or Sets the language key of the packet. This only effects how it is interpreted, it does NOT change the actual language.</summary>
-</member><member name="T:UOLite2.LiteClient.Packets.UnicodeText">
+</member><member name="T:UOLite2.Packets.UnicodeText">
 	<summary>This is sent from the server to tell the client that someone is talking.</summary>
 	<remarks>Packet 0xAE</remarks>
-</member><member name="P:UOLite2.LiteClient.Packets.OpenContainer.Serial">
+</member><member name="P:UOLite2.Packets.OpenContainer.Serial">
 	<summary>
  The serial of the container being opened.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Packets.OpenContainer.Model">
+</member><member name="P:UOLite2.Packets.OpenContainer.Model">
 	<summary>
  The model of the container being opened.
  </summary>
-</member><member name="T:UOLite2.LiteClient.Packets.OpenContainer">
+</member><member name="T:UOLite2.Packets.OpenContainer">
 	<summary>
- This is sent by the server to open a container or game board (which is also a container).
+ This is sent by the server to open a container or game board (which is also a container). It is only for the art to pop up on the screen, and actualy serves no purpose here.
  </summary>
 	<remarks>Packet 0x24</remarks>
-</member><member name="P:UOLite2.LiteClient.Packets.ObjectToObject.Serial">
+</member><member name="P:UOLite2.Packets.ObjectToObject.Serial">
 	<summary>
  The serial of the item to add.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Packets.ObjectToObject.ItemType">
+</member><member name="P:UOLite2.Packets.ObjectToObject.ItemType">
 	<summary>
  The artwork number of the item.
  </summary>
-</member><member name="T:UOLite2.LiteClient.Packets.ObjectToObject">
+</member><member name="T:UOLite2.Packets.ObjectToObject">
 	<summary>
  This is sent by the server to add a single item to a container. (not to display its contents)
  </summary>
 	<remarks>Packet 0x25</remarks>
-</member><member name="T:UOLite2.LiteClient.Packets.GetItemFailed">
+</member><member name="T:UOLite2.Packets.GetItemFailed">
 	<summary>
  This is sent to deny the player's request to get an item.
  </summary>
 	<remarks></remarks>
-</member><member name="P:UOLite2.LiteClient.Packets.EquipItem.Serial">
+</member><member name="P:UOLite2.Packets.EquipItem.Serial">
 	<summary>
  The serial of the item to equip.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Packets.EquipItem.ItemType">
+</member><member name="P:UOLite2.Packets.EquipItem.ItemType">
 	<summary>
  The item's artwork number.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Packets.EquipItem.Layer">
+</member><member name="P:UOLite2.Packets.EquipItem.Layer">
 	<summary>
  The item's layer
  </summary>
-</member><member name="P:UOLite2.LiteClient.Packets.EquipItem.Container">
+</member><member name="P:UOLite2.Packets.EquipItem.Container">
 	<summary>
  The serial of the character on which the item will be equipped.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Packets.EquipItem.Hue">
+</member><member name="P:UOLite2.Packets.EquipItem.Hue">
 	<summary>
  The item's hue.
  </summary>
-</member><member name="T:UOLite2.LiteClient.Packets.EquipItem">
+</member><member name="T:UOLite2.Packets.EquipItem">
 	<summary>
  This is sent by the server to equip a single item on a character.
  </summary>
 	<remarks></remarks>
-</member><member name="T:UOLite2.LiteClient.Packets.ContainerContents">
+</member><member name="T:UOLite2.Packets.ContainerContents">
 	<summary>
  This is sent to display the contents of a container.
  </summary>
 	<remarks></remarks>
-</member><member name="T:UOLite2.LiteClient.Packets.RenameMOB">
+</member><member name="T:UOLite2.Packets.RenameMOB">
 	<summary>
  Sent by the client to rename another mobile.
  </summary>
-</member><member name="T:UOLite2.LiteClient.Packets.MobileStats">
+</member><member name="T:UOLite2.Packets.MobileStats">
 	<summary>
  Yo programmer, I'm really happy for you and I'm gona let you finish 
  but this is one of the biggest packet classes of all time, OF ALL TIME!
   -Kanye West
  757 lines...
  </summary>
-</member><member name="T:UOLite2.LiteClient.Packets.HPHealth">
+</member><member name="T:UOLite2.Packets.HPHealth">
 	<summary>
  This is sent by the server to tell the client to update a Mobile's health and max health.
  </summary>
-</member><member name="T:UOLite2.LiteClient.Packets.DisplayContextMenu">
-	<summary>Displays a context menu for the 2D client.</summary>
-</member><member name="T:UOLite2.LiteClient.Packets">
-	<summary>A namespace encapsulating the packet types classes.</summary>
-</member><member name="F:UOLite2.LiteClient.Enums.GetItemFailedReason.CannotPickup">
+</member><member name="F:UOLite2.Enums.GetItemFailedReason.CannotPickup">
 	<summary>Displays "You cannot pick that up."</summary>
-</member><member name="F:UOLite2.LiteClient.Enums.GetItemFailedReason.TooFar">
+</member><member name="F:UOLite2.Enums.GetItemFailedReason.TooFar">
 	<summary>Displays "That is too far away."</summary>
-</member><member name="F:UOLite2.LiteClient.Enums.GetItemFailedReason.OutOfSight">
+</member><member name="F:UOLite2.Enums.GetItemFailedReason.OutOfSight">
 	<summary>Displays "That is out of sight."</summary>
-</member><member name="F:UOLite2.LiteClient.Enums.GetItemFailedReason.DoesntBelongToYou">
+</member><member name="F:UOLite2.Enums.GetItemFailedReason.DoesntBelongToYou">
 	<summary>Displays "That item does not belong to you. You will have to steal it."</summary>
-</member><member name="F:UOLite2.LiteClient.Enums.GetItemFailedReason.AlreadyHoldingItem">
+</member><member name="F:UOLite2.Enums.GetItemFailedReason.AlreadyHoldingItem">
 	<summary>Displays "You are already holding an item."</summary>
-</member><member name="F:UOLite2.LiteClient.Enums.GetItemFailedReason.Cmd_DestroyTheItem">
+</member><member name="F:UOLite2.Enums.GetItemFailedReason.Cmd_DestroyTheItem">
 	<summary>Tells the client to delete the item from its cache.</summary>
-</member><member name="F:UOLite2.LiteClient.Enums.GetItemFailedReason.NoMessage">
+</member><member name="F:UOLite2.Enums.GetItemFailedReason.NoMessage">
 	<summary>Displays no message, just doesn't let you pick it up.</summary>
-</member><member name="T:UOLite2.LiteClient.Enums.GetItemFailedReason">
+</member><member name="T:UOLite2.Enums.GetItemFailedReason">
 	<summary>
  Reason enumeration for "Get Item Failed" packet. (0x27)
  </summary>
-</member><member name="T:UOLite2.LiteClient.Enums.PacketType">
+</member><member name="T:UOLite2.Enums.PacketType">
 	<summary>
  Packet type enumeration.
  </summary>
 	<remarks></remarks>
-</member><member name="M:UOLite2.LiteClient.Item.#ctor">
+</member><member name="M:UOLite2.Item.#ctor">
 	<summary>
  When using this new, never ever ever try to access the contents!
  </summary>
 	<remarks></remarks>
-</member><member name="P:UOLite2.LiteClient.Item.Serial">
+</member><member name="P:UOLite2.Item.Serial">
 	<summary>The serial of the item.</summary>
-</member><member name="P:UOLite2.LiteClient.Item.Type">
+</member><member name="P:UOLite2.Item.Type">
 	<summary>The artwork number of that item. This is what determines what it looks like in game.</summary>
-</member><member name="P:UOLite2.LiteClient.Item.StackID">
+</member><member name="P:UOLite2.Item.StackID">
 	<summary>The number to add the the artwork number to get the artwork number of the item if it is a stack. 
  Usualy this is 0x01.</summary>
-</member><member name="P:UOLite2.LiteClient.Item.Amount">
+</member><member name="P:UOLite2.Item.Amount">
 	<summary>The number of objects in a stack.</summary>
-</member><member name="P:UOLite2.LiteClient.Item.X">
+</member><member name="P:UOLite2.Item.X">
 	<summary>The location of the item on the X axis. If the item is inside of a container, 
  this represents the number of pixels within the container from the left side at which 
  the item will be placed.</summary>
-</member><member name="P:UOLite2.LiteClient.Item.Y">
+</member><member name="P:UOLite2.Item.Y">
 	<summary>The location of the item on the Y axis. If the item is inside of a container, 
  this represents the number of pixels from the top of the container that the item will 
  be placed</summary>
-</member><member name="P:UOLite2.LiteClient.Item.Z">
+</member><member name="P:UOLite2.Item.Z">
 	<summary>The location of the item on the Z axis.  If the item is inside of a container this
  specifies the "height" of it, like if its on top of other objects.</summary>
-</member><member name="P:UOLite2.LiteClient.Item.Container">
+</member><member name="P:UOLite2.Item.Container">
 	<summary>The serial of the container of the item.</summary>
-</member><member name="P:UOLite2.LiteClient.Item.Hue">
+</member><member name="P:UOLite2.Item.Hue">
 	<summary>The item's hue.</summary>
-</member><member name="P:UOLite2.LiteClient.Item.TypeName">
+</member><member name="P:UOLite2.Item.TypeName">
 	<summary>
  Returns a string containing the ASCII name of the item artwork name. Returns "Blank" if no typename can be found.
  </summary>
-</member><member name="P:UOLite2.LiteClient.Item.Tag">
+</member><member name="P:UOLite2.Item.Tag">
 	<summary>
  A user defined string for making notes on items and mobiles.
  </summary>
-</member><member name="M:UOLite2.LiteClient.Item.Take(System.UInt16)">
+</member><member name="M:UOLite2.Item.Take(System.UInt16)">
 	<summary>
  Picks up the object.
  </summary>
 	<param name="Amount">The amount that you want to take, if it is a stack. (0 for the whole stack)</param>
-</member><member name="M:UOLite2.LiteClient.Item.Drop">
+</member><member name="M:UOLite2.Item.Drop">
 	<summary>
  Drops the item as the feet of the player.
  </summary>
@@ -697,7 +641,7 @@ UOLite2
 	<summary>
  Drops the item on the ground at the specified point.
  </summary>
-</member><member name="M:UOLite2.LiteClient.DropItem(UOLite2.LiteClient.Serial@)">
+</member><member name="M:UOLite2.LiteClient.DropItem(UOLite2.Serial@)">
 	<summary>
  Drops the item into the specified container.
  </summary>
@@ -705,41 +649,41 @@ UOLite2
 	<summary>
  Drops the item in the players hand into the player's backpack.
  </summary>
-</member><member name="P:UOLite2.LiteClient.ItemDatabase.Items">
+</member><member name="P:UOLite2.ItemDatabase.Items">
 	<summary>
  Returns an array of all of the items the client is currently tracking.
  </summary>
-</member><member name="M:UOLite2.LiteClient.ItemDatabase.ContentsList.#ctor(UOLite2.LiteClient.ItemDatabase@,UOLite2.LiteClient.Serial@)">
+</member><member name="M:UOLite2.ItemDatabase.ContentsList.#ctor(UOLite2.ItemDatabase@,UOLite2.Serial@)">
 	<param name="Database">The Database that contains the items in this list.</param>
 	<param name="Owner">The item this list belongs to.</param>
-</member><member name="P:UOLite2.LiteClient.ItemDatabase.ContentsList.Items">
+</member><member name="P:UOLite2.ItemDatabase.ContentsList.Items">
 	<summary>
  Returns a hashset of the items contains in this list.
  </summary>
-</member><member name="P:UOLite2.LiteClient.ItemDatabase.ContentsList.Serials">
+</member><member name="P:UOLite2.ItemDatabase.ContentsList.Serials">
 	<summary>Returns a hashset of the serials of the items contained in this list.</summary>
-</member><member name="M:UOLite2.LiteClient.ItemDatabase.ContentsList.byTypeTotal(System.Boolean@)">
+</member><member name="M:UOLite2.ItemDatabase.ContentsList.byTypeTotal(System.Boolean@)">
 	<summary>
  Returns the total of all stacks of the item type specified.
  </summary>
 	<param name="Recursive">Whether or not to search subcontainers.</param>
-</member><member name="M:UOLite2.LiteClient.ItemDatabase.Contains2(UOLite2.LiteClient.Item)">
+</member><member name="M:UOLite2.ItemDatabase.Contains2(UOLite2.Item)">
 	<summary>
  NOT USED!
  </summary>
-</member><member name="M:UOLite2.LiteClient.ItemDatabase.Add1(UOLite2.LiteClient.Item)">
+</member><member name="M:UOLite2.ItemDatabase.Add1(UOLite2.Item)">
 	<summary>
  NOT USED!!!
  </summary>
-</member><member name="M:UOLite2.LiteClient.ItemDatabase.CopyTo(UOLite2.LiteClient.Item[],System.Int32)">
+</member><member name="M:UOLite2.ItemDatabase.CopyTo(UOLite2.Item[],System.Int32)">
 	<summary>
  NOT USED!!!
  </summary>
-</member><member name="P:UOLite2.LiteClient.ItemDatabase.IsReadOnly">
+</member><member name="P:UOLite2.ItemDatabase.IsReadOnly">
 	<summary>
  NOT USED!!!
  </summary>
-</member><member name="M:UOLite2.LiteClient.ItemDatabase.Remove0(UOLite2.LiteClient.Item)">
+</member><member name="M:UOLite2.ItemDatabase.Remove0(UOLite2.Item)">
 	<summary>
  NOT USED!!!
  </summary>
@@ -749,7 +693,7 @@ UOLite2
  </summary>
 	<param name="Client">Client on which the packet was received</param>
 	<param name="bytes">The received packet</param>
-</member><member name="M:UOLite2.LiteClient.PacketHandling(UOLite2.LiteClient.Packet@)">
+</member><member name="M:UOLite2.LiteClient.PacketHandling(UOLite2.Packets.Packet@)">
 	<summary>Handles a packet however it needs to be handled.</summary>
 	<param name="currentpacket">The packet to process.</param>
 </member><member name="M:UOLite2.LiteClient.GetServerList(System.String,System.String,System.String,System.UInt16)">

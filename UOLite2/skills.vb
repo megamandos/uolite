@@ -4,15 +4,66 @@ Imports System.IO
 
 Partial Class LiteClient
 
-    Private _Skills(60) As Skill
+    Private _Skills(60) As SupportClasses.Skill
 
-    Public ReadOnly Property Skills As Skill()
+    Public ReadOnly Property Skills As SupportClasses.Skill()
         Get
             Return _Skills
         End Get
     End Property
 
-    Public Event onSkillUpdate(ByRef Client As LiteClient, ByRef OldSkill As Skill, ByRef NewSkill As Skill)
+    Public Event onSkillUpdate(ByRef Client As LiteClient, ByRef OldSkill As SupportClasses.Skill, ByRef NewSkill As SupportClasses.Skill)
+
+    Public Sub HandleSkillPacket(ByRef Packet As Packets.Skills)
+
+        Select Case Packet.ListType
+            Case Packets.Skills.ListTypes.BasicWithSkillCap
+                _Skills = Packet.Skills
+
+            Case Packets.Skills.ListTypes.SkillUpdate
+                Dim OldSkill As New SupportClasses.Skill(Me, _Skills(Packet.SingleSkill._Skill + 1)._Skill, _Skills(Packet.SingleSkill._Skill + 1)._Lock)
+                OldSkill._BaseValue = _Skills(Packet.SingleSkill._Skill + 1)._BaseValue
+                OldSkill._Value = _Skills(Packet.SingleSkill._Skill + 1)._Value
+                OldSkill._Cap = _Skills(Packet.SingleSkill._Skill + 1)._Cap
+
+                _Skills(Packet.SingleSkill._Skill + 1)._BaseValue = Packet.SingleSkill._BaseValue
+                _Skills(Packet.SingleSkill._Skill + 1)._Lock = Packet.SingleSkill._Lock
+                _Skills(Packet.SingleSkill._Skill + 1)._Value = Packet.SingleSkill._Value
+
+                RaiseEvent onSkillUpdate(Me, OldSkill, Packet.SingleSkill)
+
+            Case Packets.Skills.ListTypes.SkillUpdateWithSkillCap
+                Dim OldSkill As New SupportClasses.Skill(Me, _Skills(Packet.SingleSkill._Skill + 1)._Skill, _Skills(Packet.SingleSkill._Skill + 1)._Lock)
+                OldSkill._BaseValue = _Skills(Packet.SingleSkill._Skill + 1)._BaseValue
+                OldSkill._Value = _Skills(Packet.SingleSkill._Skill + 1)._Value
+                OldSkill._Cap = _Skills(Packet.SingleSkill._Skill + 1)._Cap
+
+                _Skills(Packet.SingleSkill._Skill + 1)._BaseValue = Packet.SingleSkill._BaseValue
+                _Skills(Packet.SingleSkill._Skill + 1)._Lock = Packet.SingleSkill._Lock
+                _Skills(Packet.SingleSkill._Skill + 1)._Value = Packet.SingleSkill._Value
+                _Skills(Packet.SingleSkill._Skill + 1)._Cap = Packet.SingleSkill._Cap
+
+                RaiseEvent onSkillUpdate(Me, OldSkill, Packet.SingleSkill)
+        End Select
+
+    End Sub
+
+    Public Sub RequestSkills()
+        Dim packet As New MemoryStream
+        packet.WriteByte(&H34)
+        packet.WriteByte(&HED)
+        packet.WriteByte(&HED)
+        packet.WriteByte(&HED)
+        packet.WriteByte(&HED)
+        packet.WriteByte(&H5)
+        packet.Write(Player.Serial.GetBytes, 0, 4)
+
+        Send(packet.ToArray)
+    End Sub
+
+End Class
+
+Namespace SupportClasses
 
     Public Class Skill
         Friend _Skill As Enums.Skills
@@ -173,124 +224,19 @@ Partial Class LiteClient
 
     End Class
 
-    Public Sub HandleSkillPacket(ByRef Packet As Packets.Skills)
+End Namespace
 
-        Select Case Packet.ListType
-            Case Packets.Skills.ListTypes.BasicWithSkillCap
-                _Skills = Packet.Skills
+'Skills Enumeration
+Namespace Enums
+    Public Enum SkillLock
+        Up
+        Down
+        Locked
+    End Enum
 
-            Case Packets.Skills.ListTypes.SkillUpdate
-                Dim OldSkill As New Skill(Me, _Skills(Packet.SingleSkill._Skill + 1)._Skill, _Skills(Packet.SingleSkill._Skill + 1)._Lock)
-                OldSkill._BaseValue = _Skills(Packet.SingleSkill._Skill + 1)._BaseValue
-                OldSkill._Value = _Skills(Packet.SingleSkill._Skill + 1)._Value
-                OldSkill._Cap = _Skills(Packet.SingleSkill._Skill + 1)._Cap
-
-                _Skills(Packet.SingleSkill._Skill + 1)._BaseValue = Packet.SingleSkill._BaseValue
-                _Skills(Packet.SingleSkill._Skill + 1)._Lock = Packet.SingleSkill._Lock
-                _Skills(Packet.SingleSkill._Skill + 1)._Value = Packet.SingleSkill._Value
-
-                RaiseEvent onSkillUpdate(Me, OldSkill, Packet.SingleSkill)
-
-            Case Packets.Skills.ListTypes.SkillUpdateWithSkillCap
-                Dim OldSkill As New Skill(Me, _Skills(Packet.SingleSkill._Skill + 1)._Skill, _Skills(Packet.SingleSkill._Skill + 1)._Lock)
-                OldSkill._BaseValue = _Skills(Packet.SingleSkill._Skill + 1)._BaseValue
-                OldSkill._Value = _Skills(Packet.SingleSkill._Skill + 1)._Value
-                OldSkill._Cap = _Skills(Packet.SingleSkill._Skill + 1)._Cap
-
-                _Skills(Packet.SingleSkill._Skill + 1)._BaseValue = Packet.SingleSkill._BaseValue
-                _Skills(Packet.SingleSkill._Skill + 1)._Lock = Packet.SingleSkill._Lock
-                _Skills(Packet.SingleSkill._Skill + 1)._Value = Packet.SingleSkill._Value
-                _Skills(Packet.SingleSkill._Skill + 1)._Cap = Packet.SingleSkill._Cap
-
-                RaiseEvent onSkillUpdate(Me, OldSkill, Packet.SingleSkill)
-        End Select
-
-    End Sub
-
-    Public Sub RequestSkills()
-        Dim packet As New MemoryStream
-        packet.WriteByte(&H34)
-        packet.WriteByte(&HED)
-        packet.WriteByte(&HED)
-        packet.WriteByte(&HED)
-        packet.WriteByte(&HED)
-        packet.WriteByte(&H5)
-        packet.Write(Player.Serial.GetBytes, 0, 4)
-
-        Send(packet.ToArray)
-    End Sub
-
-    'Skills Enumeration
-    Partial Class Enums
-        Public Enum Skills
-            Alchemy = 1
-            Anatomy = 2
-            AnimalLore = 3
-            ItemIdentification = 4
-            ArmsLore = 5
-            Parrying = 6
-            Begging = 7
-            Blacksmithy = 8
-            BowcraftFletching = 9
-            Peacemaking = 10
-            Camping = 11
-            Carpentry = 12
-            Cartography = 13
-            Cooking = 14
-            DetectingHidden = 15
-            Discordance = 16
-            EvaluatingIntelligence = 17
-            Healing = 18
-            Fishing = 19
-            ForensicEvaluation = 20
-            Herding = 21
-            Hiding = 22
-            Provocation = 23
-            Inscription = 24
-            Lockpicking = 25
-            Magery = 26
-            ResistingSpells = 27
-            Tactics = 28
-            Snooping = 29
-            Musicianship = 30
-            Poisoning = 31
-            Archery = 32
-            SpiritSpeak = 33
-            Stealing = 34
-            Tailoring = 35
-            AnimalTaming = 36
-            TasteIdentification = 37
-            Tinkering = 38
-            Tracking = 39
-            Veterinary = 40
-            Swordsmanship = 41
-            MaceFighting = 42
-            Fencing = 43
-            Wrestling = 44
-            Lumberjacking = 45
-            Mining = 46
-            Meditation = 47
-            Stealth = 48
-            RemoveTrap = 49
-            Necromancy = 50
-            Focus = 51
-            Chivalry = 52
-            Bushido = 53
-            Ninjitsu = 54
-            Spellweaving = 55
-        End Enum
-
-        Public Enum SkillLock
-            Up
-            Down
-            Locked
-        End Enum
-
-        Public Enum Virtues
-            Honor
-            Sacrifice
-            Valor
-        End Enum
-    End Class
-
-End Class
+    Public Enum Virtues
+        Honor
+        Sacrifice
+        Valor
+    End Enum
+End Namespace

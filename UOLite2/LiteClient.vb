@@ -7,7 +7,7 @@ Public Class LiteClient
 #Region "Base Declarations"
     Private _EmulatedVersion() As Byte = {0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 2} 'Version 7.0.8.2
 
-    Friend Shared StrLst As CliLocList
+    Friend Shared StrLst As SupportClasses.CliLocList
     Private _LoginClient As TcpClient
     Private _LoginStream As NetworkStream
     Private _GameClient As New TcpClient
@@ -192,12 +192,12 @@ Public Class LiteClient
 
 #End Region
 
-    Private _GameServerList() As GameServerInfo
+    Private _GameServerList() As SupportClasses.GameServerInfo
 
     ''' <summary>
     ''' Called when the client receives the server list durring the login process.
     ''' </summary>
-    Public Event onRecievedServerList(ByRef ServerList() As GameServerInfo)
+    Public Event onRecievedServerList(ByRef ServerList() As SupportClasses.GameServerInfo)
 
     ''' <summary>Called during the login process when the server rejects the username and password.</summary>
     ''' <param name="Reason">The reason for the failure.</param>
@@ -227,7 +227,7 @@ Public Class LiteClient
 
 #End Region
 
-    Public ReadOnly Property ServerList As GameServerInfo()
+    Public ReadOnly Property ServerList As SupportClasses.GameServerInfo()
         Get
             If _GameServerList Is Nothing Then
                 Throw New ApplicationException("The ServerList was accessed, but it hasn't been populated yet! This is a fatal exception!")
@@ -237,6 +237,76 @@ Public Class LiteClient
         End Get
     End Property
 
+    Public ReadOnly Property Latency As Integer
+        Get
+            Dim pinger As New Ping
+            Dim reply As PingReply
+            reply = pinger.Send(_GameServerAddress)
+            Return reply.RoundtripTime
+        End Get
+    End Property
+
+    Private Sub RemoveObject(ByRef Serial As Serial)
+        If Serial.Value >= 1073741824 Then
+            Items.RemoveItem(Serial)
+        Else
+            _Mobiles.RemoveMobile(Serial)
+        End If
+    End Sub
+
+    ''' <summary>Creates a new client.</summary>
+    ''' <param name="EnableOSIEncryption">Whether or not to use OSI encryption, for OSI servers.</param>
+    ''' <param name="ContentFolderPath" >The path to the directory containing cliloc.enu without the "\" at the end.</param>
+    Public Sub New(ByRef ContentFolderPath As String, Optional ByRef EnableOSIEncryption As Boolean = False)
+        'TODO: implement localization.
+
+        ContentPath = ContentFolderPath
+
+        SetupErrorHandling()
+
+        _Encrypted = EnableOSIEncryption
+
+        _EncryptionLoginSeed = 3232235520 + CUInt(New Random(TimeOfDay.Millisecond).Next Mod 510) + 2
+
+        If _Encrypted Then
+            GenerateLoginKeys()
+        End If
+
+        StrLst = New SupportClasses.CliLocList(ContentFolderPath & "\cliloc.enu")
+
+    End Sub
+
+    Private Sub SetupErrorHandling()
+#If Not Debug Then
+        ' Get the your application's application domain.
+        Dim currentDomain As AppDomain = AppDomain.CurrentDomain
+
+        ' Define a handler for unhandled exceptions.
+        AddHandler currentDomain.UnhandledException, AddressOf MYExnHandler
+#End If
+    End Sub
+
+#End Region
+
+#Region "Actions: walk/talk/etc..."
+
+    ''' <summary>Causes the player to speak the specified text.</summary>
+    ''' <param name="Text">The text to speak.</param>
+    ''' <param name="Hue">The Hue of the text.</param>
+    ''' <param name="Type">The type, (ie. Yell, Whisper, etc.)</param>
+    ''' <param name="Font">The font.</param>
+    Public Sub Speak(ByRef Text As String, Optional ByRef Hue As UOLite2.Enums.Common.Hues = UOLite2.Enums.Common.Hues.Yellow, Optional ByRef Type As UOLite2.Enums.SpeechTypes = UOLite2.Enums.SpeechTypes.Regular, Optional ByRef Font As UOLite2.Enums.Fonts = UOLite2.Enums.Fonts.Default)
+        Dim packets As New Packets.UnicodeSpeechPacket(Type, Hue, UOLite2.Enums.Fonts.Default, "ENU", Text)
+        Send(packets)
+    End Sub
+
+#End Region
+
+
+End Class
+
+
+Namespace SupportClasses
     ''' Hide this class from the user, there is no reason from him/her to see it.
     ''' <summary>Simply a class to hold information about game servers when recieved from the login server.</summary>
     Public Class GameServerInfo
@@ -281,71 +351,4 @@ Public Class LiteClient
         End Property
 
     End Class
-
-    Public ReadOnly Property Latency As Integer
-        Get
-            Dim pinger As New Ping
-            Dim reply As PingReply
-            reply = pinger.Send(_GameServerAddress)
-            Return reply.RoundtripTime
-        End Get
-    End Property
-
-    Private Sub RemoveObject(ByRef Serial As Serial)
-        If Serial.Value >= 1073741824 Then
-            Items.RemoveItem(Serial)
-        Else
-            _Mobiles.RemoveMobile(Serial)
-        End If
-    End Sub
-
-    ''' <summary>Creates a new client.</summary>
-    ''' <param name="EnableOSIEncryption">Whether or not to use OSI encryption, for OSI servers.</param>
-    ''' <param name="ContentFolderPath" >The path to the directory containing cliloc.enu without the "\" at the end.</param>
-    Public Sub New(ByRef ContentFolderPath As String, Optional ByRef EnableOSIEncryption As Boolean = False)
-        'TODO: implement localization.
-
-        ContentPath = ContentFolderPath
-
-        SetupErrorHandling()
-
-        _Encrypted = EnableOSIEncryption
-
-        _EncryptionLoginSeed = 3232235520 + CUInt(New Random(TimeOfDay.Millisecond).Next Mod 510) + 2
-
-        If _Encrypted Then
-            GenerateLoginKeys()
-        End If
-
-        StrLst = New CliLocList(ContentFolderPath & "\cliloc.enu")
-
-    End Sub
-
-    Private Sub SetupErrorHandling()
-#If Not Debug Then
-        ' Get the your application's application domain.
-        Dim currentDomain As AppDomain = AppDomain.CurrentDomain
-
-        ' Define a handler for unhandled exceptions.
-        AddHandler currentDomain.UnhandledException, AddressOf MYExnHandler
-#End If
-    End Sub
-
-#End Region
-
-#Region "Actions: walk/talk/etc..."
-
-    ''' <summary>Causes the player to speak the specified text.</summary>
-    ''' <param name="Text">The text to speak.</param>
-    ''' <param name="Hue">The Hue of the text.</param>
-    ''' <param name="Type">The type, (ie. Yell, Whisper, etc.)</param>
-    ''' <param name="Font">The font.</param>
-    Public Sub Speak(ByRef Text As String, Optional ByRef Hue As UOLite2.Enums.Common.Hues = UOLite2.Enums.Common.Hues.Yellow, Optional ByRef Type As UOLite2.Enums.SpeechTypes = UOLite2.Enums.SpeechTypes.Regular, Optional ByRef Font As UOLite2.Enums.Fonts = UOLite2.Enums.Fonts.Default)
-        Dim packets As New Packets.UnicodeSpeechPacket(Type, Hue, UOLite2.Enums.Fonts.Default, "ENU", Text)
-        Send(packets)
-    End Sub
-
-#End Region
-
-
-End Class
+End Namespace

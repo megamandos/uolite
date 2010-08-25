@@ -231,7 +231,7 @@ Partial Class LiteClient
 
     End Class
 
-    Partial Class Item
+    Partial Class ContextMenuItem
         Private _CTMenu As New ContextMenu
 
         Public ReadOnly Property Menu() As ContextMenu

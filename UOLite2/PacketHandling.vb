@@ -39,7 +39,7 @@ Partial Class LiteClient
 
     Const PacketSize As Integer = 1024 * 32 '32kB packet buffer.
     Private Shared BufferSize As UInteger = 1024 * 1024 * 5 '5 Megabytes
-    Private Shared GameBuffer As New CircularBuffer(Of Byte)(BufferSize)
+    Private Shared GameBuffer As New SupportClasses.CircularBuffer(Of Byte)(BufferSize)
     Private PacketHandlerThread As New Thread(AddressOf HandleBuffer)
 
 #If LogPackets Then
@@ -151,130 +151,133 @@ Partial Class LiteClient
     ' |                                                                        A
     ' |                                                                        |
     ' V                                                                        |
-    Private Function BuildPacket(ByRef packetbuffer As Byte()) As Packet
+    Private Function BuildPacket(ByRef packetbuffer As Byte()) As Packets.Packet
         Try
 
-            Select Case DirectCast(packetbuffer(0), Enums.PacketType)
-                Case Enums.PacketType.TakeObject
+            Select Case DirectCast(packetbuffer(0), UOLite2.Enums.PacketType)
+                Case UOLite2.Enums.PacketType.TakeObject
                     Dim k As New Packets.TakeObject(packetbuffer)
                     _ItemInHand = k.Serial
                     Return k
 
-                Case Enums.PacketType.DropObject
+                Case UOLite2.Enums.PacketType.DropObject
                     Return New Packets.DropObject(packetbuffer)
 
-                Case Enums.PacketType.TextUnicode
+                Case UOLite2.Enums.PacketType.TextUnicode
                     Return New Packets.UnicodeText(packetbuffer)
 
-                Case Enums.PacketType.SpeechUnicode
+                Case UOLite2.Enums.PacketType.SpeechUnicode
                     Return New Packets.UnicodeSpeechPacket(packetbuffer)
 
-                Case Enums.PacketType.NakedMOB
+                Case UOLite2.Enums.PacketType.NakedMOB
                     Return New Packets.NakedMobile(packetbuffer)
 
-                Case Enums.PacketType.EquippedMOB
+                Case UOLite2.Enums.PacketType.EquippedMOB
                     Return New Packets.EquippedMobile(packetbuffer)
 
-                Case Enums.PacketType.FatHealth
+                Case UOLite2.Enums.PacketType.FatHealth
                     Return New Packets.FatHealth(packetbuffer)
 
-                Case Enums.PacketType.HPHealth
+                Case UOLite2.Enums.PacketType.HPHealth
                     Return New Packets.HPHealth(packetbuffer)
 
-                Case Enums.PacketType.ManaHealth
+                Case UOLite2.Enums.PacketType.ManaHealth
                     Return New Packets.ManaHealth(packetbuffer)
 
-                Case Enums.PacketType.DeathAnimation
+                Case UOLite2.Enums.PacketType.DeathAnimation
                     Return New Packets.DeathAnimation(packetbuffer)
 
-                Case Enums.PacketType.Destroy
+                Case UOLite2.Enums.PacketType.Destroy
                     Return New Packets.Destroy(packetbuffer)
 
-                Case Enums.PacketType.MobileStats
+                Case UOLite2.Enums.PacketType.MobileStats
                     Return New Packets.MobileStats(packetbuffer)
 
-                Case Enums.PacketType.EquipItem
+                Case UOLite2.Enums.PacketType.EquipItem
                     Return New Packets.EquipItem(packetbuffer)
 
-                Case Enums.PacketType.ContainerContents
+                Case UOLite2.Enums.PacketType.ContainerContents
                     Return New Packets.ContainerContents(packetbuffer)
 
-                Case Enums.PacketType.ObjecttoObject
+                Case UOLite2.Enums.PacketType.ObjecttoObject
                     Return New Packets.ObjectToObject(packetbuffer)
 
-                Case Enums.PacketType.ShowItem
+                Case UOLite2.Enums.PacketType.ShowItem
                     Return New Packets.ShowItem(packetbuffer)
 
-                Case Enums.PacketType.Target
+                Case UOLite2.Enums.PacketType.Target
                     Return New Packets.Target(packetbuffer)
 
-                Case Enums.PacketType.DoubleClick
+                Case UOLite2.Enums.PacketType.DoubleClick
                     Return New Packets.Doubleclick(packetbuffer)
 
-                Case Enums.PacketType.SingleClick
+                Case UOLite2.Enums.PacketType.SingleClick
                     Return New Packets.Singleclick(packetbuffer)
 
-                Case Enums.PacketType.Text
+                Case UOLite2.Enums.PacketType.Text
                     Return New Packets.Text(packetbuffer)
 
-                Case Enums.PacketType.LoginConfirm
+                Case Enums.PacketType.Features
+                    Return New Packets.Features(packetbuffer)
+
+                Case UOLite2.Enums.PacketType.LoginConfirm
                     Return New Packets.LoginConfirm(packetbuffer)
 
-                Case Enums.PacketType.HealthBarStatusUpdate
+                Case UOLite2.Enums.PacketType.HealthBarStatusUpdate
                     Return New Packets.HealthBarStatusUpdate(packetbuffer)
 
-                Case Enums.PacketType.CompressedGump
+                Case UOLite2.Enums.PacketType.CompressedGump
                     Return New Packets.CompressedGump(packetbuffer)
 
-                Case Enums.PacketType.GenericCommand
+                Case UOLite2.Enums.PacketType.GenericCommand
 
-                    Select Case DirectCast(CUShort(packetbuffer(4)), Enums.BF_Sub_Commands)
+                    Select Case DirectCast(CUShort(packetbuffer(4)), UOLite2.Enums.BF_Sub_Commands)
 
-                        Case Enums.BF_Sub_Commands.ContextMenuRequest
+                        Case UOLite2.Enums.BF_Sub_Commands.ContextMenuRequest
                             Return New Packets.ContextMenuRequest(packetbuffer)
 
-                        Case Enums.BF_Sub_Commands.ContextMenuResponse
+                        Case UOLite2.Enums.BF_Sub_Commands.ContextMenuResponse
                             Return New Packets.ContextMenuResponse(packetbuffer)
 
-                        Case Enums.BF_Sub_Commands.AddWalkKey
+                        Case UOLite2.Enums.BF_Sub_Commands.AddWalkKey
                             Return New Packets.AddWalkKey(packetbuffer)
 
-                        Case Enums.BF_Sub_Commands.FastWalk
+                        Case UOLite2.Enums.BF_Sub_Commands.FastWalk
                             Return New Packets.FastWalk(packetbuffer)
 
                         Case Else
-                            Dim j As New Packet(packetbuffer(0))
+                            Dim j As New Packets.Packet(packetbuffer(0))
                             j._Data = packetbuffer
                             j._size = packetbuffer.Length
                             Return j 'dummy until we have what we need
                     End Select
 
-                Case Enums.PacketType.BlockMovement
+                Case UOLite2.Enums.PacketType.BlockMovement
                     Return New Packets.BlockMovement(packetbuffer)
 
-                Case Enums.PacketType.AcceptMovement_ResyncRequest
+                Case UOLite2.Enums.PacketType.AcceptMovement_ResyncRequest
                     Return New Packets.AcceptMovement_ResyncRequest(packetbuffer)
 
-                Case Enums.PacketType.Teleport
+                Case UOLite2.Enums.PacketType.Teleport
                     Return New Packets.Teleport(packetbuffer)
 
-                Case Enums.PacketType.HuePicker
+                Case UOLite2.Enums.PacketType.HuePicker
                     Return New Packets.HuePicker(packetbuffer)
 
-                Case Enums.PacketType.LocalizedText
+                Case UOLite2.Enums.PacketType.LocalizedText
                     Return New Packets.LocalizedText(packetbuffer)
 
-                Case Enums.PacketType.LoginComplete
+                Case UOLite2.Enums.PacketType.LoginComplete
                     Return New Packets.LoginComplete(packetbuffer)
 
-                Case Enums.PacketType.Skills
+                Case UOLite2.Enums.PacketType.Skills
                     Return New Packets.Skills(packetbuffer, Me)
 
-                Case Enums.PacketType.CharacterList
+                Case UOLite2.Enums.PacketType.CharacterList
                     Return New Packets.CharacterList(packetbuffer)
 
                 Case Else
-                    Dim j As New Packet(packetbuffer(0))
+                    Dim j As New Packets.Packet(packetbuffer(0))
                     j._Data = packetbuffer
                     j._size = packetbuffer.Length
                     Return j 'dummy until we have what we need
@@ -282,7 +285,7 @@ Partial Class LiteClient
 
         Catch ex As Exception
             Dim k() As Byte = {0}
-            Dim j As New Packet(k(0))
+            Dim j As New Packets.Packet(k(0))
 
             j._Data = packetbuffer
             j._size = packetbuffer.Length
@@ -296,9 +299,9 @@ Partial Class LiteClient
     ' V  --------------------------------------------------------------------->|
     ''' <summary>Handles a packet however it needs to be handled.</summary>
     ''' <param name="currentpacket">The packet to process.</param>
-    Private Sub PacketHandling(ByRef currentpacket As Packet)
+    Private Sub PacketHandling(ByRef currentpacket As Packets.Packet)
         Select Case currentpacket.Type
-            Case Enums.PacketType.ClientVersion
+            Case UOLite2.Enums.PacketType.ClientVersion
                 'Respond with 0xBD packet.
                 Dim VerPacket(11) As Byte
                 VerPacket(0) = 189
@@ -321,14 +324,14 @@ Partial Class LiteClient
                 'Respond with version string.
                 _GameStream.Write(VerPacket, 0, VerPacket.Length)
 
-            Case Enums.PacketType.CharacterList
+            Case UOLite2.Enums.PacketType.CharacterList
                 _CharacterList = DirectCast(currentpacket, Packets.CharacterList).CharacterList
                 RaiseEvent onCharacterListReceive(Me, _CharacterList)
 
 #If DebugGamePackets Then
                 Debug.WriteLine("Character List")
 #End If
-            Case Enums.PacketType.MobileStats
+            Case UOLite2.Enums.PacketType.MobileStats
                 'We already know now that the mobile exists, because this packet isnt sent until after the MOB is created
                 'So there is no need to check for the existance of the MOB. Just send the packet to the mobile for it to update itself.
                 'This is done through direct casts and hash tables, so its REALLY fast.
@@ -337,35 +340,35 @@ Partial Class LiteClient
 #If DebugGamePackets Then
                 Debug.WriteLine("Mobile Stats")
 #End If
-            Case Enums.PacketType.HPHealth
+            Case UOLite2.Enums.PacketType.HPHealth
                 _Mobiles.Mobile(DirectCast(currentpacket, Packets.HPHealth).Serial).HandleUpdatePacket(DirectCast(currentpacket, Packets.HPHealth))
 
 #If DebugGamePackets Then
                 Debug.WriteLine("HP Health")
 #End If
 
-            Case Enums.PacketType.FatHealth
+            Case UOLite2.Enums.PacketType.FatHealth
                 _Mobiles.Mobile(DirectCast(currentpacket, Packets.FatHealth).Serial).HandleUpdatePacket(DirectCast(currentpacket, Packets.FatHealth))
 
 #If DebugGamePackets Then
                 Debug.WriteLine("Fat Health")
 #End If
 
-            Case Enums.PacketType.ManaHealth
+            Case UOLite2.Enums.PacketType.ManaHealth
                 _Mobiles.Mobile(DirectCast(currentpacket, Packets.ManaHealth).Serial).HandleUpdatePacket(DirectCast(currentpacket, Packets.ManaHealth))
 
 #If DebugGamePackets Then
                 Debug.WriteLine("Mana Health")
 #End If
 
-            Case Enums.PacketType.NakedMOB
+            Case UOLite2.Enums.PacketType.NakedMOB
                 _Mobiles.AddMobile(DirectCast(currentpacket, Packets.NakedMobile))
 
 #If DebugGamePackets Then
                 Debug.WriteLine("Naked MOB")
 #End If
 
-            Case Enums.PacketType.EquippedMOB
+            Case UOLite2.Enums.PacketType.EquippedMOB
                 _Mobiles.AddMobile(DirectCast(currentpacket, Packets.EquippedMobile))
 
 #If DebugGamePackets Then
@@ -374,42 +377,42 @@ Partial Class LiteClient
                 'Mobile is approaching.
                 RaiseEvent onNewMobile(Me, _Mobiles.Mobile(DirectCast(currentpacket, Packets.EquippedMobile).Serial))
 
-            Case Enums.PacketType.DeathAnimation
+            Case UOLite2.Enums.PacketType.DeathAnimation
                 _Mobiles.Mobile(DirectCast(currentpacket, Packets.DeathAnimation).Serial).HandleDeathPacket(DirectCast(currentpacket, Packets.DeathAnimation))
 
 #If DebugGamePackets Then
                 Debug.WriteLine("Death Animation")
 #End If
 
-            Case Enums.PacketType.Destroy
+            Case UOLite2.Enums.PacketType.Destroy
                 RemoveObject(DirectCast(currentpacket, Packets.Destroy).Serial)
 
 #If DebugGamePackets Then
                 Debug.WriteLine("Destroy Object")
 #End If
 
-            Case Enums.PacketType.EquipItem
+            Case UOLite2.Enums.PacketType.EquipItem
                 _Mobiles.Mobile(DirectCast(currentpacket, Packets.EquipItem).Container).HandleUpdatePacket(DirectCast(currentpacket, Packets.EquipItem))
 
 #If DebugGamePackets Then
                 Debug.WriteLine("Equip Item")
 #End If
 
-            Case Enums.PacketType.ContainerContents
+            Case UOLite2.Enums.PacketType.ContainerContents
                 Items.Add(DirectCast(currentpacket, Packets.ContainerContents))
 
 #If DebugGamePackets Then
                 Debug.WriteLine("Container Contents")
 #End If
 
-            Case Enums.PacketType.ObjecttoObject
+            Case UOLite2.Enums.PacketType.ObjecttoObject
                 Items.Add(DirectCast(currentpacket, Packets.ObjectToObject))
 
 #If DebugGamePackets Then
                 Debug.WriteLine("Object To Object")
 #End If
 
-            Case Enums.PacketType.ShowItem
+            Case UOLite2.Enums.PacketType.ShowItem
                 Items.Add(DirectCast(currentpacket, Packets.ShowItem))
 
                 Scavenger.CheckForPickup(DirectCast(currentpacket, Packets.ShowItem).Serial)
@@ -418,17 +421,17 @@ Partial Class LiteClient
                 Debug.WriteLine("Show Item")
 #End If
 
-            Case Enums.PacketType.Target
+            Case UOLite2.Enums.PacketType.Target
 #If DebugGamePackets Then
                 Debug.WriteLine("Target Request")
 #End If
 
-            Case Enums.PacketType.HuePicker
+            Case UOLite2.Enums.PacketType.HuePicker
 #If DebugGamePackets Then
                 Debug.WriteLine("Hue Picker")
 #End If
 
-            Case Enums.PacketType.LoginConfirm
+            Case UOLite2.Enums.PacketType.LoginConfirm
                 'Make a new playerclass
                 Dim pl As New Mobile(Me, DirectCast(currentpacket, Packets.LoginConfirm).Serial)
 
@@ -449,14 +452,14 @@ Partial Class LiteClient
 #End If
 
                 RaiseEvent onLoginConfirm(Player)
-            Case Enums.PacketType.HealthBarStatusUpdate
+            Case UOLite2.Enums.PacketType.HealthBarStatusUpdate
                 _Mobiles.Mobile(DirectCast(currentpacket, Packets.HealthBarStatusUpdate).Serial).HandleUpdatePacket(DirectCast(currentpacket, Packets.HealthBarStatusUpdate))
 
 #If DebugGamePackets Then
                 Debug.WriteLine("Health Bar Status Update")
 #End If
 
-            Case Enums.PacketType.LocalizedText
+            Case UOLite2.Enums.PacketType.LocalizedText
                 RaiseEvent onCliLocSpeech(Me, DirectCast(currentpacket, Packets.LocalizedText).Serial, _
                                           DirectCast(currentpacket, Packets.LocalizedText).BodyType, _
                                            DirectCast(currentpacket, Packets.LocalizedText).SpeechType, _
@@ -470,7 +473,7 @@ Partial Class LiteClient
                 Debug.WriteLine("Localized Text")
 #End If
 
-            Case Enums.PacketType.Text
+            Case UOLite2.Enums.PacketType.Text
                 RaiseEvent onSpeech(Me, DirectCast(currentpacket, Packets.Text).Serial, _
                                           DirectCast(currentpacket, Packets.Text).BodyType, _
                                           DirectCast(currentpacket, Packets.Text).SpeechType, _
@@ -483,7 +486,7 @@ Partial Class LiteClient
                 Debug.WriteLine("Text")
 #End If
 
-            Case Enums.PacketType.TextUnicode
+            Case UOLite2.Enums.PacketType.TextUnicode
                 RaiseEvent onSpeech(Me, DirectCast(currentpacket, Packets.UnicodeText).Serial, _
                       DirectCast(currentpacket, Packets.UnicodeText).Body, _
                       DirectCast(currentpacket, Packets.UnicodeText).Mode, _
@@ -496,12 +499,12 @@ Partial Class LiteClient
                 Debug.WriteLine("Unicode Text")
 #End If
 
-            Case Enums.PacketType.LoginComplete
+            Case UOLite2.Enums.PacketType.LoginComplete
                 'Start sending keepalive packets.
                 BF24Ticker.Enabled = True
 
                 'Make the action buffer for doubleclicks and pickups.
-                ActionBuffer = New ActionBufferClass(Me)
+                ActionBuffer = New SupportClasses.ActionBufferClass(Me)
 
                 'send special packet??
                 _GameStream.Write(specialpacket, 0, specialpacket.Length)
@@ -521,38 +524,41 @@ Partial Class LiteClient
                 Debug.WriteLine("Login Complete")
 #End If
 
-            Case Enums.PacketType.AcceptMovement_ResyncRequest
+            Case UOLite2.Enums.PacketType.AcceptMovement_ResyncRequest
                 AcceptMovement(DirectCast(currentpacket, Packets.AcceptMovement_ResyncRequest))
 
-            Case Enums.PacketType.Teleport
+            Case UOLite2.Enums.PacketType.Features
+                _Features = DirectCast(currentpacket, Packets.Features).Features
+
+            Case UOLite2.Enums.PacketType.Teleport
                 HandleTeleport(DirectCast(currentpacket, Packets.Teleport))
 
                 'Check surroundings for scavengable items.
                 Scavenger.CheckSurroundings()
 
-            Case Enums.PacketType.BlockMovement
+            Case UOLite2.Enums.PacketType.BlockMovement
                 MovementBlocked(DirectCast(currentpacket, Packets.BlockMovement))
 
                 'Check surroundings for scavengable items.
                 'Scavenger.CheckSurroundings()
 
-            Case Enums.PacketType.Skills
+            Case UOLite2.Enums.PacketType.Skills
                 HandleSkillPacket(DirectCast(currentpacket, Packets.Skills))
 
-            Case Enums.PacketType.CompressedGump
+            Case UOLite2.Enums.PacketType.CompressedGump
                 'Debug.WriteLine(DirectCast(currentpacket, Packets.CompressedGump).DecompressedGumpData)
                 'Debug.WriteLine(DirectCast(currentpacket, Packets.CompressedGump).DecompressedTextData)
 
-                Dim retgump As New Gump(currentpacket, Me)
+                Dim retgump As New SupportClasses.Gump(currentpacket, Me)
 
                 RaiseEvent onNewGump(Me, retgump)
 
-            Case Enums.PacketType.GenericCommand
+            Case UOLite2.Enums.PacketType.GenericCommand
                 Select Case currentpacket.Data(4)
-                    Case Enums.BF_Sub_Commands.FastWalk
+                    Case UOLite2.Enums.BF_Sub_Commands.FastWalk
                         EnableFastWalk(DirectCast(currentpacket, Packets.FastWalk))
 
-                    Case Enums.BF_Sub_Commands.AddWalkKey
+                    Case UOLite2.Enums.BF_Sub_Commands.AddWalkKey
                         AddFastWalkKey(DirectCast(currentpacket, Packets.AddWalkKey))
 
                 End Select
@@ -566,7 +572,7 @@ Partial Class LiteClient
         End Select
     End Sub
 
-    Public Overloads Sub Send(ByRef Packet As Packet)
+    Public Overloads Sub Send(ByRef Packet As Packets.Packet)
         Send(Packet.Data)
     End Sub
 
@@ -720,7 +726,7 @@ Partial Class LiteClient
                     Dim ShardCount As Short = BitConverter.ToInt16(ShardCountBytes, 0)
 
                     Dim NameBytes(31) As Byte
-                    Dim svrlist(ShardCount - 1) As GameServerInfo
+                    Dim svrlist(ShardCount - 1) As SupportClasses.GameServerInfo
 
                     For i = 0 To ShardCount - 1
                         'Get The Name
@@ -729,7 +735,7 @@ Partial Class LiteClient
                         Next
 
                         'Create the gameserverinfo object.
-                        svrlist(i) = New GameServerInfo(System.Text.Encoding.ASCII.GetString(NameBytes).Replace(Chr(0), ""), bytes(i + 45) & "." & bytes(i + 44) & "." & bytes(i + 43) & "." & bytes(i + 42), bytes(i + 40))
+                        svrlist(i) = New SupportClasses.GameServerInfo(System.Text.Encoding.ASCII.GetString(NameBytes).Replace(Chr(0), ""), bytes(i + 45) & "." & bytes(i + 44) & "." & bytes(i + 43) & "." & bytes(i + 42), bytes(i + 40))
 
                     Next
 

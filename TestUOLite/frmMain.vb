@@ -9,10 +9,10 @@ Public Class frmMain
     Public WithEvents Client As New UOLite2.LiteClient(Application.StartupPath)
 
     'Used to track the master of this bot in the game, via serial#
-    Public Master As UOLite2.LiteClient.Serial = New UOLite2.LiteClient.Serial(0)
+    Public Master As UOLite2.Serial = New UOLite2.Serial(0)
 
     'Used to track the bot's mount.
-    Public Mount As UOLite2.LiteClient.Mobile = Nothing
+    Public Mount As UOLite2.Mobile = Nothing
 
     'The password for a normal user to say to gain exclusive control over the user.
     Public Password As String = "obey"
@@ -45,7 +45,6 @@ Public Class frmMain
 
     Private Sub Client_onLoginDenied(ByRef Reason As String) Handles Client.onLoginDenied
         MsgBox(Reason)
-
     End Sub
 
     Private Sub Client_onCharacterListReceive(ByRef Client As UOLite2.LiteClient, ByVal CharacterList As System.Collections.ArrayList) Handles Client.onCharacterListReceive
@@ -54,7 +53,7 @@ Public Class frmMain
         Client.ChooseCharacter(DirectCast(CharacterList.Item(0), UOLite2.Structures.CharListEntry).Name, DirectCast(CharacterList.Item(0), UOLite2.Structures.CharListEntry).Password, DirectCast(CharacterList.Item(0), UOLite2.Structures.CharListEntry).Slot)
     End Sub
 
-    Private Sub Client_onCliLocSpeech(ByRef Client As UOLite2.LiteClient, ByVal Serial As UOLite2.LiteClient.Serial, ByVal BodyType As UShort, ByVal SpeechType As UOLite2.Enums.SpeechTypes, ByVal Hue As UShort, ByVal Font As UOLite2.Enums.Fonts, ByVal CliLocNumber As UInteger, ByVal Name As String, ByVal ArgsString As String) Handles Client.onCliLocSpeech
+    Private Sub Client_onCliLocSpeech(ByRef Client As UOLite2.LiteClient, ByVal Serial As UOLite2.Serial, ByVal BodyType As UShort, ByVal SpeechType As UOLite2.Enums.SpeechTypes, ByVal Hue As UShort, ByVal Font As UOLite2.Enums.Fonts, ByVal CliLocNumber As UInteger, ByVal Name As String, ByVal ArgsString As String) Handles Client.onCliLocSpeech
         'Logs the cliloc speech.
         Log("CliLoc: " & Name & " : " & Client.CliLocStrings.Entry(CliLocNumber))
     End Sub
@@ -94,7 +93,7 @@ Public Class frmMain
     Private WaitingForMount As Boolean = False
 
     'When a mobile enters the screen this is called.
-    Private Sub Client_onNewMobile(ByRef Client As UOLite2.LiteClient, ByVal Mobile As UOLite2.LiteClient.Mobile) Handles Client.onNewMobile
+    Private Sub Client_onNewMobile(ByRef Client As UOLite2.LiteClient, ByVal Mobile As UOLite2.Mobile) Handles Client.onNewMobile
         If WaitingForMount = True Then
             'Sents the mount as a refernce to the mobile that just showed up.
             Mount = Mobile
@@ -125,14 +124,14 @@ Public Class frmMain
 
 #End Region
 
-    Private Sub Client_onSkillUpdate(ByRef Client As UOLite2.LiteClient, ByRef OldSkill As UOLite2.LiteClient.Skill, ByRef NewSkill As UOLite2.LiteClient.Skill) Handles Client.onSkillUpdate
+    Private Sub Client_onSkillUpdate(ByRef Client As UOLite2.LiteClient, ByRef OldSkill As UOLite2.SupportClasses.Skill, ByRef NewSkill As UOLite2.SupportClasses.Skill) Handles Client.onSkillUpdate
         If NewSkill.BaseValue > OldSkill.BaseValue Then
             'Client.Speak(NewSkill.Name & " has increased by " & CDec((NewSkill.BaseValue - OldSkill.BaseValue) / 10) & "!")
         End If
     End Sub
 
     'Handles in-game speech.
-    Private Sub Client_onSpeech(ByRef Client As UOLite2.LiteClient, ByVal Serial As UOLite2.LiteClient.Serial, ByVal BodyType As UShort, ByVal SpeechType As UOLite2.Enums.SpeechTypes, ByVal Hue As UShort, ByVal Font As UOLite2.Enums.Fonts, ByVal Text As String, ByVal Name As String) Handles Client.onSpeech
+    Private Sub Client_onSpeech(ByRef Client As UOLite2.LiteClient, ByVal Serial As UOLite2.Serial, ByVal BodyType As UShort, ByVal SpeechType As UOLite2.Enums.SpeechTypes, ByVal Hue As UShort, ByVal Font As UOLite2.Enums.Fonts, ByVal Text As String, ByVal Name As String) Handles Client.onSpeech
         'Debug.WriteLine(Text)
         Log("SPEECH: " & Name & " : " & Text)
 
@@ -238,7 +237,7 @@ Public Class frmMain
                 Case "contents"
                     Client.Speak("I have " & Client.Player.Layers.BackPack.Contents.Count & " items in my backpack.")
 
-                    For Each i As UOLite2.LiteClient.Item In Client.Player.Layers.BackPack.Contents.Items
+                    For Each i As UOLite2.Item In Client.Player.Layers.BackPack.Contents.Items
                         Client.Speak("Item: " & i.Serial.ToRazorString & "," & i.Type & "," & i.Amount)
                     Next
 
@@ -246,13 +245,15 @@ Public Class frmMain
 
                     Client.Scavenger.Enabled = False
 
-                    For Each i As UOLite2.LiteClient.Item In Client.Player.Layers.BackPack.Contents.Items
+                    For Each i As UOLite2.Item In Client.Player.Layers.BackPack.Contents.Items
                         i.Drop()
                     Next
 
 
                 Case "ts"
                     Client.Scavenger.Toggle(False)
+
+                    Client.CastSpell(UOLite2.Enums.Spell.GreaterHeal)
 
                 Case "findmount"
                     If Client.Player.IsMounted Then
@@ -289,7 +290,7 @@ Public Class frmMain
             Case "send"
                 Client.Send(CmdBox.Text.Substring(CmdBox.Text.Split(" ")(0).Length + 1))
             Case "allitems"
-                For Each i As UOLite2.LiteClient.Item In Client.Items.Items
+                For Each i As UOLite2.Item In Client.Items.Items
                     Log("-Item: " & i.Serial.ToRazorString & vbNewLine & " Type: " & i.Type & " = " & i.TypeName)
                 Next
         End Select
