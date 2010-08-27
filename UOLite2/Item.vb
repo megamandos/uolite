@@ -35,6 +35,7 @@ Public Class Item
     Friend _Direction As UOLite2.Enums.Direction = UOLite2.Enums.Direction.North
     Friend _IsMobile As Boolean = False
     Friend _Properties As New SupportClasses.PropertyListClass(Me)
+    Friend _ToolTipRevisionHash As UInt32 = 0
 
 #End Region
 

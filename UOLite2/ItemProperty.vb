@@ -7,6 +7,7 @@
         Public Sub New(ByRef CliLoc As UInt32, ByRef Text As String)
             _CliLoc = LiteClient.StrLst.GetCliLoc(CliLoc)
             _Text = Text
+
         End Sub
 
         Public Sub New(ByRef CliLoc As CliLoc, ByRef Text As String)
@@ -25,6 +26,24 @@
                 Return _Text
             End Get
         End Property
+
+        Public Overrides Function ToString() As String
+            Dim RetString As New Text.StringBuilder
+            Dim Vals() As String = Text.Split(vbTab)
+            Dim FormatString() As String = Cliloc.Text.Split("~")
+            Dim CurrentValue As UInt32 = 0
+
+            For i As UInteger = 0 To FormatString.Length - 1
+                If i Mod 2 = 0 Then
+                    RetString.Append(FormatString(i))
+                Else
+                    RetString.Append(Vals(CurrentValue))
+                    CurrentValue += 1
+                End If
+            Next
+
+            Return RetString.ToString
+        End Function
 
     End Class
 
@@ -46,7 +65,6 @@
 
             _Props = Jack
         End Sub
-
 
         Default Public ReadOnly Property byName(ByVal PropertyName As String) As SupportClasses.ItemProperty
             Get
@@ -108,8 +126,10 @@ Namespace Packets
 
             Dim prop As SupportClasses.ItemProperty
             Dim CliLocNumber As UInt32
-            Dim Text As String
+            Dim Text As New System.Text.StringBuilder
             Dim StrLen As UShort
+            Dim byte1 As Byte
+            Dim byte2 As Byte
 
             With buff
                 .Position = 5
@@ -125,15 +145,19 @@ Namespace Packets
                         StrLen = .readushort
 
                         If Not (StrLen = 0) Then
-                            Text = .readustrn(StrLen)
-                        Else
-                            Text = ""
+                            For i As Integer = 1 To StrLen / 2
+                                byte1 = .readbyte
+                                byte2 = .readbyte
+                                Text.Append(ChrW(BitConverter.ToUInt16({byte1, byte2}, 0)))
+                                Text.Replace(Chr(0), "")
+                            Next
                         End If
 
-                        prop = New SupportClasses.ItemProperty(CliLocNumber, Text)
+                        prop = New SupportClasses.ItemProperty(CliLocNumber, Text.ToString)
 
                         _PropHash.Add(prop)
 
+                        Text.Clear()
                     Else
                         Exit Sub
                     End If

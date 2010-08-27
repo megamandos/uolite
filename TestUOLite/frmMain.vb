@@ -43,6 +43,11 @@ Public Class frmMain
 
     End Sub
 
+    Private Sub Client_onLoginConfirm(ByRef Player As UOLite2.Mobile) Handles Client.onLoginConfirm
+        'Client.Send("BF-00-0A-00-0F-0A-00-00-00-3F")
+        'Client.Send("BF-00-09-00-0B-45-4E-55-00")
+    End Sub
+
     Private Sub Client_onLoginDenied(ByRef Reason As String) Handles Client.onLoginDenied
         MsgBox(Reason)
     End Sub
@@ -292,6 +297,12 @@ Public Class frmMain
             Case "allitems"
                 For Each i As UOLite2.Item In Client.Items.Items
                     Log("-Item: " & i.Serial.ToRazorString & vbNewLine & " Type: " & i.Type & " = " & i.TypeName)
+
+                    Log(" Prop Count: " & i.Properties.ToArray.Count)
+
+                    For Each p As UOLite2.SupportClasses.ItemProperty In i.Properties.ToArray
+                        Log(" Property: " & p.ToString)
+                    Next
                 Next
             Case "test"
                 Client.CastSpell(UOLite2.Enums.Spell.GreaterHeal)
