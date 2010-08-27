@@ -87,7 +87,7 @@ Public Class ItemDatabase
 
         'If the server supports AOS features, send a request for the item's property strings.
         If _Client.Features.AOS Then
-            Dim bytes(7) As Byte
+            Dim bytes(6) As Byte
 
             bytes(0) = CByte(&HD6)
             bytes(1) = 0

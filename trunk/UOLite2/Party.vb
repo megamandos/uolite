@@ -2,10 +2,14 @@
 
 Partial Class LiteClient
 
-    Public Event onPartyInvitation(ByRef Client As LiteClient, ByRef PartyLeader As Serial)
+    'Public Event onPartyInvitation(ByRef Client As LiteClient, ByRef PartyLeader As Serial)
 
-    Private _InParty As Boolean = False
-    Public Party As UOParty = Nothing
+    'Private _InParty As Boolean = False
+    'Public Party As SupportClasses.UOParty = Nothing
+
+End Class
+
+Namespace SupportClasses
 
     Public Class UOParty
         Private _Members As New ArrayList
@@ -87,4 +91,4 @@ Partial Class LiteClient
 
     End Class
 
-End Class
+End Namespace

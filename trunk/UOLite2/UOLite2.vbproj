@@ -79,6 +79,8 @@
     <Compile Include="ItemDatabase.vb" />
     <Compile Include="ItemProperty.vb" />
     <Compile Include="LiteClient.vb" />
+    <None Include="For Reference\Map.vb" />
+    <Compile Include="Map.vb" />
     <Compile Include="Math.vb" />
     <Compile Include="Mobile.vb" />
     <Compile Include="MobileList.vb" />
@@ -108,6 +110,9 @@
     <Compile Include="StringList.vb" />
     <Compile Include="Structures.vb" />
     <Compile Include="Targeting.vb" />
+    <None Include="For Reference\TileList.vb" />
+    <None Include="For Reference\TileMatrix.vb" />
+    <None Include="For Reference\TileMatrixPatch.vb" />
     <Compile Include="Trade.vb" />
     <Content Include="Cliloc.enu">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
