@@ -57,6 +57,7 @@ Partial Class frmMain
         Me.Button8 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -168,6 +169,7 @@ Partial Class frmMain
         Me.ConsoleBox.ScrollBars = System.Windows.Forms.ScrollBars.Both
         Me.ConsoleBox.Size = New System.Drawing.Size(562, 302)
         Me.ConsoleBox.TabIndex = 21
+        Me.ConsoleBox.WordWrap = False
         '
         'TabControl1
         '
@@ -235,6 +237,7 @@ Partial Class frmMain
         '
         'TabPage3
         '
+        Me.TabPage3.Controls.Add(Me.Button3)
         Me.TabPage3.Controls.Add(Me.GroupBox3)
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
@@ -409,6 +412,15 @@ Partial Class frmMain
         Me.Button6.Text = "S"
         Me.Button6.UseVisualStyleBackColor = True
         '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(174, 89)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 23)
+        Me.Button3.TabIndex = 10
+        Me.Button3.Text = "Button3"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
         'frmMain
         '
         Me.AcceptButton = Me.Button1
@@ -467,4 +479,5 @@ Partial Class frmMain
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents lbl_Direction As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents Button3 As System.Windows.Forms.Button
 End Class

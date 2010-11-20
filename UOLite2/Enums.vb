@@ -293,39 +293,6 @@ Namespace Enums
         Bank = &H1D
     End Enum
 
-    <Flags()> _
-    Public Enum TypeFlags As UInteger
-        Background = &H1
-        Weapon = &H2
-        Transparent = &H4
-        Translucent = &H8
-        Wall = &H10
-        Damaging = &H20
-        Impassable = &H40
-        Wet = &H80
-        Surface = &H200
-        Bridge = &H400
-        Stackable = &H800
-        Window = &H1000
-        NoShoot = &H2000
-        PrefixA = &H4000
-        PrevixAn = &H8000
-        Internal = &H10000
-        Foliage = &H20000
-        PartiallyHued = &H40000
-        Map = &H100000
-        Container = &H200000
-        Wearable = &H400000
-        LightSource = &H800000
-        Animated = &H1000000
-        NoDiagonal = &H2000000
-        Armor = &H8000000
-        Roof = &H10000000
-        Door = &H20000000
-        StairBack = &H40000000
-        StairRight = 4294967295
-    End Enum
-
     Public Enum SpeechTypes
         Regular = &H0
         Broadcast = &H1
