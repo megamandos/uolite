@@ -5,8 +5,8 @@
 
 Public Class frmMain
     'Declare a new instance of the "LiteClient" class named "Client"
-    'The content folder can either be the real UO Client directory or any folder containing the static*.mul files and cliloc.enu
-    Public WithEvents Client As New UOLite2.LiteClient(Application.StartupPath)
+    'The content folder should be your UO 2D Client directory.
+    Public WithEvents Client As New UOLite2.LiteClient("C:\Program Files (x86)\EA Games\Ultima Online Mondain's Legacy")
 
     'Used to track the master of this bot in the game, via serial#
     Public Master As UOLite2.Serial = New UOLite2.Serial(0)
@@ -295,15 +295,28 @@ Public Class frmMain
             Case "send"
                 Client.Send(CmdBox.Text.Substring(CmdBox.Text.Split(" ")(0).Length + 1))
             Case "allitems"
+                Dim strbuild As New System.Text.StringBuilder
+
                 For Each i As UOLite2.Item In Client.Items.Items
-                    Log("-Item: " & i.Serial.ToRazorString & vbNewLine & " Type: " & i.Type & " = " & i.TypeName)
+                    strbuild.AppendLine("-Item: " & i.Serial.ToRazorString)
+                    strbuild.AppendLine(" Type: " & i.Type & " = " & i.TypeName)
+                    strbuild.AppendLine(" Hue: " & i.Hue)
+                    strbuild.AppendLine(" Stack: " & i.Amount)
+                    strbuild.AppendLine(" X: " & i.X)
+                    strbuild.AppendLine(" Y: " & i.Y)
+                    strbuild.AppendLine(" Z: " & i.Z)
+                    strbuild.AppendLine(" Prop Count: " & i.Properties.Count)
 
-                    Log(" Prop Count: " & i.Properties.ToArray.Count)
+                    If i.Properties.Count > 0 Then
+                        For x As UInt32 = 0 To i.Properties.Count - 1
+                            strbuild.AppendLine(" Property: " & i.Properties(x).ToString)
+                        Next
+                    End If
 
-                    For Each p As UOLite2.SupportClasses.ItemProperty In i.Properties.ToArray
-                        Log(" Property: " & p.ToString)
-                    Next
+                    strbuild.AppendLine(" PropStr: " & i.Properties.ToString)
                 Next
+
+                Log(strbuild.ToString)
             Case "test"
                 Client.CastSpell(UOLite2.Enums.Spell.GreaterHeal)
 
@@ -383,5 +396,9 @@ Public Class frmMain
 
     Private Sub Client_onTargetRequest(ByRef Client As UOLite2.LiteClient) Handles Client.onTargetRequest
         Log("Targets Requested")
+    End Sub
+
+    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
+
     End Sub
 End Class

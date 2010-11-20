@@ -3,11 +3,11 @@
     Public Class ItemProperty
         Friend _CliLoc As CliLoc
         Friend _Text As String
+        Friend _Index As UInteger
 
         Public Sub New(ByRef CliLoc As UInt32, ByRef Text As String)
             _CliLoc = LiteClient.StrLst.GetCliLoc(CliLoc)
             _Text = Text
-
         End Sub
 
         Public Sub New(ByRef CliLoc As CliLoc, ByRef Text As String)
@@ -50,6 +50,7 @@
     Public Class PropertyListClass
         Private _Props As New Hashtable
         Private _item As Item
+        Private _Indexes As New Hashtable
 
         Friend Sub New(ByRef Item As Item)
             _item = Item
@@ -61,12 +62,23 @@
 
             For Each p As ItemProperty In Properties
                 Jack.Add(p.Cliloc.Number, p)
+                _Indexes.Add(p._Index, p.Cliloc.Number)
             Next
 
             _Props = Jack
         End Sub
 
-        Default Public ReadOnly Property byName(ByVal PropertyName As String) As SupportClasses.ItemProperty
+        Default Public ReadOnly Property byIndex(ByVal Index As UInteger) As SupportClasses.ItemProperty
+            Get
+                If Index < _Indexes.Count Then
+                    Return DirectCast(_Props(_Indexes(Index)), SupportClasses.ItemProperty)
+                Else
+                    Throw New IndexOutOfRangeException
+                End If
+            End Get
+        End Property
+
+        Public ReadOnly Property byName(ByVal PropertyName As String) As SupportClasses.ItemProperty
             Get
                 For Each p As SupportClasses.ItemProperty In _Props
                     If p.Cliloc.Text = PropertyName Then Return p
@@ -88,19 +100,32 @@
             End Get
         End Property
 
-        Public ReadOnly Property ToArray As SupportClasses.ItemProperty()
+        Public ReadOnly Property Count As UInteger
             Get
-                Dim RetArray(_Props.Count - 1) As SupportClasses.ItemProperty
-
-                _Props.Values.CopyTo(RetArray, 0)
-
-                Return RetArray
+                Return _Props.Count
             End Get
         End Property
 
         Friend Sub Clear()
             _Props.Clear()
         End Sub
+
+        Public Overrides Function ToString() As String
+
+            If Count > 0 Then
+                Dim PropString As New Text.StringBuilder
+
+                For i As UInt32 = 0 To Count - 1
+                    PropString.Append(byIndex(i))
+                    PropString.Append("$")
+                Next
+
+                Return PropString.ToString.TrimEnd({CChar("$")})
+            Else
+                Return ""
+            End If
+
+        End Function
 
         Friend Sub Import(ByRef Properties As HashSet(Of SupportClasses.ItemProperty))
             For Each p As SupportClasses.ItemProperty In Properties
@@ -130,6 +155,7 @@ Namespace Packets
             Dim StrLen As UShort
             Dim byte1 As Byte
             Dim byte2 As Byte
+            Dim Index As UInteger = 0
 
             With buff
                 .Position = 5
@@ -153,9 +179,11 @@ Namespace Packets
                             Next
                         End If
 
-                        prop = New SupportClasses.ItemProperty(CliLocNumber, Text.ToString)
+                        prop = New SupportClasses.ItemProperty(CliLocNumber, Text.ToString) With {._Index = Index}
 
                         _PropHash.Add(prop)
+
+                        Index += 1
 
                         Text.Clear()
                     Else

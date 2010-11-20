@@ -116,6 +116,8 @@ UOLite2
  <summary>Simply a class to hold information about game servers when recieved from the login server.</summary>
 </member><member name="M:UOLite2.LiteClient.GenerateLoginKeys">
 	<summary>Generates two keys for client side encryption.</summary>
+</member><member name="T:UOLite2.SupportClasses.MapPatch">
+	<summary>This is a single 64x64 grid as a chunk of loaded map and statics.</summary>
 </member><member name="E:UOLite2.Mobile.onDeath">
 	<summary>
  Called when the hitpoint value of a mobile reaches zero (0).

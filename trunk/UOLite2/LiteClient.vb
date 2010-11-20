@@ -268,6 +268,8 @@ Public Class LiteClient
         End If
 
         StrLst = New SupportClasses.CliLocList(ContentFolderPath & "\cliloc.enu")
+        _TileData = New SupportClasses.TileData(ContentFolderPath)
+        _CurrentMap = New SupportClasses.Map(ContentFolderPath & "\map0.mul", "", "", 6144, 4096)
 
     End Sub
 

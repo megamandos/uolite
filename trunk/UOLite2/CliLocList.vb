@@ -22,7 +22,7 @@ End Class
 Namespace SupportClasses
 
     Public Class CliLocList
-        Private _StringHash As New Hashtable(100000)
+        Private _StringHash As New Dictionary(Of UInt32, CliLoc)
         Private _ReadBuffer(4096) As Byte
 
         Public Sub New(ByRef CliLocFile As String)
@@ -64,7 +64,7 @@ Namespace SupportClasses
         Public Function Search(ByRef SearchString As String) As HashSet(Of CliLoc)
             Dim hs As New HashSet(Of CliLoc)
 
-            For Each c As CliLoc In _StringHash
+            For Each c As CliLoc In _StringHash.Values
                 If c.Text.Contains(SearchString) Then
                     hs.Add(c)
                 End If
