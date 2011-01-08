@@ -194,6 +194,7 @@ Namespace Enums
         Ilshenar
         Malas
         Tokuno
+        TerMur
         Internal = &H7F
     End Enum
 

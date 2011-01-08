@@ -61,3 +61,6 @@ X:\public\Projects\UOLite\TestUOLite\obj\x86\Debug\TestUOLite.exe
 X:\public\Projects\UOLite\TestUOLite\obj\x86\Debug\TestUOLite.xml
 X:\public\Projects\UOLite\TestUOLite\obj\x86\Debug\TestUOLite.pdb
 Z:\Projects\UOLite\TestUOLite\bin\Debug\Cliloc.enu
+C:\Documents and Settings\Administrator\Desktop\UOLite\TestUOLite\obj\x86\Debug\TestUOLite.exe
+C:\Documents and Settings\Administrator\Desktop\UOLite\TestUOLite\obj\x86\Debug\TestUOLite.xml
+C:\Documents and Settings\Administrator\Desktop\UOLite\TestUOLite\obj\x86\Debug\TestUOLite.pdb

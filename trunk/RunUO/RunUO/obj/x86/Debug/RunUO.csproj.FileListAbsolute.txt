@@ -1,0 +1,5 @@
+C:\Documents and Settings\Administrator\Desktop\UOLite\RunUO\RunUO\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\Desktop\UOLite\RunUO\RunUO\bin\Debug\RunUO.exe
+C:\Documents and Settings\Administrator\Desktop\UOLite\RunUO\RunUO\bin\Debug\RunUO.pdb
+C:\Documents and Settings\Administrator\Desktop\UOLite\RunUO\RunUO\obj\x86\Debug\RunUO.exe
+C:\Documents and Settings\Administrator\Desktop\UOLite\RunUO\RunUO\obj\x86\Debug\RunUO.pdb

@@ -10,13 +10,53 @@
 Partial Class LiteClient
 
     Private _TileData As SupportClasses.TileData
-    Private _CurrentMap As SupportClasses.Map
-    'Private _Map As SupportClasses.MapPatch
+    Private Maps As New Hashtable
+    Private MapDefinitions As New Hashtable
+
+    Private _CurrentMap As Enums.Facets
+
+    Public ReadOnly Property CurrentMap As SupportClasses.Map
+        Get
+            Return Maps(_CurrentMap)
+        End Get
+    End Property
+
+    Private Sub RegisterMaps()
+        RegisterMap(0, 0, 0, 7168, 4096, 4, "Felucca")
+        RegisterMap(1, 1, 1, 7168, 4096, 0, "Trammel")
+        RegisterMap(2, 2, 2, 2304, 1600, 1, "Ilshenar")
+        RegisterMap(3, 3, 3, 2560, 2048, 1, "Malas")
+        RegisterMap(4, 4, 4, 1448, 1448, 1, "Tokuno")
+        RegisterMap(5, 5, 5, 1280, 4096, 1, "TerMur")
+    End Sub
+
+    ''' <summary>
+    ''' Registers a map with the client, telling it that a map exists. This must be done for all maps the client will be using.
+    ''' </summary>
+    ''' <param name="Index">An unreserved unique index for this map.</param>
+    ''' <param name="MapID">An identification number used in client communications. For any visible maps this must be between 0-3.</param>
+    ''' <param name="FileIndex">A file identification number, this must be 0,2,3, or 4 for visible maps.</param>
+    ''' <param name="Width">The width of the map.</param>
+    ''' <param name="Height">The height of the map.</param>
+    ''' <param name="Name">The name of the map, currently there is no use for this.</param>
+    Private Sub RegisterMap(ByRef Index As UShort, ByRef MapID As UShort, ByRef FileIndex As UShort, ByRef Width As UShort, ByRef Height As UShort, ByRef Season As UShort, ByRef Name As String)
+        Dim NewMapDef As New SupportStructures.MapDefinition With {.Index = Index,
+                                                                .MapID = MapID,
+                                                                .FileIndex = FileIndex,
+                                                                .Width = Width,
+                                                                .Height = Height,
+                                                                .Season = Season,
+                                                                .Name = Name}
+        MapDefinitions.Add(Index, NewMapDef)
+
+        Dim NewMap As New SupportClasses.Map(NewMapDef)
+        Maps.Add(Index, NewMap)
+    End Sub
 
 End Class
 
 Namespace SupportClasses
-    Public Class Map
+    Public Class OLDMap
         Friend _MapFile As String, _StaticsFile As String, _StaIDXFile As String
         'Private _Tiles As New Dictionary(Of UInt64, SupportStructures.Tile)(16384) '4 64x64 sections of (4096) cells total.
 
@@ -298,15 +338,277 @@ Namespace SupportClasses
 
     End Class
 
+    Public Class Map
+        Private _VisibleArea As VisibleMap
+
+        Public ReadOnly Property VisibleArea As VisibleMap
+            Get
+                Return _VisibleArea
+            End Get
+        End Property
+
+        Private _Facet As Enums.Facets
+
+        Public ReadOnly Property Facet
+            Get
+                Return _Facet
+            End Get
+        End Property
+
+        Private _Definition As SupportStructures.MapDefinition
+
+        Friend Sub New(ByRef Definition As SupportStructures.MapDefinition, ByRef TileData As TileData)
+            _VisibleArea = New VisibleMap(Definition, TileData)
+            _Definition = Definition
+        End Sub
+
+        Public ReadOnly Property Height As UShort
+            Get
+                Return _Definition.Height
+            End Get
+        End Property
+
+        Public ReadOnly Property Width As UShort
+            Get
+                Return _Definition.Width
+            End Get
+        End Property
+
+        Public ReadOnly Property Name As String
+            Get
+                Return _Definition.Name
+            End Get
+        End Property
+
+        Public ReadOnly Property Index As UShort
+            Get
+                Return _Definition.Index
+            End Get
+        End Property
+
+        Public ReadOnly Property MapID As UShort
+            Get
+                Return _Definition.MapID
+            End Get
+        End Property
+
+        Public ReadOnly Property FileIndex As UShort
+            Get
+                Return _Definition.FileIndex
+            End Get
+        End Property
+
+    End Class
+
+    ''' <summary>
+    ''' This is a 128x128 section of the map, as in the real client. This means that 
+    ''' when the player is within 20 tiles of the edge of the visible section, the AutoXY will trigger and move 
+    ''' the visible section by 64 tiles in w/e direction the player is facing.
+    ''' </summary>
+    Public Class VisibleMap
+        Friend _TileData As TileData
+        Private CellCollection As New Hashtable
+
+        Private Sub AddCell(ByRef Tile As SupportStructures.Tile, ByRef X As UShort, ByRef Y As UShort)
+            Dim LocalID As UInt32 = ((X - CurrentX) * 65535) + ((Y - CurrentY) * 256) + (Convert.ToByte(Tile._Z))
+            Dim NewCell As New MapCell(Tile, X, Y, _TileData)
+            CellCollection.Add(LocalID, NewCell)
+        End Sub
+
+        Private _Range As Byte = 20
+
+        ''' <summary>
+        ''' Sets the map load triggers, as this distance the next section of the map is loaded when moving. Sets from 10 to 20 tiles.
+        ''' </summary>
+        Public Property Range As Byte
+            Get
+                Return _Range
+            End Get
+            Set(ByVal value As Byte)
+                'If set aboove 20, will set to 20. If set below 10, will set to 10.
+                'Otherwise would accept it.
+                Select Case value
+                    Case Is > 20
+                        _Range = 20
+                    Case Is <= 20
+                        _Range = value
+                    Case Is >= 10
+                        _Range = value
+                    Case Is < 10
+                        _Range = 10
+                End Select
+            End Set
+        End Property
+
+        Private _Definition As SupportStructures.MapDefinition
+        Private _DataFolderPath As String = System.Reflection.Assembly.GetExecutingAssembly.Location & "\content"
+
+        Public Sub New(ByRef Definition As SupportStructures.MapDefinition, ByRef TileData As TileData)
+            _Definition = Definition
+            _TileData = TileData
+        End Sub
+
+        ''' <summary>
+        ''' This is where the top left x position of this visible block goes on the real map.
+        ''' </summary>
+        Public ReadOnly Property CurrentX As UShort
+            Get
+                Return _CurrentX
+            End Get
+        End Property
+        Private _CurrentX As UShort = 0
+
+        ''' <summary>
+        ''' This is where the top left y position of this visible block does on the real map.
+        ''' </summary>
+        Public ReadOnly Property CurrentY As UShort
+            Get
+                Return _CurrentY
+            End Get
+        End Property
+        Private _CurrentY As UShort = 0
+
+        ''' <summary>
+        ''' Use this to move the visible section of the map to a new location. Be careful when using this, 
+        ''' don't move it to an area that the player is not on! You should use <see cref="AutoXY">AutoXY</see> instead. 
+        ''' Setting a new X,Y will cause UOLite to load the new sections of the map, this generaly consists of loading 
+        ''' two 64x64 sections of the map (8192 tiles) and unloading two more (8192 tiles). If you try to set this 
+        ''' to a section of the map that doesnt exist or doesnt fall on 64x64 boundries, it will silently fail. If you 
+        ''' set this to the right or bottom edge of the map it will reset to the left or top edge of the map accordingly.
+        ''' </summary>
+        ''' <param name="X">The x offset of this on the real map.</param>
+        ''' <param name="Y">The y offset of this on the real map.</param>
+        Public Sub SetXY(ByRef X As UShort, ByRef Y As UShort)
+
+
+        End Sub
+
+        ''' <summary>
+        ''' This will check the trigger lines and move the visible section of the map automaticaly. This is 
+        ''' the recomended way of moving the visible section of the map.
+        ''' </summary>
+        ''' <param name="PlayerX">The X position of the player.</param>
+        ''' <param name="PlayerY">The Y position of the player.</param>
+        Public Sub AutoXY(ByRef PlayerX As UShort, ByRef PlayerY As UShort)
+            'TODO: add checks to load new sections when crossing the 64x64 tile trigger boundries.
+        End Sub
+
+    End Class
+
+    Public Class MapCell
+        Private _Tile As SupportStructures.Tile
+        Private _TileData As TileData
+        Private _X As UShort
+        Private _Y As UShort
+        Private _Z As SByte
+
+        Friend Sub New(ByRef Tile As SupportStructures.Tile, ByRef X As UShort, ByRef Y As UShort, ByRef TileData As TileData)
+            _Tile = Tile
+            _TileData = TileData
+            _Z = Tile._Z
+            _X = X
+            _Y = Y
+        End Sub
+
+        Public ReadOnly Property Flags As SupportStructures.TileFlagStruct
+            Get
+                If _Tile._TileType = Enums.TileType.StaticTile Then
+                    Return _TileData.StaticTiles(_Tile._TileID)._Flags
+                Else
+                    Return _TileData.LandTiles(_Tile._TileID)._Flags
+                End If
+            End Get
+        End Property
+
+        Public ReadOnly Property Weight As Byte
+            Get
+                If _Tile._TileType = Enums.TileType.StaticTile Then
+                    Return _TileData.StaticTiles(_Tile._TileID)._Weight
+                Else
+                    Return 255
+                End If
+            End Get
+        End Property
+
+        Public ReadOnly Property QualityLayerLightID As Byte
+            Get
+                If _Tile._TileType = Enums.TileType.StaticTile Then
+                    Return _TileData.StaticTiles(_Tile._TileID)._Quality
+                Else
+                    Return 0
+                End If
+            End Get
+        End Property
+
+        Public ReadOnly Property QuantityClass As Byte
+            Get
+                If _Tile._TileType = Enums.TileType.StaticTile Then
+                    Return _TileData.StaticTiles(_Tile._TileID)._Quantity
+                Else
+                    Return 1
+                End If
+            End Get
+        End Property
+
+        Public ReadOnly Property ArtID As UShort
+            Get
+                If _Tile._TileType = Enums.TileType.StaticTile Then
+                    Return _TileData.StaticTiles(_Tile._TileID)._AnimID
+                Else
+                    Return 0
+                End If
+            End Get
+        End Property
+
+        Public ReadOnly Property Hue As UShort
+            Get
+                If _Tile._TileType = Enums.TileType.StaticTile Then
+                    Return _TileData.StaticTiles(_Tile._TileID)._Hue
+                Else
+                    Return 0
+                End If
+            End Get
+        End Property
+
+        Public ReadOnly Property HeightCapacity As Byte
+            Get
+                If _Tile._TileType = Enums.TileType.StaticTile Then
+                    Return _TileData.StaticTiles(_Tile._TileID)._Height
+                Else
+                    Return 1
+                End If
+            End Get
+        End Property
+
+        Public ReadOnly Property Name As String
+            Get
+                If _Tile._TileType = Enums.TileType.StaticTile Then
+                    Return _TileData.StaticTiles(_Tile._TileID)._Name
+                Else
+                    Return _TileData.LandTiles(_Tile._TileID)._Name
+                End If
+            End Get
+        End Property
+
+    End Class
+
 End Namespace
 
 Namespace SupportStructures
+    Public Structure MapDefinition
+        Public Index As UShort
+        Public MapID As UShort
+        Public FileIndex As UShort
+        Public Width As UShort
+        Public Height As UShort
+        Public Name As String
+        Public Season As UShort
+    End Structure
+
     Public Structure Tile
         Friend _TileID As UShort
         Friend _TileType As Enums.TileType
         Friend _Z As SByte
-        'Friend _StaticTileID As UShort
-        'Friend _Z As SByte
     End Structure
 
     Public Structure StaticData
